@@ -4,8 +4,8 @@ export function Community() {
   return (
     <section className="relative overflow-hidden">
       <Image
-        src="/images/community.png"
-        alt="Medlemmer som trener sammen hos BPC"
+        src="/images/bpc-lounge.jpg"
+        alt="Loungen hos BPC med sofa, BPC Shop og blått marmorgulv"
         fill
         sizes="100vw"
         className="object-cover"

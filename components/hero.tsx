@@ -13,8 +13,8 @@ export function Hero() {
   return (
     <section className="relative flex min-h-svh flex-col justify-end overflow-hidden">
       <Image
-        src="/images/hero.png"
-        alt="Treningssalen hos BPC med stativer, vektskiver og styrkeapparater"
+        src="/images/bpc-styrkesal.jpg"
+        alt="Styrkesalen hos BPC med blå apparater, manualer og lysringer i taket"
         fill
         priority
         sizes="100vw"
@@ -22,7 +22,11 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20"
+        className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/10"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
       />
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-16 pt-32 md:pb-24">
         <p className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-primary">

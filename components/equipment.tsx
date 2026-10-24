@@ -14,10 +14,10 @@ export function Equipment() {
   return (
     <section id="utstyr" className="scroll-mt-16 border-y border-border bg-card py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-[0_0_80px_-20px] shadow-primary/50 ring-1 ring-primary/30">
           <Image
-            src="/images/equipment.png"
-            alt="Premium styrkeutstyr og vektstenger hos BPC"
+            src="/images/bpc-funksjonell.jpg"
+            alt="Funksjonell sone hos BPC med sprintbane, romaskiner og BPC Boxen"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
