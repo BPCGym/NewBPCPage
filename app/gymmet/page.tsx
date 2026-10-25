@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { CtaLink } from '@/components/cta-link'
+import { FullBleedHero } from '@/components/full-bleed-hero'
 import { GymRules } from '@/components/gym-rules'
 import { EquipmentBrands, GymGallery } from '@/components/gym-section'
 import { PageIntro } from '@/components/page-intro'
@@ -18,7 +19,19 @@ export default function GymPage() {
     <>
       <SiteHeader />
       <main>
+        <FullBleedHero
+          id="gymmet-hero-title"
+          eyebrow="BPC Gym"
+          title="Utstyr i verdensklasse, midt i Loddefjord."
+          text="Kondisjon, apparater og frivekter i en sal bygget for alle som vil bli sterkere."
+          image={{
+            src: '/images/gymmet-hero.jpg',
+            alt: 'Treningssalen hos BPC med tredemøller, blå styrkeapparater og opplyst BPC-logo på veggen',
+          }}
+        />
+
         <PageIntro
+          belowHero
           id="gymmet-title"
           eyebrow="Gymmet"
           title="Finn din egen treningsrytme."

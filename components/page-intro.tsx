@@ -8,11 +8,16 @@ type PageIntroProps = {
   text: string
   image?: { src: string; alt: string }
   children?: ReactNode
+  belowHero?: boolean
 }
 
-export function PageIntro({ id, eyebrow, title, text, image, children }: PageIntroProps) {
+export function PageIntro({ id, eyebrow, title, text, image, children, belowHero = false }: PageIntroProps) {
+  const Heading = belowHero ? 'h2' : 'h1'
   return (
-    <section aria-labelledby={id} className="pb-16 pt-28 md:pb-24 md:pt-36">
+    <section
+      aria-labelledby={id}
+      className={belowHero ? 'py-16 md:py-24' : 'pb-16 pt-28 md:pb-24 md:pt-36'}
+    >
       <div
         className={
           image
@@ -22,9 +27,9 @@ export function PageIntro({ id, eyebrow, title, text, image, children }: PageInt
       >
         <div className="flex flex-col items-start gap-6">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">{eyebrow}</p>
-          <h1 id={id} className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+          <Heading id={id} className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
             {title}
-          </h1>
+          </Heading>
           <p className="max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">{text}</p>
           {children && <div className="flex flex-wrap gap-3 pt-2">{children}</div>}
         </div>
