@@ -26,16 +26,16 @@ export function TeamGrid() {
         </div>
 
         {team.length > 0 ? (
-          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
             {team.map((member) => (
-              <li key={member.name} className="flex flex-col gap-4">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
+              <li key={member.name} className="flex flex-col gap-3">
+                <div className="relative aspect-[1587/2245] overflow-hidden rounded-2xl bg-muted">
                   {member.image ? (
                     <Image
                       src={member.image}
                       alt={`Portrett av ${member.name}`}
                       fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                       className="object-cover"
                     />
                   ) : (
@@ -45,9 +45,11 @@ export function TeamGrid() {
                   )}
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-lg font-semibold">{member.name}</h3>
-                  <p className="text-sm font-medium text-primary">{member.role}</p>
-                  <p className="pt-1 text-pretty leading-relaxed text-muted-foreground">{member.bio}</p>
+                  <h3 className="text-base font-semibold md:text-lg">{member.name}</h3>
+                  {member.role ? <p className="text-sm font-medium text-primary">{member.role}</p> : null}
+                  {member.bio ? (
+                    <p className="pt-1 text-pretty leading-relaxed text-muted-foreground">{member.bio}</p>
+                  ) : null}
                 </div>
               </li>
             ))}

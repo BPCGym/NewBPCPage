@@ -135,13 +135,36 @@ export const wellness = {
 
 export type TeamMember = {
   name: string
-  role: string
-  bio: string
+  role?: string
+  bio?: string
   image?: string
-}
-
-// Add approved staff profiles here. Put portraits in /public/images/team/. The page shows a contact card while empty.
-export const team: TeamMember[] = []
+  }
+  
+  // Roles and bios are left empty until approved by BPC. Portraits live in /public/images/team/.
+  export const team: TeamMember[] = [
+  { name: 'Tommy Svanevik', image: '/images/team/tommy-svanevik.jpg' },
+  { name: 'André Svanevik', image: '/images/team/andre-svanevik.jpg' },
+  { name: 'Morten Svanevik', image: '/images/team/morten-svanevik.jpg' },
+  { name: 'Suzanne Svanevik', image: '/images/team/suzanne-svanevik.jpg' },
+  { name: 'Evelyn Birkeland', image: '/images/team/evelyn-birkeland.jpg' },
+  { name: 'Malin Vågenes', image: '/images/team/malin-vagenes.jpg' },
+  { name: 'Helene Mikkelsen', image: '/images/team/helene-mikkelsen.jpg' },
+  { name: 'Anne Svanevik', image: '/images/team/anne-svanevik.jpg' },
+  { name: 'Oliver B. Svanevik', image: '/images/team/oliver-svanevik.jpg' },
+  { name: 'Benedicte Birkeli', image: '/images/team/benedicte-birkeli.jpg' },
+  { name: 'Jørgen Ruus', image: '/images/team/jorgen-ruus.jpg' },
+  { name: 'Sabina Sæthre', image: '/images/team/sabina-saethre.jpg' },
+  { name: 'Camilla Carlsen', image: '/images/team/camilla-carlsen.jpg' },
+  { name: 'Veronica Essajee', image: '/images/team/veronica-essajee.jpg' },
+  { name: 'Vilde Hartviksen', image: '/images/team/vilde-hartviksen.jpg' },
+  { name: 'Gustav Fløtre', image: '/images/team/gustav-flotre.jpg' },
+  { name: 'Marius Fløtre', image: '/images/team/marius-flotre.jpg' },
+  { name: 'Kaja Stapnes', image: '/images/team/kaja-stapnes.jpg' },
+  { name: 'Berith Davik', image: '/images/team/berith-davik.jpg' },
+  { name: 'Emilie Totland', image: '/images/team/emilie-totland.jpg' },
+  { name: 'Isabelle Andersen', image: '/images/team/isabelle-andersen.jpg' },
+  { name: 'Stephenie Rojas', image: '/images/team/stephenie-rojas.jpg' },
+  ]
 
 export const mainNav = [
   { href: '/gymmet', label: 'BPC Gym' },
