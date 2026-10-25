@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CtaLink } from '@/components/cta-link'
 import { HelpStrip } from '@/components/help-strip'
-import { PageIntro } from '@/components/page-intro'
+import { FullBleedHero } from '@/components/full-bleed-hero'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TeamGrid } from '@/components/team-grid'
@@ -25,14 +25,14 @@ export default function AboutPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro
+        <FullBleedHero
           id="om-oss-title"
           eyebrow="Om oss"
           title="Et treningssenter i Loddefjord siden 2014."
-          text={`${company.brand} drives av ${company.legalName}. Vi har samlet egentrening, velvære, gruppetrening og barnepass under samme tak i ${company.street}.`}
+          text={`${company.brand} er et familieeiet kvalitetsgym, etablert, drevet og utviklet siden 2014. Vi har samlet Egentrening, Velvære, Gruppetrening og Barnepass under samme tak i ${company.street}.`}
           image={{
-            src: '/images/bpc-resepsjon.jpg',
-            alt: 'Resepsjonen hos BPC med opplyst BPC-logo på veggen',
+            src: '/images/om-oss-hero.jpg',
+            alt: 'Inngangen hos BPC med blålyst vegg, vindu inn til badstuen, skilt til garderober, gym, gruppetrening, yoga og BPC Kids',
           }}
         >
           <CtaLink href="/medlemskap" arrow>
@@ -41,7 +41,7 @@ export default function AboutPage() {
           <CtaLink href="/kontakt" variant="outline">
             Kontakt oss
           </CtaLink>
-        </PageIntro>
+        </FullBleedHero>
 
         <section aria-labelledby="omrader-title" className="border-t border-border py-16 md:py-24">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
