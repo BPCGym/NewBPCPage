@@ -134,7 +134,54 @@ export const wellness = {
     'Dusj før du går inn.',
     'Legg et håndkle på benken.',
     'Ta hensyn til andre som vil ha en rolig stund.',
+    'Ikke hopp ut i isbadet. Gå rolig ned.',
+    'Kjenn dine egne grenser, og gå ut med en gang hvis du føler deg uvel.',
+    'Badstue og isbad brukes på eget ansvar.',
   ],
+} as const
+
+// Draft house rules adapted for BPC. Must be approved before launch.
+export const gymRules = {
+  items: [
+    {
+      title: 'Respekter andre',
+      text: 'Ikke film eller fotografer andre uten samtykke, og gi folk rundt deg god plass.',
+    },
+    {
+      title: 'Rydd etter deg',
+      text: 'Sett vekter, manualer og skiver tilbake der du fant dem. Ikke slipp eller kast utstyret.',
+    },
+    {
+      title: 'Del utstyret',
+      text: 'Ikke legg beslag på apparater mens du hviler lenge. Spør gjerne om å bytte på sett.',
+    },
+    {
+      title: 'Hold det hygienisk',
+      text: 'Ta med håndkle, legg det på benker og apparater, og tørk av svetten når du er ferdig.',
+    },
+    {
+      title: 'Tren med overdel',
+      text: 'Bar overkropp er ikke tillatt på apparater og benker. Bruk treningstøy og innesko.',
+    },
+    {
+      title: 'La egoet ligge i garderoben',
+      text: 'Alle er velkomne her, uansett nivå. Vær hjelpsom og ta hensyn.',
+    },
+    {
+      title: 'Innhold og filming',
+      text: 'Filming er lov, men unngå stativ og innspilling i travle perioder. Kommersiell filming avtales på forhånd.',
+    },
+    {
+      title: 'Eksterne trenere',
+      text: 'Det er bare BPCs egne PT-er som kan drive personlig trening i lokalene.',
+    },
+    {
+      title: 'Ingen røyk, vape eller dyr',
+      text: 'Det gjelder hele senteret, også garderobene.',
+    },
+  ],
+  footnote:
+    'Reglene skal gi en trygg og hyggelig treningshverdag for alle. Brudd kan føre til at medlemskapet avsluttes.',
 } as const
 
 export type TeamMember = {

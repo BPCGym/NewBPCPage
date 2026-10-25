@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { CtaLink } from '@/components/cta-link'
+import { GymRules } from '@/components/gym-rules'
 import { EquipmentBrands, GymGallery } from '@/components/gym-section'
 import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
@@ -47,6 +48,8 @@ export default function GymPage() {
             <EquipmentBrands />
           </div>
         </section>
+
+        <GymRules />
       </main>
       <SiteFooter />
     </>
