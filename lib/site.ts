@@ -7,7 +7,7 @@ export const links = {
   boxen: '/boxen',
   phone: 'tel:+4793882777',
   email: 'mailto:post@bpcgym.no',
-  map: 'https://www.google.com/maps/search/?api=1&query=Lyderhornsveien+287%2C+5171+Loddefjord',
+  map: 'https://maps.app.goo.gl/NXt2auQbw4nomN3k9',
 } as const
 
 export function mailto(subject: string) {
