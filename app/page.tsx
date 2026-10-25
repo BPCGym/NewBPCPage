@@ -3,6 +3,7 @@ import { Contact } from '@/components/contact'
 import { EverydaySection } from '@/components/everyday-section'
 import { GymSection } from '@/components/gym-section'
 import { Hero } from '@/components/hero'
+import { MarqueeBand } from '@/components/marquee-band'
 import { MembershipOffer } from '@/components/membership-offer'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -15,6 +16,7 @@ export default function Page() {
       <SiteHeader />
       <main>
         <Hero />
+        <MarqueeBand />
         <MembershipOffer />
         <GymSection />
         <WellnessSection />

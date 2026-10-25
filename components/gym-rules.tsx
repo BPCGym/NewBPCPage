@@ -13,9 +13,20 @@ export function GymRules() {
         </div>
 
         <ul className="grid border-t border-border sm:grid-cols-2 lg:grid-cols-3">
-          {gymRules.items.map((rule) => (
-            <li key={rule.title} className="flex flex-col gap-2 border-b border-border py-6 sm:pr-8">
-              <h3 className="text-lg font-semibold">{rule.title}</h3>
+          {gymRules.items.map((rule, i) => (
+            <li
+              key={rule.title}
+              data-reveal
+              style={{ '--d': `${(i % 3) * 100}ms` } as React.CSSProperties}
+              className="group flex flex-col gap-2 border-b border-border py-6 transition-colors hover:bg-background/40 sm:px-4"
+            >
+              <h3 className="flex items-center gap-3 text-lg font-semibold">
+                <span
+                  aria-hidden="true"
+                  className="size-2 rotate-45 border border-primary transition-colors group-hover:bg-primary"
+                />
+                {rule.title}
+              </h3>
               <p className="leading-relaxed text-muted-foreground">{rule.text}</p>
             </li>
           ))}

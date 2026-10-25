@@ -71,14 +71,29 @@ export function GymSection() {
 export function GymGallery() {
   return (
     <ul className="grid grid-cols-1 gap-4 md:auto-rows-[240px] md:grid-cols-3">
-      {photos.map((photo) => (
-        <li key={photo.src} className={`relative overflow-hidden rounded-2xl ${photo.className}`}>
-          <Image src={photo.src} alt={photo.alt} fill loading="lazy" sizes={photo.sizes} className="object-cover" />
+      {photos.map((photo, i) => (
+        <li
+          key={photo.src}
+          data-reveal
+          style={{ '--d': `${i * 90}ms` } as React.CSSProperties}
+          className={`group relative overflow-hidden rounded-2xl border border-border ${photo.className}`}
+        >
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            loading="lazy"
+            sizes={photo.sizes}
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent"
+            className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background/90 to-transparent"
           />
-          <p className="absolute bottom-4 left-4 text-sm font-medium">{photo.caption}</p>
+          <p className="absolute bottom-4 left-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider transition-transform duration-500 group-hover:translate-x-1">
+            <span aria-hidden="true" className="size-1.5 rotate-45 bg-primary" />
+            {photo.caption}
+          </p>
         </li>
       ))}
     </ul>
@@ -87,25 +102,31 @@ export function GymGallery() {
 
 export function EquipmentBrands() {
   return (
-    <div className="flex flex-col gap-5 border-t border-border pt-8">
+    <div data-reveal className="flex flex-col gap-5 border-t border-border pt-8">
       <p className="text-sm font-medium">Utstyr fra blant andre</p>
-      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-        {equipmentBrands.map((brand) => (
-          <li
-            key={brand.name}
-            className="relative aspect-[2/1] overflow-hidden rounded-xl border border-border"
-          >
-            <Image
-              src={brand.logo}
-              alt={brand.name}
-              fill
-              loading="lazy"
-              sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
-              className="object-cover"
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+        <div className="marquee-slow flex w-max gap-3">
+          {[0, 1].map((copy) => (
+            <ul key={copy} aria-hidden={copy === 1 || undefined} className="flex shrink-0 gap-3">
+              {equipmentBrands.map((brand) => (
+                <li
+                  key={brand.name}
+                  className="relative aspect-[2/1] w-44 overflow-hidden rounded-xl border border-border transition-colors hover:border-primary md:w-56"
+                >
+                  <Image
+                    src={brand.logo}
+                    alt={copy === 1 ? '' : brand.name}
+                    fill
+                    loading="lazy"
+                    sizes="224px"
+                    className="object-cover"
+                  />
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { MotionObserver } from '@/components/motion-observer'
 import './globals.css'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
@@ -33,7 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nb" className={`${geist.variable} ${geistMono.variable} bg-background`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <MotionObserver />
+      </body>
     </html>
   )
 }

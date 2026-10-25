@@ -5,7 +5,8 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { SmartLink } from '@/components/smart-link'
 import { buttonVariants } from '@/components/ui/button'
-import { mainNav, secondaryNav, trainingHours } from '@/lib/site'
+import { OpenStatus } from '@/components/open-status'
+import { mainNav, secondaryNav } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 function Logo() {
@@ -31,7 +32,7 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="hidden border-b border-border md:block">
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-6 text-xs text-muted-foreground">
-          <p>{`Åpent for trening ${trainingHours.hours.replace(/:00/g, '')} alle dager`}</p>
+          <OpenStatus className="text-foreground/85" />
           <nav aria-label="Snarveier">
             <ul className="flex items-center gap-6">
               {secondaryNav.map((item) => (
@@ -81,6 +82,12 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
+
+      <div
+        id="scroll-progress"
+        aria-hidden="true"
+        className="absolute inset-x-0 -bottom-px h-0.5 bg-primary"
+      />
 
       {open && (
         <nav
