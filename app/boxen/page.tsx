@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { CtaLink } from '@/components/cta-link'
 import { GroupSchedule } from '@/components/group-schedule'
 import { HelpStrip } from '@/components/help-strip'
-import { PageIntro } from '@/components/page-intro'
+import { FullBleedHero } from '@/components/full-bleed-hero'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { SmartLink } from '@/components/smart-link'
@@ -102,23 +102,23 @@ export default function BoxenPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro
+        <FullBleedHero
           id="boxen-title"
           eyebrow="BPC Boxen · Gruppetrening"
           title="Tren sammen. Bli sterkere."
           text="BPC Boxen er vår avdeling for funksjonell gruppetrening. Instruktøren legger opp økten, og alle øvelser kan tilpasses ditt nivå."
           image={{
-            src: '/images/boxen-rom-2.jpg',
-            alt: 'BPC Boxen med sprintbane i kunstgress, rigg med ringer og blått lys langs trappen',
+            src: '/images/boxen-hero.jpg',
+            alt: 'BPC Boxen med sprintbane i kunstgress og BPC-logo, rigg med ringer og blått lys langs trappen',
           }}
         >
-          <CtaLink href="/provetime" arrow>
+          <CtaLink href="/provetime" arrow className="glow">
             Book en prøvetime
           </CtaLink>
           <CtaLink href={mailto('Gruppetrening i BPC Boxen')} variant="outline">
             Spør oss om Boxen
           </CtaLink>
-        </PageIntro>
+        </FullBleedHero>
 
         <section aria-labelledby="hva-title" className="border-t border-border bg-card py-16 md:py-24">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">

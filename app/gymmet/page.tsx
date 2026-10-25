@@ -24,8 +24,8 @@ export default function GymPage() {
           title="Finn din egen treningsrytme."
           text="Utforsk gymmet i ditt tempo. Her får du en nærmere titt på treningsområdene, utstyret og stemningen før du kommer innom."
           image={{
-            src: '/images/bpc-apparater.jpg',
-            alt: 'Styrkeapparater på rad i treningssalen hos BPC under blått lys',
+            src: '/images/bpc-gym-vektskiver.jpg',
+            alt: 'To smilende medlemmer bærer vektskiver i styrkesalen hos BPC under blått lys',
           }}
         >
           <CtaLink href="/medlemskap" arrow>
