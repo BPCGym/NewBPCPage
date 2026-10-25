@@ -98,16 +98,32 @@ export const campaign = {
 
 export const memberships = [
   {
+    category: 'egen',
     name: 'Egentrening 12 mnd',
     monthlyPrice: 749,
     bindingMonths: 12,
     note: 'Full tilgang til egentrening i BPC Gym.',
   },
   {
+    category: 'egen',
     name: 'Egentrening 12 mnd Student/Offshore',
     monthlyPrice: 649,
     bindingMonths: 12,
     note: 'For studenter og offshoreansatte. Gyldig dokumentasjon må alltid vises. Studentmedlemskap kontrolleres løpende, slik at studentrabatten bare gjelder studenter.',
+  },
+  {
+    category: 'gruppe',
+    name: 'Gruppetrening 12 mnd',
+    monthlyPrice: 1249,
+    bindingMonths: 12,
+    note: 'Tilgang til gruppetimene i BPC Boxen.',
+  },
+  {
+    category: 'gruppe',
+    name: 'Gruppetrening 12 mnd Student/Offshore',
+    monthlyPrice: 1049,
+    bindingMonths: 12,
+    note: 'For studenter og offshoreansatte. Gyldig dokumentasjon må alltid vises. Studentmedlemskap kontrolleres løpende.',
   },
 ] as const
 

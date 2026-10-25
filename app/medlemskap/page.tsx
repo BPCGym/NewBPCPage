@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import { ChevronDown } from 'lucide-react'
 import { CampaignTerms } from '@/components/campaign-terms'
 import { CtaLink } from '@/components/cta-link'
+import { MembershipCards } from '@/components/membership-cards'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { SmartLink } from '@/components/smart-link'
-import { campaign, company, links, mailto, memberships } from '@/lib/site'
+import { campaign, company, links, mailto } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Medlemskap',
@@ -15,14 +16,8 @@ export const metadata: Metadata = {
 
 const otherOptions = [
   {
-    title: 'Andre medlemskap',
-    text: 'Se hele medlemsoversikten i medlemssystemet. Du velger først senter, deretter medlemskap.',
-    href: links.signup,
-    cta: 'Se medlemsoversikten',
-  },
-  {
     title: 'Gruppetrening',
-    text: 'Gruppetimene er i BPC Boxen og er ikke inkludert i egentrening. Se hvordan det fungerer.',
+    text: 'Gruppetimene er i BPC Boxen. Se timeplanen og hvordan det fungerer.',
     href: links.boxen,
     cta: 'Les om BPC Boxen',
   },
@@ -115,23 +110,7 @@ export default function MembershipPage() {
             <h2 id="medlemskapene-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
               Våre medlemskap
             </h2>
-            <ul className="grid gap-4 md:grid-cols-2">
-              {memberships.map((item) => (
-                <li key={item.name} className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 md:p-8">
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <p className="flex items-baseline gap-2">
-                    <span className="text-5xl font-semibold tracking-tight">{item.monthlyPrice}</span>
-                    <span className="text-muted-foreground">kr per måned</span>
-                  </p>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {`${item.bindingMonths} måneders avtaletid. ${item.note}`}
-                  </p>
-                  <CtaLink href={links.signup} variant="outline" className="mt-2 w-full sm:w-auto sm:self-start">
-                    Velg medlemskap
-                  </CtaLink>
-                </li>
-              ))}
-            </ul>
+            <MembershipCards />
           </div>
         </section>
 
@@ -140,7 +119,7 @@ export default function MembershipPage() {
             <h2 id="andre-valg-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
               Andre valg
             </h2>
-            <ul className="grid gap-4 md:grid-cols-3">
+            <ul className="grid gap-4 md:grid-cols-2">
               {otherOptions.map((option) => (
                 <li key={option.title} className="flex flex-col gap-3 rounded-2xl border border-border p-6">
                   <h3 className="text-lg font-semibold">{option.title}</h3>
