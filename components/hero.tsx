@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { AppBadges } from '@/components/app-badges'
 import { CtaLink } from '@/components/cta-link'
 import { HeroIsland } from '@/components/hero-island'
 
@@ -44,7 +45,10 @@ export function Hero() {
             Se gymmet
           </CtaLink>
         </div>
-        <div className="hero-in mt-10" style={delay(520)}>
+        <div className="hero-in mt-8" style={delay(450)}>
+          <AppBadges />
+        </div>
+        <div className="hero-in mt-10" style={delay(560)}>
           <HeroIsland />
         </div>
       </div>
