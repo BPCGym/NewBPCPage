@@ -12,7 +12,7 @@ const photos = [
     sizes: '(min-width: 768px) 66vw, 100vw',
   },
   {
-    src: '/images/bpc-apparatsal.jpg',
+    src: '/images/bpc-hjertet.jpg',
     alt: 'Apparatsalen hos BPC med styrkeapparater, Booty Builder og blått, marmorert gulv',
     caption: 'Hjertet av BPC',
     className: 'aspect-[3/4] md:row-span-2 md:aspect-auto',

@@ -24,8 +24,8 @@ const areas = [
     text: 'Bare apparater med vektmagasin og pin select, nøye utplukket. Enkle å bruke, enten du er erfaren eller helt ny.',
     tags: ['Pin select', 'For alle nivåer'],
     image: {
-      src: '/images/bpc-apparatsal.jpg',
-      alt: 'Hjertet av BPC med styrkeapparater med vektmagasin og blått, marmorert gulv',
+      src: '/images/bpc-hjertet.jpg',
+      alt: 'Hjertet av BPC med pin select-apparater, Booty Builder, lilla lyslister og blått, marmorert gulv',
     },
   },
   {

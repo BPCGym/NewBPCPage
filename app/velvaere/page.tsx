@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CtaLink } from '@/components/cta-link'
+import { FullBleedHero } from '@/components/full-bleed-hero'
 import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -30,14 +31,26 @@ export default function WellnessPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro
-          id="velvaere-title"
+        <FullBleedHero
+          id="velvaere-hero-title"
           eyebrow="BPC Velvære"
           title="En roligere del av BPC."
-          text="Ta en pause fra tempoet. Her finner du informasjon om velværetilbudet, tilgang og praktiske regler."
+          text="Badstue og isbad rett etter økta. Ta en pause fra tempoet og la kroppen hente seg inn."
           image={{
-            src: '/images/bpc-badstue.jpg',
-            alt: 'Badstuen hos BPC med glassvegg, trebenker og varmt lys',
+            src: '/images/velvaere-hero.jpg',
+            alt: 'Badstuen hos BPC med varmt lys i trebenkene og glassdør inn mot isbadet',
+          }}
+        />
+
+        <PageIntro
+          belowHero
+          id="velvaere-title"
+          eyebrow="Badstuefellesskapet"
+          title="Varme, latter og gode samtaler."
+          text="Badstuen er der treningen roer seg ned og praten kommer i gang. Her møtes medlemmer på tvers av alder og treningsnivå – noen for stillheten, andre for selskapet. Vi tar vare på hverandre, prater lavt og respekterer tiden, så alle får den samme gode opplevelsen."
+          image={{
+            src: '/images/bpc-badstue-community.jpg',
+            alt: 'Fire medlemmer ler og slapper av sammen i badstuen hos BPC under varmt, gyllent lys',
           }}
         />
 
