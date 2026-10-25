@@ -1,72 +1,53 @@
-import { Mail, MapPin, Phone } from 'lucide-react'
-import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-
-const contactItems = [
-  {
-    icon: MapPin,
-    label: 'Adresse',
-    value: 'Lyderhornsveien 287, 5171 Loddefjord',
-    href: 'https://www.google.com/maps/search/?api=1&query=Lyderhornsveien+287+5171+Loddefjord',
-  },
-  { icon: Phone, label: 'Telefon', value: '938 82 777', href: 'tel:+4793882777' },
-  { icon: Mail, label: 'E-post', value: 'post@bpcgym.no', href: 'mailto:post@bpcgym.no' },
-]
+import { CtaLink } from '@/components/cta-link'
+import { SectionHeading } from '@/components/section-heading'
+import { company, links, staffedHours, trainingHours } from '@/lib/site'
 
 export function Contact() {
   return (
-    <section id="kontakt" className="scroll-mt-16 py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="rounded-3xl bg-primary px-8 py-16 text-primary-foreground md:px-16 md:py-20">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl">
-              <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-6xl">
-                Klar for å bli med?
-              </h2>
-              <p className="mt-6 text-pretty text-lg leading-relaxed opacity-80">
-                Ta kontakt eller kom innom i bemannet tid, så hjelper vi deg i gang.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="tel:+4793882777"
-                className={cn(
-                  buttonVariants({ size: 'lg' }),
-                  'h-12 rounded-full bg-primary-foreground px-7 text-base text-primary [a]:hover:bg-primary-foreground/90',
-                )}
-              >
-                Ring oss
-              </a>
-              <a
-                href="mailto:post@bpcgym.no"
-                className={cn(
-                  buttonVariants({ size: 'lg', variant: 'outline' }),
-                  'h-12 rounded-full border-primary-foreground/30 bg-transparent px-7 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
-                )}
-              >
-                Send e-post
-              </a>
-            </div>
+    <section id="kontakt" aria-labelledby="kontakt-title" className="scroll-mt-28 py-20 md:py-28">
+      <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
+        <SectionHeading id="kontakt-title" eyebrow="Praktisk informasjon" title="Velkommen til BPC." />
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6">
+            <h3 className="text-sm font-medium text-muted-foreground">Adresse</h3>
+            <address className="flex flex-col text-lg not-italic leading-relaxed">
+              <span>{company.street}</span>
+              <span>{company.postal}</span>
+            </address>
+          </div>
+          <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6">
+            <h3 className="text-sm font-medium text-muted-foreground">Åpent for trening</h3>
+            <p className="flex flex-col text-lg leading-relaxed">
+              <span>{trainingHours.label}</span>
+              <span className="text-3xl font-semibold tracking-tight">{trainingHours.hours}</span>
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6">
+            <h3 className="text-sm font-medium text-muted-foreground">Bemannet resepsjon</h3>
+            <dl className="flex flex-col gap-2">
+              {staffedHours.map((row) => (
+                <div key={row.day} className="flex flex-col">
+                  <dt className="text-sm text-muted-foreground">{row.day}</dt>
+                  <dd className="leading-relaxed">{row.hours}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              Bemanningen kan avvike på helligdager.
+            </p>
           </div>
         </div>
-        <ul className="mt-6 grid gap-6 md:grid-cols-3">
-          {contactItems.map(({ icon: Icon, label, value, href }) => (
-            <li key={label}>
-              <a
-                href={href}
-                target={href.startsWith('http') ? '_blank' : undefined}
-                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
-              >
-                <Icon aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
-                <span>
-                  <span className="block text-sm text-muted-foreground">{label}</span>
-                  <span className="mt-1 block font-medium">{value}</span>
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+
+        <div className="flex flex-wrap gap-3">
+          <CtaLink href={links.phone}>Ring oss</CtaLink>
+          <CtaLink href={links.email} variant="outline">
+            Send e-post
+          </CtaLink>
+          <CtaLink href={links.map} variant="outline">
+            Finn veien
+          </CtaLink>
+        </div>
       </div>
     </section>
   )

@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -7,10 +6,15 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'BPC – Bergen Performance Center | Treningssenter i Loddefjord',
+  title: {
+    default: 'BPC Gym – Treningssenter i Loddefjord, Bergen',
+    template: '%s | BPC Gym',
+  },
   description:
-    'Premium, frittstående treningssenter i Loddefjord, Bergen. Helt nye lokaler, utstyr i verdensklasse og åpent 04–23 alle dager, hele året.',
+    'BPC Gym i Loddefjord: egentrening og velvære, åpent 04–23 alle dager. Se gymmet og finn medlemskapet som passer deg.',
   generator: 'v0.app',
+  // Test version: ask search engines not to index. Remove at launch (see LANSERINGSSJEKK.md).
+  robots: { index: false, follow: false },
   icons: {
     icon: [
       { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
@@ -23,7 +27,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#0c0b0a',
+  themeColor: '#121315',
 }
 
 export default function RootLayout({
@@ -32,11 +36,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="no" className={`${geist.variable} ${geistMono.variable} bg-background`}>
-      <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
+    <html lang="nb" className={`${geist.variable} ${geistMono.variable} bg-background`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   )
 }

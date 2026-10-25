@@ -1,12 +1,13 @@
-import { About } from '@/components/about'
-import { Community } from '@/components/community'
+import { BoxenSection } from '@/components/boxen-section'
 import { Contact } from '@/components/contact'
-import { Equipment } from '@/components/equipment'
-import { Gallery } from '@/components/gallery'
+import { EverydaySection } from '@/components/everyday-section'
+import { GymSection } from '@/components/gym-section'
 import { Hero } from '@/components/hero'
-import { OpeningHours } from '@/components/opening-hours'
+import { MembershipOffer } from '@/components/membership-offer'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { TrySection } from '@/components/try-section'
+import { WellnessSection } from '@/components/wellness-section'
 
 export default function Page() {
   return (
@@ -14,11 +15,12 @@ export default function Page() {
       <SiteHeader />
       <main>
         <Hero />
-        <About />
-        <Equipment />
-        <Gallery />
-        <OpeningHours />
-        <Community />
+        <MembershipOffer />
+        <GymSection />
+        <WellnessSection />
+        <BoxenSection />
+        <EverydaySection />
+        <TrySection />
         <Contact />
       </main>
       <SiteFooter />
