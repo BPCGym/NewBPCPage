@@ -7,14 +7,14 @@ const photos = [
   {
     src: '/images/bpc-stativer.jpg',
     alt: 'Styrkesonen hos BPC med blå stativer, benker, vektskiver og speilvegg under lyslister i taket',
-    caption: 'Styrketrening',
+    caption: 'Stort treningsrom',
     className: 'aspect-[4/3] md:col-span-2 md:row-span-2 md:aspect-auto',
     sizes: '(min-width: 768px) 66vw, 100vw',
   },
   {
     src: '/images/bpc-apparatsal.jpg',
     alt: 'Apparatsalen hos BPC med styrkeapparater, Booty Builder og blått, marmorert gulv',
-    caption: 'Apparatsal',
+    caption: 'Hjertet av BPC',
     className: 'aspect-[3/4] md:row-span-2 md:aspect-auto',
     sizes: '(min-width: 768px) 33vw, 100vw',
   },
@@ -28,14 +28,14 @@ const photos = [
   {
     src: '/images/bpc-kondisjon.jpg',
     alt: 'Kondisjonssonen hos BPC med Woodway-tredemøller langs en vegg med opplyste ruter',
-    caption: 'Kondisjon',
+    caption: 'Langt treningsrom',
     className: 'aspect-[4/3] md:aspect-auto',
     sizes: '(min-width: 768px) 33vw, 100vw',
   },
   {
     src: '/images/bpc-funksjonell.jpg',
     alt: 'Funksjonell sone hos BPC med kunstgress, romaskiner, airbikes, frivekter og BPC-logo på gulvet',
-    caption: 'Funksjonell sone',
+    caption: 'BPC Boxen',
     className: 'aspect-[4/3] md:aspect-auto',
     sizes: '(min-width: 768px) 33vw, 100vw',
   },

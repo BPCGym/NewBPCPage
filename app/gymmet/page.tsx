@@ -2,16 +2,17 @@ import type { Metadata } from 'next'
 import { CtaLink } from '@/components/cta-link'
 import { FullBleedHero } from '@/components/full-bleed-hero'
 import { GymRules } from '@/components/gym-rules'
-import { EquipmentBrands, GymGallery } from '@/components/gym-section'
+import { EquipmentBrands } from '@/components/gym-section'
 import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { TrainingAreas } from '@/components/training-areas'
 import { mailto, trainingHours } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Gymmet',
   description:
-    'Utforsk BPC Gym i Loddefjord: styrketrening, frivekter, apparatsal, kondisjon og funksjonell sone.',
+    'Utforsk BPC Gym i Loddefjord: Langt treningsrom, Stort treningsrom, Hjertet av BPC og funksjonelle BPC Boxen.',
 }
 
 export default function GymPage() {
@@ -57,7 +58,7 @@ export default function GymPage() {
               </h2>
               <p className="text-sm text-muted-foreground">{`Åpent for trening ${trainingHours.hours} alle dager`}</p>
             </div>
-            <GymGallery />
+            <TrainingAreas />
             <EquipmentBrands />
           </div>
         </section>
