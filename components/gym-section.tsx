@@ -87,11 +87,23 @@ export function GymGallery() {
 
 export function EquipmentBrands() {
   return (
-    <div className="flex flex-col gap-3 border-t border-border pt-8 md:flex-row md:items-baseline md:gap-10">
-      <p className="shrink-0 text-sm font-medium">Utstyr fra blant andre</p>
-      <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+    <div className="flex flex-col gap-5 border-t border-border pt-8">
+      <p className="text-sm font-medium">Utstyr fra blant andre</p>
+      <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {equipmentBrands.map((brand) => (
-          <li key={brand}>{brand}</li>
+          <li
+            key={brand.name}
+            className="relative aspect-[2/1] overflow-hidden rounded-xl border border-border"
+          >
+            <Image
+              src={brand.logo}
+              alt={brand.name}
+              fill
+              loading="lazy"
+              sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
+              className="object-cover"
+            />
+          </li>
         ))}
       </ul>
     </div>

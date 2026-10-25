@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { CtaLink } from '@/components/cta-link'
-import { mailto, team } from '@/lib/site'
+import { mailto, team, teamGroups } from '@/lib/site'
 
 function initials(name: string) {
   return name
@@ -26,8 +26,17 @@ export function TeamGrid() {
         </div>
 
         {team.length > 0 ? (
-          <ul className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {team.map((member) => (
+          <div className="flex flex-col gap-14 md:gap-20">
+            {teamGroups.map((group) => (
+              <div key={group.id} className="flex flex-col gap-6">
+                <div className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
+                  <h3 id={`team-${group.id}`} className="text-xl font-semibold tracking-tight md:text-2xl">
+                    {group.title}
+                  </h3>
+                  <span className="text-sm text-muted-foreground">{group.members.length}</span>
+                </div>
+          <ul aria-labelledby={`team-${group.id}`} className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+            {group.members.map((member) => (
               <li key={member.name} className="flex flex-col gap-3">
                 <div className="relative aspect-[1587/2245] overflow-hidden rounded-2xl bg-muted">
                   {member.image ? (
@@ -45,7 +54,7 @@ export function TeamGrid() {
                   )}
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-base font-semibold md:text-lg">{member.name}</h3>
+                  <h4 className="text-base font-semibold md:text-lg">{member.name}</h4>
                   {member.role ? <p className="text-sm font-medium text-primary">{member.role}</p> : null}
                   {member.bio ? (
                     <p className="pt-1 text-pretty leading-relaxed text-muted-foreground">{member.bio}</p>
@@ -54,6 +63,9 @@ export function TeamGrid() {
               </li>
             ))}
           </ul>
+              </div>
+            ))}
+          </div>
         ) : (
           <div className="flex flex-col items-start gap-5 rounded-2xl border border-border bg-card p-8 md:flex-row md:items-center md:justify-between">
             <p className="max-w-xl text-pretty leading-relaxed text-muted-foreground">

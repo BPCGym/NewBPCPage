@@ -112,13 +112,17 @@ export const memberships = [
 ] as const
 
 export const equipmentBrands = [
-  'Woodway',
-  'Atlantis Strength',
-  'Arsenal Strength',
-  'Prime Fitness',
-  'Rogue Fitness',
-  'Eleiko',
-  'Concept2',
+  { name: 'Woodway', logo: '/images/brands/woodway.png' },
+  { name: 'Atlantis Strength', logo: '/images/brands/atlantis.png' },
+  { name: 'Arsenal Strength', logo: '/images/brands/arsenal-strength.png' },
+  { name: 'Rogue Fitness', logo: '/images/brands/rogue.png' },
+  { name: 'Eleiko', logo: '/images/brands/eleiko.png' },
+  { name: 'Concept2', logo: '/images/brands/concept2.png' },
+  { name: 'Nautilus', logo: '/images/brands/nautilus.png' },
+  { name: 'American Barbell', logo: '/images/brands/american-barbell.png' },
+  { name: 'Legend Fitness', logo: '/images/brands/legend-fitness.png' },
+  { name: 'Booty Builder', logo: '/images/brands/booty-builder.png' },
+  { name: 'Raiko Sport', logo: '/images/brands/raiko-sport.png' },
 ] as const
 
 // Published add-on prices from bpcgym.no/velvære. Must be approved before launch.
@@ -140,31 +144,61 @@ export type TeamMember = {
   image?: string
   }
   
-  // Roles and bios are left empty until approved by BPC. Portraits live in /public/images/team/.
-  export const team: TeamMember[] = [
-  { name: 'Tommy Svanevik', image: '/images/team/tommy-svanevik.jpg' },
-  { name: 'André Svanevik', image: '/images/team/andre-svanevik.jpg' },
-  { name: 'Morten Svanevik', image: '/images/team/morten-svanevik.jpg' },
-  { name: 'Suzanne Svanevik', image: '/images/team/suzanne-svanevik.jpg' },
-  { name: 'Evelyn Birkeland', image: '/images/team/evelyn-birkeland.jpg' },
-  { name: 'Malin Vågenes', image: '/images/team/malin-vagenes.jpg' },
-  { name: 'Helene Mikkelsen', image: '/images/team/helene-mikkelsen.jpg' },
-  { name: 'Anne Svanevik', image: '/images/team/anne-svanevik.jpg' },
-  { name: 'Oliver B. Svanevik', image: '/images/team/oliver-svanevik.jpg' },
-  { name: 'Benedicte Birkeli', image: '/images/team/benedicte-birkeli.jpg' },
-  { name: 'Jørgen Ruus', image: '/images/team/jorgen-ruus.jpg' },
-  { name: 'Sabina Sæthre', image: '/images/team/sabina-saethre.jpg' },
-  { name: 'Camilla Carlsen', image: '/images/team/camilla-carlsen.jpg' },
-  { name: 'Veronica Essajee', image: '/images/team/veronica-essajee.jpg' },
-  { name: 'Vilde Hartviksen', image: '/images/team/vilde-hartviksen.jpg' },
-  { name: 'Gustav Fløtre', image: '/images/team/gustav-flotre.jpg' },
-  { name: 'Marius Fløtre', image: '/images/team/marius-flotre.jpg' },
-  { name: 'Kaja Stapnes', image: '/images/team/kaja-stapnes.jpg' },
-  { name: 'Berith Davik', image: '/images/team/berith-davik.jpg' },
-  { name: 'Emilie Totland', image: '/images/team/emilie-totland.jpg' },
-  { name: 'Isabelle Andersen', image: '/images/team/isabelle-andersen.jpg' },
-  { name: 'Stephenie Rojas', image: '/images/team/stephenie-rojas.jpg' },
-  ]
+export type TeamGroup = {
+  id: string
+  title: string
+  members: TeamMember[]
+}
+
+// Roles and bios are left empty until approved by BPC. Portraits live in /public/images/team/.
+export const teamGroups: TeamGroup[] = [
+  {
+    id: 'founders',
+    title: 'Founders',
+    members: [
+      { name: 'Tommy Svanevik', image: '/images/team/tommy-svanevik.jpg' },
+      { name: 'André Svanevik', image: '/images/team/andre-svanevik.jpg' },
+      { name: 'Morten Svanevik', image: '/images/team/morten-svanevik.jpg' },
+      { name: 'Suzanne Svanevik', image: '/images/team/suzanne-svanevik.jpg' },
+    ],
+  },
+  {
+    id: 'resepsjonister',
+    title: 'Resepsjonister',
+    members: [
+      { name: 'Marius Fløtre', image: '/images/team/marius-flotre.jpg' },
+      { name: 'Gustav Fløtre', image: '/images/team/gustav-flotre.jpg' },
+      { name: 'Oliver B. Svanevik', image: '/images/team/oliver-svanevik.jpg' },
+      { name: 'Anne Svanevik', image: '/images/team/anne-svanevik.jpg' },
+      { name: 'Evelyn Birkeland', image: '/images/team/evelyn-birkeland.jpg' },
+    ],
+  },
+  {
+    id: 'trenere',
+    title: 'Trenere',
+    members: [
+      { name: 'Malin Vågenes', image: '/images/team/malin-vagenes.jpg' },
+      { name: 'Vilde Hartviksen', image: '/images/team/vilde-hartviksen.jpg' },
+      { name: 'Helene Mikkelsen', image: '/images/team/helene-mikkelsen.jpg' },
+      { name: 'Sabina Sæthre', image: '/images/team/sabina-saethre.jpg' },
+      { name: 'Jørgen Ruus', image: '/images/team/jorgen-ruus.jpg' },
+      { name: 'Camilla Carlsen', image: '/images/team/camilla-carlsen.jpg' },
+      { name: 'Veronica Essajee', image: '/images/team/veronica-essajee.jpg' },
+      { name: 'Kaja Stapnes', image: '/images/team/kaja-stapnes.jpg' },
+    ],
+  },
+  {
+    id: 'barnepassere',
+    title: 'Barnepassere',
+    members: [
+      { name: 'Berith Davik', image: '/images/team/berith-davik.jpg' },
+      { name: 'Emilie Totland', image: '/images/team/emilie-totland.jpg' },
+      { name: 'Isabelle Andersen', image: '/images/team/isabelle-andersen.jpg' },
+    ],
+  },
+]
+
+export const team: TeamMember[] = teamGroups.flatMap((group) => group.members)
 
 export const mainNav = [
   { href: '/gymmet', label: 'BPC Gym' },
