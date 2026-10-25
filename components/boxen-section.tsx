@@ -12,15 +12,14 @@ export function BoxenSection() {
               Liker du å trene sammen med andre?
             </h2>
             <p className="text-pretty text-lg leading-relaxed text-foreground/80">
-              BPC Boxen er delen av BPC for gruppetrening. Utforsk gruppetimene og finn tilbudet som passer
-              deg.
+              BPC Boxen er vår avdeling for funksjonell gruppetrening. Instruktøren legger opp økten, og alle
+              øvelser kan tilpasses ditt nivå.
             </p>
           </div>
           <div className="flex shrink-0 flex-col gap-2">
             <CtaLink href={links.boxen} arrow>
-              Se gruppetimene i BPC Boxen
+              Slik fungerer BPC Boxen
             </CtaLink>
-            <p className="text-xs text-muted-foreground">Du går videre til bpcboxen.no</p>
           </div>
         </div>
       </div>

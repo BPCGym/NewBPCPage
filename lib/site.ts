@@ -4,7 +4,7 @@
 export const links = {
   signup: 'https://bergenperformancecenter.sics.no/Registration/Subscription',
   myPage: 'https://bergenperformancecenter.sics.no/Auth/Login',
-  boxen: 'https://www.bpcboxen.no',
+  boxen: '/boxen',
   phone: 'tel:+4793882777',
   email: 'mailto:post@bpcgym.no',
   map: 'https://www.google.com/maps/search/?api=1&query=Lyderhornsveien+287%2C+5171+Loddefjord',
@@ -44,6 +44,21 @@ export const campaign = {
   bindingMonths: 12,
   signupFee: 0,
 } as const
+
+export const memberships = [
+  {
+    name: 'Egentrening 12 mnd',
+    monthlyPrice: 749,
+    bindingMonths: 12,
+    note: 'Full tilgang til egentrening i BPC Gym.',
+  },
+  {
+    name: 'Egentrening 12 mnd Student/Offshore',
+    monthlyPrice: 649,
+    bindingMonths: 12,
+    note: 'For studenter og offshoreansatte. Gyldig dokumentasjon kan bli etterspurt.',
+  },
+] as const
 
 export const equipmentBrands = [
   'Woodway',

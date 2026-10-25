@@ -1,11 +1,11 @@
 'use client'
 
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { SmartLink } from '@/components/smart-link'
 import { buttonVariants } from '@/components/ui/button'
-import { links, mainNav, secondaryNav, trainingHours } from '@/lib/site'
+import { mainNav, secondaryNav, trainingHours } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 function Logo() {
@@ -98,9 +98,6 @@ export function SiteHeader() {
                     className="flex items-center gap-2 py-2 text-2xl font-semibold tracking-tight"
                   >
                     {item.label}
-                    {item.href === links.boxen && (
-                      <ArrowUpRight aria-hidden="true" className="size-5 text-primary" />
-                    )}
                   </SmartLink>
                 </li>
               ))}

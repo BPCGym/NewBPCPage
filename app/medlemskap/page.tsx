@@ -5,7 +5,7 @@ import { CtaLink } from '@/components/cta-link'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { SmartLink } from '@/components/smart-link'
-import { campaign, company, links, mailto } from '@/lib/site'
+import { campaign, company, links, mailto, memberships } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Medlemskap',
@@ -22,9 +22,9 @@ const otherOptions = [
   },
   {
     title: 'Gruppetrening',
-    text: 'Gruppetimer finner du i BPC Boxen, som har egne medlemskap og egen nettside.',
+    text: 'Gruppetimene er i BPC Boxen og er ikke inkludert i egentrening. Se hvordan det fungerer.',
     href: links.boxen,
-    cta: 'Gå til BPC Boxen',
+    cta: 'Les om BPC Boxen',
   },
   {
     title: 'Har du spørsmål?',
@@ -109,6 +109,31 @@ export default function MembershipPage() {
             </div>
           </section>
         )}
+
+        <section aria-labelledby="medlemskapene-title" className="pt-16 md:pt-24">
+          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
+            <h2 id="medlemskapene-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
+              Våre medlemskap
+            </h2>
+            <ul className="grid gap-4 md:grid-cols-2">
+              {memberships.map((item) => (
+                <li key={item.name} className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6 md:p-8">
+                  <h3 className="text-lg font-semibold">{item.name}</h3>
+                  <p className="flex items-baseline gap-2">
+                    <span className="text-5xl font-semibold tracking-tight">{item.monthlyPrice}</span>
+                    <span className="text-muted-foreground">kr per måned</span>
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {`${item.bindingMonths} måneders avtaletid. ${item.note}`}
+                  </p>
+                  <CtaLink href={links.signup} variant="outline" className="mt-2 w-full sm:w-auto sm:self-start">
+                    Velg medlemskap
+                  </CtaLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
         <section aria-labelledby="andre-valg-title" className="py-16 md:py-24">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
