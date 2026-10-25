@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { StaffedHoursList } from '@/components/contact'
 import { CtaLink } from '@/components/cta-link'
-import { PageIntro } from '@/components/page-intro'
+import { FullBleedHero } from '@/components/full-bleed-hero'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { mailto } from '@/lib/site'
@@ -24,14 +24,14 @@ export default function TrialPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro
+        <FullBleedHero
           id="provetime-title"
           eyebrow="Prøvetime / Drop-in"
           title="Prøv BPC. Kjenn på stemningen."
           text="Bli kjent med senteret, utstyret og miljøet. Kontakt oss om prøvetime, eller velg drop-in for en egentreningsøkt uten medlemskap."
           image={{
-            src: '/images/bpc-resepsjon.jpg',
-            alt: 'Inngangen hos BPC med adgangsterminal, skilt med veien til garderober, gym, gruppetrening og BPC Kids',
+            src: '/images/provetime-hero.jpg',
+            alt: 'Resepsjonen hos BPC med opplyst BPC-logo, blått lys under disken og marmorert blått gulv',
           }}
         >
           <CtaLink href={mailto('Prøvetime hos BPC')} arrow>
@@ -40,7 +40,7 @@ export default function TrialPage() {
           <CtaLink href="/kontakt" variant="outline">
             Kontakt resepsjonen
           </CtaLink>
-        </PageIntro>
+        </FullBleedHero>
 
         <section aria-labelledby="valg-title" className="border-t border-border bg-card py-16 md:py-24">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
