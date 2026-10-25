@@ -49,6 +49,39 @@ const steps = [
   },
 ]
 
+const gallery = [
+  {
+    src: '/images/boxen-tau.jpg',
+    alt: 'Medlem trekker sled med tau på sprintbanen i BPC Boxen',
+    className: 'aspect-[3/4] md:aspect-auto md:row-span-2',
+    sizes: '(min-width: 768px) 25vw, 50vw',
+  },
+  {
+    src: '/images/boxen-rom-1.jpg',
+    alt: 'Romaskiner, airbikes og rigger i BPC Boxen med BPC-logoen på veggen',
+    className: 'col-span-2 aspect-[16/9] md:aspect-auto',
+    sizes: '(min-width: 768px) 50vw, 100vw',
+  },
+  {
+    src: '/images/boxen-loping.jpg',
+    alt: 'Medlem løper på en kurvet tredemølle foran BPC Boxen-logoen',
+    className: 'aspect-[3/4] md:aspect-auto md:row-span-2',
+    sizes: '(min-width: 768px) 25vw, 50vw',
+  },
+  {
+    src: '/images/boxen-glede.jpg',
+    alt: 'To trenere poserer lekent i rigg og på plyoboks under lilla lys',
+    className: 'aspect-[3/4] md:aspect-auto',
+    sizes: '(min-width: 768px) 25vw, 50vw',
+  },
+  {
+    src: '/images/boxen-rom-3.jpg',
+    alt: 'Sprintbanen med BPC-logo, sleder og boksesekk i BPC Boxen',
+    className: 'aspect-[3/4] md:aspect-auto',
+    sizes: '(min-width: 768px) 25vw, 50vw',
+  },
+]
+
 const groups = [
   {
     title: 'Idrettslag',
@@ -75,8 +108,8 @@ export default function BoxenPage() {
           title="Tren sammen. Bli sterkere."
           text="BPC Boxen er vår avdeling for funksjonell gruppetrening. Instruktøren legger opp økten, og alle øvelser kan tilpasses ditt nivå."
           image={{
-            src: '/images/bpc-funksjonell.jpg',
-            alt: 'Området for funksjonell trening hos BPC med rigg, kettlebells og treningsgulv',
+            src: '/images/boxen-rom-2.jpg',
+            alt: 'BPC Boxen med sprintbane i kunstgress, rigg med ringer og blått lys langs trappen',
           }}
         >
           <CtaLink href="/provetime" arrow>
@@ -110,7 +143,37 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="time-title" className="py-16 md:py-24">
+        <section aria-labelledby="galleri-title" className="py-16 md:py-24">
+          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
+            <div className="flex max-w-2xl flex-col gap-4">
+              <h2 id="galleri-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+                Livet i Boxen
+              </h2>
+              <p className="text-pretty leading-relaxed text-muted-foreground">
+                Sprintbane, rigger, romaskiner, airbikes og god stemning. Her er et lite innblikk.
+              </p>
+            </div>
+            <ul className="grid grid-cols-2 gap-3 md:h-[44rem] md:grid-cols-4 md:grid-rows-2 md:gap-4">
+              {gallery.map((img) => (
+                <li
+                  key={img.src}
+                  className={`relative overflow-hidden rounded-2xl ${img.className}`}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    loading="lazy"
+                    sizes={img.sizes}
+                    className="object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="time-title" className="border-t border-border py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-5 md:gap-16">
             <div className="flex flex-col gap-6 md:col-span-3">
               <h2 id="time-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
@@ -130,8 +193,8 @@ export default function BoxenPage() {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2 md:aspect-[4/5]">
               <Image
-                src="/images/bpc-frivekter.jpg"
-                alt="Frivektsområdet hos BPC med manualer og vektskiver"
+                src="/images/boxen-highfive.jpg"
+                alt="Et medlem og en trener gir hverandre high five i planke på kunstgresset i BPC Boxen"
                 fill
                 loading="lazy"
                 sizes="(min-width: 768px) 40vw, 100vw"

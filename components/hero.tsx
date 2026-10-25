@@ -9,12 +9,12 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-svh flex-col justify-end overflow-hidden">
       <Image
-        src="/images/bpc-styrkesal.jpg"
-        alt="Styrkesalen hos BPC Gym med blå apparater, manualer og lysringer i taket"
+        src="/images/bpc-hero-styrkesal.jpg"
+        alt="Styrkesalen hos BPC Gym med blå benker og apparater under lysende ringer i taket"
         fill
         priority
         sizes="100vw"
-        className="hero-zoom object-cover object-[60%_center]"
+        className="hero-zoom object-cover object-center"
       />
       <div
         aria-hidden="true"
