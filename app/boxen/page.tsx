@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CtaLink } from '@/components/cta-link'
+import { GroupSchedule } from '@/components/group-schedule'
 import { HelpStrip } from '@/components/help-strip'
 import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
@@ -140,18 +141,32 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="tilgang-boxen-title" className="border-t border-border bg-card py-16 md:py-24">
+        <section aria-labelledby="timeplan-title" className="border-t border-border bg-card py-16 md:py-24">
+          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
+            <div className="flex max-w-2xl flex-col gap-4">
+              <h2 id="timeplan-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+                Timeplan
+              </h2>
+              <p className="text-pretty leading-relaxed text-muted-foreground">
+                Fast ukeplan ut 2026. Instruktørene rullerer, så du møter flere av trenerne våre gjennom uken.
+              </p>
+            </div>
+            <GroupSchedule />
+          </div>
+        </section>
+
+        <section aria-labelledby="tilgang-boxen-title" className="border-t border-border py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col items-start gap-5">
               <h2 id="tilgang-boxen-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-                Timeplan og tilgang
+                Tilgang til gruppetimene
               </h2>
               <p className="max-w-lg leading-relaxed text-muted-foreground">
-                Gruppetimene i BPC Boxen er ikke inkludert i egentreningsmedlemskapet. Kontakt oss for timeplan,
-                medlemskap og pris for gruppetrening.
+                Gruppetimene i BPC Boxen er ikke inkludert i egentreningsmedlemskapet. Kontakt oss for medlemskap
+                og pris for gruppetrening.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
-                <CtaLink href={mailto('Timeplan og medlemskap i BPC Boxen')}>Spør om timeplan</CtaLink>
+                <CtaLink href={mailto('Medlemskap i BPC Boxen')}>Spør om medlemskap</CtaLink>
                 <CtaLink href="/medlemskap" variant="outline">
                   Se medlemskap
                 </CtaLink>

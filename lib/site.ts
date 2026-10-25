@@ -31,8 +31,59 @@ export const trainingHours = {
 
 export const staffedHours = [
   { day: 'Mandag–fredag', hours: '09:00–14:00 og 16:00–21:00' },
-  { day: 'Lørdag', hours: '09:00–14:00' },
-  { day: 'Søndag', hours: '12:00–15:00' },
+  { day: 'Lørdag', hours: '10:00–14:00' },
+  { day: 'Søndag', hours: '12:00–16:00' },
+] as const
+
+// Fixed weekly group timetable for BPC Boxen (autumn 2026). Instructors rotate and are not published.
+export const groupSchedule = [
+  {
+    day: 'Mandag',
+    classes: [
+      { time: '10:00–11:00', name: 'CrossFit / WOD' },
+      { time: '17:00–18:00', name: 'HYROX' },
+      { time: '18:00–19:00', name: 'CrossFit / WOD' },
+    ],
+  },
+  {
+    day: 'Tirsdag',
+    classes: [
+      { time: '10:00–11:00', name: 'Interval WOD' },
+      { time: '18:00–19:00', name: 'Interval WOD' },
+      { time: '19:00–20:00', name: 'Hybrid WOD' },
+    ],
+  },
+  {
+    day: 'Onsdag',
+    classes: [
+      { time: '10:00–11:00', name: 'CrossFit / WOD' },
+      { time: '17:00–18:00', name: 'HYROX' },
+      { time: '18:00–19:00', name: 'CrossFit / WOD' },
+    ],
+  },
+  {
+    day: 'Torsdag',
+    classes: [
+      { time: '06:30–07:30', name: 'HYROX' },
+      { time: '10:00–11:00', name: 'HYROX' },
+      { time: '18:00–19:00', name: 'CrossFit / WOD' },
+    ],
+  },
+  {
+    day: 'Fredag',
+    classes: [
+      { time: '10:00–11:00', name: 'CrossFit / WOD' },
+      { time: '17:00–18:00', name: 'CrossFit / WOD' },
+    ],
+  },
+  {
+    day: 'Lørdag',
+    classes: [
+      { time: '09:00–10:00', name: 'CrossFit / WOD' },
+      { time: '10:00–11:00', name: 'CrossFit / WOD' },
+    ],
+  },
+  { day: 'Søndag', classes: [] },
 ] as const
 
 // Set `enabled` to false to hide the campaign everywhere on the site.
@@ -56,7 +107,7 @@ export const memberships = [
     name: 'Egentrening 12 mnd Student/Offshore',
     monthlyPrice: 649,
     bindingMonths: 12,
-    note: 'For studenter og offshoreansatte. Gyldig dokumentasjon kan bli etterspurt.',
+    note: 'For studenter og offshoreansatte. Gyldig dokumentasjon må alltid vises. Studentmedlemskap kontrolleres løpende, slik at studentrabatten bare gjelder studenter.',
   },
 ] as const
 
