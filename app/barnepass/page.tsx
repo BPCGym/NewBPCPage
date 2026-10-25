@@ -3,6 +3,8 @@ import { CtaLink } from '@/components/cta-link'
 import { HelpStrip } from '@/components/help-strip'
 import { KidsGallery } from '@/components/kids-gallery'
 import { KidsPeople } from '@/components/kids-people'
+import { KidsSchedule } from '@/components/kids-schedule'
+import { KidsRules } from '@/components/kids-rules'
 import { FullBleedHero } from '@/components/full-bleed-hero'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -34,6 +36,8 @@ export default function ChildcarePage() {
           </CtaLink>
         </FullBleedHero>
         <KidsPeople />
+        <KidsSchedule />
+      <KidsRules />
         <KidsGallery />
         <HelpStrip />
       </main>
