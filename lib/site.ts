@@ -88,7 +88,7 @@ export const groupSchedule = [
 
 // Set `enabled` to false to hide the campaign everywhere on the site.
 export const campaign = {
-  enabled: true,
+  enabled: false,
   product: 'Egentrening',
   introPrice: 99,
   monthlyPrice: 749,
