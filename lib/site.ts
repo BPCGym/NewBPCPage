@@ -127,6 +127,13 @@ export const memberships = [
   },
 ] as const
 
+export const dropIns = [
+  { name: 'Egentrening', price: 200, note: 'Én økt i BPC Gym.' },
+  { name: 'Egentrening + Sauna', price: 350, note: 'Én økt i BPC Gym, med badstue etterpå.' },
+  { name: 'Gruppetrening', price: 250, note: 'Én gruppetime i BPC Boxen.' },
+  { name: 'Sauna', price: 200, note: 'Ett besøk i badstuen.' },
+] as const
+
 export const equipmentBrands = [
   { name: 'Woodway', logo: '/images/brands/woodway.png' },
   { name: 'Atlantis Strength', logo: '/images/brands/atlantis.png' },
@@ -269,12 +276,13 @@ export const mainNav = [
   { href: links.boxen, label: 'BPC Boxen' },
   { href: '/barnepass', label: 'BPC Kids' },
   { href: '/medlemskap', label: 'Medlemskap' },
+  { href: '/drop-in', label: 'Drop-in' },
 ] as const
 
 export const secondaryNav = [
   { href: '/om-oss', label: 'Om oss' },
   { href: '/pt', label: 'PT' },
-  { href: '/provetime', label: 'Prøvetime / Drop-in' },
+  { href: '/provetime', label: 'Prøvetime' },
   { href: '/kontakt', label: 'Kontakt' },
   { href: links.myPage, label: 'Min side' },
 ] as const
