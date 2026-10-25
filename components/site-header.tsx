@@ -90,30 +90,21 @@ export function SiteHeader() {
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-8">
             <ul className="flex flex-col gap-1">
-              {mainNav
-                .filter((item) => item.href !== links.boxen)
-                .map((item) => (
-                  <li key={item.label}>
-                    <SmartLink
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="block py-2 text-2xl font-semibold tracking-tight"
-                    >
-                      {item.label}
-                    </SmartLink>
-                  </li>
-                ))}
+              {mainNav.map((item) => (
+                <li key={item.label}>
+                  <SmartLink
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 py-2 text-2xl font-semibold tracking-tight"
+                  >
+                    {item.label}
+                    {item.href === links.boxen && (
+                      <ArrowUpRight aria-hidden="true" className="size-5 text-primary" />
+                    )}
+                  </SmartLink>
+                </li>
+              ))}
             </ul>
-            <a
-              href={links.boxen}
-              className="flex items-center justify-between rounded-xl border border-primary/50 bg-primary/10 px-5 py-4"
-            >
-              <span className="flex flex-col">
-                <span className="text-xs uppercase tracking-[0.2em] text-primary">Gruppetimer</span>
-                <span className="text-lg font-semibold">Gå til BPC Boxen</span>
-              </span>
-              <ArrowUpRight aria-hidden="true" className="size-5 text-primary" />
-            </a>
             <ul className="grid grid-cols-2 gap-x-6 gap-y-3 border-t border-border pt-6 text-muted-foreground">
               {secondaryNav.map((item) => (
                 <li key={item.label}>

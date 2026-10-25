@@ -68,14 +68,14 @@ export const wellness = {
 } as const
 
 export const mainNav = [
-  { href: '/gymmet', label: 'Gymmet' },
+  { href: '/gymmet', label: 'BPC Gym' },
   { href: '/velvaere', label: 'BPC Velvære' },
+  { href: links.boxen, label: 'BPC Boxen' },
+  { href: '/barnepass', label: 'BPC Kids' },
   { href: '/medlemskap', label: 'Medlemskap' },
-  { href: links.boxen, label: 'Gruppetimer / BPC Boxen' },
 ] as const
 
 export const secondaryNav = [
-  { href: '/barnepass', label: 'BPC Kids' },
   { href: '/pt', label: 'PT' },
   { href: '/provetime', label: 'Prøvetime / Drop-in' },
   { href: '/kontakt', label: 'Kontakt' },
