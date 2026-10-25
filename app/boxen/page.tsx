@@ -173,6 +173,20 @@ export default function BoxenPage() {
           </div>
         </section>
 
+        <section aria-labelledby="timeplan-title" className="border-t border-border bg-card py-16 md:py-24">
+          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
+            <div className="flex max-w-2xl flex-col gap-4">
+              <h2 id="timeplan-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+                Timeplan BPC Boxen
+              </h2>
+              <p className="text-pretty leading-relaxed text-muted-foreground">
+                Fast ukeplan ut 2026. Instruktørene rullerer, så du møter flere av trenerne våre gjennom uken.
+              </p>
+            </div>
+            <GroupSchedule />
+          </div>
+        </section>
+
         <section aria-labelledby="time-title" className="border-t border-border py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-5 md:gap-16">
             <div className="flex flex-col gap-6 md:col-span-3">
@@ -201,20 +215,6 @@ export default function BoxenPage() {
                 className="object-cover"
               />
             </div>
-          </div>
-        </section>
-
-        <section aria-labelledby="timeplan-title" className="border-t border-border bg-card py-16 md:py-24">
-          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
-            <div className="flex max-w-2xl flex-col gap-4">
-              <h2 id="timeplan-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-                Timeplan
-              </h2>
-              <p className="text-pretty leading-relaxed text-muted-foreground">
-                Fast ukeplan ut 2026. Instruktørene rullerer, så du møter flere av trenerne våre gjennom uken.
-              </p>
-            </div>
-            <GroupSchedule />
           </div>
         </section>
 
