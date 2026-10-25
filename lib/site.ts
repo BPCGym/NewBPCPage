@@ -133,6 +133,16 @@ export const wellness = {
   ],
 } as const
 
+export type TeamMember = {
+  name: string
+  role: string
+  bio: string
+  image?: string
+}
+
+// Add approved staff profiles here. Put portraits in /public/images/team/. The page shows a contact card while empty.
+export const team: TeamMember[] = []
+
 export const mainNav = [
   { href: '/gymmet', label: 'BPC Gym' },
   { href: '/velvaere', label: 'BPC Velvære' },
@@ -142,6 +152,7 @@ export const mainNav = [
 ] as const
 
 export const secondaryNav = [
+  { href: '/om-oss', label: 'Om oss' },
   { href: '/pt', label: 'PT' },
   { href: '/provetime', label: 'Prøvetime / Drop-in' },
   { href: '/kontakt', label: 'Kontakt' },
