@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { CtaLink } from '@/components/cta-link'
 import { HelpStrip } from '@/components/help-strip'
+import { KidsGallery } from '@/components/kids-gallery'
 import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -31,6 +32,7 @@ export default function ChildcarePage() {
             Spør om barnepass
           </CtaLink>
         </PageIntro>
+        <KidsGallery />
         <HelpStrip />
       </main>
       <SiteFooter />
