@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-svh flex-col justify-end overflow-hidden">
       <Image
-        src="/images/bpc-hero-styrkesal.jpg"
+        src="/images/bpc-hero-styrkesal-36.jpg"
         alt="Styrkesalen hos BPC Gym med blå benker og apparater under lysende ringer i taket"
         fill
         priority
