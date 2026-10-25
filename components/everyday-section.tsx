@@ -4,11 +4,11 @@ import { mailto } from '@/lib/site'
 
 const items = [
   {
-    eyebrow: 'Barnepass',
+    eyebrow: 'BPC Kids · Barnepass',
     title: 'Trening med plass til familielivet.',
     text: 'Spør oss om barnepass og babypass, aktuelle tider og hvordan dere kommer i gang.',
     cta: 'Spør oss om barnepass',
-    subject: 'Barnepass hos BPC',
+    subject: 'BPC Kids – barnepass',
   },
   {
     eyebrow: 'PT',

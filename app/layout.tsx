@@ -16,12 +16,8 @@ export const metadata: Metadata = {
   // Test version: ask search engines not to index. Remove at launch (see LANSERINGSSJEKK.md).
   robots: { index: false, follow: false },
   icons: {
-    icon: [
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/apple-icon.png',
+    icon: [{ url: '/images/bpc-logo.png', type: 'image/png' }],
+    apple: '/images/bpc-logo.png',
   },
 }
 

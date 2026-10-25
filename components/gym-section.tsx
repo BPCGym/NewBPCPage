@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { CtaLink } from '@/components/cta-link'
 import { SectionHeading } from '@/components/section-heading'
 import { equipmentBrands } from '@/lib/site'
 
@@ -56,35 +57,43 @@ export function GymSection() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 gap-4 md:auto-rows-[240px] md:grid-cols-3">
-          {photos.map((photo) => (
-            <li key={photo.src} className={`relative overflow-hidden rounded-2xl ${photo.className}`}>
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                loading="lazy"
-                sizes={photo.sizes}
-                className="object-cover"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent"
-              />
-              <p className="absolute bottom-4 left-4 text-sm font-medium">{photo.caption}</p>
-            </li>
-          ))}
-        </ul>
+        <GymGallery />
+        <EquipmentBrands />
 
-        <div className="flex flex-col gap-3 border-t border-border pt-8 md:flex-row md:items-baseline md:gap-10">
-          <p className="shrink-0 text-sm font-medium">Utstyr fra blant andre</p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            {equipmentBrands.map((brand) => (
-              <li key={brand}>{brand}</li>
-            ))}
-          </ul>
-        </div>
+        <CtaLink href="/gymmet" variant="outline" className="self-start">
+          Utforsk gymmet
+        </CtaLink>
       </div>
     </section>
+  )
+}
+
+export function GymGallery() {
+  return (
+    <ul className="grid grid-cols-1 gap-4 md:auto-rows-[240px] md:grid-cols-3">
+      {photos.map((photo) => (
+        <li key={photo.src} className={`relative overflow-hidden rounded-2xl ${photo.className}`}>
+          <Image src={photo.src} alt={photo.alt} fill loading="lazy" sizes={photo.sizes} className="object-cover" />
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent"
+          />
+          <p className="absolute bottom-4 left-4 text-sm font-medium">{photo.caption}</p>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+export function EquipmentBrands() {
+  return (
+    <div className="flex flex-col gap-3 border-t border-border pt-8 md:flex-row md:items-baseline md:gap-10">
+      <p className="shrink-0 text-sm font-medium">Utstyr fra blant andre</p>
+      <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+        {equipmentBrands.map((brand) => (
+          <li key={brand}>{brand}</li>
+        ))}
+      </ul>
+    </div>
   )
 }

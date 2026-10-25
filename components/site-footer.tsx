@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { SmartLink } from '@/components/smart-link'
 import { company, links, mainNav, secondaryNav } from '@/lib/site'
 
@@ -6,7 +7,10 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-card">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
         <div className="flex flex-col gap-3 md:col-span-2">
-          <p className="text-xl font-bold tracking-tight">{company.brand}</p>
+          <div className="flex items-center gap-4">
+            <Image src="/images/bpc-logo.png" alt="" width={64} height={64} className="size-16" />
+            <p className="text-xl font-bold tracking-tight">{company.brand}</p>
+          </div>
           <address className="flex flex-col gap-1 text-sm not-italic leading-relaxed text-muted-foreground">
             <span>{company.legalName}</span>
             <span>{`${company.street}, ${company.postal}`}</span>

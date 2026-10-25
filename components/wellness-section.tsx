@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { CtaLink } from '@/components/cta-link'
 import { SectionHeading } from '@/components/section-heading'
-import { mailto } from '@/lib/site'
 
 export function WellnessSection() {
   return (
@@ -18,7 +17,7 @@ export function WellnessSection() {
           />
         </div>
         <div className="flex flex-col items-start gap-6">
-          <SectionHeading id="velvaere-title" eyebrow="Velvære" title="Ta deg tid til en pause." />
+          <SectionHeading id="velvaere-title" eyebrow="BPC Velvære" title="Ta deg tid til en pause." />
           <p className="max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
             Oppdag velværetilbudet hos BPC. Se hva tilgangen omfatter, og hvordan du legger den til
             medlemskapet ditt.
@@ -32,8 +31,8 @@ export function WellnessSection() {
               oss om tilgang og hvordan du legger det til.
             </p>
           </div>
-          <CtaLink href={mailto('Velvære hos BPC')} variant="outline">
-            Spør oss om velvære
+          <CtaLink href="/velvaere" variant="outline">
+            Utforsk velvære
           </CtaLink>
         </div>
       </div>

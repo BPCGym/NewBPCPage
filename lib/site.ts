@@ -55,17 +55,29 @@ export const equipmentBrands = [
   'Concept2',
 ] as const
 
+// Published add-on prices from bpcgym.no/velvære. Must be approved before launch.
+export const wellness = {
+  monthlyPrice: 299,
+  towelMonthlyPrice: 149,
+  rules: [
+    'Bruk badetøy.',
+    'Dusj før du går inn.',
+    'Legg et håndkle på benken.',
+    'Ta hensyn til andre som vil ha en rolig stund.',
+  ],
+} as const
+
 export const mainNav = [
-  { href: '/#gymmet', label: 'Gymmet' },
-  { href: '/#velvaere', label: 'Velvære' },
+  { href: '/gymmet', label: 'Gymmet' },
+  { href: '/velvaere', label: 'BPC Velvære' },
   { href: '/medlemskap', label: 'Medlemskap' },
   { href: links.boxen, label: 'Gruppetimer / BPC Boxen' },
 ] as const
 
 export const secondaryNav = [
-  { href: '/#hverdagen', label: 'Barnepass' },
-  { href: '/#hverdagen', label: 'PT' },
-  { href: '/#prov-bpc', label: 'Prøvetime / Drop-in' },
-  { href: '/#kontakt', label: 'Kontakt' },
+  { href: '/barnepass', label: 'BPC Kids' },
+  { href: '/pt', label: 'PT' },
+  { href: '/provetime', label: 'Prøvetime / Drop-in' },
+  { href: '/kontakt', label: 'Kontakt' },
   { href: links.myPage, label: 'Min side' },
 ] as const

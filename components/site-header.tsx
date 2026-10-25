@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowUpRight, Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { SmartLink } from '@/components/smart-link'
 import { buttonVariants } from '@/components/ui/button'
@@ -9,8 +10,8 @@ import { cn } from '@/lib/utils'
 
 function Logo() {
   return (
-    <SmartLink href="/" className="flex items-baseline gap-2" aria-label="BPC Gym – til forsiden">
-      <span className="text-xl font-bold tracking-tight">BPC</span>
+    <SmartLink href="/" className="flex items-center gap-3" aria-label="BPC Gym – til forsiden">
+      <Image src="/images/bpc-logo.png" alt="" width={44} height={44} priority className="size-11" />
       <span className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">Gym</span>
     </SmartLink>
   )
