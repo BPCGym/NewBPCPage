@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { CtaLink } from '@/components/cta-link'
 import { FullBleedHero } from '@/components/full-bleed-hero'
+import { IceBathComing } from '@/components/ice-bath-coming'
 import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { WellnessRules } from '@/components/wellness-rules'
 import { links, mailto, wellness } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -42,6 +43,8 @@ export default function WellnessPage() {
           }}
         />
 
+        <WellnessRules />
+
         <PageIntro
           belowHero
           id="velvaere-title"
@@ -53,6 +56,8 @@ export default function WellnessPage() {
             alt: 'Fire medlemmer ler og slapper av sammen i badstuen hos BPC under varmt, gyllent lys',
           }}
         />
+
+        <IceBathComing />
 
         <section aria-labelledby="tilgang-title" className="border-t border-border bg-card py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
@@ -93,32 +98,6 @@ export default function WellnessPage() {
           </div>
         </section>
 
-        <section aria-labelledby="regler-title" className="py-16 md:py-24">
-          <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-5 md:gap-16">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2">
-              <Image
-                src="/images/bpc-garderobe.jpg"
-                alt="Garderoben hos BPC med vasker, speil og døren inn til badstue og iskulp"
-                fill
-                loading="lazy"
-                sizes="(min-width: 768px) 40vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-col gap-6 md:col-span-3">
-              <h2 id="regler-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-                Før du går inn
-              </h2>
-              <ul className="flex flex-col border-t border-border">
-                {wellness.rules.map((rule) => (
-                  <li key={rule} className="border-b border-border py-4 text-lg leading-relaxed">
-                    {rule}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
       </main>
       <SiteFooter />
     </>

@@ -153,13 +153,15 @@ export const wellness = {
   monthlyPrice: 299,
   towelMonthlyPrice: 149,
   rules: [
-    'Bruk badetøy.',
-    'Dusj før du går inn.',
-    'Legg et håndkle på benken.',
-    'Ta hensyn til andre som vil ha en rolig stund.',
-    'Ikke hopp ut i isbadet. Gå rolig ned.',
-    'Kjenn dine egne grenser, og gå ut med en gang hvis du føler deg uvel.',
-    'Badstue og isbad brukes på eget ansvar.',
+  'Dusj uten badetøy i garderoben og vask hele kroppen med såpe før du går inn i velværerommet.',
+  'Bruk alltid egne badeshorts eller eget badetøy. Har du glemt dem, kan du kjøpe badeshorts i resepsjonen i bemannet tid.',
+  'Sitt alltid med rumpe og ben på et håndkle i badstuen. Dette er svært viktig for hygienen.',
+  'Ta vare på fasilitetene. Bråk og misbruk fører til permanent utestengelse.',
+  'Vis respekt for andre. Snakk lavt og ta hensyn til at andre er her for å koble av og slappe av.',
+  'Kjenn dine grenser. Gå ut hvis du føler deg uvel, og kontakt personalet eller BPC-telefonen på 55 12 55 55. Ved alvorlige tilfeller, ring 113.',
+  'Badstue og isbad brukes på eget ansvar.',
+  'Saltskrubb og oljer er ikke tillatt i velværerommet av hygieniske årsaker.',
+  'Brudd på reglene fører til umiddelbar og permanent utestengelse.',
   ],
 } as const
 
