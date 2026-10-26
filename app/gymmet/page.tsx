@@ -5,6 +5,7 @@ import { GymRules } from '@/components/gym-rules'
 import { EquipmentBrands } from '@/components/gym-section'
 import { LockerRooms } from '@/components/locker-rooms'
 import { PageIntro } from '@/components/page-intro'
+import { ParentsSection } from '@/components/parents-section'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TrainingAreas } from '@/components/training-areas'
@@ -66,6 +67,8 @@ export default function GymPage() {
         </section>
 
         <LockerRooms />
+
+        <ParentsSection />
 
         <GymRules />
       </main>
