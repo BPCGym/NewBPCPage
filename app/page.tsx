@@ -8,6 +8,7 @@ import { MembershipOffer } from '@/components/membership-offer'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TrySection } from '@/components/try-section'
+import { VirtualTour } from '@/components/virtual-tour'
 import { WellnessSection } from '@/components/wellness-section'
 
 export default function Page() {
@@ -22,6 +23,7 @@ export default function Page() {
         <BoxenSection />
         <EverydaySection />
         <MemberBenefits />
+        <VirtualTour />
         <TrySection />
         <Contact />
       </main>
