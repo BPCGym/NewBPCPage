@@ -35,7 +35,11 @@ const rules = [
 
 export function GymRules() {
   return (
-    <section aria-labelledby="gymregler-title" className="border-t border-border py-16 md:py-24">
+    <section
+      id="gymregler"
+      aria-labelledby="gymregler-title"
+      className="scroll-mt-24 border-t border-border py-16 md:py-24"
+    >
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-5 lg:gap-16">
         <div className="flex flex-col gap-5 lg:col-span-2">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">Gymregler</p>

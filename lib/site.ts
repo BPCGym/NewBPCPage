@@ -281,6 +281,7 @@ export const mainNav = [
   { href: '/barnepass', label: 'BPC Kids' },
   { href: '/medlemskap', label: 'Medlemskap' },
   { href: '/drop-in', label: 'Drop-in' },
+  { href: '/gymmet#gymregler', label: 'Gymregler' },
 ] as const
 
 export const secondaryNav = [
