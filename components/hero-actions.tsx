@@ -1,5 +1,6 @@
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import { SmartLink } from '@/components/smart-link'
+import { links } from '@/lib/site'
 
 const focusRing =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
@@ -8,7 +9,7 @@ export function HeroActions() {
   return (
     <div className="flex flex-wrap items-center gap-3">
       <SmartLink
-        href="/medlemskap"
+        href={links.signup}
         className={`cta-sweep glow group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full bg-primary pl-7 pr-6 text-base font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${focusRing}`}
       >
         <span className="relative">Bli medlem</span>

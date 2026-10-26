@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { SmartLink } from '@/components/smart-link'
 import { buttonVariants } from '@/components/ui/button'
 import { OpenStatus } from '@/components/open-status'
-import { mainNav, secondaryNav } from '@/lib/site'
+import { links, mainNav, secondaryNav } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 function Logo() {
@@ -64,7 +64,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <SmartLink
-            href="/medlemskap"
+            href={links.signup}
             className={cn(buttonVariants({ size: 'sm' }), 'h-9 rounded-full px-5')}
           >
             Bli medlem

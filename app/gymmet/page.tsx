@@ -10,7 +10,7 @@ import { ParentsSection } from '@/components/parents-section'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TrainingAreas } from '@/components/training-areas'
-import { mailto, trainingHours } from '@/lib/site'
+import { links, mailto, trainingHours } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Gymmet',
@@ -46,7 +46,7 @@ export default function GymPage() {
             alt: 'To smilende medlemmer bærer vektskiver i styrkesalen hos BPC under blått lys',
           }}
         >
-          <CtaLink href="/medlemskap" arrow>
+          <CtaLink href={links.signup} arrow>
             Bli medlem
           </CtaLink>
           <CtaLink href={mailto('Prøvetime hos BPC')} variant="outline">
