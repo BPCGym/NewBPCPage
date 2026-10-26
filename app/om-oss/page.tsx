@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { CtaLink } from '@/components/cta-link'
 import { HelpStrip } from '@/components/help-strip'
 import { FullBleedHero } from '@/components/full-bleed-hero'
+import { GymRules } from '@/components/gym-rules'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TeamGrid } from '@/components/team-grid'
@@ -43,6 +44,8 @@ export default function AboutPage() {
             Kontakt oss
           </CtaLink>
         </FullBleedHero>
+
+        <GymRules />
 
         <section aria-labelledby="omrader-title" className="border-t border-border py-16 md:py-24">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
