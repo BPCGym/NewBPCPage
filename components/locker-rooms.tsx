@@ -11,14 +11,14 @@ export function LockerRooms() {
   return (
     <section aria-labelledby="garderober-title" className="border-t border-border py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
-        <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-16">
-          <div className="flex flex-col gap-3">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Garderobene</p>
-            <h2 id="garderober-title" className="text-balance text-2xl font-semibold tracking-tight md:text-4xl">
-              Lekre garderober med dusj og garderobeskap.
-            </h2>
-          </div>
-          <p className="text-pretty leading-relaxed text-muted-foreground">
+  <div className="flex max-w-2xl flex-col gap-4">
+  <div className="flex flex-col gap-3">
+  <p className="text-sm font-semibold uppercase tracking-widest text-primary">Garderobene</p>
+  <h2 id="garderober-title" className="text-balance text-2xl font-semibold tracking-tight md:text-4xl">
+  Lekre garderober med dusj og garderobeskap.
+  </h2>
+  </div>
+  <p className="text-pretty border-l-2 border-primary pl-4 leading-relaxed text-muted-foreground">
             Treningen slutter ikke i salen. Garderobene er bygget med samme omtanke som resten av BPC, så du kan dusje,
             gjøre deg klar og gå videre med dagen.
           </p>

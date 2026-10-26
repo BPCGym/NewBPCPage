@@ -24,9 +24,10 @@ export function VirtualTour() {
             Gå rundt i hele senteret i 3D.
           </h2>
           <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
-            Akkurat som i Google Maps. Klikk deg fram og se hvor alt er.
+            Akkurat som i Google Maps. Styrkesalen, garderobene, badstuen, BPC Boxen og BPC Kids. Klikk deg fram, snu
+            deg rundt og se hvor alt er.
           </p>
-          <
+          <a
             href={TOUR_URL}
             target="_blank"
             rel="noopener noreferrer"
