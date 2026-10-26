@@ -108,10 +108,11 @@ export function EquipmentBrands() {
         <div className="marquee-slow flex w-max gap-3">
           {[0, 1].map((copy) => (
             <ul key={copy} aria-hidden={copy === 1 || undefined} className="flex shrink-0 gap-3">
-              {equipmentBrands.map((brand) => (
+              {equipmentBrands.map((brand, index) => (
                 <li
                   key={brand.name}
-                  className="relative aspect-[2/1] w-44 overflow-hidden rounded-xl border border-border transition-colors hover:border-primary md:w-56"
+                  style={{ '--i': index } as React.CSSProperties}
+                  className="glint relative aspect-[2/1] w-44 overflow-hidden rounded-xl border border-border transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-lg hover:shadow-primary/20 md:w-56"
                 >
                   <Image
                     src={brand.logo}

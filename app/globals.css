@@ -341,6 +341,24 @@
     opacity: 0;
   }
 }
+@keyframes glint {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  18%,
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+.glint::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.28), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+}
 @keyframes glow {
   50% {
     box-shadow: 0 0 0 6px oklch(0.6 0.19 258 / 0.18), 0 10px 40px oklch(0.6 0.19 258 / 0.45);
@@ -373,6 +391,10 @@
   }
   .glow {
     animation: glow 2.6s ease-in-out infinite;
+  }
+  .glint::after {
+    animation: glint 7s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.9s);
   }
 
   .island::before {

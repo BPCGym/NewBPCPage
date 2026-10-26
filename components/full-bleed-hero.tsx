@@ -8,10 +8,11 @@ type FullBleedHeroProps = {
   title: string
   text: string
   image: { src: string; alt: string }
+  logo?: { src: string; alt: string }
   children?: React.ReactNode
 }
 
-export function FullBleedHero({ id, eyebrow, title, text, image, children }: FullBleedHeroProps) {
+export function FullBleedHero({ id, eyebrow, title, text, image, logo, children }: FullBleedHeroProps) {
   return (
     <section aria-labelledby={id} className="relative flex min-h-svh flex-col justify-end overflow-hidden">
       <Image
@@ -27,6 +28,16 @@ export function FullBleedHero({ id, eyebrow, title, text, image, children }: Ful
         className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0"
       />
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
+        {logo ? (
+          <Image
+            src={logo.src}
+            alt={logo.alt}
+            width={160}
+            height={160}
+            className="hero-in mb-6 size-24 rounded-full shadow-2xl ring-1 ring-foreground/15 md:size-32"
+            style={delay(0)}
+          />
+        ) : null}
         <p className="hero-in mb-5 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80" style={delay(0)}>
           {eyebrow}
         </p>

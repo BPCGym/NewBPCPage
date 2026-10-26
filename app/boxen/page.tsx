@@ -111,6 +111,7 @@ export default function BoxenPage() {
             src: '/images/boxen-hero.jpg',
             alt: 'BPC Boxen med sprintbane i kunstgress og BPC-logo, rigg med ringer og blått lys langs trappen',
           }}
+          logo={{ src: '/images/bpc-boxen-logo.png', alt: 'BPC Boxen logo' }}
         >
           <CtaLink href="/provetime" arrow className="glow">
             Book en prøvetime
