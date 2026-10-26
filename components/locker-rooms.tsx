@@ -24,27 +24,27 @@ export function LockerRooms() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-5">
-          <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl md:col-span-3">
+        <div className="grid gap-4 md:grid-cols-2">
+          <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl">
             <Image
               src="/images/garderobe-jente.jpg"
               alt="Jentegarderoben hos BPC i rosa lys med betongvask, opplyst speil, føner og neonskiltet «you go girl»"
               fill
               loading="lazy"
-              sizes="(min-width: 768px) 60vw, 100vw"
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />
             <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/85 px-3 py-1 text-sm font-semibold text-foreground backdrop-blur">
               Jentegarderoben
             </figcaption>
           </figure>
-          <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl md:col-span-2 md:aspect-auto">
+          <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl">
             <Image
-              src="/images/garderobe-gutt-skap.jpg"
-              alt="Guttegarderoben hos BPC i blått lys med knagger, benker og rekke med garderobeskap"
+              src="/images/garderobe-gutt.jpg"
+              alt="Guttegarderoben hos BPC i blått lys med betongvegger, steinvask, stort opplyst speil, benker og rund sittepuff"
               fill
               loading="lazy"
-              sizes="(min-width: 768px) 40vw, 100vw"
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />
             <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/85 px-3 py-1 text-sm font-semibold text-foreground backdrop-blur">
