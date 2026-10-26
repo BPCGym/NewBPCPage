@@ -5,7 +5,7 @@ export const links = {
   signup: 'https://bergenperformancecenter.sics.no/Registration/Subscription',
   myPage: 'https://bergenperformancecenter.sics.no/Auth/Login',
   boxen: '/boxen',
-  phone: 'tel:+4793882777',
+  phone: 'tel:+4755125555',
   email: 'mailto:post@bpcgym.no',
   map: 'https://maps.app.goo.gl/NXt2auQbw4nomN3k9',
 } as const
@@ -20,7 +20,7 @@ export const company = {
   orgNumber: '912 202 305',
   street: 'Lyderhornsveien 287',
   postal: '5171 Loddefjord',
-  phoneDisplay: '93 88 27 77',
+  phoneDisplay: '55 12 55 55',
   emailDisplay: 'post@bpcgym.no',
 } as const
 
