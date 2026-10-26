@@ -24,9 +24,14 @@ export function Hero() {
         <p className="hero-in mb-3 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80" style={delay(0)}>
           BPC GYM · LODDEFJORD
         </p>
-        <p className="hero-in mb-6 max-w-xl text-pretty text-sm leading-relaxed text-foreground/75 md:text-base" style={delay(60)}>
-          Du har kommet til riktig sted. Velkommen, og gratulerer. Nå gjenstår bare den lille detaljen at du faktisk tar steget.
-        </p>
+        <div className="hero-in mb-7 max-w-sm" style={delay(60)}>
+          <div className="welcome-card relative -rotate-1 overflow-hidden rounded-2xl rounded-bl-sm border border-foreground/15 bg-background/40 px-5 py-4 backdrop-blur-md">
+            <p className="text-lg font-semibold tracking-tight text-foreground">Velkommen!</p>
+            <p className="mt-1 text-pretty text-sm leading-relaxed text-foreground/80">
+              Du har nå kommet til riktig sted. Om du tar steget, er nå helt opp til deg.
+            </p>
+          </div>
+        </div>
         <h1
           id="hero-title"
           className="hero-in max-w-3xl text-balance text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
