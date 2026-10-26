@@ -23,7 +23,10 @@ export function VirtualTour() {
           <h2 id="tour-title" className="text-balance text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
             Gå rundt i hele senteret i 3D.
           </h2>
-          <a
+          <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+            Akkurat som i Google Maps. Klikk deg fram og se hvor alt er.
+          </p>
+          <
             href={TOUR_URL}
             target="_blank"
             rel="noopener noreferrer"
