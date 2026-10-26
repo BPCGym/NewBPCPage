@@ -10,6 +10,7 @@ import { SiteHeader } from '@/components/site-header'
 import { TrySection } from '@/components/try-section'
 import { VirtualTour } from '@/components/virtual-tour'
 import { WellnessSection } from '@/components/wellness-section'
+import { WelcomeStatement } from '@/components/welcome-statement'
 
 export default function Page() {
   return (
@@ -17,7 +18,10 @@ export default function Page() {
       <SiteHeader />
       <main>
         <Hero />
-        <MembershipOffer />
+        <WelcomeStatement />
+        <div id="medlemskap-tilbud" className="scroll-mt-20">
+          <MembershipOffer />
+        </div>
         <VirtualTour />
         <GymSection />
         <WellnessSection />

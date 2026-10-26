@@ -21,15 +21,6 @@ export function Hero() {
         className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0"
       />
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
-        <div
-          className="welcome-card hero-in relative mb-6 inline-flex max-w-full overflow-hidden rounded-full border border-foreground/15 bg-background/40 py-2.5 pl-5 pr-5 backdrop-blur-md"
-          style={delay(0)}
-        >
-          <p className="text-pretty text-sm leading-relaxed text-foreground/85 md:whitespace-nowrap md:text-base">
-            <span className="font-semibold text-foreground">Velkommen!</span> Du har nå kommet til riktig sted. Om du
-            tar steget, er nå helt opp til deg.
-          </p>
-        </div>
         <p className="hero-in mb-3 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80" style={delay(0)}>
           BPC GYM · LODDEFJORD
         </p>
