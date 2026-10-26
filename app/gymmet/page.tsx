@@ -30,6 +30,7 @@ export default function GymPage() {
             src: '/images/gymmet-hero.jpg',
             alt: 'Treningssalen hos BPC med tredemøller, blå styrkeapparater og opplyst BPC-logo på veggen',
           }}
+          logo={{ src: '/images/bpc-logo.png', alt: 'BPC Gym logo' }}
         />
 
         <PageIntro

@@ -9,7 +9,7 @@ import { mailto } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Prøvetime og drop-in',
   description:
-    'Bli kjent med BPC Gym i Loddefjord. Spør om prøvetime, eller velg drop-in for en egentreningsøkt uten medlemskap.',
+    'Bli kjent med BPC Gym i Loddefjord. Spør om prøvetime, eller velg drop-in for én økt med Egentrening uten medlemskap.',
 }
 
 const appSteps = [
@@ -28,7 +28,7 @@ export default function TrialPage() {
           id="provetime-title"
           eyebrow="Prøvetime / Drop-in"
           title="Prøv BPC. Kjenn på stemningen."
-          text="Bli kjent med senteret, utstyret og miljøet. Kontakt oss om prøvetime, eller velg drop-in for en egentreningsøkt uten medlemskap."
+          text="Bli kjent med senteret, utstyret og miljøet. Kontakt oss om prøvetime, eller velg drop-in for én økt med Egentrening uten medlemskap."
           image={{
             src: '/images/provetime-hero.jpg',
             alt: 'Resepsjonen hos BPC med opplyst BPC-logo, blått lys under disken og marmorert blått gulv',
@@ -58,7 +58,7 @@ export default function TrialPage() {
               <div className="flex flex-col gap-3 rounded-2xl border border-border bg-background p-6 md:p-8">
                 <h3 className="text-xl font-semibold">Drop-in</h3>
                 <p className="leading-relaxed text-muted-foreground">
-                  En egentreningsøkt uten medlemskap. Senere besøk er drop-in. Du kjøper drop-in i appen eller i
+                  Én økt med Egentrening uten medlemskap. Senere besøk er drop-in. Du kjøper drop-in i appen eller i
                   resepsjonen i bemannet tid.
                 </p>
               </div>

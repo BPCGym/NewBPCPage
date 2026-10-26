@@ -7,7 +7,7 @@ import { SiteHeader } from '@/components/site-header'
 export const metadata: Metadata = {
   title: 'Drop-in',
   description:
-    'Tren hos BPC Gym i Loddefjord uten medlemskap. Drop-in for egentrening, gruppetrening og badstue.',
+    'Tren hos BPC Gym i Loddefjord uten medlemskap. Drop-in for Egentrening, Gruppetrening og badstue.',
 }
 
 export default function DropInPage() {

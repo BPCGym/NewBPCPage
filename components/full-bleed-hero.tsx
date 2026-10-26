@@ -29,14 +29,16 @@ export function FullBleedHero({ id, eyebrow, title, text, image, logo, children 
       />
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
         {logo ? (
-          <Image
-            src={logo.src}
-            alt={logo.alt}
-            width={160}
-            height={160}
-            className="hero-in mb-6 size-24 rounded-full shadow-2xl ring-1 ring-foreground/15 md:size-32"
-            style={delay(0)}
-          />
+          <div className="relative mb-4 size-28 md:size-40">
+            <div aria-hidden="true" className="logo-halo absolute -inset-6 rounded-full bg-primary/35 blur-3xl" />
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={200}
+              height={200}
+              className="logo-in relative size-full mix-blend-screen [mask-image:radial-gradient(circle,#000_62%,transparent_71%)]"
+            />
+          </div>
         ) : null}
         <p className="hero-in mb-5 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80" style={delay(0)}>
           {eyebrow}

@@ -12,7 +12,7 @@ export function BoxenSection() {
               Liker du å trene sammen med andre?
             </h2>
             <p className="text-pretty text-lg leading-relaxed text-foreground/80">
-              BPC Boxen er vår avdeling for funksjonell gruppetrening. Instruktøren legger opp økten, og alle
+              BPC Boxen er vår avdeling for funksjonell Gruppetrening. Instruktøren legger opp økten, og alle
               øvelser kan tilpasses ditt nivå.
             </p>
           </div>

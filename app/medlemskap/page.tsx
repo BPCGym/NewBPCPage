@@ -50,15 +50,7 @@ export default function MembershipPage() {
             </div>
 
             <div className="flex flex-col gap-6">
-              {campaign.enabled ? (
-                <CampaignTerms />
-              ) : (
-                <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-                  <p className="text-lg leading-relaxed">
-                    Se alternativene og velg hvordan du vil trene hos BPC.
-                  </p>
-                </div>
-              )}
+              {campaign.enabled && <CampaignTerms />}
               <div className="flex flex-col items-start gap-2">
                 <CtaLink href={links.signup} arrow className="w-full sm:w-auto">
                   Fortsett til innmelding

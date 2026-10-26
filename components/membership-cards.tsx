@@ -43,7 +43,7 @@ export function MembershipCards() {
               <span className="text-4xl font-semibold tracking-tight">{`kr ${formatPrice(item.monthlyPrice)}`}</span>
             </div>
             <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
-              {`${item.bindingMonths} måneders avtaletid. ${item.note}`}
+              {`${item.note} ${item.bindingMonths} mnd binding.`}
             </p>
             <SmartLink
               href={links.signup}

@@ -13,7 +13,7 @@ import { mailto } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'BPC Boxen',
   description:
-    'BPC Boxen er funksjonell gruppetrening hos BPC i Loddefjord. Instruktørledede timer som kan tilpasses alle nivåer.',
+    'BPC Boxen er funksjonell Gruppetrening hos BPC i Loddefjord. Instruktørledede timer som kan tilpasses alle nivåer.',
 }
 
 const benefits = [
@@ -86,7 +86,7 @@ const gallery = [
 const groups = [
   {
     title: 'Idrettslag',
-    text: 'Vi kan sette opp gruppetrening tilpasset lagets idrett, med fokus på styrke, utholdenhet og skadeforebygging. Ta kontakt for et opplegg.',
+    text: 'Vi kan sette opp Gruppetrening tilpasset lagets idrett, med fokus på styrke, utholdenhet og skadeforebygging. Ta kontakt for et opplegg.',
     href: mailto('Gruppetrening for idrettslag'),
     cta: 'Spør om tilbud for lag',
   },
@@ -107,7 +107,7 @@ export default function BoxenPage() {
           id="boxen-title"
           eyebrow="BPC Boxen · Gruppetrening"
           title="Tren sammen. Bli sterkere."
-          text="BPC Boxen er vår avdeling for funksjonell gruppetrening. Instruktøren legger opp økten, og alle øvelser kan tilpasses ditt nivå."
+          text="BPC Boxen er vår avdeling for funksjonell Gruppetrening. Instruktøren legger opp økten, og alle øvelser kan tilpasses ditt nivå."
           image={{
             src: '/images/boxen-hero.jpg',
             alt: 'BPC Boxen med sprintbane i kunstgress og BPC-logo, rigg med ringer og blått lys langs trappen',
@@ -129,7 +129,7 @@ export default function BoxenPage() {
                 Hva er BPC Boxen?
               </h2>
               <p className="text-pretty leading-relaxed text-muted-foreground">
-                Funksjonell gruppetrening kombinerer styrke, kondisjon og bevegelighet på en måte som gjør kroppen
+                Funksjonell Gruppetrening kombinerer styrke, kondisjon og bevegelighet på en måte som gjør kroppen
                 bedre rustet for både trening og hverdag. Ingen økter er helt like, og det er alltid noe nytt å
                 strekke seg etter.
               </p>
@@ -206,7 +206,7 @@ export default function BoxenPage() {
                 ))}
               </ol>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Ny i gruppetrening? Si fra til instruktøren når du kommer, så får du en god start.
+                Ny i Gruppetrening? Si fra til instruktøren når du kommer, så får du en god start.
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2 md:aspect-[4/5]">
@@ -229,8 +229,8 @@ export default function BoxenPage() {
                 Tilgang til gruppetimene
               </h2>
               <p className="max-w-lg leading-relaxed text-muted-foreground">
-                Gruppetimene i BPC Boxen er ikke inkludert i egentreningsmedlemskapet. Kontakt oss for medlemskap
-                og pris for gruppetrening.
+                Gruppetimene i BPC Boxen er ikke inkludert i medlemskapet for Egentrening. Kontakt oss for medlemskap
+                og pris for Gruppetrening.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <CtaLink href={mailto('Medlemskap i BPC Boxen')}>Spør om medlemskap</CtaLink>
@@ -261,7 +261,7 @@ export default function BoxenPage() {
                 For idrettslag og bedrifter
               </h2>
               <p className="text-pretty leading-relaxed text-muted-foreground">
-                Vi tilbyr gruppetrening med lav terskel, tilpasset gruppen. Målet er trygg progresjon, mestring og
+                Vi tilbyr Gruppetrening med lav terskel, tilpasset gruppen. Målet er trygg progresjon, mestring og
                 et sterkere fellesskap.
               </p>
             </div>
@@ -292,7 +292,7 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <HelpStrip title="Spørsmål om gruppetrening?" />
+        <HelpStrip title="Spørsmål om Gruppetrening?" />
       </main>
       <SiteFooter />
     </>

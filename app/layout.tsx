@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: '%s | BPC Gym',
   },
   description:
-    'BPC Gym i Loddefjord: egentrening og velvære, åpent 04–23 alle dager. Se gymmet og finn medlemskapet som passer deg.',
+    'BPC Gym i Loddefjord: Egentrening, Gruppetrening og velvære, åpent 04–23 alle dager. Se gymmet og finn medlemskapet som passer deg.',
   generator: 'v0.app',
   // Test version: ask search engines not to index. Remove at launch (see LANSERINGSSJEKK.md).
   robots: { index: false, follow: false },

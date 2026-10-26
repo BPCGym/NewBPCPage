@@ -34,7 +34,7 @@ export function MembershipOffer() {
               Finn medlemskapet som passer deg.
             </h2>
             <p className="max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Se alternativene og velg hvordan du vil trene hos BPC.
+              Velg mellom Egentrening og Gruppetrening.
             </p>
             <CtaLink href="/medlemskap" arrow>
               Se medlemskap

@@ -27,7 +27,7 @@ export function CampaignTerms({ className }: { className?: string }) {
         ))}
       </dl>
       <p className="text-sm leading-relaxed text-muted-foreground">
-        Tilbudet gjelder egentrening. Velvære og gruppetimer i BPC Boxen er ikke inkludert.
+        Tilbudet gjelder Egentrening. Velvære og gruppetimer i BPC Boxen er ikke inkludert.
       </p>
     </div>
   )
