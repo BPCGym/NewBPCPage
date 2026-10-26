@@ -44,6 +44,8 @@
   --color-egen-foreground: var(--egen-foreground);
   --color-gruppe: var(--gruppe);
   --color-gruppe-foreground: var(--gruppe-foreground);
+  --color-sauna: var(--sauna);
+  --color-sauna-foreground: var(--sauna-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -75,6 +77,8 @@
   --ring: oklch(0.68 0.17 258);
   --live: oklch(0.75 0.19 150);
   --star: oklch(0.84 0.16 85);
+  --sauna: oklch(0.8 0.11 72);
+  --sauna-foreground: oklch(0.17 0.01 60);
   --egen: oklch(0.62 0.19 258);
   --egen-foreground: oklch(0.98 0.003 85);
   --gruppe: oklch(0.72 0.18 150);

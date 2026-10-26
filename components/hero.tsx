@@ -21,8 +21,11 @@ export function Hero() {
         className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0"
       />
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
-        <p className="hero-in mb-5 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80" style={delay(0)}>
+        <p className="hero-in mb-3 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80" style={delay(0)}>
           BPC GYM · LODDEFJORD
+        </p>
+        <p className="hero-in mb-6 max-w-xl text-pretty text-sm leading-relaxed text-foreground/75 md:text-base" style={delay(60)}>
+          Du har kommet til riktig sted. Velkommen, og gratulerer. Nå gjenstår bare den lille detaljen at du faktisk tar steget.
         </p>
         <h1
           id="hero-title"

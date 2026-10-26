@@ -1,10 +1,6 @@
 import Image from 'next/image'
-import { ArrowRight, ShowerHead } from 'lucide-react'
+import { ShowerHead, TimerOff } from 'lucide-react'
 import { wellness } from '@/lib/site'
-
-const rules = wellness.rules
-const finalRule = rules[rules.length - 1]
-const listedRules = rules.slice(0, -1)
 
 const lockerRooms = [
   {
@@ -19,113 +15,116 @@ const lockerRooms = [
   },
 ]
 
-const showerSteps = ['Garderoben', 'Dusj med såpe', 'Velværerommet']
-
 export function WellnessRules() {
+  const { rules, saunaTimer, consequence } = wellness
+
   return (
     <section
       id="velvaere-regler"
       aria-labelledby="regler-title"
-      className="scroll-mt-24 border-y border-border bg-card py-16 text-foreground md:py-24"
+      className="relative scroll-mt-24 overflow-hidden border-y border-border bg-background py-16 text-foreground md:py-24"
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-14">
-        <div className="flex flex-col gap-4">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Les før du går inn</p>
-          <h2 id="regler-title" className="text-balance text-3xl font-semibold tracking-tight md:text-5xl">
-            Velværereglene
-          </h2>
-          <p className="max-w-xl text-pretty leading-relaxed text-muted-foreground">
-            Reglene gjelder alle i badstue og isbad, hver gang. De sørger for god hygiene, trygghet og ro for alle som
-            bruker velværerommet.
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sauna/60 to-transparent"
+      />
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-12">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sauna">Les før du går inn</p>
+            <h2 id="regler-title" className="text-balance text-3xl font-semibold tracking-tight md:text-5xl">
+              Velværereglene
+            </h2>
+          </div>
+          <p className="max-w-md text-pretty leading-relaxed text-muted-foreground">
+            Få regler, men de gjelder alle, hver gang. Det er det som gjør rommet rent, trygt og rolig.
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {lockerRooms.map((room) => (
-            <figure key={room.src} className="relative aspect-[16/10] overflow-hidden rounded-2xl">
-              <Image src={room.src} alt={room.alt} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
-              <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/85 px-3 py-1 text-sm font-semibold text-foreground backdrop-blur">
-                {room.label}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <div className="grid gap-4 lg:grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-3">
+            {lockerRooms.map((room) => (
+              <figure key={room.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <Image
+                  src={room.src}
+                  alt={room.alt}
+                  fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/80 px-3 py-1 text-sm font-semibold backdrop-blur">
+                  {room.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
 
-        <div
-          role="note"
-          aria-labelledby="dusj-title"
-          className="flex flex-col gap-6 rounded-2xl border-2 border-primary bg-background p-6 md:flex-row md:items-center md:justify-between md:p-8"
-        >
-          <div className="flex gap-5">
-            <span
-              aria-hidden="true"
-              className="grid size-12 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground"
-            >
-              <ShowerHead className="size-6" />
-            </span>
-            <div className="flex flex-col gap-1">
-              <p id="dusj-title" className="text-balance text-xl font-semibold md:text-2xl">
+          <div
+            role="note"
+            aria-labelledby="dusj-title"
+            className="flex flex-col justify-between gap-6 rounded-2xl bg-sauna p-6 text-sauna-foreground md:p-8 lg:col-span-2"
+          >
+            <ShowerHead aria-hidden="true" className="size-8" />
+            <div className="flex flex-col gap-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] opacity-70">Først av alt</p>
+              <p id="dusj-title" className="text-balance text-2xl font-semibold leading-tight md:text-3xl">
                 Dusj i garderoben før du går inn i velværerommet.
               </p>
-              <p className="text-pretty leading-relaxed text-muted-foreground">
-                Dusj uten badetøy og vask hele kroppen med såpe. Det gjelder alle, hver gang.
+              <p className="text-pretty leading-relaxed opacity-80">
+                Uten badetøy, hele kroppen, med såpe.
               </p>
             </div>
           </div>
-          <ol className="flex flex-wrap items-center gap-2 text-sm font-semibold" aria-label="Rekkefølge">
-            {showerSteps.map((step, index) => (
-              <li key={step} className="flex items-center gap-2">
-                <span
-                  className={
-                    index === 1
-                      ? 'rounded-full bg-primary px-3 py-1.5 text-primary-foreground'
-                      : 'rounded-full border border-border px-3 py-1.5'
-                  }
-                >
-                  {step}
-                </span>
-                {index < showerSteps.length - 1 && <ArrowRight aria-hidden="true" className="size-4 text-muted-foreground" />}
-              </li>
-            ))}
-          </ol>
         </div>
 
-        <ol className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2">
-          {listedRules.map((rule, index) => (
-            <li key={rule} className="flex gap-5 bg-background p-6 md:p-8">
-              <span
-                aria-hidden="true"
-                className="grid size-10 shrink-0 place-items-center rounded-full bg-primary text-base font-semibold text-primary-foreground"
-              >
-                {index + 1}
-              </span>
-              <p className="text-pretty pt-1.5 text-lg leading-relaxed">{rule}</p>
+        <ul className="grid gap-x-10 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+          {rules.map((rule) => (
+            <li key={rule.title} className="flex flex-col gap-1 border-b border-border py-5">
+              <p className="flex items-center gap-3 font-semibold">
+                <span aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-sauna" />
+                {rule.title}
+              </p>
+              <p className="pl-[18px] text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
             </li>
           ))}
-          <li className="flex gap-5 bg-primary p-6 text-primary-foreground md:col-span-2 md:p-8">
-            <span
-              aria-hidden="true"
-              className="grid size-10 shrink-0 place-items-center rounded-full bg-primary-foreground text-base font-semibold text-primary"
-            >
-              {rules.length}
-            </span>
-            <p className="text-pretty pt-1.5 text-lg font-semibold leading-relaxed">{finalRule}</p>
-          </li>
-        </ol>
+        </ul>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <a
-            href="tel:+4755125555"
-            className="inline-flex items-center rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+        <div
+          role="note"
+          aria-labelledby="timer-title"
+          className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 md:flex-row md:items-start md:gap-6 md:p-8"
+        >
+          <span
+            aria-hidden="true"
+            className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
           >
-            Ring BPC: 55 12 55 55
-          </a>
-          <a
-            href="tel:113"
-            className="inline-flex items-center rounded-full border border-foreground/25 px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-foreground/10"
-          >
-            Nødsituasjon: ring 113
-          </a>
+            <TimerOff className="size-6" />
+          </span>
+          <div className="flex flex-col gap-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sauna">Slås hardt ned på</p>
+            <p id="timer-title" className="text-balance text-xl font-semibold md:text-2xl">
+              {saunaTimer.title}
+            </p>
+            <p className="max-w-3xl text-pretty leading-relaxed text-muted-foreground">{saunaTimer.text}</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <p className="text-pretty font-semibold">{consequence}</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="tel:+4755125555"
+              className="inline-flex items-center rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
+            >
+              Ring BPC: 55 12 55 55
+            </a>
+            <a
+              href="tel:113"
+              className="inline-flex items-center rounded-full border border-foreground/25 px-5 py-3 text-sm font-semibold transition-colors hover:bg-foreground/10"
+            >
+              Nødsituasjon: ring 113
+            </a>
+          </div>
         </div>
       </div>
     </section>

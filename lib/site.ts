@@ -153,16 +153,18 @@ export const wellness = {
   monthlyPrice: 299,
   towelMonthlyPrice: 149,
   rules: [
-  'Dusj uten badetøy i garderoben og vask hele kroppen med såpe før du går inn i velværerommet.',
-  'Bruk alltid egne badeshorts eller eget badetøy. Har du glemt dem, kan du kjøpe badeshorts i resepsjonen i bemannet tid.',
-  'Sitt alltid med rumpe og ben på et håndkle i badstuen. Dette er svært viktig for hygienen.',
-  'Ta vare på fasilitetene. Bråk og misbruk fører til permanent utestengelse.',
-  'Vis respekt for andre. Snakk lavt og ta hensyn til at andre er her for å koble av og slappe av.',
-  'Kjenn dine grenser. Gå ut hvis du føler deg uvel, og kontakt personalet eller BPC-telefonen på 55 12 55 55. Ved alvorlige tilfeller, ring 113.',
-  'Badstue og isbad brukes på eget ansvar.',
-  'Saltskrubb og oljer er ikke tillatt i velværerommet av hygieniske årsaker.',
-  'Brudd på reglene fører til umiddelbar og permanent utestengelse.',
+  { title: 'Eget badetøy', text: 'Badeshorts kan kjøpes i resepsjonen i bemannet tid.' },
+  { title: 'Håndkle under deg', text: 'Rumpe og ben skal alltid ligge på håndkle i badstuen.' },
+  { title: 'Ro og respekt', text: 'Snakk lavt. Andre er her for å koble av.' },
+  { title: 'Ingen saltskrubb eller olje', text: 'Ikke tillatt av hygieniske årsaker.' },
+  { title: 'Ta vare på rommet', text: 'Bråk og misbruk gir permanent utestengelse.' },
+  { title: 'Kjenn dine grenser', text: 'Bruk på eget ansvar. Føler du deg uvel, gå ut og ring 55 12 55 55.' },
   ],
+  saunaTimer: {
+    title: 'Aldri tidsinnstill badstuen',
+    text: 'Badstuen slår seg av etter 30 minutter. Vil du fortsette, går du ut og slår den på igjen. Ikke still inn timeren så den står på lenger. En badstue som står på i timevis uten folk koster oss mye, og dette slår vi hardt ned på.',
+  },
+  consequence: 'Brudd på reglene gir umiddelbar og permanent utestengelse.',
 } as const
 
 // Draft house rules adapted for BPC. Must be approved before launch.
