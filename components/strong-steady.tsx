@@ -47,7 +47,7 @@ export function StrongSteady() {
     <section
       id="sterk-og-stodig"
       aria-labelledby="sterk-stodig-title"
-      className="scroll-mt-24 border-t border-border py-16 md:py-24"
+      className="scroll-mt-24 border-t border-border py-14 md:py-20"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
         <div className="grid items-start gap-10 md:grid-cols-2 md:gap-16">

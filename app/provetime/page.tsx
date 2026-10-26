@@ -43,7 +43,7 @@ export default function TrialPage() {
           </CtaLink>
         </FullBleedHero>
 
-        <section aria-labelledby="valg-title" className="border-t border-border bg-card py-16 md:py-24">
+        <section aria-labelledby="valg-title" className="border-t border-border bg-card py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <h2 id="valg-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
               To måter å prøve på
@@ -67,7 +67,7 @@ export default function TrialPage() {
           </div>
         </section>
 
-        <section aria-labelledby="app-title" className="py-16 md:py-24">
+        <section aria-labelledby="app-title" className="py-14 md:py-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col gap-6">
               <h2 id="app-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">

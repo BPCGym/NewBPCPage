@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function KidsFeature() {
   return (
-    <section aria-labelledby="kids-feature-title" className="border-t border-border py-16 md:py-24">
+    <section aria-labelledby="kids-feature-title" className="border-t border-border py-14 md:py-20">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
           <Image

@@ -9,7 +9,7 @@ const features = [
 
 export function LockerRooms() {
   return (
-    <section aria-labelledby="garderober-title" className="border-t border-border py-16 md:py-24">
+    <section aria-labelledby="garderober-title" className="border-t border-border py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
         <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-16">
           <div className="flex flex-col gap-3">

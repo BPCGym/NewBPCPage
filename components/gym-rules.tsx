@@ -69,7 +69,7 @@ export function GymRules() {
     <section
       id="gymregler"
       aria-labelledby="gymregler-title"
-      className="scroll-mt-24 border-t border-border py-16 md:py-20"
+      className="scroll-mt-24 border-t border-border py-14 md:py-20"
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-10 px-6">
         <header className="flex flex-col gap-4">

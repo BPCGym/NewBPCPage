@@ -4,7 +4,7 @@ import { SectionHeading } from '@/components/section-heading'
 
 export function WellnessSection() {
   return (
-    <section id="velvaere" aria-labelledby="velvaere-title" className="scroll-mt-28 bg-card py-20 md:py-28">
+    <section id="velvaere" aria-labelledby="velvaere-title" className="scroll-mt-28 bg-card py-14 md:py-20">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl md:order-2">
           <Image

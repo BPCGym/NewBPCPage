@@ -3,7 +3,7 @@ import { company, links } from '@/lib/site'
 
 export function HelpStrip({ title = 'Vil du heller ringe?' }: { title?: string }) {
   return (
-    <section aria-labelledby="hjelp-title" className="border-t border-border bg-card py-16 md:py-20">
+    <section aria-labelledby="hjelp-title" className="border-t border-border bg-card py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 md:flex-row md:items-end md:justify-between">
         <div className="flex flex-col gap-3">
           <h2 id="hjelp-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">

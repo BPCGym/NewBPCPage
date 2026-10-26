@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function VisionSection() {
   return (
-    <section aria-labelledby="visjon-title" className="border-t border-border bg-card py-16 md:py-24">
+    <section aria-labelledby="visjon-title" className="border-t border-border bg-card py-14 md:py-20">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-5 md:gap-16">
         <div className="flex flex-col gap-5 md:col-span-2">
           <p className="text-sm font-medium uppercase tracking-widest text-primary">Siden 2014 · Langt fra ferdig</p>

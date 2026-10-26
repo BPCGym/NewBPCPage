@@ -54,7 +54,7 @@ export function MemberBenefits() {
     <section
       id="medlemsfordeler"
       aria-labelledby="medlemsfordeler-title"
-      className="scroll-mt-28 border-t border-border py-20 md:py-28"
+      className="scroll-mt-28 border-t border-border py-14 md:py-20"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
         <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-16">

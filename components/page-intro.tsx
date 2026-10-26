@@ -16,7 +16,7 @@ export function PageIntro({ id, eyebrow, title, text, image, children, belowHero
   return (
     <section
       aria-labelledby={id}
-      className={belowHero ? 'py-16 md:py-24' : 'pb-16 pt-28 md:pb-24 md:pt-36'}
+      className={belowHero ? 'py-14 md:py-20' : 'pb-16 pt-28 md:pb-24 md:pt-36'}
     >
       <div
         className={

@@ -59,7 +59,7 @@ export default function WellnessPage() {
 
         <IceBathComing />
 
-        <section aria-labelledby="tilgang-title" className="border-t border-border bg-card py-16 md:py-24">
+        <section aria-labelledby="tilgang-title" className="border-t border-border bg-card py-14 md:py-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col items-start gap-5">
               <h2 id="tilgang-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">

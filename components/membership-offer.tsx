@@ -26,7 +26,7 @@ function PeoplePhoto() {
 export function MembershipOffer() {
   if (!campaign.enabled) {
     return (
-      <section aria-labelledby="tilbud-title" className="border-b border-border py-20 md:py-28">
+      <section aria-labelledby="tilbud-title" className="border-b border-border py-14 md:py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 md:grid-cols-2 md:gap-16">
           <div className="flex flex-col items-start gap-6">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Medlemskap</p>
@@ -47,7 +47,7 @@ export function MembershipOffer() {
   }
 
   return (
-    <section aria-labelledby="tilbud-title" className="border-b border-border py-20 md:py-28">
+    <section aria-labelledby="tilbud-title" className="border-b border-border py-14 md:py-20">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
         <div className="flex flex-col items-start gap-6">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Medlemskap</p>

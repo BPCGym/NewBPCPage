@@ -21,7 +21,7 @@ const items = [
 
 export function EverydaySection() {
   return (
-    <section id="hverdagen" aria-labelledby="hverdagen-title" className="scroll-mt-28 border-t border-border py-20 md:py-28">
+    <section id="hverdagen" aria-labelledby="hverdagen-title" className="scroll-mt-28 border-t border-border py-14 md:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-5 md:gap-16">
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2 md:aspect-auto">
           <Image

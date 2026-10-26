@@ -13,7 +13,7 @@ function initials(name: string) {
 
 export function TeamGrid() {
   return (
-    <section aria-labelledby="team-title" className="border-t border-border py-16 md:py-24">
+    <section aria-labelledby="team-title" className="border-t border-border py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
         <div className="flex max-w-2xl flex-col gap-4">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Teamet</p>

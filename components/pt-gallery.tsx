@@ -29,7 +29,7 @@ const points = [
 
 export function PtGallery() {
   return (
-    <section aria-labelledby="pt-galleri-title" className="border-t border-border py-16 md:py-24">
+    <section aria-labelledby="pt-galleri-title" className="border-t border-border py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
         <div className="flex max-w-2xl flex-col gap-4">
           <h2 id="pt-galleri-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">

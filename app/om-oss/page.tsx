@@ -48,7 +48,7 @@ export default function AboutPage() {
 
         <GymRules />
 
-        <section aria-labelledby="omrader-title" className="border-t border-border py-16 md:py-24">
+        <section aria-labelledby="omrader-title" className="border-t border-border py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <h2 id="omrader-title" className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
               Fire områder under samme tak.

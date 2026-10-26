@@ -21,7 +21,7 @@ const points = [
 
 export function ParentsSection() {
   return (
-    <section aria-labelledby="foreldre-title" className="border-t border-border bg-card py-16 md:py-24">
+    <section aria-labelledby="foreldre-title" className="border-t border-border bg-card py-14 md:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">

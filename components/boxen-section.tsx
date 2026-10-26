@@ -3,7 +3,7 @@ import { links } from '@/lib/site'
 
 export function BoxenSection() {
   return (
-    <section aria-labelledby="boxen-title" className="py-20 md:py-28">
+    <section aria-labelledby="boxen-title" className="py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col gap-8 rounded-3xl border border-primary/40 bg-primary/10 p-8 md:flex-row md:items-end md:justify-between md:p-14">
           <div className="flex max-w-2xl flex-col gap-5">

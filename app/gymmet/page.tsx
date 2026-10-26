@@ -4,6 +4,7 @@ import { FullBleedHero } from '@/components/full-bleed-hero'
 import { GymRules } from '@/components/gym-rules'
 import { EquipmentBrands } from '@/components/gym-section'
 import { LockerRooms } from '@/components/locker-rooms'
+import { NewtechSection } from '@/components/newtech-section'
 import { PageIntro } from '@/components/page-intro'
 import { ParentsSection } from '@/components/parents-section'
 import { SiteFooter } from '@/components/site-footer'
@@ -53,7 +54,7 @@ export default function GymPage() {
           </CtaLink>
         </PageIntro>
 
-        <section aria-labelledby="omrader-title" className="border-t border-border py-16 md:py-24">
+        <section aria-labelledby="omrader-title" className="border-t border-border py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <h2 id="omrader-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
@@ -65,6 +66,8 @@ export default function GymPage() {
             <EquipmentBrands />
           </div>
         </section>
+
+        <NewtechSection />
 
         <LockerRooms />
 

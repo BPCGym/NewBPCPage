@@ -122,7 +122,7 @@ export default function BoxenPage() {
           </CtaLink>
         </FullBleedHero>
 
-        <section aria-labelledby="hva-title" className="border-t border-border bg-card py-16 md:py-24">
+        <section aria-labelledby="hva-title" className="border-t border-border bg-card py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <div className="flex max-w-2xl flex-col gap-4">
               <h2 id="hva-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
@@ -145,7 +145,7 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="galleri-title" className="py-16 md:py-24">
+        <section aria-labelledby="galleri-title" className="py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <div className="flex max-w-2xl flex-col gap-4">
               <h2 id="galleri-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
@@ -175,7 +175,7 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="timeplan-title" className="border-t border-border bg-card py-16 md:py-24">
+        <section aria-labelledby="timeplan-title" className="border-t border-border bg-card py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <div className="flex max-w-2xl flex-col gap-4">
               <h2 id="timeplan-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
@@ -191,7 +191,7 @@ export default function BoxenPage() {
 
         <StrongSteady />
 
-        <section aria-labelledby="time-title" className="border-t border-border py-16 md:py-24">
+        <section aria-labelledby="time-title" className="border-t border-border py-14 md:py-20">
           <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-5 md:gap-16">
             <div className="flex flex-col gap-6 md:col-span-3">
               <h2 id="time-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
@@ -222,7 +222,7 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="tilgang-boxen-title" className="border-t border-border py-16 md:py-24">
+        <section aria-labelledby="tilgang-boxen-title" className="border-t border-border py-14 md:py-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col items-start gap-5">
               <h2 id="tilgang-boxen-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
@@ -254,7 +254,7 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="grupper-title" className="py-16 md:py-24">
+        <section aria-labelledby="grupper-title" className="py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <div className="flex max-w-2xl flex-col gap-4">
               <h2 id="grupper-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">

@@ -35,7 +35,7 @@ const photos = [
 
 export function KidsGallery() {
   return (
-    <section aria-labelledby="kids-gallery-title" className="pb-16 md:pb-24">
+    <section aria-labelledby="kids-gallery-title" className="pb-14 md:pb-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6">
         <div className="flex flex-col gap-3">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Inne hos BPC Kids</p>

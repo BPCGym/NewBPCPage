@@ -43,7 +43,7 @@ const photos = [
 
 export function GymSection() {
   return (
-    <section id="gymmet" aria-labelledby="gymmet-title" className="scroll-mt-28 py-20 md:py-28">
+    <section id="gymmet" aria-labelledby="gymmet-title" className="scroll-mt-28 py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
         <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-16">
           <SectionHeading

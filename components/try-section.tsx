@@ -18,7 +18,7 @@ export function TrySection() {
         className="object-cover"
       />
       <div aria-hidden="true" className="absolute inset-0 bg-background/80" />
-      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <div className="relative mx-auto max-w-7xl px-6 py-14 md:py-20">
         <div className="flex flex-col items-start gap-6">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Prøv BPC</p>
           <h2 id="prov-title" className="max-w-xl text-balance text-3xl font-semibold leading-tight tracking-tight md:text-5xl">

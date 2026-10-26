@@ -20,8 +20,8 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0"
       />
-      <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-12">
+        <div>
           <div>
             <p
               className="hero-in mb-3 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80"
@@ -43,11 +43,11 @@ export function Hero() {
               Ditt tempo. Dine mål. Et sted å høre til.
             </p>
           </div>
-          <div className="hero-in" style={delay(380)}>
+          <div className="hero-in mt-8" style={delay(380)}>
             <HeroActions />
           </div>
         </div>
-        <div className="hero-in mt-8" style={delay(450)}>
+        <div className="hero-in mt-10" style={delay(450)}>
           <AppBadges />
         </div>
         <div className="hero-in mt-10" style={delay(560)}>

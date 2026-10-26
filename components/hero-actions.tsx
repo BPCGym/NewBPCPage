@@ -1,39 +1,30 @@
-import Image from 'next/image'
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import { SmartLink } from '@/components/smart-link'
 
+const focusRing =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+
 export function HeroActions() {
   return (
-    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row lg:flex-col lg:items-stretch">
+    <div className="flex flex-wrap items-center gap-3">
       <SmartLink
         href="/medlemskap"
-        className="cta-sweep glow group relative flex h-16 items-center justify-between gap-6 overflow-hidden rounded-full bg-primary pl-7 pr-2 text-lg font-semibold text-primary-foreground transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] lg:min-w-72"
+        className={`cta-sweep glow group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full bg-primary pl-7 pr-6 text-base font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${focusRing}`}
       >
         <span className="relative">Bli medlem</span>
-        <span className="relative flex size-12 items-center justify-center rounded-full bg-primary-foreground text-primary transition-transform duration-300 group-hover:translate-x-1 group-hover:-rotate-45">
-          <ArrowRight className="size-5" aria-hidden="true" />
-        </span>
+        <ArrowRight
+          className="relative size-5 transition-transform duration-300 group-hover:translate-x-1"
+          aria-hidden="true"
+        />
       </SmartLink>
 
       <SmartLink
         href="#gymmet"
-        className="group flex h-16 items-center gap-3 rounded-full border border-foreground/15 bg-background/40 pl-2 pr-5 backdrop-blur-md transition-colors duration-300 hover:border-foreground/35 hover:bg-background/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:min-w-72"
+        className={`group inline-flex h-14 items-center gap-3 rounded-full border border-foreground/10 bg-gradient-to-r from-background/90 via-background/60 to-background/20 pl-7 pr-6 text-base font-semibold text-foreground backdrop-blur-md transition-colors duration-300 hover:border-foreground/30 hover:from-background ${focusRing}`}
       >
-        <span className="relative size-12 shrink-0 overflow-hidden rounded-full ring-1 ring-foreground/20">
-          <Image
-            src="/images/bpc-frivekter.jpg"
-            alt=""
-            fill
-            sizes="48px"
-            className="object-cover transition-transform duration-500 group-hover:scale-125"
-          />
-        </span>
-        <span className="flex flex-1 flex-col leading-tight">
-          <span className="text-base font-semibold text-foreground">Se gymmet</span>
-          <span className="text-sm text-foreground/70">Ta en titt rundt</span>
-        </span>
+        Se gymmet
         <ArrowDown
-          className="float-y size-5 text-foreground/70 transition-colors group-hover:text-foreground"
+          className="size-5 text-foreground/60 transition-all duration-300 group-hover:translate-y-0.5 group-hover:text-foreground"
           aria-hidden="true"
         />
       </SmartLink>

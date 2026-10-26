@@ -23,7 +23,7 @@ export function Contact({ asPage = false }: ContactProps) {
     <section
       id="kontakt"
       aria-labelledby="kontakt-title"
-      className={asPage ? 'pb-20 pt-28 md:pb-28 md:pt-36' : 'scroll-mt-28 py-20 md:py-28'}
+      className={asPage ? 'pb-20 pt-28 md:pb-28 md:pt-36' : 'scroll-mt-28 py-14 md:py-20'}
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
         <div className="flex flex-col gap-6">

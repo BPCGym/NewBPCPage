@@ -63,7 +63,7 @@ const rules = [
 
 export function KidsRules() {
   return (
-    <section aria-labelledby="kids-regler" className="border-t border-border py-16 md:py-24">
+    <section aria-labelledby="kids-regler" className="border-t border-border py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
         <header className="flex max-w-2xl flex-col gap-3" data-reveal>
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Sikkerhet og trivsel</p>

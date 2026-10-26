@@ -39,7 +39,7 @@ export default function DropInPage() {
           </div>
         </section>
 
-        <section aria-labelledby="dropin-medlem-title" className="border-t border-border bg-card py-16 md:py-20">
+        <section aria-labelledby="dropin-medlem-title" className="border-t border-border bg-card py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col gap-2">
               <h2 id="dropin-medlem-title" className="text-balance text-2xl font-semibold tracking-tight">

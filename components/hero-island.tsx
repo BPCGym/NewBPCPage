@@ -126,6 +126,24 @@ export function HeroIsland() {
       </li>
 
       <li>
+        <Link href="/gymmet#newtech" className={itemClass}>
+          <span aria-hidden="true" className={cn(visClass, 'overflow-hidden bg-background')}>
+            <Image
+              src="/images/newtech-logo.png"
+              alt=""
+              fill
+              sizes="40px"
+              className="scale-[1.7] object-cover object-[50%_32%]"
+            />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-sm font-semibold">Powered by Newtech</span>
+            <span className="mt-0.5 text-xs font-medium text-primary">Ergonomiske apparater</span>
+          </span>
+        </Link>
+      </li>
+
+      <li>
         <Link href="/provetime" className={itemClass}>
           <span aria-hidden="true" className={cn(visClass, 'overflow-hidden')}>
             <QrCode className="size-5 text-primary" />

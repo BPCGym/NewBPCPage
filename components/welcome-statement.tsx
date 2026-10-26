@@ -4,7 +4,7 @@ const line = 'Du har nå kommet til riktig sted.'.split(' ')
 
 export function WelcomeStatement() {
   return (
-    <section aria-labelledby="velkommen-title" className="relative overflow-hidden px-6 pb-8 pt-24 md:pb-12 md:pt-36">
+    <section aria-labelledby="velkommen-title" className="relative overflow-hidden px-6 pb-2 pt-14 md:pb-4 md:pt-20">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center">
         <h2
           id="velkommen-title"
