@@ -6,6 +6,7 @@ import { FullBleedHero } from '@/components/full-bleed-hero'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TeamGrid } from '@/components/team-grid'
+import { VisionSection } from '@/components/vision-section'
 import { company } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -64,6 +65,7 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <VisionSection />
         <TeamGrid />
         <HelpStrip />
       </main>

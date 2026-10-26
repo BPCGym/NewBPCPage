@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { CtaLink } from '@/components/cta-link'
 import { HelpStrip } from '@/components/help-strip'
+import { KidsFeature } from '@/components/kids-feature'
 import { KidsGallery } from '@/components/kids-gallery'
 import { KidsPeople } from '@/components/kids-people'
 import { KidsSchedule } from '@/components/kids-schedule'
@@ -36,6 +37,7 @@ export default function ChildcarePage() {
             Spør om barnepass
           </CtaLink>
         </FullBleedHero>
+        <KidsFeature />
         <KidsPeople />
         <KidsSchedule />
       <KidsRules />

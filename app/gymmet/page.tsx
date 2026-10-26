@@ -3,6 +3,7 @@ import { CtaLink } from '@/components/cta-link'
 import { FullBleedHero } from '@/components/full-bleed-hero'
 import { GymRules } from '@/components/gym-rules'
 import { EquipmentBrands } from '@/components/gym-section'
+import { LockerRooms } from '@/components/locker-rooms'
 import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -62,6 +63,8 @@ export default function GymPage() {
             <EquipmentBrands />
           </div>
         </section>
+
+        <LockerRooms />
 
         <GymRules />
       </main>

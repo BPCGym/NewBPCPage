@@ -7,6 +7,7 @@ import { FullBleedHero } from '@/components/full-bleed-hero'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { SmartLink } from '@/components/smart-link'
+import { StrongSteady } from '@/components/strong-steady'
 import { mailto } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -188,6 +189,8 @@ export default function BoxenPage() {
           </div>
         </section>
 
+        <StrongSteady />
+
         <section aria-labelledby="time-title" className="border-t border-border py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-5 md:gap-16">
             <div className="flex flex-col gap-6 md:col-span-3">
@@ -208,12 +211,12 @@ export default function BoxenPage() {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2 md:aspect-[4/5]">
               <Image
-                src="/images/boxen-highfive.jpg"
-                alt="Et medlem og en trener gir hverandre high five i planke på kunstgresset i BPC Boxen"
+                src="/images/boxen-time-markloft.jpg"
+                alt="Instruktør følger tett med og retter teknikken mens et medlem løfter markløft"
                 fill
                 loading="lazy"
                 sizes="(min-width: 768px) 40vw, 100vw"
-                className="object-cover"
+                className="object-cover object-[60%_center]"
               />
             </div>
           </div>
@@ -261,6 +264,16 @@ export default function BoxenPage() {
                 Vi tilbyr gruppetrening med lav terskel, tilpasset gruppen. Målet er trygg progresjon, mestring og
                 et sterkere fellesskap.
               </p>
+            </div>
+            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl md:aspect-[21/8]">
+              <Image
+                src="/images/boxen-highfive.jpg"
+                alt="Et medlem og en trener gir hverandre high five i planke på kunstgresset i BPC Boxen"
+                fill
+                loading="lazy"
+                sizes="(min-width: 1280px) 1232px, 100vw"
+                className="object-cover"
+              />
             </div>
             <ul className="grid gap-4 md:grid-cols-2">
               {groups.map((group) => (
