@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSyncExternalStore } from 'react'
-import { Flame, QrCode, Snowflake, Star } from 'lucide-react'
+import { ArrowRight, Flame, QrCode, ShieldAlert, Snowflake, Star } from 'lucide-react'
 import { useOpenStatus } from '@/lib/use-open-status'
 import { cn } from '@/lib/utils'
 
@@ -152,6 +152,22 @@ export function HeroIsland() {
           <span className="flex flex-col leading-tight">
             <span className="text-sm font-semibold">QR-kode</span>
             <span className="mt-0.5 text-xs text-muted-foreground">Tilgang i Appen Min Trening</span>
+          </span>
+        </Link>
+      </li>
+
+      <li>
+        <Link href="/gymmet#gymregler" className={cn(itemClass, 'group pr-2')}>
+          <span aria-hidden="true" className={cn(visClass, 'bg-primary/15 ring-primary/30')}>
+            <ShieldAlert className="size-5 text-primary" />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-sm font-semibold">Gymregler</span>
+            <span className="mt-0.5 text-xs text-muted-foreground">Brudd fører til utestengelse</span>
+          </span>
+          <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-transform duration-300 group-hover:translate-x-0.5">
+            Les reglene
+            <ArrowRight className="size-3.5" />
           </span>
         </Link>
       </li>

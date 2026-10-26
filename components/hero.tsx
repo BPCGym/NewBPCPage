@@ -27,7 +27,7 @@ export function Hero() {
               className="hero-in mb-3 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80"
               style={delay(0)}
             >
-              BPC GYM · LODDEFJORD
+              BPC
             </p>
             <h1
               id="hero-title"
