@@ -133,7 +133,7 @@ export function HeroIsland() {
           </span>
           <span className="flex flex-col leading-tight">
             <span className="text-sm font-semibold">QR-kode</span>
-            <span className="mt-0.5 text-xs text-muted-foreground">Tilgang i appen</span>
+            <span className="mt-0.5 text-xs text-muted-foreground">Tilgang i Appen Min Trening</span>
           </span>
         </Link>
       </li>

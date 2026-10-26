@@ -25,7 +25,7 @@ export default function DropInPage() {
               Tren når det passer deg.
             </h1>
             <p className="max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Ingen medlemskap, ingen binding. Kjøp drop-in i appen Min Trening eller i resepsjonen i bemannet tid.
+              Ingen medlemskap, ingen binding. Kjøp drop-in i Appen Min Trening eller i resepsjonen i bemannet tid.
             </p>
           </div>
         </section>

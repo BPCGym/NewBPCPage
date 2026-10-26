@@ -90,7 +90,7 @@ export default function MembershipPage() {
                   </li>
                   <li>Garantien gjelder én gang per person, og ikke ved senere innmeldinger.</li>
                   <li>{`Avtalen avsluttes fra beskjeden er mottatt. Prisen for perioden er ${campaign.introPrice} kr.`}</li>
-                  <li>Oppsigelse i appen utløser ikke garantien.</li>
+                  <li>Oppsigelse i Appen utløser ikke garantien.</li>
                 </ul>
               </details>
             </div>

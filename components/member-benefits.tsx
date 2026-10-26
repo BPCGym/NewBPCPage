@@ -105,7 +105,7 @@ export function MemberBenefits() {
         </ul>
 
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Hvordan du løser inn fordelene finner du i BPC-appen.
+          Hvordan du løser inn fordelene finner du i Appen Min Trening.
         </p>
       </div>
     </section>

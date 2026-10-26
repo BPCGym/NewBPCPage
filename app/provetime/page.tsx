@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 }
 
 const appSteps = [
-  'Last ned appen Min Trening.',
+  'Last ned Appen Min Trening.',
   'Velg Bergen Performance Center.',
   'Fullfør registrering og aktivering.',
-  'Tilgangen din vises som en QR-kode i appen.',
+  'Tilgangen din vises som en QR-kode i Appen.',
 ]
 
 export default function TrialPage() {
@@ -58,7 +58,7 @@ export default function TrialPage() {
               <div className="flex flex-col gap-3 rounded-2xl border border-border bg-background p-6 md:p-8">
                 <h3 className="text-xl font-semibold">Drop-in</h3>
                 <p className="leading-relaxed text-muted-foreground">
-                  Én økt med Egentrening uten medlemskap. Senere besøk er drop-in. Du kjøper drop-in i appen eller i
+                  Én økt med Egentrening uten medlemskap. Senere besøk er drop-in. Du kjøper drop-in i Appen Min Trening eller i
                   resepsjonen i bemannet tid.
                 </p>
               </div>
@@ -70,7 +70,7 @@ export default function TrialPage() {
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col gap-6">
               <h2 id="app-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-                Slik får du tilgang i appen
+                Slik får du tilgang i Appen
               </h2>
               <ol className="flex flex-col border-t border-border">
                 {appSteps.map((step, i) => (

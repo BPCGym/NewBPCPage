@@ -115,7 +115,7 @@ export function StrongSteady() {
 
             <div className="flex flex-col gap-2 rounded-2xl border border-primary/40 bg-primary/10 p-5">
               <p className="leading-relaxed">
-                Last ned appen <strong>«Min Trening»</strong> og bruk kampanjekoden{' '}
+                Last ned Appen <strong>Min Trening</strong> og bruk kampanjekoden{' '}
                 <strong className="font-mono text-primary">STERK50</strong>.
               </p>
               <p className="text-sm leading-relaxed text-muted-foreground">

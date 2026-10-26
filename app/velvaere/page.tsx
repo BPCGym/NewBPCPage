@@ -66,7 +66,7 @@ export default function WellnessPage() {
                 Tilgang og pris
               </h2>
               <p className="max-w-lg leading-relaxed text-muted-foreground">
-                BPC Velvære er et tillegg og er ikke inkludert i alle medlemskap. Tilleggene administreres i appen og
+                BPC Velvære er et tillegg og er ikke inkludert i alle medlemskap. Tilleggene administreres i Appen Min Trening og
                 fornyes månedlig.
               </p>
               <div className="flex flex-col items-start gap-2 pt-2">
