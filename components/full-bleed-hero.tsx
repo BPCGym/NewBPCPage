@@ -41,6 +41,13 @@ export function FullBleedHero({ id, eyebrow, title, text, image, logo, children 
               height={200}
               className="logo-in relative size-full mix-blend-screen [mask-image:radial-gradient(circle,#000_62%,transparent_71%)]"
             />
+            <div
+              aria-hidden="true"
+              className="logo-sheen pointer-events-none absolute inset-0 overflow-hidden rounded-full mix-blend-overlay"
+            />
+            <span aria-hidden="true" className="logo-sparkle absolute -right-1 top-2 size-3" style={delay(0)} />
+            <span aria-hidden="true" className="logo-sparkle absolute -left-2 bottom-6 size-2" style={delay(1800)} />
+            <span aria-hidden="true" className="logo-sparkle absolute bottom-0 right-5 size-2.5" style={delay(3400)} />
           </div>
         ) : null}
         <p className="hero-in mb-5 text-xs font-medium uppercase tracking-[0.3em] text-foreground/80" style={delay(0)}>

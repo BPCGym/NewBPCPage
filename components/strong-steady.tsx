@@ -16,7 +16,7 @@ const prices = [
   {
     title: 'Medlemskap',
     lines: [{ label: 'Per måned', value: '749 kr' }],
-    note: 'Ubegrenset Egentrening og alle Sterk & stødig-timene. 12 måneders bindingstid.',
+    note: 'Ubegrenset Egentrening og alle Sterk & stødig-timene.',
   },
 ]
 

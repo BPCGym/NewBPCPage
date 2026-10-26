@@ -17,13 +17,13 @@ export default function Page() {
       <SiteHeader />
       <main>
         <Hero />
-          <MembershipOffer />
+        <MembershipOffer />
+        <VirtualTour />
         <GymSection />
         <WellnessSection />
         <BoxenSection />
         <EverydaySection />
         <MemberBenefits />
-        <VirtualTour />
         <TrySection />
         <Contact />
       </main>
