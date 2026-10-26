@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { CtaLink } from '@/components/cta-link'
 import { SectionHeading } from '@/components/section-heading'
 import { company, links, staffedHours, trainingHours } from '@/lib/site'
@@ -27,6 +28,39 @@ export function Contact({ asPage = false }: ContactProps) {
               sammen.
             </p>
           )}
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-12">
+          <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted md:col-span-4 md:row-span-2 md:aspect-auto">
+            <Image
+              src="/images/bpc-resepsjonister.jpg"
+              alt="Tre smilende resepsjonister i BPC-klær bak disken, foran den opplyste BPC-logoen"
+              fill
+              sizes="(min-width: 768px) 33vw, 100vw"
+              className="object-cover object-top"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-5 pt-16 text-sm leading-relaxed text-foreground">
+              Resepsjonen tar imot deg i bemannet tid.
+            </figcaption>
+          </figure>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-muted md:col-span-8">
+            <Image
+              src="/images/bpc-lounge.jpg"
+              alt="Loungen ved resepsjonen med sofaer, marmorert blått gulv og BPC-logo i gulvet"
+              fill
+              sizes="(min-width: 768px) 66vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-muted md:col-span-8 md:aspect-[16/6]">
+            <Image
+              src="/images/bpc-inngang.jpg"
+              alt="Inngangen til BPC med adgangskontroll, opplyst vegg og skilt til garderober, gym, gruppetrening, yoga og BPC Kids"
+              fill
+              sizes="(min-width: 768px) 66vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
