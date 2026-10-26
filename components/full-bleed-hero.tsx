@@ -30,7 +30,10 @@ export function FullBleedHero({ id, eyebrow, title, text, image, logo, children 
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
         {logo ? (
           <div className="relative mb-4 size-28 md:size-40">
-            <div aria-hidden="true" className="logo-halo absolute -inset-6 rounded-full bg-primary/35 blur-3xl" />
+            <div
+              aria-hidden="true"
+              className="logo-halo absolute -inset-10 rounded-full bg-[radial-gradient(circle,var(--background)_45%,transparent_72%)] opacity-95"
+            />
             <Image
               src={logo.src}
               alt={logo.alt}
