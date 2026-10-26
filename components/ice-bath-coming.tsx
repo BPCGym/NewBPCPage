@@ -8,7 +8,7 @@ const highlights = [
 
 export function IceBathComing() {
   return (
-    <section aria-labelledby="isbad-2027-title" className="border-t border-border bg-background py-16 md:py-24">
+    <section id="isbad-2027" aria-labelledby="isbad-2027-title" className="scroll-mt-24 border-t border-border bg-background py-16 md:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
         <div className="relative overflow-hidden rounded-2xl border border-border">
           <Image

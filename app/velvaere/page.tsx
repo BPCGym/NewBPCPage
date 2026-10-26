@@ -11,14 +11,14 @@ import { links, mailto, wellness } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'BPC Velvære',
   description:
-    'BPC Velvære: badstue og isbad som tillegg til et aktivt medlemskap. Se tilgang og praktiske regler.',
+    'BPC Velvære: badstue som tillegg til et aktivt medlemskap. Premium isbad kommer i 2027. Se tilgang og praktiske regler.',
 }
 
 const addOns = [
   {
     title: 'Velvære',
     price: `${wellness.monthlyPrice} kr`,
-    text: 'Per måned, som tillegg til et aktivt medlemskap. Gir tilgang til badstue og isbad.',
+    text: 'Per måned, som tillegg til et aktivt medlemskap. Gir tilgang til badstuen.',
   },
   {
     title: 'Håndkleavtale',
@@ -36,10 +36,10 @@ export default function WellnessPage() {
           id="velvaere-hero-title"
           eyebrow="BPC Velvære"
           title="En roligere del av BPC."
-          text="Badstue og isbad rett etter økta. Ta en pause fra tempoet og la kroppen hente seg inn."
+          text="Badstue rett etter økta. Ta en pause fra tempoet og la kroppen hente seg inn."
           image={{
             src: '/images/velvaere-hero.jpg',
-            alt: 'Badstuen hos BPC med varmt lys i trebenkene og glassdør inn mot isbadet',
+            alt: 'Badstuen hos BPC med varmt lys i trebenkene og glassdør',
           }}
         />
 

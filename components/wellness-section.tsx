@@ -24,7 +24,7 @@ export function WellnessSection() {
           </p>
           <div className="flex w-full flex-col gap-4 border-y border-border py-6">
             <p className="leading-relaxed">
-              Velvære gir tilgang til badstue og isbad i egne rolige rom ved garderobene.
+              Velvære gir tilgang til badstue i egne rolige rom ved garderobene. Premium isbad kommer i 2027.
             </p>
             <p className="text-sm leading-relaxed text-muted-foreground">
               Velvære er et tillegg til et aktivt medlemskap og er ikke inkludert i alle medlemskap. Spør

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useSyncExternalStore } from 'react'
 import { Flame, QrCode, Snowflake, Star } from 'lucide-react'
@@ -101,12 +102,25 @@ export function HeroIsland() {
         <Link href="/velvaere" className={itemClass}>
           <span aria-hidden="true" className={cn(visClass, 'overflow-hidden')}>
             <span className="island-spa-orb absolute inset-1 rounded-full" />
-            <Flame className="island-fire absolute size-5 text-foreground" />
-            <Snowflake className="island-ice absolute size-5 text-foreground" />
+            <Flame className="relative size-5 text-foreground" />
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold">Badstue &amp; isbad</span>
+            <span className="text-sm font-semibold">Badstue</span>
             <span className="mt-0.5 text-xs text-muted-foreground">Egen velværeavdeling</span>
+          </span>
+        </Link>
+      </li>
+
+      <li>
+        <Link href="/velvaere#isbad-2027" className={itemClass}>
+          <span aria-hidden="true" className={cn(visClass, 'overflow-hidden')}>
+            <Image src="/images/isbad-2027.png" alt="" fill sizes="40px" className="object-cover" />
+            <span className="absolute inset-0 rounded-full ring-1 ring-inset ring-foreground/20" />
+            <Snowflake className="island-twinkle relative size-4 text-foreground drop-shadow" />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-sm font-semibold">Premium isbad</span>
+            <span className="mt-0.5 text-xs font-medium text-primary">Kommer 2027</span>
           </span>
         </Link>
       </li>
