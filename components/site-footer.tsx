@@ -1,5 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { SmartLink } from '@/components/smart-link'
+import { withdrawalFormHref } from '@/components/terms-strip'
 import { company, links, mainNav, secondaryNav } from '@/lib/site'
 
 export function SiteFooter() {
@@ -47,9 +49,26 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className="border-t border-border">
-        <p className="mx-auto max-w-7xl px-6 py-6 text-xs text-muted-foreground">
-          {`© ${new Date().getFullYear()} ${company.legalName}`}
-        </p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>{`© ${new Date().getFullYear()} ${company.legalName}`}</p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            <li>
+              <Link href="/vilkar#medlemsvilkar" className="hover:text-foreground">
+                Medlemsvilkår
+              </Link>
+            </li>
+            <li>
+              <Link href="/vilkar#personvern" className="hover:text-foreground">
+                Personvern
+              </Link>
+            </li>
+            <li>
+              <a href={withdrawalFormHref} download className="hover:text-foreground">
+                Angrerettskjema
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   )

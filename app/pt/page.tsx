@@ -5,6 +5,7 @@ import { PageIntro } from '@/components/page-intro'
 import { PtGallery } from '@/components/pt-gallery'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
+import { TermsStrip } from '@/components/terms-strip'
 import { mailto } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function PersonalTrainingPage() {
         </PageIntro>
         <PtGallery />
         <HelpStrip />
+        <TermsStrip />
       </main>
       <SiteFooter />
     </>

@@ -7,6 +7,7 @@ import { GymRules } from '@/components/gym-rules'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TeamGrid } from '@/components/team-grid'
+import { TermsStrip } from '@/components/terms-strip'
 import { VisionSection } from '@/components/vision-section'
 import { company } from '@/lib/site'
 
@@ -71,6 +72,7 @@ export default function AboutPage() {
         <VisionSection />
         <TeamGrid />
         <HelpStrip />
+        <TermsStrip />
       </main>
       <SiteFooter />
     </>
