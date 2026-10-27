@@ -51,8 +51,8 @@ function BenefitIcon({ benefit }: { benefit: PlanBenefit }) {
 const dotStyles: Record<TabColor, string> = {
   egen: 'bg-egen',
   gruppe: 'bg-gruppe',
-  korttidEgen: 'bg-korttid-egen',
-  korttidGruppe: 'bg-korttid-gruppe',
+  korttidEgen: 'bg-egen',
+  korttidGruppe: 'bg-gruppe',
   velvaere: 'bg-muted-foreground',
   dropin: 'bg-foreground',
 }
@@ -60,8 +60,8 @@ const dotStyles: Record<TabColor, string> = {
 const barStyles: Record<TabColor, string> = {
   egen: 'before:bg-egen',
   gruppe: 'before:bg-gruppe',
-  korttidEgen: 'before:bg-korttid-egen',
-  korttidGruppe: 'before:bg-korttid-gruppe',
+  korttidEgen: 'before:bg-egen',
+  korttidGruppe: 'before:bg-gruppe',
   velvaere: 'before:bg-muted-foreground',
   dropin: 'before:bg-foreground',
 }
@@ -355,12 +355,15 @@ export function MembershipCards() {
         ) : null}
 
         {category?.groups.some((g) => g.plans.some((p) => p.highlight)) && (
-          <aside className="flex flex-col gap-1 rounded-xl border border-dashed border-primary/50 bg-primary/5 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-3">
-            <p className="flex shrink-0 items-center gap-1.5 text-base font-semibold text-foreground">
-              <Sparkles aria-hidden="true" className="spotlight-star size-4 text-primary" />
-              {membershipTip.lead}
-            </p>
-            <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{membershipTip.text}</p>
+          <aside className="tip-callout flex flex-col gap-4 rounded-2xl px-5 py-5 sm:flex-row sm:items-center sm:gap-5 sm:px-6">
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-egen text-egen-foreground">
+              <Sparkles aria-hidden="true" className="spotlight-star size-5" />
+            </span>
+            <div className="flex flex-col gap-1">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-egen">{membershipTip.eyebrow}</p>
+              <p className="text-pretty text-lg font-semibold leading-snug text-foreground">{membershipTip.lead}</p>
+              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{membershipTip.text}</p>
+            </div>
           </aside>
         )}
 

@@ -5,17 +5,28 @@ import { HeroIsland } from '@/components/hero-island'
 
 const delay = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties
 
+const ringBig = { '--x': '67.6%', '--y': '20.4%', '--w': '17%', '--h': '11%', '--r': '-14deg', '--t': '3px', '--s': '5s' } as React.CSSProperties
+const ringSmall = { '--x': '48%', '--y': '34.6%', '--w': '7.4%', '--h': '3.4%', '--r': '-1deg', '--t': '2px', '--s': '4s' } as React.CSSProperties
+
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-svh flex-col justify-end overflow-hidden">
-      <Image
-        src="/images/bpc-hero-styrkesal-36.jpg"
-        alt="Styrkesalen hos BPC Gym med blå benker og apparater under lysende ringer i taket"
-        fill
-        priority
-        sizes="100vw"
-        className="hero-zoom object-cover object-center"
-      />
+      <div className="hero-stage absolute inset-0">
+        <div className="hero-frame">
+          <div className="hero-zoom absolute inset-0">
+            <Image
+              src="/images/bpc-hero-styrkesal-36.jpg"
+              alt="Styrkesalen hos BPC Gym med blå benker og apparater under lysende ringer i taket"
+              fill
+              priority
+              sizes="(min-aspect-ratio: 16/9) 100vw, 178svh"
+              className="object-cover"
+            />
+            <span aria-hidden="true" className="hero-ring" style={ringBig} />
+            <span aria-hidden="true" className="hero-ring" style={ringSmall} />
+          </div>
+        </div>
+      </div>
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0"

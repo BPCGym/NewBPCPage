@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Lock, ShowerHead, Sparkles } from 'lucide-react'
+import { HeartHandshake, Lock, ShowerHead, Sparkles } from 'lucide-react'
 
 const features = [
   { icon: ShowerHead, title: 'Dusj', text: 'Egne dusjer i både jente- og guttegarderoben.' },
@@ -11,17 +11,39 @@ export function LockerRooms() {
   return (
     <section aria-labelledby="garderober-title" className="border-t border-border py-14 md:py-20">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
-  <div className="flex max-w-2xl flex-col gap-4">
-  <div className="flex flex-col gap-3">
-  <p className="text-sm font-semibold uppercase tracking-widest text-primary">Garderobene</p>
-  <h2 id="garderober-title" className="text-balance text-2xl font-semibold tracking-tight md:text-4xl">
-  Lekre garderober med dusj og garderobeskap.
-  </h2>
-  </div>
-  <p className="text-pretty border-l-2 border-primary pl-4 leading-relaxed text-muted-foreground">
-            Treningen slutter ikke i salen. Garderobene er bygget med samme omtanke som resten av BPC, så du kan dusje,
-            gjøre deg klar og gå videre med dagen.
-          </p>
+        <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end md:gap-12">
+          <div className="flex max-w-2xl flex-col gap-4">
+            <div className="flex flex-col gap-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Garderobene</p>
+              <h2 id="garderober-title" className="text-balance text-2xl font-semibold tracking-tight md:text-4xl">
+                Lekre garderober med dusj og garderobeskap.
+              </h2>
+            </div>
+            <p className="text-pretty border-l-2 border-primary pl-4 leading-relaxed text-muted-foreground">
+              Treningen slutter ikke i salen. Garderobene er bygget med samme omtanke som resten av BPC, så du kan
+              dusje, gjøre deg klar og gå videre med dagen.
+            </p>
+          </div>
+
+          <aside
+            aria-label="Felles ansvar for garderobene"
+            className="flex max-w-sm flex-col gap-3 rounded-2xl border border-primary/40 bg-primary/10 p-5"
+          >
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+              <HeartHandshake aria-hidden="true" className="size-4" />
+              Felles ansvar
+            </p>
+            <p className="text-pretty text-lg font-semibold leading-snug">
+              Vi har laget dem lekre. Sammen holder vi dem sånn.
+            </p>
+            <ul className="flex flex-wrap gap-2 text-sm text-muted-foreground">
+              {['Rydd etter deg', 'Tørk av benken', 'Ta med håndkle'].map((item) => (
+                <li key={item} className="rounded-full border border-border bg-background/60 px-3 py-1">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </aside>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">

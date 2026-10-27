@@ -960,3 +960,111 @@
   .dropin-card, .dropin-card::after { transition: none; }
   .dropin-card:hover { transform: none; }
 }
+
+/* Glittering "Se gymmet" button: spinning light border, sweeping sheen and twinkling stars */
+@property --sparkle-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.sparkle-btn {
+  isolation: isolate;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(color-mix(in oklch, var(--background) 82%, transparent), color-mix(in oklch, var(--background) 82%, transparent)) padding-box,
+    conic-gradient(from var(--sparkle-angle), transparent 0deg, var(--egen) 60deg, var(--foreground) 90deg, var(--egen) 120deg, transparent 180deg, transparent 240deg, var(--egen) 300deg, var(--foreground) 320deg, transparent 360deg) border-box;
+  animation: sparkle-spin 3.2s linear infinite, sparkle-pulse 2.4s ease-in-out infinite;
+}
+@keyframes sparkle-pulse {
+  0%, 100% { box-shadow: 0 0 22px -4px color-mix(in oklch, var(--egen) 70%, transparent); }
+  50% { box-shadow: 0 0 42px 2px color-mix(in oklch, var(--egen) 95%, transparent); }
+}
+.sparkle-btn:hover {
+  box-shadow: 0 0 36px -2px color-mix(in oklch, var(--egen) 90%, transparent);
+}
+.sparkle-star {
+  position: absolute;
+  pointer-events: none;
+  color: var(--foreground);
+  filter: drop-shadow(0 0 4px var(--foreground)) drop-shadow(0 0 10px var(--egen));
+  opacity: 0;
+  animation: sparkle-twinkle 2.4s ease-in-out infinite;
+}
+@keyframes sparkle-spin { to { --sparkle-angle: 360deg; } }
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+  45% { opacity: 1; transform: scale(1) rotate(90deg); }
+  70% { opacity: 0; transform: scale(0.4) rotate(160deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-btn, .sparkle-star { animation: none; }
+  .sparkle-star { opacity: 0.8; }
+}
+
+/* Hero photo frame that mirrors object-cover, so overlays stay pinned to the ceiling rings at any viewport */
+.hero-stage {
+  container-type: size;
+}
+.hero-frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100cqw, calc(100cqh * 5890 / 3313));
+  aspect-ratio: 5890 / 3313;
+  translate: -50% -50%;
+}
+
+/* Light that travels around the real ceiling rings */
+@property --ring-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.hero-ring {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  translate: -50% -50%;
+  rotate: var(--r, 0deg);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: drop-shadow(0 0 3px var(--foreground)) drop-shadow(0 0 10px var(--egen)) drop-shadow(0 0 22px var(--egen));
+}
+.hero-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--t, 3px);
+  background: conic-gradient(
+    from var(--ring-angle),
+    transparent 0deg,
+    color-mix(in oklch, var(--egen) 60%, transparent) 40deg,
+    var(--foreground) 70deg,
+    color-mix(in oklch, var(--egen) 60%, transparent) 95deg,
+    transparent 130deg,
+    transparent 180deg,
+    color-mix(in oklch, var(--egen) 60%, transparent) 220deg,
+    var(--foreground) 250deg,
+    color-mix(in oklch, var(--egen) 60%, transparent) 275deg,
+    transparent 310deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: ring-spin var(--s, 5s) linear infinite;
+}
+@keyframes ring-spin { to { --ring-angle: 360deg; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-ring::before { animation: none; }
+}
+
+/* Membership tip: lifted callout with a soft glow */
+.tip-callout {
+  background:
+    linear-gradient(120deg, color-mix(in oklch, var(--egen) 22%, var(--background)), color-mix(in oklch, var(--egen) 6%, var(--background)) 70%);
+  border: 1px solid color-mix(in oklch, var(--egen) 55%, transparent);
+  box-shadow: 0 0 40px -12px color-mix(in oklch, var(--egen) 80%, transparent);
+}

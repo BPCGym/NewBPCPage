@@ -118,8 +118,9 @@ const benefits = {
 } as const satisfies Record<string, PlanBenefit>
 
 export const membershipTip = {
-  lead: 'Usikker?',
-  text: 'Start med et løpende medlemskap. Trives du, bytter du til 12 måneder og får lavere pris. Det gjør mange.',
+  eyebrow: 'Hett tips fra oss',
+  lead: 'Start løpende, bytt til 12 måneder når du trives.',
+  text: 'Dette gjør mange av medlemmene våre: prøv uten binding først, og få lavere månedspris når du vet at BPC er stedet for deg.',
 }
 
 export const membershipCategories: readonly {

@@ -1,6 +1,27 @@
 import Image from 'next/image'
-import { ShowerHead, Armchair, TimerOff, Ban } from 'lucide-react'
+import {
+  ShowerHead,
+  Armchair,
+  TimerOff,
+  Ban,
+  Shirt,
+  VolumeX,
+  Droplets,
+  ShieldAlert,
+  HeartPulse,
+  Sparkles,
+  type LucideIcon,
+} from 'lucide-react'
 import { wellness } from '@/lib/site'
+import { RulesProgress, SeenRule, SeenStamp, WellnessRuleTracker } from '@/components/wellness-rule-tracker'
+
+const ruleIcons: Record<string, LucideIcon> = {
+  'Eget badetøy': Shirt,
+  'Ro og respekt': VolumeX,
+  'Ingen saltskrubb eller olje på kroppen': Droplets,
+  'Ta vare på rommet': ShieldAlert,
+  'Kjenn dine grenser': HeartPulse,
+}
 
 const mainRules = [
   {
@@ -41,6 +62,7 @@ export function WellnessRules() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sauna/60 to-transparent"
       />
+      <WellnessRuleTracker total={mainRules.length + rules.length + 2}>
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-12">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-3">
@@ -90,51 +112,77 @@ export function WellnessRules() {
               To krav før du går inn
             </p>
 
-            <ol className="flex flex-col">
+            <ol className="flex flex-col gap-3">
               {mainRules.map((rule, index) => {
                 const Icon = rule.icon
                 return (
-                  <li
+                  <SeenRule
                     key={rule.title}
-                    className={`flex gap-4 ${index > 0 ? 'mt-6 border-t border-border pt-6' : ''}`}
+                    id={`main-${index}`}
+                    className="flex gap-4 rounded-xl border border-transparent p-3 pr-16 transition-all duration-700 data-[seen=true]:border-sauna/40 data-[seen=true]:bg-sauna/10 motion-reduce:transition-none md:p-4 md:pr-20"
                   >
+                    <SeenStamp />
                     <span
                       aria-hidden="true"
-                      className="grid size-11 shrink-0 place-items-center rounded-full border border-sauna/40 text-sauna"
+                      className="grid size-12 shrink-0 place-items-center rounded-full border-2 border-sauna/50 text-sauna transition-all duration-700 group-data-[seen=true]/rule:scale-110 group-data-[seen=true]/rule:border-sauna group-data-[seen=true]/rule:bg-sauna group-data-[seen=true]/rule:text-sauna-foreground group-data-[seen=true]/rule:shadow-[0_0_24px_var(--sauna)]"
                     >
-                      <Icon className="size-5" />
+                      <Icon className="size-6" />
                     </span>
                     <div className="flex flex-col gap-2">
                       <p className="text-balance text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+                        <span className="sr-only">{`Krav ${index + 1}: `}</span>
                         {rule.title}
                       </p>
                       <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
                     </div>
-                  </li>
+                  </SeenRule>
                 )
               })}
             </ol>
           </div>
         </div>
 
-        <ul className="grid gap-x-10 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
-          {rules.map((rule) => (
-            <li key={rule.title} className="flex flex-col gap-1 border-b border-border py-5">
-              <p className="flex items-center gap-3 font-semibold">
-                <span aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-sauna" />
-                {rule.title}
-              </p>
-              <p className="pl-[18px] text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
-            </li>
-          ))}
-        </ul>
+        <RulesProgress />
+
+        <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {rules.map((rule, index) => {
+            const Icon = ruleIcons[rule.title] ?? Sparkles
+            return (
+              <SeenRule
+                key={rule.title}
+                id={`rule-${index}`}
+                className="flex translate-y-6 flex-col gap-3 overflow-hidden rounded-2xl border border-border bg-card p-6 pr-20 text-card-foreground opacity-40 transition-all duration-700 ease-out data-[seen=true]:translate-y-0 data-[seen=true]:border-sauna/50 data-[seen=true]:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none"
+              >
+                <SeenStamp />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-6 -right-2 text-8xl font-black leading-none tracking-tighter text-sauna/10 transition-colors duration-700 group-data-[seen=true]/rule:text-sauna/20"
+                >
+                  {index + 3}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="grid size-11 place-items-center rounded-full border-2 border-sauna/50 text-sauna transition-all duration-700 group-data-[seen=true]/rule:border-sauna group-data-[seen=true]/rule:bg-sauna group-data-[seen=true]/rule:text-sauna-foreground"
+                >
+                  <Icon className="size-5" />
+                </span>
+                <p className="text-balance text-lg font-semibold leading-tight md:text-xl">
+                  <span className="sr-only">{`Regel ${index + 3}: `}</span>
+                  {rule.title}
+                </p>
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
+              </SeenRule>
+            )
+          })}
+        </ol>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          <div
-            role="note"
-            aria-labelledby="timer-title"
-            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 md:flex-row md:items-start md:gap-6 md:p-8"
+          <SeenRule
+            as="div"
+            id="timer"
+            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 pr-20 transition-shadow duration-700 data-[seen=true]:shadow-[0_0_40px_-12px_var(--sauna)] md:flex-row md:items-start md:gap-6 md:p-8 md:pr-24"
           >
+            <SeenStamp />
             <span
               aria-hidden="true"
               className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
@@ -148,13 +196,14 @@ export function WellnessRules() {
               </p>
               <p className="text-pretty leading-relaxed text-muted-foreground">{saunaTimer.text}</p>
             </div>
-          </div>
+          </SeenRule>
 
-          <div
-            role="note"
-            aria-labelledby="sniking-title"
-            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 md:flex-row md:items-start md:gap-6 md:p-8"
+          <SeenRule
+            as="div"
+            id="sniking"
+            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 pr-20 transition-shadow duration-700 data-[seen=true]:shadow-[0_0_40px_-12px_var(--sauna)] md:flex-row md:items-start md:gap-6 md:p-8 md:pr-24"
           >
+            <SeenStamp />
             <span
               aria-hidden="true"
               className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
@@ -171,7 +220,7 @@ export function WellnessRules() {
                 2 500 kr for hver gang noen blir tatt.
               </p>
             </div>
-          </div>
+          </SeenRule>
         </div>
 
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
@@ -192,6 +241,7 @@ export function WellnessRules() {
           </div>
         </div>
       </div>
+      </WellnessRuleTracker>
     </section>
   )
 }

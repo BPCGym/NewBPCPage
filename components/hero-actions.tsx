@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight } from 'lucide-react'
+import { ArrowDown, ArrowRight, Sparkle } from 'lucide-react'
 import { SmartLink } from '@/components/smart-link'
 import { links } from '@/lib/site'
 
@@ -21,11 +21,15 @@ export function HeroActions() {
 
       <SmartLink
         href="#gymmet"
-        className={`group inline-flex h-14 items-center gap-3 rounded-full border border-foreground/10 bg-gradient-to-r from-background/90 via-background/60 to-background/20 pl-7 pr-6 text-base font-semibold text-foreground backdrop-blur-md transition-colors duration-300 hover:border-foreground/30 hover:from-background ${focusRing}`}
+        className={`sparkle-btn group relative inline-flex h-14 items-center gap-3 overflow-visible rounded-full pl-7 pr-6 text-base font-semibold text-foreground backdrop-blur-md transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 ${focusRing}`}
       >
+        <Sparkle aria-hidden="true" className="sparkle-star -left-2.5 -top-3 size-6 fill-current" />
+        <Sparkle aria-hidden="true" className="sparkle-star -right-2 -top-2 size-4 fill-current [animation-delay:0.6s]" />
+        <Sparkle aria-hidden="true" className="sparkle-star -bottom-3 left-1/2 size-5 fill-current [animation-delay:1.2s]" />
+        <Sparkle aria-hidden="true" className="sparkle-star -bottom-2 -right-3 size-3 fill-current [animation-delay:1.8s]" />
         Se gymmet
         <ArrowDown
-          className="size-5 text-foreground/60 transition-all duration-300 group-hover:translate-y-0.5 group-hover:text-foreground"
+          className="size-5 text-foreground/80 transition-all duration-300 group-hover:translate-y-0.5 group-hover:text-foreground"
           aria-hidden="true"
         />
       </SmartLink>

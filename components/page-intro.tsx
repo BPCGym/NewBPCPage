@@ -26,7 +26,7 @@ export function PageIntro({
 }: PageIntroProps) {
   const Heading = belowHero ? 'h2' : 'h1'
   const spacing = belowHero
-    ? 'py-14 md:py-20'
+    ? 'py-10 md:py-12'
     : compact
       ? 'pb-10 pt-24 md:pb-14 md:pt-28'
       : 'pb-16 pt-28 md:pb-24 md:pt-36'
@@ -35,11 +35,11 @@ export function PageIntro({
       <div
         className={
           image
-            ? `mx-auto grid max-w-7xl items-center px-6 md:grid-cols-2 ${compact ? 'gap-8 md:gap-12' : 'gap-10 md:gap-16'}`
+            ? `mx-auto grid max-w-7xl items-center px-6 ${belowHero ? 'md:grid-cols-[5fr_7fr]' : 'md:grid-cols-2'} ${compact || belowHero ? 'gap-8 md:gap-12' : 'gap-10 md:gap-16'}`
             : 'mx-auto max-w-7xl px-6'
         }
       >
-        <div className={`flex flex-col items-start ${compact ? 'gap-4' : 'gap-6'}`}>
+        <div className={`flex flex-col items-start ${compact || belowHero ? 'gap-4' : 'gap-6'}`}>
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">{eyebrow}</p>
           <Heading
             id={id}
@@ -59,7 +59,11 @@ export function PageIntro({
         {image && (
           <div
             className={`relative overflow-hidden rounded-2xl ${
-              compact ? 'aspect-[16/10]' : 'aspect-[4/3] md:aspect-[4/5]'
+              compact
+                ? 'aspect-[16/10]'
+                : belowHero
+                  ? 'aspect-[4/3] md:aspect-[5/4]'
+                  : 'aspect-[4/3] md:aspect-[4/5]'
             }`}
           >
             <Image
