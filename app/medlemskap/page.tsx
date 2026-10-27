@@ -46,8 +46,12 @@ export default function MembershipPage() {
           }}
         >
           <div className="flex flex-col items-start gap-2">
-            <CtaLink href={links.signup} arrow className="w-full sm:w-auto">
-              Fortsett til innmelding
+            <CtaLink
+              href={links.signup}
+              arrow
+              className="cta-sweep cta-culture glow relative w-full overflow-hidden font-semibold sm:w-auto"
+            >
+              <span className="relative">Fortsett til innmelding</span>
             </CtaLink>
             <p className="text-sm text-foreground/80">Du går videre til BPCs medlemssystem.</p>
           </div>
