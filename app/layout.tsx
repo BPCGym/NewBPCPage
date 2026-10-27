@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Archivo, Geist, Geist_Mono } from 'next/font/google'
 import { MotionObserver } from '@/components/motion-observer'
 import './globals.css'
 
+const archivo = Archivo({ subsets: ['latin'], weight: ['800', '900'], variable: '--font-archivo' })
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
@@ -33,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="nb" className={`${geist.variable} ${geistMono.variable} bg-background`}>
+    <html lang="nb" className={`${archivo.variable} ${geist.variable} ${geistMono.variable} bg-background`}>
       <body className="font-sans antialiased">
         {children}
         <MotionObserver />

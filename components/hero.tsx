@@ -31,47 +31,41 @@ export function Hero() {
             </p>
             <h1
               id="hero-title"
-              className="hero-in max-w-3xl text-balance text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+              className="hero-in max-w-4xl text-balance font-display text-5xl font-extrabold leading-[1] tracking-tight sm:text-6xl lg:text-7xl"
               style={delay(120)}
             >
               Bli en del av <span className="sr-only">kulturen.</span>
               <span aria-hidden="true" className="culture whitespace-nowrap">
-                <span className="culture-glow" />
-                <span className="culture-word" data-text="kulturen">
-                  kulturen
-                </span>
-                <span className="culture-dot">.</span>
                 <svg
-                  className="culture-swoosh"
-                  viewBox="0 0 400 24"
+                  className="culture-brush"
+                  viewBox="0 0 400 100"
                   preserveAspectRatio="none"
                   focusable="false"
                 >
                   <defs>
-                    <linearGradient id="culture-swoosh-base" x1="0" x2="1" y1="0" y2="0">
-                      <stop offset="0%" className="culture-stop-fade" />
-                      <stop offset="35%" className="culture-stop-blue" />
-                      <stop offset="85%" className="culture-stop-light" />
-                      <stop offset="100%" className="culture-stop-fade" />
+                    <linearGradient id="culture-brush-fill" x1="0" x2="1" y1="0" y2="0">
+                      <stop offset="0%" className="culture-stop-blue" />
+                      <stop offset="55%" className="culture-stop-mid" />
+                      <stop offset="100%" className="culture-stop-violet" />
                     </linearGradient>
+                    <filter id="culture-brush-rough" x="-5%" y="-20%" width="110%" height="140%">
+                      <feTurbulence type="fractalNoise" baseFrequency="0.035 0.6" numOctaves="2" seed="7" />
+                      <feDisplacementMap in="SourceGraphic" scale="9" />
+                    </filter>
                   </defs>
                   <path
-                    className="culture-swoosh-base"
-                    d="M6 17 C 110 7, 270 4, 394 11"
-                    pathLength={100}
-                    stroke="url(#culture-swoosh-base)"
+                    filter="url(#culture-brush-rough)"
+                    fill="url(#culture-brush-fill)"
+                    d="M4 62 C 40 48, 120 40, 210 38 C 290 36, 360 34, 398 30 L 392 70 C 340 76, 270 80, 190 82 C 110 84, 50 86, 10 92 C 2 82, 0 72, 4 62 Z"
                   />
                   <path
-                    className="culture-swoosh-tail"
-                    d="M6 17 C 110 7, 270 4, 394 11"
-                    pathLength={100}
-                  />
-                  <path
-                    className="culture-swoosh-head"
-                    d="M6 17 C 110 7, 270 4, 394 11"
-                    pathLength={100}
+                    className="culture-brush-sheen"
+                    filter="url(#culture-brush-rough)"
+                    d="M4 62 C 40 48, 120 40, 210 38 C 290 36, 360 34, 398 30 L 392 70 C 340 76, 270 80, 190 82 C 110 84, 50 86, 10 92 C 2 82, 0 72, 4 62 Z"
                   />
                 </svg>
+                <span className="culture-word">kulturen</span>
+                <span className="culture-dot">.</span>
                 <span className="culture-spark culture-spark-1" />
                 <span className="culture-spark culture-spark-2" />
                 <span className="culture-spark culture-spark-3" />
