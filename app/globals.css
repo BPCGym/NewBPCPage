@@ -327,21 +327,21 @@
     animation: culture-paint 0.9s cubic-bezier(0.7, 0, 0.2, 1) 0.45s both;
   }
   .culture-brush-sheen {
-    animation: culture-sheen 8.5s cubic-bezier(0.55, 0, 0.25, 1) 1.8s infinite;
+    animation: culture-sheen 18s cubic-bezier(0.45, 0, 0.35, 1) 1.8s infinite;
   }
   .culture-word {
     animation:
       culture-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both,
-      culture-glint 8.5s cubic-bezier(0.55, 0, 0.25, 1) 1.8s infinite;
+      culture-glint 18s cubic-bezier(0.45, 0, 0.35, 1) 1.8s infinite;
   }
   .culture-dot {
     animation: culture-dot-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 1.3s both;
   }
-  .culture-spark-1 { animation: culture-twinkle 8.5s ease-out 2.3s infinite; }
-  .culture-spark-2 { animation: culture-twinkle 8.5s ease-out 2.8s infinite; }
-  .culture-spark-3 { animation: culture-twinkle 8.5s ease-out 3.6s infinite; }
-  .culture:hover .culture-word { animation-duration: 0.8s, 3.2s; }
-  .culture:hover .culture-brush-sheen { animation-duration: 3.2s; }
+  .culture-spark-1 { animation: culture-twinkle 18s ease-out 2.8s infinite; }
+  .culture-spark-2 { animation: culture-twinkle 18s ease-out 3.6s infinite; }
+  .culture-spark-3 { animation: culture-twinkle 18s ease-out 4.8s infinite; }
+  .culture:hover .culture-word { animation-duration: 0.8s, 9s; }
+  .culture:hover .culture-brush-sheen { animation-duration: 9s; }
 }
 
   @property --island-angle {
@@ -1030,7 +1030,7 @@
   rotate: var(--r, 0deg);
   border-radius: 50%;
   pointer-events: none;
-  filter: drop-shadow(0 0 2px var(--foreground)) drop-shadow(0 0 8px color-mix(in oklch, var(--foreground) 70%, transparent)) drop-shadow(0 0 18px color-mix(in oklch, var(--foreground) 35%, transparent));
+  filter: drop-shadow(0 0 3px var(--foreground)) drop-shadow(0 0 10px var(--foreground)) drop-shadow(0 0 24px color-mix(in oklch, var(--foreground) 65%, transparent)) drop-shadow(0 0 44px color-mix(in oklch, var(--foreground) 30%, transparent));
   animation: ring-shimmer 2.4s ease-in-out infinite;
 }
 .hero-ring::before,
@@ -1039,7 +1039,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: var(--t, 3px);
+  padding: calc(var(--t, 3px) * 1.6);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -1048,13 +1048,17 @@
 .hero-ring::before {
   background: conic-gradient(
     from var(--ring-angle),
-    transparent 0deg,
-    color-mix(in oklch, var(--foreground) 10%, transparent) 60deg,
-    color-mix(in oklch, var(--foreground) 45%, transparent) 130deg,
-    var(--foreground) 168deg,
-    var(--foreground) 176deg,
-    transparent 182deg,
-    transparent 360deg
+    color-mix(in oklch, var(--foreground) 12%, transparent) 0deg,
+    color-mix(in oklch, var(--foreground) 30%, transparent) 50deg,
+    color-mix(in oklch, var(--foreground) 70%, transparent) 120deg,
+    var(--foreground) 160deg,
+    var(--foreground) 178deg,
+    color-mix(in oklch, var(--foreground) 12%, transparent) 186deg,
+    color-mix(in oklch, var(--foreground) 30%, transparent) 230deg,
+    color-mix(in oklch, var(--foreground) 70%, transparent) 300deg,
+    var(--foreground) 340deg,
+    var(--foreground) 358deg,
+    color-mix(in oklch, var(--foreground) 12%, transparent) 360deg
   );
   animation: ring-spin var(--s, 5s) linear infinite;
 }
@@ -1078,11 +1082,11 @@
 @keyframes ring-spin { to { --ring-angle: 360deg; } }
 @keyframes ring-spin-reverse { to { --ring-angle-b: -360deg; } }
 @keyframes ring-twinkle {
-  0%, 100% { opacity: 0.25; }
+  0%, 100% { opacity: 0.45; }
   50% { opacity: 1; }
 }
 @keyframes ring-shimmer {
-  0%, 100% { opacity: 0.85; }
+  0%, 100% { opacity: 0.9; }
   50% { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
