@@ -39,7 +39,7 @@ export function WelcomeStatement() {
               />
             </svg>
           </span>
-          {', er nå helt opp til deg.'}
+          {', er helt opp til deg.'}
         </p>
         <a
           href="#medlemskap-tilbud"
