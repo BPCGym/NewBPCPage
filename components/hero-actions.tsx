@@ -10,7 +10,7 @@ export function HeroActions() {
     <div className="flex flex-wrap items-center gap-3">
       <SmartLink
         href={links.signup}
-        className={`cta-sweep glow group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full bg-primary pl-7 pr-6 text-base font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${focusRing}`}
+        className={`cta-sweep cta-culture glow group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full pl-7 pr-6 text-base font-semibold transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${focusRing}`}
       >
         <span className="relative">Bli medlem</span>
         <ArrowRight
