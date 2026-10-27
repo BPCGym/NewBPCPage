@@ -33,18 +33,18 @@ export default function MembershipPage() {
   return (
     <>
       <SiteHeader />
-      <main className="pt-28 md:pt-36">
-        <section aria-labelledby="medlemskap-title" className="pb-16 md:pb-24">
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2 md:gap-16">
-            <div className="flex flex-col items-start gap-6">
+      <main className="pt-24 md:pt-32">
+        <section aria-labelledby="medlemskap-title" className="pb-4 md:pb-2">
+          <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2 md:items-end md:gap-12">
+            <div className="flex flex-col items-start gap-3">
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Medlemskap</p>
               <h1
                 id="medlemskap-title"
-                className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl"
+                className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl"
               >
                 Finn din plass på BPC.
               </h1>
-              <p className="max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
+              <p className="max-w-lg text-pretty leading-relaxed text-muted-foreground">
                 Se hva medlemskapet omfatter, og fullfør innmeldingen i medlemssystemet vårt.
               </p>
             </div>
@@ -62,18 +62,18 @@ export default function MembershipPage() {
         </section>
 
         {campaign.enabled && (
-          <section aria-labelledby="garanti-title" className="border-y border-border bg-card py-14 md:py-20">
-            <div className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 md:gap-16">
-              <div className="flex flex-col gap-4">
-                <h2 id="garanti-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+          <section aria-labelledby="garanti-title" className="border-y border-border bg-card py-8 md:py-10">
+            <div className="mx-auto grid max-w-7xl gap-5 px-6 md:grid-cols-2 md:items-start md:gap-12">
+              <div className="flex flex-col gap-2">
+                <h2 id="garanti-title" className="text-balance text-xl font-semibold tracking-tight md:text-2xl">
                   14-dagersgaranti
                 </h2>
                 <p className="max-w-lg text-pretty leading-relaxed text-muted-foreground">
                   {`Ombestemmer du deg, kan du avslutte avtalen innen 14 dager etter innmelding. Du betaler da ${campaign.introPrice} kr for perioden.`}
                 </p>
               </div>
-              <details className="group rounded-2xl border border-border bg-background p-6">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium [&::-webkit-details-marker]:hidden">
+              <details className="group rounded-xl border border-border bg-background px-5 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-medium [&::-webkit-details-marker]:hidden">
                   Vilkår for garantien
                   <ChevronDown
                     aria-hidden="true"
@@ -97,28 +97,28 @@ export default function MembershipPage() {
           </section>
         )}
 
-        <section id="priser" aria-labelledby="medlemskapene-title" className="scroll-mt-28 pt-14 md:pt-20">
-          <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6">
-            <h2 id="medlemskapene-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
+        <section id="priser" aria-labelledby="medlemskapene-title" className="scroll-mt-28 pt-10 md:pt-12">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6">
+            <h2 id="medlemskapene-title" className="text-xl font-semibold tracking-tight md:text-2xl">
               Våre medlemskap og priser
             </h2>
             <MembershipCards />
           </div>
         </section>
 
-        <section aria-labelledby="andre-valg-title" className="py-14 md:py-20">
-          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
-            <h2 id="andre-valg-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
+        <section aria-labelledby="andre-valg-title" className="py-10 md:py-12">
+          <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6">
+            <h2 id="andre-valg-title" className="text-xl font-semibold tracking-tight md:text-2xl">
               Andre valg
             </h2>
-            <ul className="grid gap-4 md:grid-cols-2">
+            <ul className="grid gap-3 md:grid-cols-2">
               {otherOptions.map((option) => (
-                <li key={option.title} className="flex flex-col gap-3 rounded-2xl border border-border p-6">
-                  <h3 className="text-lg font-semibold">{option.title}</h3>
+                <li key={option.title} className="flex flex-col gap-1.5 rounded-xl border border-border bg-card px-5 py-4">
+                  <h3 className="text-sm font-semibold">{option.title}</h3>
                   <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{option.text}</p>
                   <SmartLink
                     href={option.href}
-                    className="mt-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    className="text-sm font-medium text-primary underline-offset-4 hover:underline"
                   >
                     {option.cta}
                   </SmartLink>
