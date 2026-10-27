@@ -323,6 +323,82 @@
     --island-angle: 360deg;
   }
 }
+
+@property --spot-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.plan-spotlight {
+  box-shadow: 0 10px 30px -14px color-mix(in oklch, var(--primary) 70%, transparent);
+}
+.plan-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--spot-angle),
+    color-mix(in oklch, var(--primary) 35%, transparent) 0 60%,
+    var(--primary) 78%,
+    var(--background) 82%,
+    var(--primary) 86%,
+    color-mix(in oklch, var(--primary) 35%, transparent) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spot-spin 4s linear infinite;
+}
+.spotlight-badge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    color-mix(in oklch, var(--primary-foreground) 55%, transparent) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  animation: spot-shine 3.2s ease-in-out infinite;
+}
+.spotlight-star {
+  animation: spot-twinkle 2.4s ease-in-out infinite;
+}
+@keyframes spot-spin {
+  to {
+    --spot-angle: 360deg;
+  }
+}
+@keyframes spot-shine {
+  60%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+@keyframes spot-twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25) rotate(18deg);
+    opacity: 0.75;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-spotlight::before,
+  .spotlight-badge::after,
+  .spotlight-star {
+    animation: none;
+  }
+}
 @keyframes island-arc {
   from {
     stroke-dasharray: 0 24;

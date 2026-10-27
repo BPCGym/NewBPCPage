@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { AppBadges } from '@/components/app-badges'
 import { SmartLink } from '@/components/smart-link'
 import { dropIns, links, membershipCategories, membershipTip, type PlanColor, type PlanGroup } from '@/lib/site'
@@ -9,25 +9,11 @@ import { cn } from '@/lib/utils'
 
 type TabColor = PlanColor | 'dropin'
 
-function Swoosh({ children, className }: { children: React.ReactNode; className?: string }) {
+function SpotlightBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="relative inline-block">
+    <span className="spotlight-badge relative inline-flex w-fit items-center gap-1.5 overflow-hidden rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary-foreground">
+      <Sparkles aria-hidden="true" className="spotlight-star size-3.5" />
       {children}
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 120 14"
-        preserveAspectRatio="none"
-        className={cn('welcome-swoosh absolute -bottom-1.5 left-0 h-2.5 w-full text-primary', className)}
-      >
-        <path
-          d="M2 9 C 30 3, 70 2, 118 7"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-          pathLength={1}
-        />
-      </svg>
     </span>
   )
 }
@@ -106,8 +92,8 @@ function PriceList({
   const content = (
     <>
       {tag && (
-        <p className="pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
-          <Swoosh>{tag}</Swoosh>
+        <p className="pb-3">
+          <SpotlightBadge>{tag}</SpotlightBadge>
         </p>
       )}
       <header className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
@@ -123,19 +109,21 @@ function PriceList({
         </h3>
         <span className="text-xs text-muted-foreground">{period}</span>
       </header>
-      <ul className="-mx-2 flex flex-col">
+      <ul className="flex flex-col gap-2 pt-3">
         {rows.map((row) => (
           <li
             key={row.name}
             className={cn(
-              'flex items-baseline justify-between gap-4 rounded-md px-2 py-2.5 transition-[background-color,transform] duration-200 hover:translate-x-1 hover:bg-muted/60 motion-reduce:hover:translate-x-0',
-              row.highlight && 'mt-2 bg-primary/5 ring-1 ring-primary/40',
+              'relative flex items-baseline justify-between gap-4 rounded-md px-3 py-2.5 transition-[background-color,box-shadow,transform] duration-200 hover:translate-x-1 motion-reduce:hover:translate-x-0',
+              row.highlight
+                ? 'plan-spotlight bg-primary/5 hover:bg-primary/10'
+                : 'ring-1 ring-border hover:bg-muted/60 hover:ring-foreground/40',
             )}
           >
             <span className="flex flex-col">
               {row.highlight && (
-                <span className="pb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">
-                  <Swoosh>{row.highlight}</Swoosh>
+                <span className="pb-2">
+                  <SpotlightBadge>{row.highlight}</SpotlightBadge>
                 </span>
               )}
               <span className="text-sm font-medium leading-snug">{row.name}</span>
@@ -298,8 +286,9 @@ export function MembershipCards() {
 
         {category?.groups.some((g) => g.plans.some((p) => p.highlight)) && (
           <aside className="flex flex-col gap-1 rounded-xl border border-dashed border-primary/50 bg-primary/5 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-3">
-            <p className="shrink-0 text-base font-semibold text-foreground">
-              <Swoosh>{membershipTip.lead}</Swoosh>
+            <p className="flex shrink-0 items-center gap-1.5 text-base font-semibold text-foreground">
+              <Sparkles aria-hidden="true" className="spotlight-star size-4 text-primary" />
+              {membershipTip.lead}
             </p>
             <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{membershipTip.text}</p>
           </aside>
