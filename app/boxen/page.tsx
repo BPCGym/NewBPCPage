@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { ClipboardCheck, Dumbbell, SlidersHorizontal, Users, type LucideIcon } from 'lucide-react'
 import { CtaLink } from '@/components/cta-link'
 import { GroupSchedule } from '@/components/group-schedule'
 import { HelpStrip } from '@/components/help-strip'
@@ -16,20 +17,24 @@ export const metadata: Metadata = {
     'BPC Boxen er funksjonell Gruppetrening hos BPC i Loddefjord. Instruktørledede timer som kan tilpasses alle nivåer.',
 }
 
-const benefits = [
+const benefits: { title: string; text: string; icon: LucideIcon }[] = [
   {
+    icon: Dumbbell,
     title: 'Funksjonell trening',
     text: 'Øktene bygger på kroppens naturlige bevegelser: løft, trekk, press, hopp og bæring. Du trener flere muskelgrupper samtidig og får styrke, utholdenhet og bevegelighet i samme økt.',
   },
   {
+    icon: SlidersHorizontal,
     title: 'For alle nivåer',
     text: 'Alle øvelser kan skaleres, byttes ut eller gjøres lettere. Du styrer tempoet selv, og instruktøren hjelper deg å finne riktig nivå.',
   },
   {
+    icon: ClipboardCheck,
     title: 'Ferdig planlagt',
     text: 'Du slipper å tenke på program, øvelser og oppvarming. Møt opp, gjør innsatsen, og la instruktøren ta seg av resten.',
   },
   {
+    icon: Users,
     title: 'Trening i fellesskap',
     text: 'Energien i en gruppe gjør det lettere å holde motivasjonen oppe. Mange syns det er enklere å møte opp når andre venter.',
   },
@@ -135,10 +140,22 @@ export default function BoxenPage() {
               </p>
             </div>
             <ul className="grid gap-4 md:grid-cols-2">
-              {benefits.map((item) => (
-                <li key={item.title} className="flex flex-col gap-2 rounded-2xl border border-border bg-background p-6">
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+              {benefits.map(({ title, text, icon: Icon }) => (
+                <li
+                  key={title}
+                  className="group relative flex gap-5 overflow-hidden rounded-2xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 md:p-7"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-6 top-0 h-px bg-linear-to-r from-transparent via-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  />
+                  <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="size-6" aria-hidden="true" />
+                  </span>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-lg font-semibold">{title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+                  </div>
                 </li>
               ))}
             </ul>
