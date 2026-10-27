@@ -55,7 +55,7 @@ export function WellnessRules() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-5">
-          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-3">
+          <div className="order-last grid gap-4 sm:grid-cols-2 lg:col-span-3">
             {lockerRooms.map((room) => (
               <figure key={room.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:aspect-auto lg:min-h-72">
                 <Image

@@ -25,7 +25,7 @@ export function Contact({ asPage = false }: ContactProps) {
       aria-labelledby="kontakt-title"
       className={asPage ? 'pb-20 pt-28 md:pb-28 md:pt-36' : 'scroll-mt-28 py-14 md:py-20'}
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 md:gap-10">
         <div className="flex flex-col gap-6">
           <SectionHeading
             id="kontakt-title"
@@ -41,8 +41,8 @@ export function Contact({ asPage = false }: ContactProps) {
           )}
         </div>
 
-        <div className="grid gap-4 md:grid-cols-12">
-          <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted md:col-span-4 md:row-span-2 md:aspect-auto">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-12 md:gap-4">
+          <figure className="relative col-span-2 h-52 overflow-hidden rounded-2xl bg-muted md:col-span-4 md:h-64">
             <Image
               src="/images/bpc-resepsjonister.jpg"
               alt="Tre smilende resepsjonister i BPC-klær bak disken, foran den opplyste BPC-logoen"
@@ -50,25 +50,25 @@ export function Contact({ asPage = false }: ContactProps) {
               sizes="(min-width: 768px) 33vw, 100vw"
               className="object-cover object-top"
             />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-5 pt-16 text-sm leading-relaxed text-foreground">
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-4 pt-12 text-sm leading-relaxed text-foreground">
               Resepsjonen tar imot deg i bemannet tid.
             </figcaption>
           </figure>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-muted md:col-span-8">
+          <div className="relative h-32 overflow-hidden rounded-2xl bg-muted md:col-span-4 md:h-64">
             <Image
               src="/images/bpc-lounge.jpg"
               alt="Loungen ved resepsjonen med sofaer, marmorert blått gulv og BPC-logo i gulvet"
               fill
-              sizes="(min-width: 768px) 66vw, 100vw"
+              sizes="(min-width: 768px) 33vw, 50vw"
               className="object-cover"
             />
           </div>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-muted md:col-span-8 md:aspect-[16/6]">
+          <div className="relative h-32 overflow-hidden rounded-2xl bg-muted md:col-span-4 md:h-64">
             <Image
               src="/images/bpc-resepsjon-disk.jpg"
               alt="Resepsjonsdisken på BPC med opplyst BPC-logo, blått LED-lys og marmorert epoxygulv"
               fill
-              sizes="(min-width: 768px) 66vw, 100vw"
+              sizes="(min-width: 768px) 33vw, 50vw"
               className="object-cover object-[50%_55%]"
             />
           </div>
