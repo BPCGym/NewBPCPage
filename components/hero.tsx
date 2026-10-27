@@ -35,10 +35,16 @@ export function Hero() {
               style={delay(120)}
             >
               Bli en del av <span className="sr-only">kulturen.</span>
-  <span aria-hidden="true" className="whitespace-nowrap">
-  <span className="culture-word">kulturen</span>
-  <span className="culture-dot">.</span>
-  </span>
+              <span aria-hidden="true" className="culture whitespace-nowrap">
+                <span className="culture-glow" />
+                <span className="culture-word" data-text="kulturen">
+                  kulturen
+                </span>
+                <span className="culture-dot">.</span>
+                <span className="culture-spark culture-spark-1" />
+                <span className="culture-spark culture-spark-2" />
+                <span className="culture-spark culture-spark-3" />
+              </span>
             </h1>
             <p
               className="hero-in mt-5 max-w-xl text-pretty text-lg leading-relaxed text-foreground/85 md:text-xl"
