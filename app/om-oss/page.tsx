@@ -35,7 +35,7 @@ export default function AboutPage() {
           text={`${company.brand} er et familieeiet kvalitetsgym, etablert, drevet og utviklet siden 2014. Vi har samlet Egentrening, Velvære, Gruppetrening og Barnepass under samme tak i ${company.street}.`}
           image={{
             src: '/images/om-oss-hero.jpg',
-            alt: 'Inngangen hos BPC med blålyst vegg, vindu inn til badstuen, skilt til garderober, gym, gruppetrening, yoga og BPC Kids',
+            alt: 'Inngangen hos BPC med blålyst vegg, vindu inn til badstuen, skilt til garderober, gym, Gruppetrening, yoga og BPC Kids',
           }}
         >
           <CtaLink href="/medlemskap" arrow>

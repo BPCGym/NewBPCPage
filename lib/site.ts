@@ -217,7 +217,7 @@ export const membershipCategories: readonly {
     id: 'velvaere',
     label: 'Velvære',
     color: 'velvaere',
-    intro: 'Badstue og velværerom som eget medlemskap. Har du allerede egentrening eller gruppetrening, finner du velvære under Tilleggsprodukter.',
+    intro: 'Badstue og velværerom som eget medlemskap. Har du allerede Egentrening eller Gruppetrening, finner du velvære under Tilleggsprodukter.',
     groups: [
       {
         title: 'Velvære 12 måneder',
@@ -248,7 +248,7 @@ export const dropIns = [
 
 // Add-ons for existing members. Add a new line here and it appears everywhere add-ons are listed.
 export const addOns = [
-  { name: 'Velværetilgang', price: 299, note: 'Gir tilgang til sauna og isbad (isbad fra 2027). For deg som har egentrening eller gruppetrening.' },
+  { name: 'Velværetilgang', price: 299, note: 'Gir tilgang til sauna og isbad (isbad fra 2027). For deg som har Egentrening eller Gruppetrening.' },
   { name: 'Håndkle, 1 pr gang', price: 149, note: 'Fast håndkleavtale.' },
   { name: 'Håndkle, 2 pr gang', price: 299, note: 'Fast håndkleavtale.' },
   { name: 'Barnepass', price: 0, note: 'Inkludert i medlemskapene.' },

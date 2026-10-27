@@ -32,7 +32,7 @@ const options: Option[] = [
     label: 'Tillegg til trening',
     price: wellness.monthlyPrice,
     unit: '/mnd',
-    text: 'Legg velvære til egentrening eller gruppetrening.',
+    text: 'Legg velvære til Egentrening eller Gruppetrening.',
     href: '/medlemskap#tillegg',
   },
   ...(saunaDropIn
