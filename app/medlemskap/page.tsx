@@ -7,7 +7,7 @@ import { MembershipCards } from '@/components/membership-cards'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { SmartLink } from '@/components/smart-link'
-import { campaign, company, links, mailto } from '@/lib/site'
+import { campaign, company, links } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Medlemskap',
@@ -24,8 +24,8 @@ const otherOptions = [
   },
   {
     title: 'Har du spørsmål?',
-    text: 'Usikker på hva som passer deg? Send oss en e-post, så hjelper vi deg.',
-    href: mailto('Medlemskap hos BPC'),
+    text: 'Usikker på hva som passer deg? Ta kontakt med oss, så hjelper vi deg.',
+    href: '/kontakt',
     cta: 'Spør oss om medlemskap',
   },
 ]
