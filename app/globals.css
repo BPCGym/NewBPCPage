@@ -44,6 +44,10 @@
   --color-egen-foreground: var(--egen-foreground);
   --color-gruppe: var(--gruppe);
   --color-gruppe-foreground: var(--gruppe-foreground);
+  --color-korttid-egen: var(--korttid-egen);
+  --color-korttid-egen-foreground: var(--korttid-egen-foreground);
+  --color-korttid-gruppe: var(--korttid-gruppe);
+  --color-korttid-gruppe-foreground: var(--korttid-gruppe-foreground);
   --color-sauna: var(--sauna);
   --color-sauna-foreground: var(--sauna-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
@@ -83,6 +87,10 @@
   --egen-foreground: oklch(0.98 0.003 85);
   --gruppe: oklch(0.72 0.18 150);
   --gruppe-foreground: oklch(0.16 0.02 150);
+  --korttid-egen: oklch(0.85 0.16 92);
+  --korttid-egen-foreground: oklch(0.18 0.03 92);
+  --korttid-gruppe: oklch(0.63 0.22 27);
+  --korttid-gruppe-foreground: oklch(0.98 0.003 85);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

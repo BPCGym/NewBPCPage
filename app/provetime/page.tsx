@@ -59,8 +59,7 @@ export default function TrialPage() {
               <div className="flex flex-col gap-3 rounded-2xl border border-border bg-background p-6 md:p-8">
                 <h3 className="text-xl font-semibold">Drop-in</h3>
                 <p className="leading-relaxed text-muted-foreground">
-                  Én økt med Egentrening uten medlemskap. Senere besøk er drop-in. Du kjøper drop-in i Appen Min Trening eller i
-                  resepsjonen i bemannet tid.
+                  Én økt med Egentrening uten medlemskap. Senere besøk er drop-in. Drop-in kjøpes kun i Appen Min Trening.
                 </p>
               </div>
             </div>

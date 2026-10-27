@@ -1,5 +1,5 @@
 import { SmartLink } from '@/components/smart-link'
-import { dropIns, links } from '@/lib/site'
+import { dropIns } from '@/lib/site'
 
 const formatPrice = (price: number) => price.toLocaleString('nb-NO')
 
@@ -25,10 +25,10 @@ export function DropInCards() {
             {`${item.note} Ingen innmeldingsavgift og ingen binding.`}
           </p>
           <SmartLink
-            href={links.signup}
+            href="/provetime"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
           >
-            Kjøp drop-in
+            Kjøp i Appen
           </SmartLink>
         </li>
       ))}

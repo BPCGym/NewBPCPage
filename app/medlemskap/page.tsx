@@ -97,10 +97,10 @@ export default function MembershipPage() {
           </section>
         )}
 
-        <section aria-labelledby="medlemskapene-title" className="pt-16 md:pt-24">
-          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
+        <section id="priser" aria-labelledby="medlemskapene-title" className="scroll-mt-28 pt-14 md:pt-20">
+          <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6">
             <h2 id="medlemskapene-title" className="text-2xl font-semibold tracking-tight md:text-3xl">
-              Våre medlemskap
+              Våre medlemskap og priser
             </h2>
             <MembershipCards />
           </div>

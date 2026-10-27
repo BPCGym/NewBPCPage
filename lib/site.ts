@@ -96,37 +96,114 @@ export const campaign = {
   signupFee: 0,
 } as const
 
-export const memberships = [
-  {
-    category: 'egen',
-    name: 'Egentrening 12 mnd',
-    monthlyPrice: 749,
-    bindingMonths: 12,
-    note: 'BPC Gym.',
-  },
-  {
-    category: 'egen',
-    name: 'Egentrening 12 mnd Student/Offshore',
-    monthlyPrice: 649,
-    bindingMonths: 12,
-    note: 'Krever gyldig dokumentasjon.',
-  },
-  {
-    category: 'gruppe',
-    name: 'Gruppetrening 12 mnd',
-    monthlyPrice: 1249,
-    bindingMonths: 12,
-    note: 'Timene i BPC Boxen.',
-  },
-  {
-    category: 'gruppe',
-    name: 'Gruppetrening 12 mnd Student/Offshore',
-    monthlyPrice: 1049,
-    bindingMonths: 12,
-    note: 'Krever gyldig dokumentasjon.',
-  },
-] as const
+// Prices shown on /medlemskap. Each tab holds one or more boxes (groups) of plans.
+// color: egen = blue, gruppe = green, korttidEgen = yellow, korttidGruppe = red.
+export type PlanColor = 'egen' | 'gruppe' | 'korttidEgen' | 'korttidGruppe'
 
+export type PlanGroup = {
+  title: string
+  note: string
+  color: PlanColor
+  period: string
+  plans: readonly { name: string; price: number; note?: string }[]
+}
+
+export const membershipCategories: readonly {
+  id: string
+  label: string
+  color: PlanColor
+  intro: string
+  groups: readonly PlanGroup[]
+}[] = [
+  {
+    id: 'egentrening',
+    label: 'Egentrening',
+    color: 'egen',
+    intro: 'Tren i BPC Gym når det passer deg, alle dager 04–23.',
+    groups: [
+      {
+        title: '12 måneder',
+        note: '12 måneders bindingstid. Lavest pris per måned.',
+        color: 'egen',
+        period: 'Pr måned',
+        plans: [
+          { name: 'Egentrening 12 mnd', price: 749 },
+          { name: 'Egentrening 12 mnd Student/Offshore', price: 649, note: 'Krever gyldig dokumentasjon.' },
+        ],
+      },
+      {
+        title: 'Løpende',
+        note: 'Ingen bindingstid. 1 måneds oppsigelsestid.',
+        color: 'egen',
+        period: 'Pr måned',
+        plans: [
+          { name: 'Egentrening 1 mnd Løpende', price: 849 },
+          { name: 'Egentrening 1 mnd Løpende Student', price: 749, note: 'Krever gyldig dokumentasjon.' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'gruppetrening',
+    label: 'Gruppetrening',
+    color: 'gruppe',
+    intro: 'Gruppetimene i BPC Boxen, med fast ukentlig timeplan.',
+    groups: [
+      {
+        title: '12 måneder',
+        note: '12 måneders bindingstid. Lavest pris per måned.',
+        color: 'gruppe',
+        period: 'Pr måned',
+        plans: [
+          { name: 'Gruppetrening 12 mnd', price: 1249 },
+          { name: 'Gruppetrening 12 mnd Student/Offshore', price: 1049, note: 'Krever gyldig dokumentasjon.' },
+        ],
+      },
+      {
+        title: 'Løpende',
+        note: 'Ingen bindingstid. 1 måneds oppsigelsestid.',
+        color: 'gruppe',
+        period: 'Pr måned',
+        plans: [
+          { name: 'Gruppetrening 1 mnd Løpende', price: 1349 },
+          { name: 'Gruppetrening 1 mnd Løpende Student', price: 1149, note: 'Krever gyldig dokumentasjon.' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'korttid',
+    label: 'Korttid',
+    color: 'korttidEgen',
+    intro: 'På besøk eller vil teste oss over tid? Betal én gang for en periode, uten binding.',
+    groups: [
+      {
+        title: 'Egentrening korttid',
+        note: 'Engangsbetaling for perioden. Ingen binding.',
+        color: 'korttidEgen',
+        period: 'Pr periode',
+        plans: [
+          { name: 'Egentrening 3 dager', price: 449 },
+          { name: 'Egentrening 7 dager', price: 549 },
+          { name: 'Egentrening 30 dager', price: 899 },
+        ],
+      },
+      {
+        title: 'Gruppetrening korttid',
+        note: 'Engangsbetaling for perioden. Ingen binding.',
+        color: 'korttidGruppe',
+        period: 'Pr periode',
+        plans: [
+          { name: 'Gruppetrening 3 dager', price: 599 },
+          { name: 'Gruppetrening 7 dager', price: 799 },
+          { name: 'Gruppetrening 30 dager', price: 1349 },
+        ],
+      },
+    ],
+  },
+]
+
+// Drop-in is sold only in the app Min Trening, never on the website.
 export const dropIns = [
   { name: 'Egentrening', price: 200, note: 'Én økt i BPC Gym.' },
   { name: 'Egentrening + Sauna', price: 350, note: 'Én økt i BPC Gym, med badstue etterpå.' },
@@ -279,7 +356,7 @@ export const mainNav = [
   { href: links.boxen, label: 'BPC Boxen' },
   { href: '/barnepass', label: 'BPC Kids' },
   { href: '/medlemskap', label: 'Medlemskap' },
-  { href: '/drop-in', label: 'Drop-in' },
+  { href: '/medlemskap?kategori=drop-in', label: 'Drop-in' },
 ] as const
 
 export const secondaryNav = [
