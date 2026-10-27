@@ -10,6 +10,7 @@ import { ParentsSection } from '@/components/parents-section'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TrainingAreas } from '@/components/training-areas'
+import { WoodwaySection } from '@/components/woodway-section'
 import { links, mailto, trainingHours } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -72,6 +73,8 @@ export default function GymPage() {
         </section>
 
         <NewtechSection />
+
+        <WoodwaySection />
 
         <LockerRooms />
 
