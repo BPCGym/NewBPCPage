@@ -8,16 +8,16 @@ import { SiteHeader } from '@/components/site-header'
 export const metadata: Metadata = {
   title: 'Drop-in',
   description:
-    'Tren hos BPC Gym i Loddefjord uten medlemskap. Kjøp drop-in i appen Min Trening og skann deg inn selv i hele åpningstiden.',
+    'Tren hos BPC Gym i Loddefjord uten medlemskap. Kjøp drop-in i Appen Min Trening og skann deg inn selv i hele åpningstiden.',
 }
 
 const steps = [
-  { title: 'Last ned appen', text: 'Last ned «Min Trening» fra App Store eller Google Play.' },
+  { title: 'Last ned Appen', text: 'Last ned «Min Trening» fra App Store eller Google Play.' },
   { title: 'Velg senteret', text: 'Velg «Bergen Performance Center».' },
   { title: 'Registrer deg', text: 'Trykk «Registrer deg» og opprett profilen din.' },
   { title: 'Kjøp drop-in', text: 'Velg «Kjøp drop-in» og ønsket type.' },
   { title: 'Fullfør', text: 'Fullfør registrering og aktivering.' },
-  { title: 'Skann deg inn', text: 'Aktiver QR-koden i appen – du finner den øverst i høyre hjørne.' },
+  { title: 'Skann deg inn', text: 'Aktiver QR-koden i Appen – du finner den øverst i høyre hjørne.' },
 ]
 
 const facts = [
@@ -44,7 +44,7 @@ export default function DropInPage() {
           id="dropin-title"
           eyebrow="Drop-in"
           title="Tren når det passer deg."
-          text="Ingen medlemskap, ingen binding. Kjøp drop-in i appen Min Trening og skann deg inn selv."
+          text="Ingen medlemskap, ingen binding. Kjøp drop-in i Appen Min Trening og skann deg inn selv."
           image={{
             src: '/images/drop-in-hero.jpg',
             alt: 'Inngangen hos BPC med blått lys rundt veggpanelet, adgangsportal med QR-leser og skilt til garderober, gym og gruppetrening',
@@ -66,7 +66,7 @@ export default function DropInPage() {
                 Slik kjøper du drop-in
               </h2>
               <p className="max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-                Drop-in kjøpes kun i appen Min Trening, ikke på nettsiden.
+                Drop-in kjøpes kun i Appen Min Trening, ikke på nettsiden.
               </p>
             </div>
 
