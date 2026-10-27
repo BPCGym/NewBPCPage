@@ -41,17 +41,49 @@ export function Hero() {
                   kulturen
                 </span>
                 <span className="culture-dot">.</span>
+                <svg
+                  className="culture-swoosh"
+                  viewBox="0 0 400 24"
+                  preserveAspectRatio="none"
+                  focusable="false"
+                >
+                  <defs>
+                    <linearGradient id="culture-swoosh-base" x1="0" x2="1" y1="0" y2="0">
+                      <stop offset="0%" className="culture-stop-fade" />
+                      <stop offset="35%" className="culture-stop-blue" />
+                      <stop offset="85%" className="culture-stop-light" />
+                      <stop offset="100%" className="culture-stop-fade" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="culture-swoosh-base"
+                    d="M6 17 C 110 7, 270 4, 394 11"
+                    pathLength={100}
+                    stroke="url(#culture-swoosh-base)"
+                  />
+                  <path
+                    className="culture-swoosh-tail"
+                    d="M6 17 C 110 7, 270 4, 394 11"
+                    pathLength={100}
+                  />
+                  <path
+                    className="culture-swoosh-head"
+                    d="M6 17 C 110 7, 270 4, 394 11"
+                    pathLength={100}
+                  />
+                </svg>
                 <span className="culture-spark culture-spark-1" />
                 <span className="culture-spark culture-spark-2" />
                 <span className="culture-spark culture-spark-3" />
               </span>
             </h1>
-            <p
-              className="hero-in mt-5 max-w-xl text-pretty text-lg leading-relaxed text-foreground/85 md:text-xl"
-              style={delay(260)}
-            >
-              Ditt tempo. Dine mål. Et sted å høre til.
-            </p>
+  <p className="mt-5 flex max-w-xl flex-wrap gap-x-2 text-pretty text-lg font-medium leading-relaxed text-foreground/90 md:text-xl">
+  {['Ditt tempo.', 'Dine mål.', 'Et sted å høre til.'].map((phrase, i) => (
+  <span key={phrase} className="hero-punch inline-block" style={{ animationDelay: `${900 + i * 420}ms` }}>
+  {phrase}
+  </span>
+  ))}
+  </p>
           </div>
           <div className="hero-in mt-8" style={delay(380)}>
             <HeroActions />
