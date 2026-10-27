@@ -25,7 +25,7 @@ const stories = [
 
 export function KidsPeople() {
   return (
-    <section aria-label="Menneskene i BPC Kids" className="pb-10 md:pb-14">
+    <section aria-label="Menneskene i BPC Kids" className="pt-10 pb-4 md:pt-14 md:pb-6">
       <ul className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 md:gap-6">
         {stories.map((story) => (
           <li key={story.id} className="flex flex-col gap-4" data-reveal>

@@ -37,8 +37,8 @@ export default function ChildcarePage() {
             Spør om barnepass
           </CtaLink>
         </FullBleedHero>
-        <KidsFeature />
         <KidsPeople />
+        <KidsFeature />
         <KidsSchedule />
         <KidsRules />
         <KidsGallery />
