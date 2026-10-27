@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { AppBadges } from '@/components/app-badges'
 import { SmartLink } from '@/components/smart-link'
@@ -16,6 +16,39 @@ const dotStyles: Record<TabColor, string> = {
   korttidGruppe: 'bg-korttid-gruppe',
   velvaere: 'bg-muted-foreground',
   dropin: 'bg-foreground',
+}
+
+const barStyles: Record<TabColor, string> = {
+  egen: 'before:bg-egen',
+  gruppe: 'before:bg-gruppe',
+  korttidEgen: 'before:bg-korttid-egen',
+  korttidGruppe: 'before:bg-korttid-gruppe',
+  velvaere: 'before:bg-muted-foreground',
+  dropin: 'before:bg-foreground',
+}
+
+function useActiveCard(panelKey: string) {
+  const panelRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    setActiveIndex(null)
+    const cards = panelRef.current?.querySelectorAll<HTMLElement>('[data-plan-card]')
+    if (!cards?.length) return
+    const list = Array.from(cards)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveIndex(list.indexOf(entry.target as HTMLElement))
+        }
+      },
+      { rootMargin: '-45% 0px -45% 0px' },
+    )
+    list.forEach((card) => observer.observe(card))
+    return () => observer.disconnect()
+  }, [panelKey])
+
+  return { panelRef, activeIndex }
 }
 
 const tabs = [
@@ -34,6 +67,7 @@ function PriceList({
   note,
   rows,
   href,
+  active = false,
 }: {
   title: string
   color: TabColor
@@ -41,19 +75,29 @@ function PriceList({
   note?: string
   rows: Row[]
   href?: string
+  active?: boolean
 }) {
   const content = (
     <>
       <header className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
         <h3 className="flex items-center gap-2 text-sm font-semibold">
-          <span aria-hidden="true" className={cn('size-2 rounded-full', dotStyles[color])} />
+          <span
+            aria-hidden="true"
+            className={cn(
+              'size-2 rounded-full transition-transform duration-300 group-hover:scale-150 group-data-[active=true]:scale-150',
+              dotStyles[color],
+            )}
+          />
           {title}
         </h3>
         <span className="text-xs text-muted-foreground">{period}</span>
       </header>
-      <ul className="flex flex-col">
+      <ul className="-mx-2 flex flex-col">
         {rows.map((row) => (
-          <li key={row.name} className="flex items-baseline justify-between gap-4 py-2.5">
+          <li
+            key={row.name}
+            className="flex items-baseline justify-between gap-4 rounded-md px-2 py-2.5 transition-[background-color,transform] duration-200 hover:translate-x-1 hover:bg-muted/60 motion-reduce:hover:translate-x-0"
+          >
             <span className="flex flex-col">
               <span className="text-sm font-medium leading-snug">{row.name}</span>
               {row.note && <span className="text-xs text-muted-foreground">{row.note}</span>}
@@ -66,14 +110,37 @@ function PriceList({
     </>
   )
 
+  const cardClass = cn(
+    'group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card px-5 py-4 transition-all duration-300 ease-out',
+    'before:absolute before:inset-y-0 before:left-0 before:w-1 before:origin-top before:scale-y-0 before:transition-transform before:duration-300',
+    'hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg hover:before:scale-y-100',
+    'data-[active=true]:border-primary/50 data-[active=true]:before:scale-y-100',
+    'active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:translate-y-0',
+    barStyles[color],
+  )
+
   if (!href) {
-    return <article className="flex flex-col rounded-xl border border-border bg-card px-5 py-4">{content}</article>
+    return (
+      <article
+        tabIndex={0}
+        data-plan-card
+        data-active={active}
+        className={cn(cardClass, 'outline-none focus-visible:border-primary focus-visible:before:scale-y-100')}
+      >
+        {content}
+      </article>
+    )
   }
 
   return (
     <SmartLink
       href={href}
-      className="group flex flex-col rounded-xl border border-border bg-card px-5 py-4 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+      data-plan-card
+      data-active={active}
+      className={cn(
+        cardClass,
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+      )}
     >
       {content}
       <span className="mt-auto flex items-center justify-end gap-1.5 border-t border-border pt-3 text-sm font-semibold text-foreground">
@@ -87,7 +154,7 @@ function PriceList({
   )
 }
 
-function PlanList({ group }: { group: PlanGroup }) {
+function PlanList({ group, active }: { group: PlanGroup; active: boolean }) {
   return (
     <PriceList
       title={group.title}
@@ -96,6 +163,7 @@ function PlanList({ group }: { group: PlanGroup }) {
       note={group.note}
       rows={group.plans}
       href={links.signup}
+      active={active}
     />
   )
 }
@@ -127,6 +195,7 @@ export function MembershipCards() {
   }
 
   const category = membershipCategories.find((c) => c.id === active)
+  const { panelRef, activeIndex } = useActiveCard(active)
 
   return (
     <div className="flex flex-col gap-5">
@@ -167,6 +236,7 @@ export function MembershipCards() {
         role="tabpanel"
         aria-labelledby={`tab-${active}`}
         key={active}
+        ref={panelRef}
         className="animate-in fade-in duration-300 flex flex-col gap-4 motion-reduce:animate-none"
       >
         <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
@@ -180,13 +250,13 @@ export function MembershipCards() {
               category.groups.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2',
             )}
           >
-            {category.groups.map((group) => (
-              <PlanList key={group.title} group={group} />
+            {category.groups.map((group, index) => (
+              <PlanList key={group.title} group={group} active={activeIndex === index} />
             ))}
           </div>
         ) : (
           <div className="grid gap-3 md:grid-cols-2">
-            <PriceList title="Drop-in" color="dropin" period="Pr besøk" rows={dropIns} />
+            <PriceList title="Drop-in" color="dropin" period="Pr besøk" rows={dropIns} active={activeIndex === 0} />
           </div>
         )}
 

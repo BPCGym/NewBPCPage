@@ -26,35 +26,38 @@ export function TeamGrid() {
         </div>
 
         {team.length > 0 ? (
-          <div className="flex flex-col gap-14 md:gap-20">
+          <div className="flex flex-col gap-10 md:gap-12">
             {teamGroups.map((group) => (
-              <div key={group.id} className="flex flex-col gap-6">
+              <div key={group.id} className="flex flex-col gap-4">
                 <div className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
                   <h3 id={`team-${group.id}`} className="text-xl font-semibold tracking-tight md:text-2xl">
                     {group.title}
                   </h3>
                   <span className="text-sm text-muted-foreground">{group.members.length}</span>
                 </div>
-          <ul aria-labelledby={`team-${group.id}`} className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <ul
+            aria-labelledby={`team-${group.id}`}
+            className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:gap-4 lg:grid-cols-6"
+          >
             {group.members.map((member) => (
-              <li key={member.name} className="flex flex-col gap-3">
-                <div className="relative aspect-[1587/2245] overflow-hidden rounded-2xl bg-muted">
+              <li key={member.name} className="flex flex-col gap-2">
+                <div className="relative aspect-[1587/2245] overflow-hidden rounded-xl bg-muted">
                   {member.image ? (
                     <Image
                       src={member.image}
                       alt={`Portrett av ${member.name}`}
                       fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                      sizes="(min-width: 1024px) 16vw, (min-width: 640px) 25vw, 33vw"
                       className="object-cover"
                     />
                   ) : (
-                    <div className="flex h-full items-center justify-center text-4xl font-semibold text-muted-foreground" aria-hidden="true">
+                    <div className="flex h-full items-center justify-center text-2xl font-semibold text-muted-foreground" aria-hidden="true">
                       {initials(member.name)}
                     </div>
                   )}
                 </div>
-                <div className="flex flex-col gap-1">
-                  <h4 className="text-base font-semibold md:text-lg">{member.name}</h4>
+                <div className="flex flex-col gap-0.5">
+                  <h4 className="text-sm font-semibold">{member.name}</h4>
                   {member.role ? <p className="text-sm font-medium text-primary">{member.role}</p> : null}
                   {member.bio ? (
                     <p className="pt-1 text-pretty leading-relaxed text-muted-foreground">{member.bio}</p>
