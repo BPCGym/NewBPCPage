@@ -46,8 +46,12 @@ export default function GymPage() {
             alt: 'To smilende medlemmer bærer vektskiver i styrkesalen hos BPC under blått lys',
           }}
         >
-          <CtaLink href={links.signup} arrow>
-            Bli medlem
+          <CtaLink
+            href={links.signup}
+            arrow
+            className="cta-sweep cta-culture glow relative overflow-hidden font-semibold"
+          >
+            <span className="relative">Bli medlem</span>
           </CtaLink>
           <CtaLink href={mailto('Prøvetime hos BPC')} variant="outline">
             Spør om prøvetime

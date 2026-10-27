@@ -65,9 +65,12 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <SmartLink
             href={links.signup}
-            className={cn(buttonVariants({ size: 'sm' }), 'h-9 rounded-full px-5')}
+            className={cn(
+              buttonVariants({ size: 'sm' }),
+              'cta-sweep cta-culture glow relative h-9 overflow-hidden rounded-full px-5 font-semibold',
+            )}
           >
-            Bli medlem
+            <span className="relative">Bli medlem</span>
           </SmartLink>
           <button
             type="button"
