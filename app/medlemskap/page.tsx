@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 const otherOptions = [
   {
     title: 'Gruppetrening',
-    text: 'Gruppetimene er i BPC Boxen. Se timeplanen og hvordan det fungerer.',
-    href: links.boxen,
-    cta: 'Les om BPC Boxen',
+    text: 'Gruppetimene er i BPC Boxen. Velg medlemskap og meld deg inn direkte.',
+    href: links.signup,
+    cta: 'Bli medlem',
   },
   {
     title: 'Har du spørsmål?',
