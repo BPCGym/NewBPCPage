@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
 import { CampaignTerms } from '@/components/campaign-terms'
 import { CtaLink } from '@/components/cta-link'
@@ -33,8 +34,23 @@ export default function MembershipPage() {
   return (
     <>
       <SiteHeader />
-      <main className="pt-24 md:pt-32">
-        <section aria-labelledby="medlemskap-title" className="pb-4 md:pb-2">
+      <main>
+        <section
+          aria-labelledby="medlemskap-title"
+          className="relative isolate overflow-hidden pb-10 pt-32 md:pb-14 md:pt-44"
+        >
+          <Image
+            src="/images/bpc-maskinrom.jpg"
+            alt="Apparatsalen hos BPC med lilla og blått lys langs taket og blått marmorgulv"
+            fill
+            priority
+            sizes="100vw"
+            className="hero-zoom -z-20 object-cover object-center"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/75 to-background/35"
+          />
           <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2 md:items-end md:gap-12">
             <div className="flex flex-col items-start gap-3">
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Medlemskap</p>
@@ -44,7 +60,7 @@ export default function MembershipPage() {
               >
                 Finn din plass på BPC.
               </h1>
-              <p className="max-w-lg text-pretty leading-relaxed text-muted-foreground">
+              <p className="max-w-lg text-pretty leading-relaxed text-foreground/85">
                 Se hva medlemskapet omfatter, og fullfør innmeldingen i medlemssystemet vårt.
               </p>
             </div>
@@ -55,7 +71,7 @@ export default function MembershipPage() {
                 <CtaLink href={links.signup} arrow className="w-full sm:w-auto">
                   Fortsett til innmelding
                 </CtaLink>
-                <p className="text-sm text-muted-foreground">Du går videre til BPCs medlemssystem.</p>
+                <p className="text-sm text-foreground/80">Du går videre til BPCs medlemssystem.</p>
               </div>
             </div>
           </div>
