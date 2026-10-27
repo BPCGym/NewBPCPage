@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { ClipboardCheck, Dumbbell, HeartHandshake, SlidersHorizontal, Users, type LucideIcon } from 'lucide-react'
+import { CalendarDays, ClipboardCheck, Dumbbell, HeartHandshake, SlidersHorizontal, Users, type LucideIcon } from 'lucide-react'
 import { CtaLink } from '@/components/cta-link'
 import { GroupSchedule } from '@/components/group-schedule'
 import { HelpStrip } from '@/components/help-strip'
@@ -101,6 +101,10 @@ export default function BoxenPage() {
         >
           <CtaLink href="/provetime" arrow className="glow">
             Book en prøvetime
+          </CtaLink>
+          <CtaLink href="#timeplan-title" variant="outline">
+            <CalendarDays className="size-4" aria-hidden="true" />
+            Se vår timeplan
           </CtaLink>
           <CtaLink href={mailto('Gruppetrening i BPC Boxen')} variant="outline">
             Spør oss om Boxen
@@ -221,25 +225,25 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="galleri-title" className="py-14 md:py-20">
-          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
-            <div className="flex max-w-2xl flex-col gap-4">
-              <h2 id="galleri-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-                Livet i Boxen
-              </h2>
-              <p className="text-pretty leading-relaxed text-muted-foreground">
-                Sprintbane, rigger, romaskiner, airbikes og god stemning. Her er et lite innblikk.
-              </p>
-            </div>
-            <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-              {gallery.map((img) => (
-                <li key={img.src} className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    loading="lazy"
-                    sizes="(min-width: 768px) 25vw, 50vw"
+  <section aria-labelledby="galleri-title" className="py-10 md:py-12">
+  <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6">
+  <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-6">
+  <h2 id="galleri-title" className="text-balance text-xl font-semibold tracking-tight md:text-2xl">
+  Livet i Boxen
+  </h2>
+  <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+  Sprintbane, rigger, romaskiner, airbikes og god stemning.
+  </p>
+  </div>
+  <ul className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+  {gallery.map((img) => (
+  <li key={img.src} className="relative aspect-[4/3] overflow-hidden rounded-xl">
+  <Image
+  src={img.src}
+  alt={img.alt}
+  fill
+  loading="lazy"
+  sizes="(min-width: 768px) 25vw, 50vw"
                     className={`object-cover transition-transform duration-700 hover:scale-105 ${img.position}`}
                   />
                 </li>
