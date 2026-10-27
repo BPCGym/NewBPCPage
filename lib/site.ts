@@ -105,9 +105,17 @@ export type PlanGroup = {
   note: string
   color: PlanColor
   period: string
-  tag?: string
+  benefit?: PlanBenefit
   plans: readonly { name: string; price: number; note?: string; highlight?: string }[]
 }
+
+export type PlanBenefit = { kind: 'value' | 'flex' | 'trial'; label: string; text: string }
+
+const benefits = {
+  value: { kind: 'value', label: 'Mest verdi for pengene', text: 'Lavest pris per måned.' },
+  flex: { kind: 'flex', label: 'Mest fleksibilitet', text: 'Ingen binding, si opp når du vil.' },
+  trial: { kind: 'trial', label: 'Uforpliktende', text: 'For deg som vil teste eller er på reise.' },
+} as const satisfies Record<string, PlanBenefit>
 
 export const membershipTip = {
   lead: 'Usikker?',
@@ -129,7 +137,8 @@ export const membershipCategories: readonly {
     groups: [
       {
         title: '12 måneder',
-        note: '12 måneders bindingstid. Lavest pris per måned.',
+        note: '12 måneders bindingstid.',
+        benefit: benefits.value,
         color: 'egen',
         period: 'Pr måned',
         plans: [
@@ -140,6 +149,7 @@ export const membershipCategories: readonly {
       {
         title: 'Løpende',
         note: 'Ingen bindingstid. 1 måneds oppsigelsestid.',
+        benefit: benefits.flex,
         color: 'egen',
         period: 'Pr måned',
         plans: [
@@ -152,7 +162,7 @@ export const membershipCategories: readonly {
         note: 'Engangsbetaling for perioden. Ingen binding.',
         color: 'korttidEgen',
         period: 'Pr periode',
-        tag: 'For deg som vil teste',
+        benefit: benefits.trial,
         plans: [
           { name: 'Egentrening 3 dager', price: 449 },
           { name: 'Egentrening 7 dager', price: 549 },
@@ -169,7 +179,8 @@ export const membershipCategories: readonly {
     groups: [
       {
         title: '12 måneder',
-        note: '12 måneders bindingstid. Lavest pris per måned.',
+        note: '12 måneders bindingstid.',
+        benefit: benefits.value,
         color: 'gruppe',
         period: 'Pr måned',
         plans: [
@@ -180,6 +191,7 @@ export const membershipCategories: readonly {
       {
         title: 'Løpende',
         note: 'Ingen bindingstid. 1 måneds oppsigelsestid.',
+        benefit: benefits.flex,
         color: 'gruppe',
         period: 'Pr måned',
         plans: [
@@ -192,7 +204,7 @@ export const membershipCategories: readonly {
         note: 'Engangsbetaling for perioden. Ingen binding.',
         color: 'korttidGruppe',
         period: 'Pr periode',
-        tag: 'For deg som vil teste',
+        benefit: benefits.trial,
         plans: [
           { name: 'Gruppetrening 3 dager', price: 599 },
           { name: 'Gruppetrening 7 dager', price: 799 },

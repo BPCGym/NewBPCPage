@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight, PiggyBank, Plane, Repeat, Sparkles, type LucideIcon } from 'lucide-react'
 import { AppBadges } from '@/components/app-badges'
 import { SmartLink } from '@/components/smart-link'
-import { dropIns, links, membershipCategories, membershipTip, type PlanColor, type PlanGroup } from '@/lib/site'
+import { dropIns, links, membershipCategories, membershipTip, type PlanBenefit, type PlanColor, type PlanGroup } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 type TabColor = PlanColor | 'dropin'
@@ -15,6 +15,30 @@ function SpotlightBadge({ children }: { children: React.ReactNode }) {
       <Sparkles aria-hidden="true" className="spotlight-star size-3.5" />
       {children}
     </span>
+  )
+}
+
+const benefitIcons: Record<PlanBenefit['kind'], LucideIcon> = {
+  value: PiggyBank,
+  flex: Repeat,
+  trial: Plane,
+}
+
+function BenefitLine({ benefit }: { benefit: PlanBenefit }) {
+  const Icon = benefitIcons[benefit.kind]
+  return (
+    <div className="flex items-center gap-3 pb-3">
+      <span
+        aria-hidden="true"
+        className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none"
+      >
+        <Icon className="size-4" />
+      </span>
+      <span className="flex flex-col">
+        <span className="text-sm font-semibold leading-snug">{benefit.label}</span>
+        <span className="text-xs leading-snug text-muted-foreground">{benefit.text}</span>
+      </span>
+    </div>
   )
 }
 
@@ -78,7 +102,7 @@ function PriceList({
   rows,
   href,
   active = false,
-  tag,
+  benefit,
 }: {
   title: string
   color: TabColor
@@ -87,15 +111,11 @@ function PriceList({
   rows: readonly Row[]
   href?: string
   active?: boolean
-  tag?: string
+  benefit?: PlanBenefit
 }) {
   const content = (
     <>
-      {tag && (
-        <p className="pb-3">
-          <SpotlightBadge>{tag}</SpotlightBadge>
-        </p>
-      )}
+      {benefit && <BenefitLine benefit={benefit} />}
       <header className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
         <h3 className="flex items-center gap-2 text-sm font-semibold">
           <span
@@ -191,7 +211,7 @@ function PlanList({ group, active }: { group: PlanGroup; active: boolean }) {
       rows={group.plans}
       href={links.signup}
       active={active}
-      tag={group.tag}
+      benefit={group.benefit}
     />
   )
 }
