@@ -5,6 +5,7 @@ import { FullBleedHero } from '@/components/full-bleed-hero'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { TermsStrip } from '@/components/terms-strip'
+import { TrialPitch } from '@/components/trial-pitch'
 import { mailto } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -42,6 +43,8 @@ export default function TrialPage() {
             Kontakt resepsjonen
           </CtaLink>
         </FullBleedHero>
+
+        <TrialPitch />
 
         <section aria-labelledby="valg-title" className="border-t border-border bg-card py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
