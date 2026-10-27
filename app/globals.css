@@ -918,3 +918,45 @@
   .schedule-class, .schedule-class:hover { transform: none; }
   .schedule-class:hover::after { animation: none; }
 }
+
+.dropin-card {
+  background-image:
+    radial-gradient(120% 80% at 100% 0%, color-mix(in oklch, var(--accent) 16%, transparent), transparent 60%);
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+.dropin-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), color-mix(in oklch, var(--accent) 10%, transparent));
+}
+.dropin-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, oklch(1 0 0 / 0.1) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 700ms ease;
+}
+.dropin-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklch, var(--accent) 60%, transparent);
+  box-shadow: 0 14px 36px -12px color-mix(in oklch, var(--accent) 55%, transparent);
+}
+.dropin-card:hover::after { transform: translateX(120%); }
+.dropin-tag {
+  color: var(--accent);
+  background: color-mix(in oklch, var(--accent) 14%, transparent);
+}
+.dropin-icon {
+  color: var(--accent);
+  background: color-mix(in oklch, var(--accent) 16%, transparent);
+  border: 1px solid color-mix(in oklch, var(--accent) 30%, transparent);
+}
+.dropin-price { color: color-mix(in oklch, var(--accent) 35%, var(--foreground)); }
+@media (prefers-reduced-motion: reduce) {
+  .dropin-card, .dropin-card::after { transition: none; }
+  .dropin-card:hover { transform: none; }
+}

@@ -7,11 +7,11 @@ import { company, links, mainNav, secondaryNav } from '@/lib/site'
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-card">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
-        <div className="flex flex-col gap-3 md:col-span-2">
-          <div className="flex items-center gap-4">
-            <Image src="/images/bpc-logo.png" alt="" width={64} height={64} className="size-16" />
-            <p className="text-xl font-bold tracking-tight">{company.brand}</p>
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 sm:flex-row sm:items-start sm:gap-20">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-3">
+            <Image src="/images/bpc-logo.png" alt="" width={48} height={48} className="size-12" />
+            <p className="text-lg font-bold tracking-tight">{company.brand}</p>
           </div>
           <address className="flex flex-col gap-1 text-sm not-italic leading-relaxed text-muted-foreground">
             <span>{company.legalName}</span>
