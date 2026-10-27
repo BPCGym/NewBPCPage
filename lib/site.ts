@@ -109,7 +109,7 @@ export type PlanGroup = {
   plans: readonly { name: string; price: number; note?: string; highlight?: string }[]
 }
 
-export type PlanBenefit = { kind: 'value' | 'flex' | 'trial'; label: string; text: string }
+export type PlanBenefit = { kind: 'value' | 'flex' | 'trial' | 'wellness'; label: string; text: string }
 
 const benefits = {
   value: { kind: 'value', label: 'Mest verdi for pengene', text: 'Lavest pris per måned.' },
@@ -221,8 +221,12 @@ export const membershipCategories: readonly {
     groups: [
       {
         title: 'Velvære 12 måneder',
-        note: '12 måneders bindingstid. Eget medlemskap, kun velvære.',
-        benefit: benefits.value,
+  note: '12 måneders bindingstid. Eget medlemskap, kun velvære.',
+  benefit: {
+    kind: 'wellness',
+    label: 'Kun sauna og isbad',
+    text: 'For deg som ønsker kun tilgang til sauna og isbad (isbad fra 2027).',
+  },
         color: 'velvaere',
         period: 'Pr måned',
         plans: [
@@ -244,7 +248,7 @@ export const dropIns = [
 
 // Add-ons for existing members. Add a new line here and it appears everywhere add-ons are listed.
 export const addOns = [
-  { name: 'Velvære', price: 299, note: 'For deg som har egentrening eller gruppetrening.' },
+  { name: 'Velværetilgang', price: 299, note: 'Gir tilgang til sauna og isbad (isbad fra 2027). For deg som har egentrening eller gruppetrening.' },
   { name: 'Håndkle, 1 pr gang', price: 149, note: 'Fast håndkleavtale.' },
   { name: 'Håndkle, 2 pr gang', price: 299, note: 'Fast håndkleavtale.' },
   { name: 'Barnepass', price: 0, note: 'Inkludert i medlemskapene.' },

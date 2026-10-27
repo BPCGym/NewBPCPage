@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, PiggyBank, Plane, Repeat, Sparkles, type LucideIcon } from 'lucide-react'
+import { ArrowRight, Flame, PiggyBank, Plane, Repeat, Sparkles, type LucideIcon } from 'lucide-react'
 import { AppBadges } from '@/components/app-badges'
 import { SmartLink } from '@/components/smart-link'
 import {
@@ -32,6 +32,7 @@ const benefitIcons: Record<PlanBenefit['kind'], LucideIcon> = {
   value: PiggyBank,
   flex: Repeat,
   trial: Plane,
+  wellness: Flame,
 }
 
 function BenefitLine({ benefit }: { benefit: PlanBenefit }) {
