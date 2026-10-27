@@ -404,7 +404,7 @@ export const mainNav = [
   { href: links.boxen, label: 'BPC Boxen' },
   { href: '/barnepass', label: 'BPC Kids' },
   { href: '/medlemskap', label: 'Medlemskap' },
-  { href: '/medlemskap?kategori=drop-in', label: 'Drop-in' },
+  { href: '/drop-in', label: 'Drop-in' },
 ] as const
 
 export const secondaryNav = [

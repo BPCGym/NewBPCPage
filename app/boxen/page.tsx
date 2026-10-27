@@ -46,21 +46,14 @@ const steps = [
     text: 'Instruktøren går gjennom dagens økt på tavla og leder en felles oppvarming.',
     image: '/images/boxen-brief.jpg',
     alt: 'Instruktør forklarer dagens økt foran tavla i BPC Boxen',
-    position: 'object-[center_45%]',
+    position: 'object-[center_38%]',
   },
   {
-    title: 'Teknikk',
-    text: 'Øvelsene blir vist og forklart, med alternativer for ulike nivåer.',
+    title: 'Teknikk og dagens økt',
+    text: 'Øvelsene blir vist og forklart, med alternativer for ulike nivåer. Så trener dere sammen, mens instruktøren følger med, retter teknikk og tilpasser underveis.',
     image: '/images/boxen-coaching.jpg',
     alt: 'Instruktør viser riktig teknikk på knebøy med medisinball',
-    position: 'object-[center_45%]',
-  },
-  {
-    title: 'Dagens økt',
-    text: 'Dere trener sammen. Instruktøren følger med, retter teknikk og tilpasser underveis.',
-    image: '/images/boxen-time-markloft.jpg',
-    alt: 'Instruktør retter teknikken mens et medlem løfter markløft',
-    position: 'object-[60%_center]',
+    position: 'object-[center_40%]',
   },
 ]
 
@@ -218,24 +211,39 @@ export default function BoxenPage() {
 
         <section aria-labelledby="time-title" className="border-t border-border py-10 md:py-14">
           <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6">
-            <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between md:gap-6">
-              <h2 id="time-title" className="text-balance text-xl font-semibold tracking-tight md:text-2xl">
-                Slik foregår en time
-              </h2>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Ny i Gruppetrening? Si fra til instruktøren når du kommer.
-              </p>
-            </div>
-            <ol className="grid gap-4 sm:grid-cols-3">
+            <h2 id="time-title" className="text-balance text-xl font-semibold tracking-tight md:text-2xl">
+              Slik foregår en time
+            </h2>
+            <aside className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-primary/30 bg-primary/5 p-4 transition-colors hover:border-primary/50 md:p-5">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 animate-[shine_4s_ease-in-out_infinite] bg-linear-to-r from-transparent via-primary/15 to-transparent bg-[length:40%_100%] bg-no-repeat motion-reduce:hidden"
+              />
+              <span className="relative flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 animate-ping rounded-full bg-primary/40 motion-reduce:hidden"
+                />
+                <HeartHandshake className="relative size-5" aria-hidden="true" />
+              </span>
+              <div className="relative flex flex-col gap-0.5">
+                <p className="text-sm font-semibold md:text-base">Ny til Gruppetrening hos oss?</p>
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+                  Si det til instruktøren når du kommer. Da tas det ekstra hensyn, og instruktøren passer ekstra godt
+                  på deg gjennom hele timen.
+                </p>
+              </div>
+            </aside>
+            <ol className="grid gap-4 sm:grid-cols-2">
               {steps.map((step, i) => (
                 <li key={step.title} className="flex flex-col overflow-hidden rounded-xl border border-border bg-card">
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
                       src={step.image}
                       alt={step.alt}
                       fill
                       loading="lazy"
-                      sizes="(min-width: 640px) 33vw, 100vw"
+                      sizes="(min-width: 640px) 50vw, 100vw"
                       className={`object-cover ${step.position}`}
                     />
                   </div>
