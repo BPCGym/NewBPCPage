@@ -4,10 +4,33 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { AppBadges } from '@/components/app-badges'
 import { SmartLink } from '@/components/smart-link'
-import { dropIns, links, membershipCategories, type PlanColor, type PlanGroup } from '@/lib/site'
+import { dropIns, links, membershipCategories, membershipTip, type PlanColor, type PlanGroup } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 type TabColor = PlanColor | 'dropin'
+
+function Swoosh({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span className="relative inline-block">
+      {children}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 120 14"
+        preserveAspectRatio="none"
+        className={cn('welcome-swoosh absolute -bottom-1.5 left-0 h-2.5 w-full text-primary', className)}
+      >
+        <path
+          d="M2 9 C 30 3, 70 2, 118 7"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          pathLength={1}
+        />
+      </svg>
+    </span>
+  )
+}
 
 const dotStyles: Record<TabColor, string> = {
   egen: 'bg-egen',
@@ -69,6 +92,7 @@ function PriceList({
   rows,
   href,
   active = false,
+  featured = false,
 }: {
   title: string
   color: TabColor
@@ -77,9 +101,15 @@ function PriceList({
   rows: readonly Row[]
   href?: string
   active?: boolean
+  featured?: boolean
 }) {
   const content = (
     <>
+      {featured && (
+        <p className="pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
+          <Swoosh>Mest populær</Swoosh>
+        </p>
+      )}
       <header className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
         <h3 className="flex items-center gap-2 text-sm font-semibold">
           <span
@@ -117,6 +147,7 @@ function PriceList({
     'hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg hover:before:scale-y-100',
     'data-[active=true]:border-primary/50 data-[active=true]:before:scale-y-100',
     'active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:translate-y-0',
+    featured && 'border-primary/60 shadow-md before:scale-y-100',
     barStyles[color],
   )
 
@@ -165,6 +196,7 @@ function PlanList({ group, active }: { group: PlanGroup; active: boolean }) {
       rows={group.plans}
       href={links.signup}
       active={active}
+      featured={group.featured}
     />
   )
 }
@@ -255,7 +287,18 @@ export function MembershipCards() {
               <PlanList key={group.title} group={group} active={activeIndex === index} />
             ))}
           </div>
-        ) : (
+        ) : null}
+
+        {category?.groups.some((g) => g.featured) && (
+          <aside className="flex flex-col gap-1 rounded-xl border border-dashed border-primary/50 bg-primary/5 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-3">
+            <p className="shrink-0 text-base font-semibold text-foreground">
+              <Swoosh>{membershipTip.lead}</Swoosh>
+            </p>
+            <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{membershipTip.text}</p>
+          </aside>
+        )}
+
+        {category ? null : (
           <div className="grid gap-3 md:grid-cols-2">
             <PriceList title="Drop-in" color="dropin" period="Pr besøk" rows={dropIns} active={activeIndex === 0} />
           </div>
