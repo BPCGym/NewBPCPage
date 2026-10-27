@@ -1,23 +1,24 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Camera, Dumbbell, HandHeart, Home, ShieldAlert, Shirt, SprayCan } from 'lucide-react'
+import { Ban, Camera, Dumbbell, HandHeart, Home, Shirt, SprayCan } from 'lucide-react'
+
+const keyRule = {
+  icon: Home,
+  title: 'Behandle BPC som ditt eget hjem',
+  text: 'Rydd etter deg, hold orden der andre ikke har klart det, og hjelp til. Det er det eneste vi krever av hvert medlem.',
+}
 
 const rules = [
   {
-    icon: Home,
-    title: 'Behandle BPC som ditt eget hjem',
-    text: 'Rydd etter deg, hold orden der andre ikke har klart det, og hjelp til. Det er det eneste vi krever av hvert medlem.',
-  },
-  {
     icon: SprayCan,
     title: 'Rengjør apparater etter bruk',
-    text: 'Bruk renholdsstasjonene våre. Det er et krav, og det koster deg ingenting.',
+    text: 'Bruk renholdsstasjonene. Det er et krav, og det koster deg ingenting.',
   },
   {
     icon: Camera,
     title: 'Ikke film andre uten at de vet det',
-    text: 'Skal du filme til et prosjekt, ta kontakt, så finner vi et eget tidspunkt sent på kvelden – kun etter avtale.',
+    text: 'Skal du filme til et prosjekt, avtal et eget tidspunkt sent på kvelden med oss.',
   },
   {
     icon: Dumbbell,
@@ -31,112 +32,177 @@ const rules = [
   },
   {
     icon: HandHeart,
-    title: 'Vi bråker ikke av umodenhet',
+    title: 'Ingen bråk av umodenhet',
     text: 'Hard trening kan høres. Unødvendig rop og tull hører ikke hjemme her.',
   },
 ] as const
 
-function useActiveRule() {
-  const listRef = useRef<HTMLOListElement>(null)
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+const tapeWords = ['Nulltoleranse', 'Brudd fører til utestengelse', 'Respekter folk og utstyr']
+
+function useInView<T extends HTMLElement>() {
+  const ref = useRef<T>(null)
+  const [inView, setInView] = useState(false)
 
   useEffect(() => {
-    const items = listRef.current?.querySelectorAll<HTMLLIElement>('[data-rule-index]')
-    if (!items?.length) return
-
+    const node = ref.current
+    if (!node) return
     const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveIndex(Number((entry.target as HTMLElement).dataset.ruleIndex))
-          }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true)
+          observer.disconnect()
         }
       },
-      { rootMargin: '-45% 0px -45% 0px' },
+      { threshold: 0.4 },
     )
-
-    items.forEach((item) => observer.observe(item))
+    observer.observe(node)
     return () => observer.disconnect()
   }, [])
 
-  return { listRef, activeIndex }
+  return { ref, inView }
+}
+
+function RulesHeading() {
+  const { ref, inView } = useInView<HTMLHeadingElement>()
+
+  return (
+    <h2
+      ref={ref}
+      id="gymregler-title"
+      className="text-balance text-6xl font-black uppercase leading-none tracking-tighter md:text-8xl"
+    >
+      <span className="sr-only">Gymregler</span>
+      <span aria-hidden="true" className={inView ? 'culture whitespace-nowrap' : 'invisible whitespace-nowrap'}>
+        <svg className="culture-brush" viewBox="0 0 400 100" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="rules-brush-fill" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" className="culture-stop-blue" />
+              <stop offset="55%" className="culture-stop-mid" />
+              <stop offset="100%" className="culture-stop-violet" />
+            </linearGradient>
+            <filter id="rules-brush-rough" x="-5%" y="-20%" width="110%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.035 0.6" numOctaves="2" seed="11" />
+              <feDisplacementMap in="SourceGraphic" scale="9" />
+            </filter>
+          </defs>
+          <path
+            filter="url(#rules-brush-rough)"
+            fill="url(#rules-brush-fill)"
+            d="M4 62 C 40 48, 120 40, 210 38 C 290 36, 360 34, 398 30 L 392 70 C 340 76, 270 80, 190 82 C 110 84, 50 86, 10 92 C 2 82, 0 72, 4 62 Z"
+          />
+          <path
+            className="culture-brush-sheen"
+            filter="url(#rules-brush-rough)"
+            d="M4 62 C 40 48, 120 40, 210 38 C 290 36, 360 34, 398 30 L 392 70 C 340 76, 270 80, 190 82 C 110 84, 50 86, 10 92 C 2 82, 0 72, 4 62 Z"
+          />
+        </svg>
+        <span className="culture-word">Gymregler</span>
+        <span className="culture-dot">.</span>
+        <span className="culture-spark culture-spark-1" />
+        <span className="culture-spark culture-spark-2" />
+      </span>
+    </h2>
+  )
+}
+
+function WarningTape() {
+  const items = [...tapeWords, ...tapeWords, ...tapeWords]
+  return (
+    <div
+      aria-hidden="true"
+      className="relative -rotate-1 overflow-hidden border-y-2 border-primary bg-primary py-2.5 text-primary-foreground"
+    >
+      <div className="marquee flex w-max">
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex shrink-0 items-center">
+            {items.map((word, i) => (
+              <span key={`${copy}-${i}`} className="flex items-center gap-4 px-4 text-sm font-black uppercase tracking-widest">
+                <Ban className="size-4 shrink-0" />
+                {word}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export function GymRules() {
-  const { listRef, activeIndex } = useActiveRule()
+  const KeyIcon = keyRule.icon
 
   return (
     <section
       id="gymregler"
       aria-labelledby="gymregler-title"
-      className="scroll-mt-24 border-t border-border py-14 md:py-20"
+      className="scroll-mt-24 overflow-hidden border-t border-border py-14 md:py-20"
     >
-      <div className="mx-auto flex max-w-5xl flex-col gap-10 px-6">
-        <header className="flex flex-col gap-4">
-          <h2
-            id="gymregler-title"
-            className="group relative w-fit cursor-default select-none text-balance pb-2 text-5xl font-bold uppercase tracking-tight text-primary md:text-7xl"
-          >
-            <span className="inline-block origin-left transition-all duration-300 ease-out group-hover:-skew-x-6 group-hover:scale-110 group-hover:tracking-wide group-hover:drop-shadow-[0_0_24px_var(--color-primary)] motion-reduce:transition-none motion-reduce:group-hover:transform-none">
-              Gymregler
-            </span>
-            <span
-              aria-hidden="true"
-              className="absolute bottom-0 left-0 h-1 w-0 rounded-full bg-primary transition-all duration-500 ease-out group-hover:w-full motion-reduce:transition-none"
-            />
-          </h2>
-          <div className="flex flex-col gap-1">
-            <p className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-              Brudd fører til utestengelse.
-            </p>
-            <p className="flex items-center gap-2 text-lg font-medium text-muted-foreground md:text-xl">
-              <ShieldAlert className="size-5 shrink-0 text-primary" aria-hidden="true" />
-              Det gjelder spesielt punkt 1.
-            </p>
-          </div>
-          <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">
-            BPC er et voksent gym og et nøytralt sted der alle skal føle seg velkommen, uansett hvem du er og hvor du
-            kommer fra. Vi respekterer utstyret, fasilitetene og menneskene som trener her.
+      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6">
+        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <RulesHeading />
+          <p className="flex w-fit shrink-0 items-center gap-2 rounded-md border-2 border-primary px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-widest text-primary md:mb-3">
+            <Ban className="size-4" aria-hidden="true" />
+            Brudd = utestengelse
           </p>
-        </header>
+        </div>
+        <p className="max-w-2xl text-pretty leading-relaxed text-muted-foreground">
+          BPC er et voksent gym og et nøytralt sted der alle skal føle seg velkommen. Reglene er få, men vi håndhever
+          dem strengt.
+        </p>
+      </div>
 
-        <ol ref={listRef} className="grid gap-2 md:grid-cols-2">
+      <div className="my-10 md:my-12">
+        <WarningTape />
+      </div>
+
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-6">
+        <article
+          aria-labelledby="rule-1-title"
+          className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-primary bg-card p-6 md:flex-row md:items-center md:gap-8 md:p-8"
+        >
+          <span
+            aria-hidden="true"
+            className="text-7xl font-black leading-none tracking-tighter text-primary md:text-8xl"
+          >
+            1
+          </span>
+          <div className="flex flex-1 flex-col gap-2">
+            <p className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-primary">
+              <KeyIcon className="size-4" aria-hidden="true" />
+              Viktigste regel
+            </p>
+            <h3 id="rule-1-title" className="text-balance text-2xl font-black uppercase tracking-tight md:text-4xl">
+              <span className="sr-only">Punkt 1: </span>
+              {keyRule.title}
+            </h3>
+            <p className="max-w-xl text-pretty leading-relaxed text-muted-foreground">{keyRule.text}</p>
+          </div>
+        </article>
+
+        <ol className="flex flex-col" start={2}>
           {rules.map(({ icon: Icon, title, text }, index) => {
-            const isKeyRule = index === 0
-            const isActive = activeIndex === index
+            const number = index + 2
             return (
               <li
                 key={title}
-                data-rule-index={index}
-                data-active={isActive}
                 tabIndex={0}
-                className={`group relative flex items-start gap-4 overflow-hidden rounded-xl border p-5 outline-none transition-all duration-300 ease-out before:absolute before:inset-y-0 before:left-0 before:w-1 before:origin-top before:scale-y-0 before:bg-primary before:transition-transform before:duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-card hover:before:scale-y-100 focus-visible:border-primary focus-visible:before:scale-y-100 data-[active=true]:border-primary/50 data-[active=true]:bg-card data-[active=true]:before:scale-y-100 active:scale-[0.99] ${
-                  isKeyRule ? 'border-primary/40 bg-card md:col-span-2' : 'border-border'
-                }`}
+                className="group relative grid grid-cols-[3.5rem_1fr] items-center gap-x-4 gap-y-1 border-b border-border py-5 outline-none transition-colors duration-300 hover:bg-card focus-visible:bg-card md:grid-cols-[5rem_minmax(0,1.1fr)_minmax(0,1fr)] md:gap-x-8 md:px-4"
               >
                 <span
-                  className={`flex size-10 shrink-0 items-center justify-center rounded-full font-mono text-sm font-semibold transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground group-data-[active=true]:scale-110 group-data-[active=true]:bg-primary group-data-[active=true]:text-primary-foreground ${
-                    isKeyRule ? 'bg-primary text-primary-foreground' : 'border border-border text-muted-foreground'
-                  }`}
                   aria-hidden="true"
+                  className="text-outline row-span-2 text-5xl font-black leading-none tracking-tighter transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary group-hover:[-webkit-text-stroke-color:var(--primary)] group-focus-visible:text-primary md:row-span-1 md:text-6xl"
                 >
-                  {index + 1}
+                  {number}
                 </span>
-                <div className="flex flex-col gap-1.5">
-                  <h3
-                    className={`flex items-center gap-2 font-bold uppercase tracking-wide ${
-                      isKeyRule ? 'text-lg md:text-xl' : 'text-base'
-                    }`}
-                  >
-                    <span className="sr-only">{`Punkt ${index + 1}: `}</span>
-                    {title}
-                    <Icon
-                      className="size-4 shrink-0 text-primary transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-125 group-data-[active=true]:scale-125"
-                      aria-hidden="true"
-                    />
-                  </h3>
-                  <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{text}</p>
-                </div>
+                <h3 className="flex items-center gap-2 text-pretty text-lg font-black uppercase tracking-tight md:text-xl">
+                  <span className="sr-only">{`Punkt ${number}: `}</span>
+                  {title}
+                  <Icon
+                    className="size-5 shrink-0 text-primary transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-125"
+                    aria-hidden="true"
+                  />
+                </h3>
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">{text}</p>
               </li>
             )
           })}
