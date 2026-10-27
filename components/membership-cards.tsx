@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, Smartphone } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { AppBadges } from '@/components/app-badges'
 import { SmartLink } from '@/components/smart-link'
 import { dropIns, links, membershipCategories, type PlanColor, type PlanGroup } from '@/lib/site'
 import { cn } from '@/lib/utils'
@@ -14,6 +14,7 @@ const dotStyles: Record<TabColor, string> = {
   gruppe: 'bg-gruppe',
   korttidEgen: 'bg-korttid-egen',
   korttidGruppe: 'bg-korttid-gruppe',
+  velvaere: 'bg-muted-foreground',
   dropin: 'bg-foreground',
 }
 
@@ -124,14 +125,7 @@ export function MembershipCards() {
                   selected ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground',
                 )}
               >
-                {tab.id === 'korttid' ? (
-                  <span aria-hidden="true" className="flex gap-0.5">
-                    <span className="size-1.5 rounded-full bg-korttid-egen" />
-                    <span className="size-1.5 rounded-full bg-korttid-gruppe" />
-                  </span>
-                ) : (
-                  <span aria-hidden="true" className={cn('size-1.5 rounded-full', dotStyles[tab.color])} />
-                )}
+                <span aria-hidden="true" className={cn('size-1.5 rounded-full', dotStyles[tab.color])} />
                 {tab.label}
               </button>
             )
@@ -151,7 +145,12 @@ export function MembershipCards() {
         </p>
 
         {category ? (
-          <div className="grid gap-3 md:grid-cols-2">
+          <div
+            className={cn(
+              'grid gap-3',
+              category.groups.length >= 3 ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-2',
+            )}
+          >
             {category.groups.map((group) => (
               <PlanList key={group.title} group={group} />
             ))}
@@ -162,33 +161,29 @@ export function MembershipCards() {
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          {category ? (
+        {category ? (
+          <div className="flex flex-wrap items-end gap-3 pt-2">
             <SmartLink
               href={links.signup}
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-90"
+              className="cta-sweep glow group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full bg-primary pl-7 pr-6 text-base font-semibold text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Velg i medlemssystemet
-              <ArrowUpRight
+              <span className="relative">Bli medlem</span>
+              <ArrowRight
                 aria-hidden="true"
-                className="size-4 transition-transform group-hover:rotate-45 motion-reduce:transition-none"
+                className="relative size-5 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
               />
             </SmartLink>
-          ) : (
-            <Link
-              href="/provetime"
-              className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-90"
-            >
-              <Smartphone aria-hidden="true" className="size-4" />
-              Slik laster du ned Appen
-            </Link>
-          )}
-          <p className="text-xs text-muted-foreground">
-            {category
-              ? 'Du fullfører kjøpet i BPCs medlemssystem.'
-              : 'Drop-in kjøpes kun i Appen Min Trening, ikke på nettsiden.'}
-          </p>
-        </div>
+            <AppBadges />
+            <p className="w-full text-sm text-muted-foreground">Du fullfører kjøpet i BPCs medlemssystem.</p>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-3 pt-2">
+            <AppBadges />
+            <p className="text-sm text-muted-foreground">
+              Drop-in kjøpes kun i Appen Min Trening, ikke på nettsiden.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )

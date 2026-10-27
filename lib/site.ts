@@ -97,8 +97,8 @@ export const campaign = {
 } as const
 
 // Prices shown on /medlemskap. Each tab holds one or more boxes (groups) of plans.
-// color: egen = blue, gruppe = green, korttidEgen = yellow, korttidGruppe = red.
-export type PlanColor = 'egen' | 'gruppe' | 'korttidEgen' | 'korttidGruppe'
+// color: egen = blue, gruppe = green, korttidEgen = yellow, korttidGruppe = red, velvaere = neutral.
+export type PlanColor = 'egen' | 'gruppe' | 'korttidEgen' | 'korttidGruppe' | 'velvaere'
 
 export type PlanGroup = {
   title: string
@@ -141,6 +141,17 @@ export const membershipCategories: readonly {
           { name: 'Egentrening 1 mnd Løpende Student', price: 749, note: 'Krever gyldig dokumentasjon.' },
         ],
       },
+      {
+        title: 'Korttid',
+        note: 'Engangsbetaling for perioden. Ingen binding.',
+        color: 'korttidEgen',
+        period: 'Pr periode',
+        plans: [
+          { name: 'Egentrening 3 dager', price: 449 },
+          { name: 'Egentrening 7 dager', price: 549 },
+          { name: 'Egentrening 30 dager', price: 899 },
+        ],
+      },
     ],
   },
   {
@@ -169,27 +180,8 @@ export const membershipCategories: readonly {
           { name: 'Gruppetrening 1 mnd Løpende Student', price: 1149, note: 'Krever gyldig dokumentasjon.' },
         ],
       },
-    ],
-  },
-  {
-    id: 'korttid',
-    label: 'Korttid',
-    color: 'korttidEgen',
-    intro: 'På besøk eller vil teste oss over tid? Betal én gang for en periode, uten binding.',
-    groups: [
       {
-        title: 'Egentrening korttid',
-        note: 'Engangsbetaling for perioden. Ingen binding.',
-        color: 'korttidEgen',
-        period: 'Pr periode',
-        plans: [
-          { name: 'Egentrening 3 dager', price: 449 },
-          { name: 'Egentrening 7 dager', price: 549 },
-          { name: 'Egentrening 30 dager', price: 899 },
-        ],
-      },
-      {
-        title: 'Gruppetrening korttid',
+        title: 'Korttid',
         note: 'Engangsbetaling for perioden. Ingen binding.',
         color: 'korttidGruppe',
         period: 'Pr periode',
@@ -197,6 +189,24 @@ export const membershipCategories: readonly {
           { name: 'Gruppetrening 3 dager', price: 599 },
           { name: 'Gruppetrening 7 dager', price: 799 },
           { name: 'Gruppetrening 30 dager', price: 1349 },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'velvaere',
+    label: 'Velvære',
+    color: 'velvaere',
+    intro: 'Badstue og velværerom som tillegg til medlemskapet ditt.',
+    groups: [
+      {
+        title: 'Tillegg',
+        note: 'Legges til et aktivt medlemskap. Ingen bindingstid.',
+        color: 'velvaere',
+        period: 'Pr måned',
+        plans: [
+          { name: 'BPC Velvære', price: 299, note: 'Fri tilgang til badstue og velværerom.' },
+          { name: 'Håndkleservice', price: 149, note: 'Rent håndkle hver gang du trener.' },
         ],
       },
     ],
