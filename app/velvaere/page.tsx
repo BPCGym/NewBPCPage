@@ -16,14 +16,19 @@ export const metadata: Metadata = {
 
 const addOns = [
   {
-    title: 'Velvære',
+    title: 'Velvære 12 mnd',
+    price: `${wellness.membershipPrice} kr`,
+    text: `Per måned, eget medlemskap med 12 måneders binding. Student: ${wellness.membershipStudentPrice} kr.`,
+  },
+  {
+    title: 'Velvære tillegg',
     price: `${wellness.monthlyPrice} kr`,
-    text: 'Per måned, som tillegg til et aktivt medlemskap. Gir tilgang til badstuen.',
+    text: 'Per måned, for deg som allerede har egentrening eller gruppetrening.',
   },
   {
     title: 'Håndkleavtale',
     price: `${wellness.towelMonthlyPrice} kr`,
-    text: 'Per måned, valgfritt. Ett håndkle per besøk.',
+    text: `Per måned for 1 håndkle pr gang, ${wellness.towelDoubleMonthlyPrice} kr for 2. Enkelthåndkle i resepsjonen: ${wellness.towelRentPrice} kr.`,
   },
 ]
 
@@ -66,8 +71,8 @@ export default function WellnessPage() {
                 Tilgang og pris
               </h2>
               <p className="max-w-lg leading-relaxed text-muted-foreground">
-                BPC Velvære er et tillegg og er ikke inkludert i alle medlemskap. Tilleggene administreres i Appen Min Trening og
-                fornyes månedlig.
+Velg et eget velværemedlemskap, eller legg det til som et tillegg hvis du allerede trener egentrening eller
+  gruppetrening hos oss. Tillegg og håndkleavtale administreres i Appen Min Trening og fornyes månedlig.
               </p>
               <div className="flex flex-col items-start gap-2 pt-2">
                 <div className="flex flex-wrap gap-3">

@@ -217,16 +217,34 @@ export const membershipCategories: readonly {
     id: 'velvaere',
     label: 'Velvære',
     color: 'velvaere',
-    intro: 'Badstue og velværerom som tillegg til medlemskapet ditt.',
+    intro: 'Badstue og velværerom, som eget medlemskap eller som tillegg.',
     groups: [
       {
-        title: 'Tillegg',
-        note: 'Legges til et aktivt medlemskap. Ingen bindingstid.',
+        title: 'Velvære 12 måneder',
+        note: '12 måneders bindingstid. Eget medlemskap, kun velvære.',
+        benefit: benefits.value,
         color: 'velvaere',
         period: 'Pr måned',
         plans: [
-          { name: 'BPC Velvære', price: 299, note: 'Fri tilgang til badstue og velværerom.' },
-          { name: 'Håndkleservice', price: 149, note: 'Rent håndkle hver gang du trener.' },
+          { name: 'Velvære 12 mnd', price: 749 },
+          { name: 'Velvære 12 mnd Student', price: 649, note: 'Krever gyldig dokumentasjon.' },
+        ],
+      },
+      {
+        title: 'Tillegg for medlemmer',
+        note: 'For deg som allerede har egentrening eller gruppetrening. Ingen bindingstid.',
+        color: 'velvaere',
+        period: 'Pr måned',
+        plans: [{ name: 'BPC Velvære tillegg', price: 299, note: 'Fri tilgang til badstue og velværerom.' }],
+      },
+      {
+        title: 'Håndkle',
+        note: 'Enkelthåndkle kan også leies i resepsjonen for kr 50 pr håndkle.',
+        color: 'velvaere',
+        period: 'Pr måned',
+        plans: [
+          { name: 'Håndkleavtale, 1 håndkle pr gang', price: 299 },
+          { name: 'Håndkleavtale, 2 håndklær pr gang', price: 249 },
         ],
       },
     ],
@@ -257,12 +275,19 @@ export const equipmentBrands = [
 
 // Published add-on prices from bpcgym.no/velvære. Must be approved before launch.
 export const wellness = {
+  membershipPrice: 749,
+  membershipStudentPrice: 649,
   monthlyPrice: 299,
-  towelMonthlyPrice: 149,
+  towelMonthlyPrice: 299,
+  towelDoubleMonthlyPrice: 249,
+  towelRentPrice: 50,
   rules: [
     { title: 'Eget badetøy', text: 'Ikke treningstøy eller boxer. Badeshorts kan kjøpes i resepsjonen i bemannet tid.' },
   { title: 'Ro og respekt', text: 'Snakk lavt. Andre er her for å koble av.' },
-  { title: 'Ingen saltskrubb eller olje', text: 'Ikke tillatt av hygieniske årsaker.' },
+  {
+    title: 'Ingen saltskrubb eller olje på kroppen',
+    text: 'Verken skrubb eller kroppsolje er tillatt, av hygieniske årsaker.',
+  },
   { title: 'Ta vare på rommet', text: 'Bråk og misbruk gir permanent utestengelse.' },
   { title: 'Kjenn dine grenser', text: 'Bruk på eget ansvar. Føler du deg uvel, gå ut og ring 55 12 55 55.' },
   ],
