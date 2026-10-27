@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSyncExternalStore } from 'react'
-import { ArrowRight, Flame, Mail, QrCode, ShieldAlert, Snowflake, Star } from 'lucide-react'
+import { ArrowRight, CalendarDays, Flame, Mail, QrCode, ShieldAlert, Smile, Snowflake, Star } from 'lucide-react'
 import { company, links } from '@/lib/site'
 import { useOpenStatus } from '@/lib/use-open-status'
 import { cn } from '@/lib/utils'
@@ -97,6 +97,31 @@ export function HeroIsland() {
             <span className="mt-0.5 text-xs text-muted-foreground">56 Google-anmeldelser</span>
           </span>
         </a>
+      </li>
+
+      <li>
+        <Link href="/boxen#timeplan-title" className={itemClass}>
+          <span aria-hidden="true" className={cn(visClass, 'overflow-hidden bg-primary/15 ring-primary/30')}>
+            <CalendarDays className="size-5 text-primary" />
+            <span className="island-scan absolute inset-x-1.5 h-0.5 rounded-full bg-primary" />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-sm font-semibold">Timeplan BPC Boxen</span>
+            <span className="mt-0.5 text-xs text-muted-foreground">Gruppetimer hver uke</span>
+          </span>
+        </Link>
+      </li>
+
+      <li>
+        <Link href="/barnepass#kids-timeplan" className={itemClass}>
+          <span aria-hidden="true" className={cn(visClass, 'bg-star/15')}>
+            <Smile className="island-twinkle size-5 text-star" />
+          </span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-sm font-semibold">Timeplan BPC Kids</span>
+            <span className="mt-0.5 text-xs text-muted-foreground">Barnepass mens du trener</span>
+          </span>
+        </Link>
       </li>
 
       <li>

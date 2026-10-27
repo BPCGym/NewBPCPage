@@ -81,7 +81,7 @@ export function KidsSchedule() {
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
         <header className="flex max-w-2xl flex-col gap-3" data-reveal>
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Timeplan · ut 2026</p>
-          <h2 id="kids-timeplan" className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+          <h2 id="kids-timeplan" className="scroll-mt-28 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
             Når er barnepasset åpent?
           </h2>
           <p className="text-pretty leading-relaxed text-muted-foreground">

@@ -42,16 +42,25 @@ const benefits: { title: string; text: string; icon: LucideIcon }[] = [
 
 const steps = [
   {
-    title: 'Oppvarming',
-    text: 'Instruktøren leder en felles oppvarming som gjør kroppen klar for dagens økt.',
+    title: 'Gjennomgang og oppvarming',
+    text: 'Instruktøren går gjennom dagens økt på tavla og leder en felles oppvarming.',
+    image: '/images/boxen-brief.jpg',
+    alt: 'Instruktør forklarer dagens økt foran tavla i BPC Boxen',
+    position: 'object-[center_45%]',
   },
   {
-    title: 'Teknikk og gjennomgang',
-    text: 'Dagens øvelser blir vist og forklart, med alternativer for ulike nivåer.',
+    title: 'Teknikk',
+    text: 'Øvelsene blir vist og forklart, med alternativer for ulike nivåer.',
+    image: '/images/boxen-coaching.jpg',
+    alt: 'Instruktør viser riktig teknikk på knebøy med medisinball',
+    position: 'object-[center_45%]',
   },
   {
     title: 'Dagens økt',
     text: 'Dere trener sammen. Instruktøren følger med, retter teknikk og tilpasser underveis.',
+    image: '/images/boxen-time-markloft.jpg',
+    alt: 'Instruktør retter teknikken mens et medlem løfter markløft',
+    position: 'object-[60%_center]',
   },
 ]
 
@@ -194,7 +203,7 @@ export default function BoxenPage() {
         <section aria-labelledby="timeplan-title" className="border-t border-border bg-card py-14 md:py-20">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
             <div className="flex max-w-2xl flex-col gap-4">
-              <h2 id="timeplan-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+              <h2 id="timeplan-title" className="scroll-mt-28 text-balance text-2xl font-semibold tracking-tight md:text-3xl">
                 Timeplan BPC Boxen
               </h2>
               <p className="text-pretty leading-relaxed text-muted-foreground">
@@ -207,34 +216,41 @@ export default function BoxenPage() {
 
         <StrongSteady />
 
-        <section aria-labelledby="time-title" className="border-t border-border py-14 md:py-20">
-          <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-5 md:gap-16">
-            <div className="flex flex-col gap-6 md:col-span-3">
-              <h2 id="time-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+        <section aria-labelledby="time-title" className="border-t border-border py-10 md:py-14">
+          <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6">
+            <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between md:gap-6">
+              <h2 id="time-title" className="text-balance text-xl font-semibold tracking-tight md:text-2xl">
                 Slik foregår en time
               </h2>
-              <ol className="flex flex-col border-t border-border">
-                {steps.map((step) => (
-                  <li key={step.title} className="flex flex-col gap-1 border-b border-border py-5">
-                    <h3 className="text-lg font-semibold">{step.title}</h3>
-                    <p className="leading-relaxed text-muted-foreground">{step.text}</p>
-                  </li>
-                ))}
-              </ol>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Ny i Gruppetrening? Si fra til instruktøren når du kommer, så får du en god start.
+                Ny i Gruppetrening? Si fra til instruktøren når du kommer.
               </p>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2 md:aspect-[4/5]">
-              <Image
-                src="/images/boxen-time-markloft.jpg"
-                alt="Instruktør følger tett med og retter teknikken mens et medlem løfter markløft"
-                fill
-                loading="lazy"
-                sizes="(min-width: 768px) 40vw, 100vw"
-                className="object-cover object-[60%_center]"
-              />
-            </div>
+            <ol className="grid gap-4 sm:grid-cols-3">
+              {steps.map((step, i) => (
+                <li key={step.title} className="flex flex-col overflow-hidden rounded-xl border border-border bg-card">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={step.image}
+                      alt={step.alt}
+                      fill
+                      loading="lazy"
+                      sizes="(min-width: 640px) 33vw, 100vw"
+                      className={`object-cover ${step.position}`}
+                    />
+                  </div>
+                  <div className="flex gap-3 p-4">
+                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                      {i + 1}
+                    </span>
+                    <div className="flex flex-col gap-1">
+                      <h3 className="text-sm font-semibold">{step.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{step.text}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
