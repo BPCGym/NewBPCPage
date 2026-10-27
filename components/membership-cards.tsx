@@ -82,7 +82,7 @@ const tabs = [
 
 const formatPrice = (price: number) => price.toLocaleString('nb-NO')
 
-type Row = { name: string; note?: string; price: number }
+type Row = { name: string; note?: string; price: number; highlight?: string }
 
 function PriceList({
   title,
@@ -92,7 +92,7 @@ function PriceList({
   rows,
   href,
   active = false,
-  featured = false,
+  tag,
 }: {
   title: string
   color: TabColor
@@ -101,13 +101,13 @@ function PriceList({
   rows: readonly Row[]
   href?: string
   active?: boolean
-  featured?: boolean
+  tag?: string
 }) {
   const content = (
     <>
-      {featured && (
+      {tag && (
         <p className="pb-3 text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
-          <Swoosh>Mest populær</Swoosh>
+          <Swoosh>{tag}</Swoosh>
         </p>
       )}
       <header className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
@@ -127,9 +127,17 @@ function PriceList({
         {rows.map((row) => (
           <li
             key={row.name}
-            className="flex items-baseline justify-between gap-4 rounded-md px-2 py-2.5 transition-[background-color,transform] duration-200 hover:translate-x-1 hover:bg-muted/60 motion-reduce:hover:translate-x-0"
+            className={cn(
+              'flex items-baseline justify-between gap-4 rounded-md px-2 py-2.5 transition-[background-color,transform] duration-200 hover:translate-x-1 hover:bg-muted/60 motion-reduce:hover:translate-x-0',
+              row.highlight && 'mt-2 bg-primary/5 ring-1 ring-primary/40',
+            )}
           >
             <span className="flex flex-col">
+              {row.highlight && (
+                <span className="pb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground">
+                  <Swoosh>{row.highlight}</Swoosh>
+                </span>
+              )}
               <span className="text-sm font-medium leading-snug">{row.name}</span>
               {row.note && <span className="text-xs text-muted-foreground">{row.note}</span>}
             </span>
@@ -147,7 +155,6 @@ function PriceList({
     'hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg hover:before:scale-y-100',
     'data-[active=true]:border-primary/50 data-[active=true]:before:scale-y-100',
     'active:scale-[0.99] motion-reduce:transition-none motion-reduce:hover:translate-y-0',
-    featured && 'border-primary/60 shadow-md before:scale-y-100',
     barStyles[color],
   )
 
@@ -196,7 +203,7 @@ function PlanList({ group, active }: { group: PlanGroup; active: boolean }) {
       rows={group.plans}
       href={links.signup}
       active={active}
-      featured={group.featured}
+      tag={group.tag}
     />
   )
 }
@@ -289,7 +296,7 @@ export function MembershipCards() {
           </div>
         ) : null}
 
-        {category?.groups.some((g) => g.featured) && (
+        {category?.groups.some((g) => g.plans.some((p) => p.highlight)) && (
           <aside className="flex flex-col gap-1 rounded-xl border border-dashed border-primary/50 bg-primary/5 px-5 py-4 sm:flex-row sm:items-baseline sm:gap-3">
             <p className="shrink-0 text-base font-semibold text-foreground">
               <Swoosh>{membershipTip.lead}</Swoosh>

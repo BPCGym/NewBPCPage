@@ -105,8 +105,8 @@ export type PlanGroup = {
   note: string
   color: PlanColor
   period: string
-  featured?: boolean
-  plans: readonly { name: string; price: number; note?: string }[]
+  tag?: string
+  plans: readonly { name: string; price: number; note?: string; highlight?: string }[]
 }
 
 export const membershipTip = {
@@ -132,9 +132,8 @@ export const membershipCategories: readonly {
         note: '12 måneders bindingstid. Lavest pris per måned.',
         color: 'egen',
         period: 'Pr måned',
-        featured: true,
         plans: [
-          { name: 'Egentrening 12 mnd', price: 749 },
+          { name: 'Egentrening 12 mnd', price: 749, highlight: 'Mest populær' },
           { name: 'Egentrening 12 mnd Student/Offshore', price: 649, note: 'Krever gyldig dokumentasjon.' },
         ],
       },
@@ -153,6 +152,7 @@ export const membershipCategories: readonly {
         note: 'Engangsbetaling for perioden. Ingen binding.',
         color: 'korttidEgen',
         period: 'Pr periode',
+        tag: 'For deg som vil teste',
         plans: [
           { name: 'Egentrening 3 dager', price: 449 },
           { name: 'Egentrening 7 dager', price: 549 },
@@ -172,9 +172,8 @@ export const membershipCategories: readonly {
         note: '12 måneders bindingstid. Lavest pris per måned.',
         color: 'gruppe',
         period: 'Pr måned',
-        featured: true,
         plans: [
-          { name: 'Gruppetrening 12 mnd', price: 1249 },
+          { name: 'Gruppetrening 12 mnd', price: 1249, highlight: 'Mest populær' },
           { name: 'Gruppetrening 12 mnd Student/Offshore', price: 1049, note: 'Krever gyldig dokumentasjon.' },
         ],
       },
@@ -193,6 +192,7 @@ export const membershipCategories: readonly {
         note: 'Engangsbetaling for perioden. Ingen binding.',
         color: 'korttidGruppe',
         period: 'Pr periode',
+        tag: 'For deg som vil teste',
         plans: [
           { name: 'Gruppetrening 3 dager', price: 599 },
           { name: 'Gruppetrening 7 dager', price: 799 },
