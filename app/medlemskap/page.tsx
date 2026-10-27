@@ -128,9 +128,17 @@ export default function MembershipPage() {
                   <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{option.text}</p>
                   <SmartLink
                     href={option.href}
-                    className="text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    className={
+                      option.href === links.signup
+                        ? 'cta-sweep cta-culture glow relative mt-2 inline-flex h-9 items-center self-start overflow-hidden rounded-full px-5 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+                        : 'text-sm font-medium text-primary underline-offset-4 hover:underline'
+                    }
                   >
-                    {option.cta}
+                    {option.href === links.signup ? (
+                      <span className="relative">{option.cta}</span>
+                    ) : (
+                      option.cta
+                    )}
                   </SmartLink>
                 </li>
               ))}
