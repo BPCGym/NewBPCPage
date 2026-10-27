@@ -34,7 +34,8 @@ function useActiveCard(panelKey: string) {
   useEffect(() => {
     setActiveIndex(null)
     const cards = panelRef.current?.querySelectorAll<HTMLElement>('[data-plan-card]')
-    if (!cards?.length) return
+    // Cards only stack vertically below md; side by side, a scroll position can't pick one.
+    if (!cards?.length || window.matchMedia('(min-width: 768px)').matches) return
     const list = Array.from(cards)
     const observer = new IntersectionObserver(
       (entries) => {
@@ -73,7 +74,7 @@ function PriceList({
   color: TabColor
   period: string
   note?: string
-  rows: Row[]
+  rows: readonly Row[]
   href?: string
   active?: boolean
 }) {
