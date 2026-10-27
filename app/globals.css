@@ -206,7 +206,96 @@
   color: transparent;
 }
 
-@property --island-angle {
+  .culture-word {
+  display: inline-block;
+  padding-bottom: 0.08em;
+  color: transparent;
+  background-image: linear-gradient(
+  100deg,
+  var(--foreground) 0%,
+  var(--foreground) 30%,
+  color-mix(in oklch, var(--primary) 70%, var(--foreground)) 40%,
+  oklch(0.98 0.02 250) 47%,
+  var(--primary) 53%,
+  color-mix(in oklch, var(--primary) 55%, var(--foreground)) 62%,
+  var(--primary) 100%
+  );
+  background-size: 260% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 22px color-mix(in oklch, var(--primary) 45%, transparent));
+  }
+  .culture-dot {
+  display: inline-block;
+  color: var(--primary);
+  text-shadow: 0 0 18px color-mix(in oklch, var(--primary) 70%, transparent);
+  }
+  @keyframes culture-swoosh {
+  0% {
+  opacity: 0;
+  letter-spacing: 0.18em;
+  transform: translateX(-0.35em) skewX(-14deg);
+  filter: blur(14px) drop-shadow(0 0 0 transparent);
+  }
+  60% {
+  opacity: 1;
+  filter: blur(0) drop-shadow(0 0 40px color-mix(in oklch, var(--primary) 85%, transparent));
+  }
+  100% {
+  opacity: 1;
+  letter-spacing: normal;
+  transform: none;
+  filter: blur(0) drop-shadow(0 0 22px color-mix(in oklch, var(--primary) 45%, transparent));
+  }
+  }
+  @keyframes culture-shine {
+  0% {
+  background-position: 100% 0;
+  }
+  45%,
+  100% {
+  background-position: 0% 0;
+  }
+  }
+  @keyframes culture-dot-in {
+  0% {
+  opacity: 0;
+  transform: scale(0);
+  }
+  60% {
+  opacity: 1;
+  transform: scale(1.6);
+  }
+  }
+  @keyframes culture-beat {
+  0%,
+  30%,
+  100% {
+  transform: scale(1);
+  }
+  10% {
+  transform: scale(1.35);
+  }
+  20% {
+  transform: scale(1.15);
+  }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+  .culture-word {
+  animation:
+  culture-swoosh 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both,
+  culture-shine 6s cubic-bezier(0.45, 0, 0.2, 1) 1.2s infinite;
+  }
+  .culture-dot {
+  animation: culture-dot-in 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) 1.6s both, culture-beat 2.4s ease-in-out 2.4s infinite;
+  }
+  .culture-word:hover {
+  animation-duration: 1.2s, 1.6s;
+  }
+  }
+
+  @property --island-angle {
   syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;

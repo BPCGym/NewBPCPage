@@ -35,21 +35,15 @@ const benefitIcons: Record<PlanBenefit['kind'], LucideIcon> = {
   wellness: Flame,
 }
 
-function BenefitLine({ benefit }: { benefit: PlanBenefit }) {
+function BenefitIcon({ benefit }: { benefit: PlanBenefit }) {
   const Icon = benefitIcons[benefit.kind]
   return (
-    <div className="flex items-center gap-3 pb-3">
-      <span
-        aria-hidden="true"
-        className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none"
-      >
-        <Icon className="size-4" />
-      </span>
-      <span className="flex flex-col">
-        <span className="text-sm font-semibold leading-snug">{benefit.label}</span>
-        <span className="text-xs leading-snug text-muted-foreground">{benefit.text}</span>
-      </span>
-    </div>
+    <span
+      aria-hidden="true"
+      className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 motion-reduce:transition-none"
+    >
+      <Icon className="size-4" />
+    </span>
   )
 }
 
@@ -144,19 +138,29 @@ function PriceList({
 }) {
   const content = (
     <>
-      {benefit && <BenefitLine benefit={benefit} />}
-      <header className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
-        <h3 className="flex items-center gap-2 text-sm font-semibold">
-          <span
-            aria-hidden="true"
-            className={cn(
-              'size-2 rounded-full transition-transform duration-300 group-hover:scale-150 group-data-[active=true]:scale-150',
-              dotStyles[color],
-            )}
-          />
-          {title}
-        </h3>
-        <span className="text-xs text-muted-foreground">{period}</span>
+      <header className="flex items-center gap-3 border-b border-border pb-3">
+        {benefit && <BenefitIcon benefit={benefit} />}
+        <div className="flex min-w-0 flex-1 flex-col">
+          <h3 className="flex items-center gap-2 text-sm font-semibold leading-snug">
+            <span
+              aria-hidden="true"
+              className={cn(
+                'size-2 shrink-0 rounded-full transition-transform duration-300 group-hover:scale-150 group-data-[active=true]:scale-150',
+                dotStyles[color],
+              )}
+            />
+            {title}
+          </h3>
+          {benefit && (
+            <p
+  className="truncate text-xs leading-snug text-muted-foreground"
+  title={benefit.text}
+  >
+  {benefit.label}
+  </p>
+          )}
+        </div>
+        <span className="shrink-0 self-start pt-0.5 text-xs text-muted-foreground">{period}</span>
       </header>
       <ul className="flex flex-col gap-2 pt-3">
         {rows.map((row) => (

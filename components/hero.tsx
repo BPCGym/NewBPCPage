@@ -34,7 +34,11 @@ export function Hero() {
               className="hero-in max-w-3xl text-balance text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
               style={delay(120)}
             >
-              Bli en del av <span className="shine-text">kulturen</span>.
+              Bli en del av <span className="sr-only">kulturen.</span>
+  <span aria-hidden="true" className="whitespace-nowrap">
+  <span className="culture-word">kulturen</span>
+  <span className="culture-dot">.</span>
+  </span>
             </h1>
             <p
               className="hero-in mt-5 max-w-xl text-pretty text-lg leading-relaxed text-foreground/85 md:text-xl"
