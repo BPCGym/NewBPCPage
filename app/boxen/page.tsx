@@ -50,7 +50,7 @@ const steps = [
   },
   {
     title: 'Teknikk og dagens økt',
-    text: 'Øvelsene blir vist og forklart, med alternativer for ulike nivåer. Så trener dere sammen, mens instruktøren følger med, retter teknikk og tilpasser underveis.',
+    text: 'Øvelsene blir vist og forklart, før dere trener sammen med tett oppfølging.',
     image: '/images/boxen-coaching.jpg',
     alt: 'Instruktør viser riktig teknikk på knebøy med medisinball',
     position: 'object-[center_40%]',
