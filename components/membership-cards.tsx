@@ -33,15 +33,17 @@ function PriceList({
   period,
   note,
   rows,
+  href,
 }: {
   title: string
   color: TabColor
   period: string
   note?: string
   rows: Row[]
+  href?: string
 }) {
-  return (
-    <article className="flex flex-col rounded-xl border border-border bg-card px-5 py-4">
+  const content = (
+    <>
       <header className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
         <h3 className="flex items-center gap-2 text-sm font-semibold">
           <span aria-hidden="true" className={cn('size-2 rounded-full', dotStyles[color])} />
@@ -61,13 +63,40 @@ function PriceList({
         ))}
       </ul>
       {note && <p className="pt-1 text-xs leading-relaxed text-muted-foreground">{note}</p>}
-    </article>
+    </>
+  )
+
+  if (!href) {
+    return <article className="flex flex-col rounded-xl border border-border bg-card px-5 py-4">{content}</article>
+  }
+
+  return (
+    <SmartLink
+      href={href}
+      className="group flex flex-col rounded-xl border border-border bg-card px-5 py-4 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+    >
+      {content}
+      <span className="mt-auto flex items-center justify-end gap-1.5 border-t border-border pt-3 text-sm font-semibold text-foreground">
+        Velg<span className="sr-only">{` ${title} og gå til innmelding`}</span>
+        <ArrowRight
+          aria-hidden="true"
+          className="size-4 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+        />
+      </span>
+    </SmartLink>
   )
 }
 
 function PlanList({ group }: { group: PlanGroup }) {
   return (
-    <PriceList title={group.title} color={group.color} period={group.period} note={group.note} rows={group.plans} />
+    <PriceList
+      title={group.title}
+      color={group.color}
+      period={group.period}
+      note={group.note}
+      rows={group.plans}
+      href={links.signup}
+    />
   )
 }
 
