@@ -35,16 +35,32 @@ const mainRules = [
   },
 ]
 
-const lockerRooms = [
+const allRules = [
+  ...mainRules,
+  ...wellness.rules.map((rule) => ({ ...rule, icon: ruleIcons[rule.title] ?? Sparkles })),
+]
+
+const photos = [
   {
     src: '/images/garderobe-jente.jpg',
     alt: 'Jentegarderoben hos BPC i rosa lys med betongvask, opplyst speil og føner',
-    label: 'Jentegarderoben',
+    label: 'Jenter',
+    width: 3974,
+    height: 5961,
+  },
+  {
+    src: '/images/velvaere-dusj.jpg',
+    alt: 'Dusj hos BPC i blått lys med regndusj i taket og en varmt opplyst nisje til såpe',
+    label: 'Dusjen',
+    width: 3975,
+    height: 5963,
   },
   {
     src: '/images/garderobe-gutt.jpg',
     alt: 'Guttegarderoben hos BPC i blått lys med steinvask, opplyst speil og føner',
-    label: 'Guttegarderoben',
+    label: 'Gutter',
+    width: 3905,
+    height: 5858,
   },
 ]
 
@@ -57,7 +73,7 @@ const captionClass =
   'absolute bottom-2 left-2 rounded-full bg-background/80 px-3 py-1 text-xs font-semibold text-foreground backdrop-blur md:bottom-3 md:left-3 md:text-sm'
 
 export function WellnessRules() {
-  const { rules, saunaTimer, consequence } = wellness
+  const { saunaTimer, consequence } = wellness
 
   return (
     <section
@@ -82,94 +98,57 @@ export function WellnessRules() {
           </p>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-12">
-          <div
-            role="note"
-            aria-labelledby="krav-title"
-            className="flex flex-col gap-6 rounded-2xl border border-sauna/40 bg-sauna/10 p-6 text-card-foreground md:p-8 lg:col-span-5"
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch lg:gap-8">
+          <ol
+            aria-label="Velværereglene"
+            className="flex flex-col gap-2 rounded-2xl border border-sauna/40 bg-sauna/10 p-3 text-card-foreground md:p-4 lg:col-span-7"
           >
-            <p id="krav-title" className="text-xs font-semibold uppercase tracking-[0.3em] text-sauna">
-              To krav før du går inn
-            </p>
-            <ol className="flex flex-col gap-6">
-              {mainRules.map((rule, index) => {
-                const Icon = rule.icon
-                return (
-                  <li
-                    key={rule.title}
-                    className={`${hoverCard} -mx-3 flex gap-4 rounded-xl border border-transparent p-3 hover:bg-background/40`}
+            {allRules.map((rule, index) => {
+              const Icon = rule.icon
+              return (
+                <li
+                  key={rule.title}
+                  className={`${hoverCard} flex items-start gap-4 rounded-xl border border-border/60 bg-card p-4 md:p-5`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
                   >
-                    <span
-                      aria-hidden="true"
-                      className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
-                    >
-                      <Icon className="size-5" />
-                    </span>
-                    <div className="flex flex-col gap-1.5">
-                      <p className="text-balance text-lg font-semibold leading-snug md:text-xl">
-                        <span className="sr-only">{`Krav ${index + 1}: `}</span>
-                        {rule.title}
-                      </p>
-                      <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
-                    </div>
-                  </li>
-                )
-              })}
-            </ol>
-          </div>
+                    <Icon className="size-5" />
+                  </span>
+                  <div className="flex min-w-0 flex-1 flex-col gap-1">
+                    <p className="text-balance text-lg font-semibold leading-snug">
+                      <span className="mr-2 font-mono text-sm text-sauna">{String(index + 1).padStart(2, '0')}</span>
+                      {rule.title}
+                    </p>
+                    <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
+                  </div>
+                </li>
+              )
+            })}
+          </ol>
 
-          <div className="grid grid-cols-[3fr_4fr] gap-3 lg:col-span-7 md:gap-4">
-            <figure className="relative aspect-[3975/5963] overflow-hidden rounded-2xl">
-              <Image
-                src="/images/velvaere-dusj.jpg"
-                alt="Dusj hos BPC i blått lys med regndusj i taket og en varmt opplyst nisje til såpe"
-                fill
-                unoptimized
-                sizes="(min-width: 1024px) 25vw, 45vw"
-                className="object-contain"
-              />
-              <figcaption className={captionClass}>Dusjen</figcaption>
-            </figure>
-            <div className="flex flex-col justify-between gap-3 md:gap-4">
-              {lockerRooms.map((room) => (
-                <figure key={room.src} className="relative aspect-video overflow-hidden rounded-2xl">
-                  <Image
-                    src={room.src}
-                    alt={room.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 55vw"
-                    className="object-cover"
-                  />
-                  <figcaption className={captionClass}>{room.label}</figcaption>
-                </figure>
-              ))}
-            </div>
+          <div className="grid grid-cols-3 gap-3 md:gap-4 lg:col-span-5 lg:grid-cols-2 lg:grid-rows-2">
+            {photos.map((photo) => (
+              <figure
+                key={photo.src}
+                className={`relative aspect-[2/3] overflow-hidden rounded-2xl lg:aspect-auto ${
+                  photo.label === 'Dusjen' ? 'lg:col-start-1 lg:row-span-2 lg:row-start-1' : 'lg:col-start-2'
+                }`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  unoptimized
+                  sizes="(min-width: 1024px) 20vw, 33vw"
+                  className="object-cover transition-transform duration-500 ease-out motion-safe:hover:scale-105"
+                />
+                <figcaption className={captionClass}>{photo.label}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
-
-        <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {rules.map((rule, index) => {
-            const Icon = ruleIcons[rule.title] ?? Sparkles
-            return (
-              <li
-                key={rule.title}
-                className={`${hoverCard} flex flex-col gap-2 rounded-xl border border-border bg-card p-4 text-card-foreground`}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`${hoverIcon} grid size-9 place-items-center rounded-full border border-sauna/50 text-sauna group-hover:bg-sauna group-hover:text-sauna-foreground`}
-                >
-                  <Icon className="size-4" />
-                </span>
-                <p className="text-balance font-semibold leading-snug">
-                  <span className="sr-only">{`Regel ${index + 3}: `}</span>
-                  {rule.title}
-                </p>
-                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
-              </li>
-            )
-          })}
-        </ol>
 
         <div className="grid gap-4 lg:grid-cols-2">
           <div className={`${hoverCard} flex flex-col gap-4 rounded-2xl border border-sauna/40 bg-card p-6 text-card-foreground md:flex-row md:items-start md:gap-5`}>

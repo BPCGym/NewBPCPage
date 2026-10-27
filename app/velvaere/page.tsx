@@ -6,6 +6,7 @@ import { PageIntro } from '@/components/page-intro'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
 import { WellnessPricing } from '@/components/wellness-pricing'
+import { WellnessQuietZone } from '@/components/wellness-quiet-zone'
 import { WellnessRules } from '@/components/wellness-rules'
 import { links, mailto } from '@/lib/site'
 
@@ -44,6 +45,8 @@ export default function WellnessPage() {
         />
 
         <WellnessRules />
+
+        <WellnessQuietZone />
 
         <IceBathComing />
 
