@@ -55,7 +55,7 @@ export default function WellnessPage() {
                 Tilgang og pris
               </h2>
               <p className="max-w-lg leading-relaxed text-muted-foreground">
-                BPC Velvære kan kjøpes som eget medlemskap med tilgang til badstue og velværerom.
+                BPC Velvære kan kjøpes som eget medlemskap, eller legges til medlemskapet ditt på trening. Begge gir tilgang til badstue og velværerom.
               </p>
               <div className="flex flex-col items-start gap-2 pt-2">
                 <div className="flex flex-wrap gap-3">
