@@ -42,9 +42,14 @@ export function TrialPitch() {
               </li>
             ))}
           </ul>
-          <blockquote className="border-l-2 border-primary pl-5 text-lg font-medium leading-relaxed text-pretty">
-            Kjennes det riktig og passer det i hverdagen din, er valget ditt. Da er det bare å bytte senter eller
-            begynne.
+          <blockquote className="flex flex-col gap-2 border-l-2 border-primary pl-5">
+            <p className="text-pretty text-xl font-semibold leading-snug tracking-tight md:text-2xl">
+              Vi står bak produktet vårt 100 %, men du må selv stå for beslutningen.
+            </p>
+            <p className="text-pretty leading-relaxed text-muted-foreground">
+              Kjennes det riktig og passer det i hverdagen din, er valget ditt. Da er det bare å bytte senter eller
+              begynne.
+            </p>
           </blockquote>
         </div>
       </div>
