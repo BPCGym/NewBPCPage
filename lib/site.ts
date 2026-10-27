@@ -2,7 +2,7 @@
 // Sources and approval status are tracked in LANSERINGSSJEKK.md.
 
 export const links = {
-  signup: 'https://bergenperformancecenter.sics.no/Registration/Location',
+  signup: 'https://bergenperformancecenter.sics.no/Registration/Subscription',
   myPage: 'https://bergenperformancecenter.sics.no/Auth/Login',
   boxen: '/boxen',
   phone: 'tel:+4755125555',
@@ -217,7 +217,7 @@ export const membershipCategories: readonly {
     id: 'velvaere',
     label: 'Velvære',
     color: 'velvaere',
-    intro: 'Badstue og velværerom, som eget medlemskap eller som tillegg.',
+    intro: 'Badstue og velværerom som eget medlemskap. Har du allerede egentrening eller gruppetrening, finner du velvære under Tilleggsprodukter.',
     groups: [
       {
         title: 'Velvære 12 måneder',
@@ -230,23 +230,6 @@ export const membershipCategories: readonly {
           { name: 'Velvære 12 mnd Student', price: 649, note: 'Krever gyldig dokumentasjon.' },
         ],
       },
-      {
-        title: 'Tillegg for medlemmer',
-        note: 'For deg som allerede har egentrening eller gruppetrening. Ingen bindingstid.',
-        color: 'velvaere',
-        period: 'Pr måned',
-        plans: [{ name: 'BPC Velvære tillegg', price: 299, note: 'Fri tilgang til badstue og velværerom.' }],
-      },
-      {
-        title: 'Håndkle',
-        note: 'Enkelthåndkle kan også leies i resepsjonen for kr 50 pr håndkle.',
-        color: 'velvaere',
-        period: 'Pr måned',
-        plans: [
-          { name: 'Håndkleavtale, 1 håndkle pr gang', price: 299 },
-          { name: 'Håndkleavtale, 2 håndklær pr gang', price: 249 },
-        ],
-      },
     ],
   },
 ]
@@ -257,6 +240,14 @@ export const dropIns = [
   { name: 'Egentrening + Sauna', price: 350, note: 'Én økt i BPC Gym, med badstue etterpå.' },
   { name: 'Gruppetrening', price: 250, note: 'Én gruppetime i BPC Boxen.' },
   { name: 'Sauna', price: 200, note: 'Ett besøk i badstuen.' },
+] as const
+
+// Add-ons for existing members. Add a new line here and it appears everywhere add-ons are listed.
+export const addOns = [
+  { name: 'Velvære', price: 299, note: 'For deg som har egentrening eller gruppetrening.' },
+  { name: 'Håndkle, 1 pr gang', price: 149, note: 'Fast håndkleavtale.' },
+  { name: 'Håndkle, 2 pr gang', price: 299, note: 'Fast håndkleavtale.' },
+  { name: 'Barnepass', price: 0, note: 'Inkludert i medlemskapene.' },
 ] as const
 
 export const equipmentBrands = [
@@ -278,8 +269,6 @@ export const wellness = {
   membershipPrice: 749,
   membershipStudentPrice: 649,
   monthlyPrice: 299,
-  towelMonthlyPrice: 299,
-  towelDoubleMonthlyPrice: 249,
   towelRentPrice: 50,
   rules: [
     { title: 'Eget badetøy', text: 'Ikke treningstøy eller boxer. Badeshorts kan kjøpes i resepsjonen i bemannet tid.' },

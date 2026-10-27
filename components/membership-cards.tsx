@@ -4,7 +4,17 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, PiggyBank, Plane, Repeat, Sparkles, type LucideIcon } from 'lucide-react'
 import { AppBadges } from '@/components/app-badges'
 import { SmartLink } from '@/components/smart-link'
-import { dropIns, links, membershipCategories, membershipTip, type PlanBenefit, type PlanColor, type PlanGroup } from '@/lib/site'
+import {
+  addOns,
+  dropIns,
+  links,
+  membershipCategories,
+  membershipTip,
+  wellness,
+  type PlanBenefit,
+  type PlanColor,
+  type PlanGroup,
+} from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 type TabColor = PlanColor | 'dropin'
@@ -88,7 +98,25 @@ function useActiveCard(panelKey: string) {
 const tabs = [
   ...membershipCategories.map((c) => ({ id: c.id, label: c.label, color: c.color as TabColor })),
   { id: 'drop-in', label: 'Drop-in', color: 'dropin' as const },
+  { id: 'tillegg', label: 'Tilleggsprodukter', color: 'dropin' as const },
 ]
+
+const extraPanels = {
+  'drop-in': {
+    intro: 'Én økt, uten medlemskap og uten binding.',
+    title: 'Drop-in',
+    period: 'Pr besøk',
+    rows: dropIns,
+    footnote: 'Drop-in kjøpes kun i Appen Min Trening, ikke på nettsiden.',
+  },
+  tillegg: {
+    intro: 'Legg til det du trenger på medlemskapet ditt. Alt samlet på ett sted.',
+    title: 'Tilleggsprodukter',
+    period: 'Pr måned',
+    rows: addOns,
+    footnote: `Tillegg legges til i Appen Min Trening. Enkelthåndkle kan også leies i resepsjonen for ${wellness.towelRentPrice} kr.`,
+  },
+} as const
 
 const formatPrice = (price: number) => price.toLocaleString('nb-NO')
 
@@ -243,6 +271,7 @@ export function MembershipCards() {
   }
 
   const category = membershipCategories.find((c) => c.id === active)
+  const extra = category ? undefined : extraPanels[active as keyof typeof extraPanels]
   const { panelRef, activeIndex } = useActiveCard(active)
 
   return (
@@ -288,7 +317,7 @@ export function MembershipCards() {
         className="animate-in fade-in duration-300 flex flex-col gap-4 motion-reduce:animate-none"
       >
         <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
-          {category ? category.intro : 'Én økt, uten medlemskap og uten binding.'}
+          {category ? category.intro : extra?.intro}
         </p>
 
         {category ? (
@@ -314,9 +343,15 @@ export function MembershipCards() {
           </aside>
         )}
 
-        {category ? null : (
+        {extra && (
           <div className="grid gap-3 md:grid-cols-2">
-            <PriceList title="Drop-in" color="dropin" period="Pr besøk" rows={dropIns} active={activeIndex === 0} />
+            <PriceList
+              title={extra.title}
+              color="dropin"
+              period={extra.period}
+              rows={extra.rows}
+              active={activeIndex === 0}
+            />
           </div>
         )}
 
@@ -338,9 +373,7 @@ export function MembershipCards() {
         ) : (
           <div className="flex flex-col gap-3 pt-2">
             <AppBadges />
-            <p className="text-sm text-muted-foreground">
-              Drop-in kjøpes kun i Appen Min Trening, ikke på nettsiden.
-            </p>
+            <p className="text-sm text-muted-foreground">{extra?.footnote}</p>
           </div>
         )}
       </div>

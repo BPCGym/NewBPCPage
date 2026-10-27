@@ -14,23 +14,7 @@ export const metadata: Metadata = {
     'BPC Velvære: badstue som tillegg til et aktivt medlemskap. Premium isbad kommer i 2027. Se tilgang og praktiske regler.',
 }
 
-const addOns = [
-  {
-    title: 'Velvære 12 mnd',
-    price: `${wellness.membershipPrice} kr`,
-    text: `Per måned, eget medlemskap med 12 måneders binding. Student: ${wellness.membershipStudentPrice} kr.`,
-  },
-  {
-    title: 'Velvære tillegg',
-    price: `${wellness.monthlyPrice} kr`,
-    text: 'Per måned, for deg som allerede har egentrening eller gruppetrening.',
-  },
-  {
-    title: 'Håndkleavtale',
-    price: `${wellness.towelMonthlyPrice} kr`,
-    text: `Per måned for 1 håndkle pr gang, ${wellness.towelDoubleMonthlyPrice} kr for 2. Enkelthåndkle i resepsjonen: ${wellness.towelRentPrice} kr.`,
-  },
-]
+const formatPrice = (price: number) => `${price.toLocaleString('nb-NO')} kr`
 
 export default function WellnessPage() {
   return (
@@ -71,8 +55,7 @@ export default function WellnessPage() {
                 Tilgang og pris
               </h2>
               <p className="max-w-lg leading-relaxed text-muted-foreground">
-Velg et eget velværemedlemskap, eller legg det til som et tillegg hvis du allerede trener egentrening eller
-  gruppetrening hos oss. Tillegg og håndkleavtale administreres i Appen Min Trening og fornyes månedlig.
+                BPC Velvære kan kjøpes som eget medlemskap med tilgang til badstue og velværerom.
               </p>
               <div className="flex flex-col items-start gap-2 pt-2">
                 <div className="flex flex-wrap gap-3">
@@ -86,20 +69,25 @@ Velg et eget velværemedlemskap, eller legg det til som et tillegg hvis du aller
                 </p>
               </div>
             </div>
-            <ul className="flex flex-col gap-4">
-              {addOns.map((item) => (
-                <li
-                  key={item.title}
-                  className="flex flex-col gap-2 rounded-2xl border border-border bg-background p-6"
-                >
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-2xl font-semibold tracking-tight">{item.price}</p>
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{item.text}</p>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-col gap-4">
+              <article className="flex flex-col gap-2 rounded-2xl border border-border bg-background p-6">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-lg font-semibold">Velvære 12 mnd</h3>
+                  <p className="text-2xl font-semibold tracking-tight">{formatPrice(wellness.membershipPrice)}</p>
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {`Per måned, eget medlemskap med 12 måneders binding. Student: ${formatPrice(wellness.membershipStudentPrice)}.`}
+                </p>
+              </article>
+
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {'Har du allerede egentrening eller gruppetrening? Velvære og håndkleavtale finner du under '}
+                <a href="/medlemskap#tillegg" className="font-medium text-primary underline-offset-4 hover:underline">
+                  Tilleggsprodukter
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </section>
 
