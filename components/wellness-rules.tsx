@@ -43,7 +43,7 @@ const lockerRooms = [
   },
   {
     src: '/images/garderobe-gutt.jpg',
-    alt: 'Guttegarderoben hos BPC i blått lys med betongvegger, steinvask og stort opplyst speil',
+    alt: 'Guttegarderoben hos BPC i blått lys med steinvask, opplyst speil og føner',
     label: 'Guttegarderoben',
   },
 ]
