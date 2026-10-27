@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
 import { CampaignTerms } from '@/components/campaign-terms'
 import { CtaLink } from '@/components/cta-link'
+import { FullBleedHero } from '@/components/full-bleed-hero'
 import { MembershipCards } from '@/components/membership-cards'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteHeader } from '@/components/site-header'
@@ -35,47 +35,37 @@ export default function MembershipPage() {
     <>
       <SiteHeader />
       <main>
-        <section
-          aria-labelledby="medlemskap-title"
-          className="relative isolate overflow-hidden pb-10 pt-32 md:pb-14 md:pt-44"
+        <FullBleedHero
+          id="medlemskap-title"
+          eyebrow="Medlemskap"
+          title="Finn din plass på BPC."
+          text="Se hva medlemskapet omfatter, og fullfør innmeldingen i medlemssystemet vårt."
+          image={{
+            src: '/images/bpc-maskinrom.jpg',
+            alt: 'Apparatsalen hos BPC med lilla og blått lys langs taket, Booty Builder og blått marmorgulv',
+          }}
         >
-          <Image
-            src="/images/bpc-maskinrom.jpg"
-            alt="Apparatsalen hos BPC med lilla og blått lys langs taket og blått marmorgulv"
-            fill
-            priority
-            sizes="100vw"
-            className="hero-zoom -z-20 object-cover object-center"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/75 to-background/35"
-          />
-          <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2 md:items-end md:gap-12">
-            <div className="flex flex-col items-start gap-3">
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Medlemskap</p>
-              <h1
-                id="medlemskap-title"
-                className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-5xl"
-              >
-                Finn din plass på BPC.
-              </h1>
-              <p className="max-w-lg text-pretty leading-relaxed text-foreground/85">
-                Se hva medlemskapet omfatter, og fullfør innmeldingen i medlemssystemet vårt.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-6">
-              {campaign.enabled && <CampaignTerms />}
-              <div className="flex flex-col items-start gap-2">
-                <CtaLink href={links.signup} arrow className="w-full sm:w-auto">
-                  Fortsett til innmelding
-                </CtaLink>
-                <p className="text-sm text-foreground/80">Du går videre til BPCs medlemssystem.</p>
-              </div>
-            </div>
+          <div className="flex flex-col items-start gap-2">
+            <CtaLink href={links.signup} arrow className="w-full sm:w-auto">
+              Fortsett til innmelding
+            </CtaLink>
+            <p className="text-sm text-foreground/80">Du går videre til BPCs medlemssystem.</p>
           </div>
-        </section>
+          <a
+            href="#priser"
+            className="inline-flex h-12 items-center rounded-full border border-foreground/30 bg-background/40 px-6 text-sm font-medium backdrop-blur transition-colors hover:bg-background/70"
+          >
+            Se priser
+          </a>
+        </FullBleedHero>
+
+        {campaign.enabled && (
+          <section aria-label="Kampanje" className="pt-10 md:pt-12">
+            <div className="mx-auto max-w-7xl px-6">
+              <CampaignTerms />
+            </div>
+          </section>
+        )}
 
         {campaign.enabled && (
           <section aria-labelledby="garanti-title" className="border-y border-border bg-card py-8 md:py-10">
