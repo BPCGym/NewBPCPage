@@ -18,22 +18,28 @@ type ContactProps = {
   asPage?: boolean
 }
 
+// Per-photo framing (translate in % of frame, then scale from top-left) so the
+// neon logo lands at the same position and size in every portrait.
 const receptionists = [
   {
     src: '/images/resepsjon/ansatt-48.jpg',
     alt: 'Smilende resepsjonist med tatoveringer i svart BPC-vest, lener seg på disken foran den opplyste BPC-logoen',
+    frame: 'translate(-6.5%, -5.3%) scale(1.127)',
   },
   {
     src: '/images/resepsjon/ansatt-24.jpg',
     alt: 'Smilende resepsjonist med brunt hår i svart BPC-vest bak resepsjonsdisken',
+    frame: 'translate(-4.8%, -3.7%) scale(1.088)',
   },
   {
     src: '/images/resepsjon/ansatt-15.jpg',
     alt: 'Blid resepsjonist med hvitt hår og briller i hvit BPC Girls-t-skjorte bak disken',
+    frame: 'translate(-7.4%, 0%) scale(1.148)',
   },
   {
     src: '/images/resepsjon/ansatt-07.jpg',
     alt: 'Smilende resepsjonist i svart BPC-vest og hvit t-skjorte bak disken, med blått lys i bakgrunnen',
+    frame: 'translate(-2.1%, -10.6%) scale(1.192)',
   },
 ]
 
@@ -107,7 +113,8 @@ export function Contact({ asPage = false }: ContactProps) {
                   alt={person.alt}
                   fill
                   sizes="(min-width: 1024px) 18vw, (min-width: 640px) 25vw, 50vw"
-                  className="object-cover object-[center_40%] transition-transform duration-500 group-hover:scale-105"
+                  style={{ transform: person.frame, transformOrigin: '0 0' }}
+                    className="object-cover transition-[filter] duration-500 group-hover:brightness-110"
                 />
               </li>
             ))}
