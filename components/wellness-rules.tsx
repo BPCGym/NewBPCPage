@@ -1,6 +1,19 @@
 import Image from 'next/image'
-import { ShowerHead, TimerOff } from 'lucide-react'
+import { ShowerHead, Armchair, TimerOff, Ban } from 'lucide-react'
 import { wellness } from '@/lib/site'
+
+const mainRules = [
+  {
+    icon: ShowerHead,
+    title: 'Dusj naken med såpe i garderoben først.',
+    text: 'Vask hele kroppen før du går inn. Brukt treningstøy og boxer er ikke lov i velværerommet. Bruk badetøy.',
+  },
+  {
+    icon: Armchair,
+    title: 'Sitt alltid på håndkle i badstuen.',
+    text: 'Håndkleet skal ligge under rumpa og spesielt under beina, slik at ingen hud eller svette treffer benken.',
+  },
+]
 
 const lockerRooms = [
   {
@@ -44,7 +57,7 @@ export function WellnessRules() {
         <div className="grid gap-4 lg:grid-cols-5">
           <div className="grid gap-4 sm:grid-cols-2 lg:col-span-3">
             {lockerRooms.map((room) => (
-              <figure key={room.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <figure key={room.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:aspect-auto lg:min-h-72">
                 <Image
                   src={room.src}
                   alt={room.alt}
@@ -62,18 +75,45 @@ export function WellnessRules() {
           <div
             role="note"
             aria-labelledby="dusj-title"
-            className="flex flex-col justify-between gap-6 rounded-2xl bg-sauna p-6 text-sauna-foreground md:p-8 lg:col-span-2"
+            className="group relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-2xl border border-sauna/25 bg-card p-6 text-card-foreground transition-colors duration-500 hover:border-sauna/50 md:p-8 lg:col-span-2"
           >
-            <ShowerHead aria-hidden="true" className="size-8" />
-            <div className="flex flex-col gap-2">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] opacity-70">Først av alt</p>
-              <p id="dusj-title" className="text-balance text-2xl font-semibold leading-tight md:text-3xl">
-                Dusj i garderoben før du går inn i velværerommet.
-              </p>
-              <p className="text-pretty leading-relaxed opacity-80">
-                Uten badetøy, hele kroppen, med såpe.
-              </p>
-            </div>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-24 -top-24 -z-10 size-72 rounded-full bg-sauna/15 blur-3xl transition-colors duration-700 group-hover:bg-sauna/25"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-sauna/70 to-transparent"
+            />
+
+            <p id="dusj-title" className="text-xs font-semibold uppercase tracking-[0.3em] text-sauna">
+              To krav før du går inn
+            </p>
+
+            <ol className="flex flex-col">
+              {mainRules.map((rule, index) => {
+                const Icon = rule.icon
+                return (
+                  <li
+                    key={rule.title}
+                    className={`flex gap-4 ${index > 0 ? 'mt-6 border-t border-border pt-6' : ''}`}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="grid size-11 shrink-0 place-items-center rounded-full border border-sauna/40 text-sauna"
+                    >
+                      <Icon className="size-5" />
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      <p className="text-balance text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+                        {rule.title}
+                      </p>
+                      <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
+                    </div>
+                  </li>
+                )
+              })}
+            </ol>
           </div>
         </div>
 
@@ -89,23 +129,48 @@ export function WellnessRules() {
           ))}
         </ul>
 
-        <div
-          role="note"
-          aria-labelledby="timer-title"
-          className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 md:flex-row md:items-start md:gap-6 md:p-8"
-        >
-          <span
-            aria-hidden="true"
-            className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
+        <div className="grid gap-4 lg:grid-cols-2">
+          <div
+            role="note"
+            aria-labelledby="timer-title"
+            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 md:flex-row md:items-start md:gap-6 md:p-8"
           >
-            <TimerOff className="size-6" />
-          </span>
-          <div className="flex flex-col gap-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sauna">Slås hardt ned på</p>
-            <p id="timer-title" className="text-balance text-xl font-semibold md:text-2xl">
-              {saunaTimer.title}
-            </p>
-            <p className="max-w-3xl text-pretty leading-relaxed text-muted-foreground">{saunaTimer.text}</p>
+            <span
+              aria-hidden="true"
+              className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
+            >
+              <TimerOff className="size-6" />
+            </span>
+            <div className="flex flex-col gap-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sauna">Slås hardt ned på</p>
+              <p id="timer-title" className="text-balance text-xl font-semibold md:text-2xl">
+                {saunaTimer.title}
+              </p>
+              <p className="text-pretty leading-relaxed text-muted-foreground">{saunaTimer.text}</p>
+            </div>
+          </div>
+
+          <div
+            role="note"
+            aria-labelledby="sniking-title"
+            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 md:flex-row md:items-start md:gap-6 md:p-8"
+          >
+            <span
+              aria-hidden="true"
+              className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
+            >
+              <Ban className="size-6" />
+            </span>
+            <div className="flex flex-col gap-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sauna">Gebyr</p>
+              <p id="sniking-title" className="text-balance text-xl font-semibold md:text-2xl">
+                Sniking koster 2 500 kr, hver gang.
+              </p>
+              <p className="text-pretty leading-relaxed text-muted-foreground">
+                Å bruke velværeavdelingen uten velvære på medlemskapet regnes som sniking. Vi ilegger et gebyr på
+                2 500 kr for hver gang noen blir tatt.
+              </p>
+            </div>
           </div>
         </div>
 

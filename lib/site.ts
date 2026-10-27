@@ -153,8 +153,7 @@ export const wellness = {
   monthlyPrice: 299,
   towelMonthlyPrice: 149,
   rules: [
-  { title: 'Eget badetøy', text: 'Badeshorts kan kjøpes i resepsjonen i bemannet tid.' },
-  { title: 'Håndkle under deg', text: 'Rumpe og ben skal alltid ligge på håndkle i badstuen.' },
+    { title: 'Eget badetøy', text: 'Ikke treningstøy eller boxer. Badeshorts kan kjøpes i resepsjonen i bemannet tid.' },
   { title: 'Ro og respekt', text: 'Snakk lavt. Andre er her for å koble av.' },
   { title: 'Ingen saltskrubb eller olje', text: 'Ikke tillatt av hygieniske årsaker.' },
   { title: 'Ta vare på rommet', text: 'Bråk og misbruk gir permanent utestengelse.' },
