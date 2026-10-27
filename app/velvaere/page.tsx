@@ -32,8 +32,6 @@ export default function WellnessPage() {
           }}
         />
 
-        <WellnessRules />
-
         <PageIntro
           belowHero
           id="velvaere-title"
@@ -45,6 +43,8 @@ export default function WellnessPage() {
             alt: 'Fire medlemmer ler og slapper av sammen i badstuen hos BPC under varmt, gyllent lys',
           }}
         />
+
+        <WellnessRules />
 
         <IceBathComing />
 
