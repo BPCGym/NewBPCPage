@@ -268,7 +268,7 @@ export default function BoxenPage() {
 
         <StrongSteady />
 
-        <section aria-labelledby="tilgang-boxen-title" className="border-t border-border py-14 md:py-20">
+        <section aria-labelledby="tilgang-boxen-title" className="border-t border-border pb-4 pt-14 md:pb-6 md:pt-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-16">
             <div className="flex flex-col items-start gap-5">
               <h2 id="tilgang-boxen-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
@@ -300,41 +300,43 @@ export default function BoxenPage() {
           </div>
         </section>
 
-        <section aria-labelledby="grupper-title" className="py-14 md:py-20">
-          <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
-            <div className="flex max-w-2xl flex-col gap-4">
-              <h2 id="grupper-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
-                For idrettslag og bedrifter
-              </h2>
-              <p className="text-pretty leading-relaxed text-muted-foreground">
-                Vi tilbyr Gruppetrening med lav terskel, tilpasset gruppen. Målet er trygg progresjon, mestring og
-                et sterkere fellesskap.
-              </p>
-            </div>
-            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl md:aspect-[21/8]">
+        <section aria-labelledby="grupper-title" className="py-10 md:py-14">
+          <div className="mx-auto grid max-w-7xl items-stretch gap-6 px-6 md:grid-cols-5 md:gap-8">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2 md:aspect-auto md:min-h-[26rem]">
               <Image
                 src="/images/boxen-highfive.jpg"
                 alt="Et medlem og en trener gir hverandre high five i planke på kunstgresset i BPC Boxen"
                 fill
                 loading="lazy"
-                sizes="(min-width: 1280px) 1232px, 100vw"
-                className="object-cover"
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="object-cover object-[50%_45%]"
               />
             </div>
-            <ul className="grid gap-4 md:grid-cols-2">
-              {groups.map((group) => (
-                <li key={group.title} className="flex flex-col gap-3 rounded-2xl border border-border p-6">
-                  <h3 className="text-lg font-semibold">{group.title}</h3>
-                  <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{group.text}</p>
-                  <SmartLink
-                    href={group.href}
-                    className="mt-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    {group.cta}
-                  </SmartLink>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-col justify-center gap-5 md:col-span-3">
+              <div className="flex flex-col gap-3">
+                <h2 id="grupper-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+                  For idrettslag og bedrifter
+                </h2>
+                <p className="max-w-xl text-pretty leading-relaxed text-muted-foreground">
+                  Vi tilbyr Gruppetrening med lav terskel, tilpasset gruppen. Målet er trygg progresjon, mestring og
+                  et sterkere fellesskap.
+                </p>
+              </div>
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {groups.map((group) => (
+                  <li key={group.title} className="flex flex-col gap-2 rounded-2xl border border-border p-5">
+                    <h3 className="text-lg font-semibold">{group.title}</h3>
+                    <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{group.text}</p>
+                    <SmartLink
+                      href={group.href}
+                      className="mt-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      {group.cta}
+                    </SmartLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
 
