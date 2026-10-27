@@ -22,7 +22,7 @@ export function TrialPitch() {
           </p>
           <p className="flex items-start gap-3 rounded-2xl border border-primary/30 bg-primary/10 p-4 font-semibold leading-relaxed">
             <BadgeCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
-            <span className="text-pretty">Vi står bak produktet vårt 100 %, men du må selv stå for beslutningen.</span>
+            <span className="text-pretty">Vi står 100 % bak produktet vårt, men du må selv ta beslutningen om BPC er noe for deg.</span>
           </p>
         </div>
 
