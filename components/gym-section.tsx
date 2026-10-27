@@ -119,8 +119,9 @@ export function EquipmentBrands() {
                     alt={copy === 1 ? '' : brand.name}
                     fill
                     loading="lazy"
-                    sizes="224px"
-                    className="object-cover"
+                          sizes="224px"
+                          className={brand.square ? 'object-contain' : 'object-cover'}
+                          style={brand.square ? { backgroundColor: '#000' } : undefined}
                   />
                 </li>
               ))}

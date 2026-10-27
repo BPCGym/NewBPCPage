@@ -254,12 +254,13 @@ export const addOns = [
   { name: 'Barnepass', price: 0, note: 'Inkludert i medlemskapene.' },
 ] as const
 
-export const equipmentBrands = [
-  { name: 'Woodway', logo: '/images/brands/woodway.png' },
-  { name: 'Atlantis Strength', logo: '/images/brands/atlantis.png' },
+export const equipmentBrands: { name: string; logo: string; square?: boolean }[] = [
+  { name: 'NewTech Strength Equipment', logo: '/images/newtech-logo.png', square: true },
   { name: 'Arsenal Strength', logo: '/images/brands/arsenal-strength.png' },
-  { name: 'Rogue Fitness', logo: '/images/brands/rogue.png' },
+  { name: 'Atlantis Strength', logo: '/images/brands/atlantis.png' },
+  { name: 'Woodway', logo: '/images/brands/woodway.png' },
   { name: 'Eleiko', logo: '/images/brands/eleiko.png' },
+  { name: 'Rogue Fitness', logo: '/images/brands/rogue.png' },
   { name: 'Concept2', logo: '/images/brands/concept2.png' },
   { name: 'Nautilus', logo: '/images/brands/nautilus.png' },
   { name: 'American Barbell', logo: '/images/brands/american-barbell.png' },
@@ -404,12 +405,12 @@ export const mainNav = [
   { href: links.boxen, label: 'BPC Boxen' },
   { href: '/barnepass', label: 'BPC Kids' },
   { href: '/medlemskap', label: 'Medlemskap' },
-  { href: '/drop-in', label: 'Drop-in' },
 ] as const
 
 export const secondaryNav = [
   { href: '/om-oss', label: 'Om oss' },
   { href: '/pt', label: 'PT' },
+  { href: '/drop-in', label: 'Drop-in' },
   { href: '/provetime', label: 'Prøvetime' },
   { href: '/kontakt', label: 'Kontakt' },
   { href: links.myPage, label: 'Min side' },

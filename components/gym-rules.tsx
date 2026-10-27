@@ -75,9 +75,15 @@ export function GymRules() {
         <header className="flex flex-col gap-4">
           <h2
             id="gymregler-title"
-            className="text-balance text-5xl font-bold uppercase tracking-tight text-primary md:text-7xl"
+            className="group relative w-fit cursor-default select-none text-balance pb-2 text-5xl font-bold uppercase tracking-tight text-primary md:text-7xl"
           >
-            Gymregler
+            <span className="inline-block origin-left transition-all duration-300 ease-out group-hover:-skew-x-6 group-hover:scale-110 group-hover:tracking-wide group-hover:drop-shadow-[0_0_24px_var(--color-primary)] motion-reduce:transition-none motion-reduce:group-hover:transform-none">
+              Gymregler
+            </span>
+            <span
+              aria-hidden="true"
+              className="absolute bottom-0 left-0 h-1 w-0 rounded-full bg-primary transition-all duration-500 ease-out group-hover:w-full motion-reduce:transition-none"
+            />
           </h2>
           <div className="flex flex-col gap-1">
             <p className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
