@@ -18,7 +18,7 @@ export function TrialPitch() {
           </h2>
           <p className="text-pretty leading-relaxed text-muted-foreground">
             Det viktigste du kan gjøre før du bestemmer deg, er å komme hit og kjenne på det selv. Vi presser ingen
-            inn i et medlemskap. Vi mener produktet taler for seg selv.
+            inn i et medlemskap. Vi er trygge på det vi tilbyr, og lar deg gjerne se det selv.
           </p>
           <p className="flex items-start gap-3 rounded-2xl border border-primary/30 bg-primary/10 p-4 font-semibold leading-relaxed">
             <BadgeCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-primary" />
