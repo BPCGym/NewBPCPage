@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { ClipboardCheck, Dumbbell, SlidersHorizontal, Users, type LucideIcon } from 'lucide-react'
+import { ClipboardCheck, Dumbbell, HeartHandshake, SlidersHorizontal, Users, type LucideIcon } from 'lucide-react'
 import { CtaLink } from '@/components/cta-link'
 import { GroupSchedule } from '@/components/group-schedule'
 import { HelpStrip } from '@/components/help-strip'
@@ -159,6 +159,30 @@ export default function BoxenPage() {
                 </li>
               ))}
             </ul>
+
+            <figure className="relative flex flex-col gap-6 overflow-hidden rounded-2xl border border-primary/25 bg-primary/5 p-6 md:flex-row md:items-center md:gap-12 md:p-10">
+              <div className="flex flex-col gap-3 md:flex-1">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Samholdet i Boxen</p>
+                <blockquote className="text-balance text-xl font-semibold leading-snug tracking-tight md:text-2xl">
+                  Her spiller det ingen rolle hvem du er, hvor du kommer fra eller hvor godt trent du er.
+                </blockquote>
+                <p className="text-pretty leading-relaxed text-muted-foreground">
+                  Du trenger bare å møte opp. Du får en god treningsøkt, kanskje en ny venn, og viktigst av alt: du har
+                  det gøy og går hjem med en god opplevelse.
+                </p>
+              </div>
+              <ul className="flex flex-wrap gap-2 md:w-72 md:flex-col" aria-label="Alle er velkomne">
+                {['Uansett nivå', 'Uansett bakgrunn', 'Uansett hvem du er'].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium"
+                  >
+                    <HeartHandshake className="size-4 text-primary" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </figure>
           </div>
         </section>
 
