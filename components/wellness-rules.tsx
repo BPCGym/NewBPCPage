@@ -36,19 +36,6 @@ const mainRules = [
   },
 ]
 
-const lockerRooms = [
-  {
-    src: '/images/bpc-garderobe.jpg',
-    label: 'Jentegarderoben',
-    alt: 'Jentegarderoben hos BPC i rosa lys med vasker, speil og døren inn til badstue og iskulp',
-  },
-  {
-    src: '/images/garderobe-gutt.jpg',
-    label: 'Guttegarderoben',
-    alt: 'Guttegarderoben hos BPC i blått lys med dusjområde, betongvask, stort speil og sittepuff',
-  },
-]
-
 export function WellnessRules() {
   const { rules, saunaTimer, consequence } = wellness
 
@@ -77,27 +64,23 @@ export function WellnessRules() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-5">
-          <div className="order-last grid gap-4 sm:grid-cols-2 lg:col-span-3">
-            {lockerRooms.map((room) => (
-              <figure key={room.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:aspect-auto lg:min-h-72">
-                <Image
-                  src={room.src}
-                  alt={room.alt}
-                  fill
-                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover"
-                />
-                <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/80 px-3 py-1 text-sm font-semibold backdrop-blur">
-                  {room.label}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <figure className="relative order-last aspect-[4/3] overflow-hidden rounded-2xl lg:col-span-2 lg:aspect-auto lg:min-h-72">
+            <Image
+              src="/images/velvaere-dusj.jpg"
+              alt="Dusj hos BPC i blått lys med regndusj i taket og en varmt opplyst nisje til såpe"
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover object-[center_45%]"
+            />
+            <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/80 px-3 py-1 text-sm font-semibold backdrop-blur">
+              Dusj før du går inn
+            </figcaption>
+          </figure>
 
           <div
             role="note"
             aria-labelledby="dusj-title"
-            className="group relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-2xl border border-sauna/25 bg-card p-6 text-card-foreground transition-colors duration-500 hover:border-sauna/50 md:p-8 lg:col-span-2"
+            className="group relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-2xl border border-sauna/25 bg-card p-6 text-card-foreground transition-colors duration-500 hover:border-sauna/50 md:p-8 lg:col-span-3"
           >
             <div
               aria-hidden="true"
@@ -144,29 +127,24 @@ export function WellnessRules() {
 
         <RulesProgress />
 
-        <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {rules.map((rule, index) => {
             const Icon = ruleIcons[rule.title] ?? Sparkles
             return (
               <SeenRule
                 key={rule.title}
                 id={`rule-${index}`}
-                className="flex translate-y-6 flex-col gap-3 overflow-hidden rounded-2xl border border-border bg-card p-6 pr-20 text-card-foreground opacity-40 transition-all duration-700 ease-out data-[seen=true]:translate-y-0 data-[seen=true]:border-sauna/50 data-[seen=true]:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none"
+                style={{ transitionDelay: `${index * 80}ms` }}
+                className="flex translate-y-4 flex-col gap-2 overflow-hidden rounded-xl border border-border bg-card p-4 text-card-foreground opacity-40 transition-all duration-700 ease-out data-[seen=true]:translate-y-0 data-[seen=true]:border-sauna/50 data-[seen=true]:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none"
               >
                 <SeenStamp />
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-6 -right-2 text-8xl font-black leading-none tracking-tighter text-sauna/10 transition-colors duration-700 group-data-[seen=true]/rule:text-sauna/20"
+                  className="grid size-9 place-items-center rounded-full border-2 border-sauna/50 text-sauna transition-all duration-700 group-data-[seen=true]/rule:border-sauna group-data-[seen=true]/rule:bg-sauna group-data-[seen=true]/rule:text-sauna-foreground"
                 >
-                  {index + 3}
+                  <Icon className="size-4" />
                 </span>
-                <span
-                  aria-hidden="true"
-                  className="grid size-11 place-items-center rounded-full border-2 border-sauna/50 text-sauna transition-all duration-700 group-data-[seen=true]/rule:border-sauna group-data-[seen=true]/rule:bg-sauna group-data-[seen=true]/rule:text-sauna-foreground"
-                >
-                  <Icon className="size-5" />
-                </span>
-                <p className="text-balance text-lg font-semibold leading-tight md:text-xl">
+                <p className="text-balance font-semibold leading-snug">
                   <span className="sr-only">{`Regel ${index + 3}: `}</span>
                   {rule.title}
                 </p>
