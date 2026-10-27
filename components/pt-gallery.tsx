@@ -4,20 +4,20 @@ const photos = [
   {
     src: '/images/pt-knebay.jpg',
     alt: 'PT veileder et medlem i knebøy med stang i riggen, med BPC-logoen i gulvet',
-    className: 'aspect-[4/5] md:row-span-2 md:aspect-auto',
-    position: 'object-center',
+    className: 'col-span-2 aspect-[4/3] md:col-span-1 md:aspect-auto',
+    position: 'object-[center_30%]',
   },
   {
     src: '/images/pt-skulderpress.jpg',
     alt: 'PT støtter et medlem under skulderpress med manualer foran speilveggen',
-    className: 'aspect-[16/10] md:aspect-auto',
-    position: 'object-[40%_center]',
+    className: 'aspect-[4/3] md:aspect-auto',
+    position: 'object-[40%_25%]',
   },
   {
     src: '/images/pt-curl.jpg',
     alt: 'Smilende PT heier frem et medlem som trener biceps med manualer',
-    className: 'aspect-[16/10] md:aspect-auto',
-    position: 'object-[45%_center]',
+    className: 'aspect-[4/3] md:aspect-auto',
+    position: 'object-[40%_top]',
   },
 ]
 
@@ -29,10 +29,10 @@ const points = [
 
 export function PtGallery() {
   return (
-    <section aria-labelledby="pt-galleri-title" className="border-t border-border py-14 md:py-20">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6">
-        <div className="flex max-w-2xl flex-col gap-4">
-          <h2 id="pt-galleri-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+    <section aria-labelledby="pt-galleri-title" className="border-t border-border py-10 md:py-14">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6">
+        <div className="flex max-w-2xl flex-col gap-2">
+          <h2 id="pt-galleri-title" className="text-balance text-xl font-semibold tracking-tight md:text-2xl">
             Trening med en som følger deg hele veien
           </h2>
           <p className="text-pretty leading-relaxed text-muted-foreground">
@@ -41,7 +41,7 @@ export function PtGallery() {
           </p>
         </div>
 
-        <ul className="grid gap-3 md:h-[40rem] md:grid-cols-2 md:grid-rows-2 md:gap-4">
+        <ul className="grid grid-cols-2 gap-3 md:h-72 md:grid-cols-[3fr_4fr_4fr] md:gap-4">
           {photos.map((photo) => (
             <li key={photo.src} className={`relative overflow-hidden rounded-2xl ${photo.className}`}>
               <Image
@@ -49,17 +49,17 @@ export function PtGallery() {
                 alt={photo.alt}
                 fill
                 loading="lazy"
-                sizes="(min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 768px) 33vw, 50vw"
                 className={`object-cover transition-transform duration-700 hover:scale-105 ${photo.position}`}
               />
             </li>
           ))}
         </ul>
 
-        <ul className="grid gap-6 border-t border-border pt-8 md:grid-cols-3">
+        <ul className="grid gap-4 border-t border-border pt-6 md:grid-cols-3 md:gap-6">
           {points.map((point) => (
-            <li key={point.title} className="flex flex-col gap-2">
-              <h3 className="text-lg font-semibold">{point.title}</h3>
+            <li key={point.title} className="flex flex-col gap-1">
+              <h3 className="font-semibold">{point.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{point.text}</p>
             </li>
           ))}

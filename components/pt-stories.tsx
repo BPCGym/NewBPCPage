@@ -27,37 +27,30 @@ const stories = [
 
 export function PtStories() {
   return (
-    <section aria-label="Hva du får med personlig trening" className="border-t border-border py-14 md:py-20">
-      <div className="mx-auto flex max-w-7xl flex-col gap-14 px-6 md:gap-20">
-        {stories.map((story, index) => (
+    <section aria-label="Hva du får med personlig trening" className="border-t border-border py-10 md:py-14">
+      <div className="mx-auto grid max-w-7xl gap-4 px-6 md:grid-cols-2 md:gap-6">
+        {stories.map((story) => (
           <article
             key={story.id}
             aria-labelledby={`${story.id}-title`}
-            className="grid items-center gap-8 md:grid-cols-2 md:gap-14"
+            className="grid grid-cols-[7rem_1fr] items-center gap-4 rounded-2xl border border-border bg-card p-3 sm:grid-cols-[10rem_1fr] sm:gap-6 md:p-4"
           >
-            <div
-              className={`relative aspect-[4/5] overflow-hidden rounded-2xl md:aspect-[5/6] ${
-                index % 2 === 1 ? 'md:order-2' : ''
-              }`}
-            >
+            <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
               <Image
                 src={story.image.src}
                 alt={story.image.alt}
                 fill
                 loading="lazy"
-                sizes="(min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 640px) 160px, 112px"
                 className={`object-cover ${story.image.position}`}
               />
             </div>
-            <div className="flex max-w-lg flex-col gap-4">
-              <p className="text-sm font-medium uppercase tracking-widest text-primary">{story.eyebrow}</p>
-              <h2
-                id={`${story.id}-title`}
-                className="text-balance text-3xl font-semibold tracking-tight md:text-4xl"
-              >
+            <div className="flex flex-col gap-2 pr-2">
+              <p className="text-xs font-medium uppercase tracking-widest text-primary">{story.eyebrow}</p>
+              <h2 id={`${story.id}-title`} className="text-balance text-lg font-semibold tracking-tight md:text-xl">
                 {story.title}
               </h2>
-              <p className="text-pretty text-lg leading-relaxed text-muted-foreground">{story.text}</p>
+              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{story.text}</p>
             </div>
           </article>
         ))}

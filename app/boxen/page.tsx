@@ -56,36 +56,14 @@ const steps = [
 ]
 
 const gallery = [
-  {
-    src: '/images/boxen-tau.jpg',
-    alt: 'Medlem trekker sled med tau på sprintbanen i BPC Boxen',
-    className: 'aspect-[3/4] md:aspect-auto md:row-span-2',
-    sizes: '(min-width: 768px) 25vw, 50vw',
-  },
-  {
-    src: '/images/boxen-rom-1.jpg',
-    alt: 'Romaskiner, airbikes og rigger i BPC Boxen med BPC-logoen på veggen',
-    className: 'col-span-2 aspect-[16/9] md:aspect-auto',
-    sizes: '(min-width: 768px) 50vw, 100vw',
-  },
-  {
-    src: '/images/boxen-loping.jpg',
-    alt: 'Medlem løper på en kurvet tredemølle foran BPC Boxen-logoen',
-    className: 'aspect-[3/4] md:aspect-auto md:row-span-2',
-    sizes: '(min-width: 768px) 25vw, 50vw',
-  },
-  {
-    src: '/images/boxen-glede.jpg',
-    alt: 'To trenere poserer lekent i rigg og på plyoboks under lilla lys',
-    className: 'aspect-[3/4] md:aspect-auto',
-    sizes: '(min-width: 768px) 25vw, 50vw',
-  },
-  {
-    src: '/images/boxen-rom-3.jpg',
-    alt: 'Sprintbanen med BPC-logo, sleder og boksesekk i BPC Boxen',
-    className: 'aspect-[3/4] md:aspect-auto',
-    sizes: '(min-width: 768px) 25vw, 50vw',
-  },
+  { src: '/images/boxen-liv-lop.jpg', alt: 'Medlem løper på kurvet tredemølle i BPC Boxen', position: 'object-center' },
+  { src: '/images/boxen-liv-airbike.jpg', alt: 'Medlem gir alt på airbike i BPC Boxen', position: 'object-[center_35%]' },
+  { src: '/images/boxen-liv-wallball.jpg', alt: 'Medlem kaster wallball i BPC Boxen', position: 'object-[center_35%]' },
+  { src: '/images/boxen-liv-slede.jpg', alt: 'Medlem skyver slede på sprintbanen i BPC Boxen', position: 'object-center' },
+  { src: '/images/boxen-liv-planke.jpg', alt: 'Medlem og trener gir hverandre high five i planke', position: 'object-[center_35%]' },
+  { src: '/images/boxen-liv-tau.jpg', alt: 'Medlem trener med kampsnor i BPC Boxen', position: 'object-center' },
+  { src: '/images/boxen-liv-pushup.jpg', alt: 'Medlem tar push-ups på kunstgresset i BPC Boxen', position: 'object-center' },
+  { src: '/images/boxen-liv-trenere.jpg', alt: 'To smilende trenere i BPC Boxen', position: 'object-[center_30%]' },
 ]
 
 const groups = [
@@ -196,19 +174,16 @@ export default function BoxenPage() {
                 Sprintbane, rigger, romaskiner, airbikes og god stemning. Her er et lite innblikk.
               </p>
             </div>
-            <ul className="grid grid-cols-2 gap-3 md:h-[44rem] md:grid-cols-4 md:grid-rows-2 md:gap-4">
+            <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
               {gallery.map((img) => (
-                <li
-                  key={img.src}
-                  className={`relative overflow-hidden rounded-2xl ${img.className}`}
-                >
+                <li key={img.src} className="relative aspect-[3/4] overflow-hidden rounded-2xl">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
                     loading="lazy"
-                    sizes={img.sizes}
-                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    className={`object-cover transition-transform duration-700 hover:scale-105 ${img.position}`}
                   />
                 </li>
               ))}

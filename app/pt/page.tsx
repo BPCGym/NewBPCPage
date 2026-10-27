@@ -21,6 +21,7 @@ export default function PersonalTrainingPage() {
       <main>
         <PageIntro
           id="pt-title"
+          compact
           eyebrow="Personlig trening"
           title="Ta neste steg i treningen."
           text="Fortell oss hva du ønsker å få til. Ta kontakt om mulighetene for personlig trening hos BPC."
