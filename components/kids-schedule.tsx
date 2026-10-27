@@ -29,25 +29,9 @@ const weekPlan: Day[] = [
   { name: 'Fredag', sessions: [] },
   {
     name: 'Lørdag',
-    sessions: [{ label: 'Barnepass', times: ['09:00–10:00', '10:00–11:00', '11:00–12:00'], staff: 'Rullering' }],
+    sessions: [{ label: 'Barnepass', times: ['09:00–10:00', '10:00–11:00', '11:00–12:00'], staff: '2 på vakt' }],
   },
   { name: 'Søndag', sessions: [] },
-]
-
-const saturdayRotation = [
-  { week: 40, date: '03.10', staff: 'Emma Sofie + Emilie' },
-  { week: 41, date: '10.10', staff: 'Isabella + Emma Davik' },
-  { week: 42, date: '17.10', staff: 'Emma Sofie + Emilie' },
-  { week: 43, date: '24.10', staff: 'Emilie + Isabella' },
-  { week: 44, date: '31.10', staff: 'Emma Sofie + Emilie' },
-  { week: 45, date: '07.11', staff: 'Isabella + Emma Davik' },
-  { week: 46, date: '14.11', staff: 'Emma Sofie + Emilie' },
-  { week: 47, date: '21.11', staff: 'Emilie + Isabella' },
-  { week: 48, date: '28.11', staff: 'Emma Sofie + Emilie' },
-  { week: 49, date: '05.12', staff: 'Isabella + Emma Davik' },
-  { week: 50, date: '12.12', staff: 'Emma Sofie + Emilie' },
-  { week: 51, date: '19.12', staff: 'Emilie + Isabella' },
-  { week: 52, date: '26.12', staff: 'Emma Sofie + Emilie' },
 ]
 
 function SessionBlock({ session }: { session: Session }) {
@@ -77,15 +61,17 @@ function SessionBlock({ session }: { session: Session }) {
 
 export function KidsSchedule() {
   return (
-    <section aria-labelledby="kids-timeplan" className="border-t border-border py-14 md:py-20">
-      <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6">
-        <header className="flex max-w-2xl flex-col gap-3" data-reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Timeplan · ut 2026</p>
-          <h2 id="kids-timeplan" className="scroll-mt-28 text-balance text-3xl font-semibold tracking-tight md:text-4xl">
-            Når er barnepasset åpent?
-          </h2>
-          <p className="text-pretty leading-relaxed text-muted-foreground">
-            Fast ukeplan for barnepass og babypass, og hvem som er på vakt på lørdager resten av året.
+    <section aria-labelledby="kids-timeplan" className="border-t border-border py-10 md:py-14">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6">
+        <header className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between" data-reveal>
+          <div className="flex flex-col gap-2">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Timeplan · ut 2026</p>
+            <h2 id="kids-timeplan" className="scroll-mt-28 text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+              Når er barnepasset åpent?
+            </h2>
+          </div>
+          <p className="max-w-md text-pretty text-sm leading-relaxed text-muted-foreground">
+            Fast ukeplan for barnepass og babypass.
           </p>
         </header>
 
@@ -97,8 +83,8 @@ export function KidsSchedule() {
                 key={day.name}
                 className={
                   isOpen
-                    ? 'flex flex-col gap-4 rounded-2xl border border-primary/40 bg-card p-4 text-card-foreground'
-                    : 'flex flex-col gap-4 rounded-2xl border border-border p-4 text-muted-foreground'
+                    ? 'flex flex-col gap-3 rounded-2xl border border-primary/40 bg-card p-4 text-card-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary'
+                    : 'flex flex-col gap-2 rounded-2xl border border-dashed border-border p-4 text-muted-foreground'
                 }
               >
                 <h3 className="text-sm font-semibold uppercase tracking-widest">{day.name}</h3>
@@ -109,42 +95,12 @@ export function KidsSchedule() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-sm leading-relaxed">Ingen barnepass eller babypass</p>
+                  <p className="text-sm leading-relaxed">Stengt</p>
                 )}
               </li>
             )
           })}
         </ol>
-
-        <div className="flex flex-col gap-4" data-reveal>
-          <div className="flex flex-col gap-1">
-            <h3 className="text-xl font-semibold tracking-tight">Lørdagsrullering</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              2 personer på vakt hele lørdagen (09:00–12:00).
-            </p>
-          </div>
-          <div className="overflow-x-auto rounded-2xl border border-border">
-            <table className="w-full min-w-[28rem] text-left text-sm">
-              <caption className="sr-only">Barnepassere på lørdager, uke 40 til 52</caption>
-              <thead className="bg-muted text-xs uppercase tracking-widest text-muted-foreground">
-                <tr>
-                  <th scope="col" className="px-4 py-3 font-medium">Uke</th>
-                  <th scope="col" className="px-4 py-3 font-medium">Dato</th>
-                  <th scope="col" className="px-4 py-3 font-medium">Barnepassere</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {saturdayRotation.map((row) => (
-                  <tr key={row.week}>
-                    <td className="px-4 py-2.5 font-mono font-semibold tabular-nums text-primary">{row.week}</td>
-                    <td className="px-4 py-2.5 font-mono tabular-nums">{row.date}</td>
-                    <td className="px-4 py-2.5">{row.staff}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
     </section>
   )

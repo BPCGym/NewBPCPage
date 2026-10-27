@@ -40,7 +40,7 @@ export default function ChildcarePage() {
         <KidsFeature />
         <KidsPeople />
         <KidsSchedule />
-      <KidsRules />
+        <KidsRules />
         <KidsGallery />
         <HelpStrip />
       </main>

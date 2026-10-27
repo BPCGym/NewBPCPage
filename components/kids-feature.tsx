@@ -2,9 +2,9 @@ import Image from 'next/image'
 
 export function KidsFeature() {
   return (
-    <section aria-labelledby="kids-feature-title" className="border-t border-border py-14 md:py-20">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 md:grid-cols-2 md:gap-16">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+    <section aria-labelledby="kids-feature-title" className="border-t border-border py-10 md:py-14">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 px-6 md:grid-cols-2 md:gap-12">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
           <Image
             src="/images/bpc-kids-klatring.jpg"
             alt="Barnepasser holder en liten gutt som klatrer på den fargerike klatreveggen i BPC Kids"

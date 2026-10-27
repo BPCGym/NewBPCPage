@@ -25,11 +25,11 @@ const stories = [
 
 export function KidsPeople() {
   return (
-    <section aria-label="Menneskene i BPC Kids" className="py-14 md:py-20">
-      <ul className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2 md:gap-8">
+    <section aria-label="Menneskene i BPC Kids" className="pb-10 md:pb-14">
+      <ul className="mx-auto grid max-w-7xl gap-8 px-6 md:grid-cols-2 md:gap-6">
         {stories.map((story) => (
-          <li key={story.id} className="flex flex-col gap-5" data-reveal>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+          <li key={story.id} className="flex flex-col gap-4" data-reveal>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
               <Image
                 src={story.image.src}
                 alt={story.image.alt}
