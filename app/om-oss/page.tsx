@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
+import { VelvaereLogo } from '@/components/velvaere-logo'
 import { CtaLink } from '@/components/cta-link'
 import { HelpStrip } from '@/components/help-strip'
 import { FullBleedHero } from '@/components/full-bleed-hero'
@@ -17,10 +19,10 @@ export const metadata: Metadata = {
 }
 
 const areas = [
-  { href: '/gymmet', name: 'BPC Gym', text: 'Egentrening med styrke, kondisjon og funksjonell sone.' },
-  { href: '/velvaere', name: 'BPC Velvære', text: 'Badstue og rolige stunder etter treningen.' },
-  { href: '/boxen', name: 'BPC Boxen', text: 'Gruppetrening med CrossFit, HYROX og WOD.' },
-  { href: '/barnepass', name: 'BPC Kids', text: 'Et eget rom for barna mens du trener.' },
+  { href: '/gymmet', name: 'BPC Gym', text: 'Egentrening med styrke, kondisjon og funksjonell sone.', logo: '/images/bpc-logo.png' },
+  { href: '/velvaere', name: 'BPC Velvære', text: 'Badstue og rolige stunder etter treningen.', logo: null },
+  { href: '/boxen', name: 'BPC Boxen', text: 'Gruppetrening med CrossFit, HYROX og WOD.', logo: '/images/bpc-boxen-logo.png' },
+  { href: '/barnepass', name: 'BPC Kids', text: 'Et eget rom for barna mens du trener.', logo: '/images/bpc-kids-logo.png' },
 ] as const
 
 export default function AboutPage() {
@@ -58,8 +60,15 @@ export default function AboutPage() {
                 <li key={area.href}>
                   <Link
                     href={area.href}
-                    className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary"
+                    className="group flex h-full flex-col items-center gap-2 rounded-2xl border border-border bg-card p-6 text-center transition-colors hover:border-primary"
                   >
+                    <span className="mb-3 block size-24 rounded-full shadow-lg ring-1 ring-border transition-transform duration-300 group-hover:scale-105 group-hover:ring-primary">
+                      {area.logo ? (
+                        <Image src={area.logo} alt="" width={96} height={96} className="size-full rounded-full" />
+                      ) : (
+                        <VelvaereLogo title="" className="size-full rounded-full" />
+                      )}
+                    </span>
                     <span className="text-lg font-semibold">{area.name}</span>
                     <span className="text-pretty leading-relaxed text-muted-foreground">{area.text}</span>
                   </Link>
