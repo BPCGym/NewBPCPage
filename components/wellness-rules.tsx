@@ -13,7 +13,6 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { wellness } from '@/lib/site'
-import { RulesProgress, SeenRule, SeenStamp, WellnessRuleTracker } from '@/components/wellness-rule-tracker'
 
 const ruleIcons: Record<string, LucideIcon> = {
   'Eget badetøy': Shirt,
@@ -36,6 +35,27 @@ const mainRules = [
   },
 ]
 
+const lockerRooms = [
+  {
+    src: '/images/garderobe-jente.jpg',
+    alt: 'Jentegarderoben hos BPC i rosa lys med betongvask, opplyst speil og føner',
+    label: 'Jentegarderoben',
+  },
+  {
+    src: '/images/garderobe-gutt.jpg',
+    alt: 'Guttegarderoben hos BPC i blått lys med betongvegger, steinvask og stort opplyst speil',
+    label: 'Guttegarderoben',
+  },
+]
+
+const hoverCard =
+  'group transition-[transform,border-color,box-shadow,background-color] duration-300 ease-out hover:border-sauna/70 hover:shadow-[0_18px_40px_-18px_var(--color-sauna)] motion-safe:hover:-translate-y-1.5 motion-safe:hover:scale-[1.015]'
+
+const hoverIcon = 'transition-transform duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-hover:-rotate-6'
+
+const captionClass =
+  'absolute bottom-2 left-2 rounded-full bg-background/80 px-3 py-1 text-xs font-semibold text-foreground backdrop-blur md:bottom-3 md:left-3 md:text-sm'
+
 export function WellnessRules() {
   const { rules, saunaTimer, consequence } = wellness
 
@@ -49,7 +69,6 @@ export function WellnessRules() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sauna/60 to-transparent"
       />
-      <WellnessRuleTracker total={mainRules.length + rules.length + 2}>
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-12">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-3">
@@ -63,84 +82,82 @@ export function WellnessRules() {
           </p>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-5">
-          <figure className="relative order-last aspect-[4/3] overflow-hidden rounded-2xl lg:col-span-2 lg:aspect-auto lg:min-h-72">
-            <Image
-              src="/images/velvaere-dusj.jpg"
-              alt="Dusj hos BPC i blått lys med regndusj i taket og en varmt opplyst nisje til såpe"
-              fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover object-[center_45%]"
-            />
-            <figcaption className="absolute bottom-3 left-3 rounded-full bg-background/80 px-3 py-1 text-sm font-semibold backdrop-blur">
-              Dusj før du går inn
-            </figcaption>
-          </figure>
-
+        <div className="grid gap-4 lg:grid-cols-12">
           <div
             role="note"
-            aria-labelledby="dusj-title"
-            className="group relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-2xl border border-sauna/25 bg-card p-6 text-card-foreground transition-colors duration-500 hover:border-sauna/50 md:p-8 lg:col-span-3"
+            aria-labelledby="krav-title"
+            className="flex flex-col gap-6 rounded-2xl border border-sauna/40 bg-sauna/10 p-6 text-card-foreground md:p-8 lg:col-span-5"
           >
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-24 -top-24 -z-10 size-72 rounded-full bg-sauna/15 blur-3xl transition-colors duration-700 group-hover:bg-sauna/25"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-sauna/70 to-transparent"
-            />
-
-            <p id="dusj-title" className="text-xs font-semibold uppercase tracking-[0.3em] text-sauna">
+            <p id="krav-title" className="text-xs font-semibold uppercase tracking-[0.3em] text-sauna">
               To krav før du går inn
             </p>
-
-            <ol className="flex flex-col gap-3">
+            <ol className="flex flex-col gap-6">
               {mainRules.map((rule, index) => {
                 const Icon = rule.icon
                 return (
-                  <SeenRule
+                  <li
                     key={rule.title}
-                    id={`main-${index}`}
-                    className="flex gap-4 rounded-xl border border-transparent p-3 pr-16 transition-all duration-700 data-[seen=true]:border-sauna/40 data-[seen=true]:bg-sauna/10 motion-reduce:transition-none md:p-4 md:pr-20"
+                    className={`${hoverCard} -mx-3 flex gap-4 rounded-xl border border-transparent p-3 hover:bg-background/40`}
                   >
-                    <SeenStamp />
                     <span
                       aria-hidden="true"
-                      className="grid size-12 shrink-0 place-items-center rounded-full border-2 border-sauna/50 text-sauna transition-all duration-700 group-data-[seen=true]/rule:scale-110 group-data-[seen=true]/rule:border-sauna group-data-[seen=true]/rule:bg-sauna group-data-[seen=true]/rule:text-sauna-foreground group-data-[seen=true]/rule:shadow-[0_0_24px_var(--sauna)]"
+                      className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
                     >
-                      <Icon className="size-6" />
+                      <Icon className="size-5" />
                     </span>
-                    <div className="flex flex-col gap-2">
-                      <p className="text-balance text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+                    <div className="flex flex-col gap-1.5">
+                      <p className="text-balance text-lg font-semibold leading-snug md:text-xl">
                         <span className="sr-only">{`Krav ${index + 1}: `}</span>
                         {rule.title}
                       </p>
                       <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
                     </div>
-                  </SeenRule>
+                  </li>
                 )
               })}
             </ol>
           </div>
-        </div>
 
-        <RulesProgress />
+          <div className="grid grid-cols-[3fr_4fr] gap-3 lg:col-span-7 md:gap-4">
+            <figure className="relative aspect-[3975/5963] overflow-hidden rounded-2xl">
+              <Image
+                src="/images/velvaere-dusj.jpg"
+                alt="Dusj hos BPC i blått lys med regndusj i taket og en varmt opplyst nisje til såpe"
+                fill
+                unoptimized
+                sizes="(min-width: 1024px) 25vw, 45vw"
+                className="object-contain"
+              />
+              <figcaption className={captionClass}>Dusjen</figcaption>
+            </figure>
+            <div className="flex flex-col justify-between gap-3 md:gap-4">
+              {lockerRooms.map((room) => (
+                <figure key={room.src} className="relative aspect-video overflow-hidden rounded-2xl">
+                  <Image
+                    src={room.src}
+                    alt={room.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 55vw"
+                    className="object-cover"
+                  />
+                  <figcaption className={captionClass}>{room.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
 
         <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {rules.map((rule, index) => {
             const Icon = ruleIcons[rule.title] ?? Sparkles
             return (
-              <SeenRule
+              <li
                 key={rule.title}
-                id={`rule-${index}`}
-                style={{ transitionDelay: `${index * 80}ms` }}
-                className="flex translate-y-4 flex-col gap-2 overflow-hidden rounded-xl border border-border bg-card p-4 text-card-foreground opacity-40 transition-all duration-700 ease-out data-[seen=true]:translate-y-0 data-[seen=true]:border-sauna/50 data-[seen=true]:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none"
+                className={`${hoverCard} flex flex-col gap-2 rounded-xl border border-border bg-card p-4 text-card-foreground`}
               >
-                <SeenStamp />
                 <span
                   aria-hidden="true"
-                  className="grid size-9 place-items-center rounded-full border-2 border-sauna/50 text-sauna transition-all duration-700 group-data-[seen=true]/rule:border-sauna group-data-[seen=true]/rule:bg-sauna group-data-[seen=true]/rule:text-sauna-foreground"
+                  className={`${hoverIcon} grid size-9 place-items-center rounded-full border border-sauna/50 text-sauna group-hover:bg-sauna group-hover:text-sauna-foreground`}
                 >
                   <Icon className="size-4" />
                 </span>
@@ -149,56 +166,42 @@ export function WellnessRules() {
                   {rule.title}
                 </p>
                 <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
-              </SeenRule>
+              </li>
             )
           })}
         </ol>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          <SeenRule
-            as="div"
-            id="timer"
-            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 pr-20 transition-shadow duration-700 data-[seen=true]:shadow-[0_0_40px_-12px_var(--sauna)] md:flex-row md:items-start md:gap-6 md:p-8 md:pr-24"
-          >
-            <SeenStamp />
+          <div className={`${hoverCard} flex flex-col gap-4 rounded-2xl border border-sauna/40 bg-card p-6 text-card-foreground md:flex-row md:items-start md:gap-5`}>
             <span
               aria-hidden="true"
-              className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
+              className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
             >
-              <TimerOff className="size-6" />
+              <TimerOff className="size-5" />
             </span>
-            <div className="flex flex-col gap-2">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sauna">Slås hardt ned på</p>
-              <p id="timer-title" className="text-balance text-xl font-semibold md:text-2xl">
-                {saunaTimer.title}
-              </p>
-              <p className="text-pretty leading-relaxed text-muted-foreground">{saunaTimer.text}</p>
+            <div className="flex flex-col gap-1.5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sauna">Slås hardt ned på</p>
+              <p className="text-balance text-lg font-semibold md:text-xl">{saunaTimer.title}</p>
+              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{saunaTimer.text}</p>
             </div>
-          </SeenRule>
+          </div>
 
-          <SeenRule
-            as="div"
-            id="sniking"
-            className="flex flex-col gap-5 rounded-2xl border border-sauna/50 bg-sauna/10 p-6 pr-20 transition-shadow duration-700 data-[seen=true]:shadow-[0_0_40px_-12px_var(--sauna)] md:flex-row md:items-start md:gap-6 md:p-8 md:pr-24"
-          >
-            <SeenStamp />
+          <div className={`${hoverCard} flex flex-col gap-4 rounded-2xl border border-sauna/40 bg-card p-6 text-card-foreground md:flex-row md:items-start md:gap-5`}>
             <span
               aria-hidden="true"
-              className="grid size-12 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground"
+              className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
             >
-              <Ban className="size-6" />
+              <Ban className="size-5" />
             </span>
-            <div className="flex flex-col gap-2">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sauna">Gebyr</p>
-              <p id="sniking-title" className="text-balance text-xl font-semibold md:text-2xl">
-                Sniking koster 2 500 kr, hver gang.
-              </p>
-              <p className="text-pretty leading-relaxed text-muted-foreground">
+            <div className="flex flex-col gap-1.5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sauna">Gebyr</p>
+              <p className="text-balance text-lg font-semibold md:text-xl">Sniking koster 2 500 kr, hver gang.</p>
+              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
                 Å bruke velværeavdelingen uten velvære på medlemskapet regnes som sniking. Vi ilegger et gebyr på
                 2 500 kr for hver gang noen blir tatt.
               </p>
             </div>
-          </SeenRule>
+          </div>
         </div>
 
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
@@ -219,7 +222,6 @@ export function WellnessRules() {
           </div>
         </div>
       </div>
-      </WellnessRuleTracker>
     </section>
   )
 }
