@@ -48,7 +48,7 @@ export function Contact({ asPage = false }: ContactProps) {
               alt="Tre smilende resepsjonister i BPC-klær bak disken, foran den opplyste BPC-logoen"
               fill
               sizes="(min-width: 768px) 33vw, 100vw"
-              className="object-cover object-top"
+              className="object-cover object-[center_58%]"
             />
             <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-4 pt-12 text-sm leading-relaxed text-foreground">
               Resepsjonen tar imot deg i bemannet tid.

@@ -81,6 +81,8 @@
   --input: oklch(0.95 0.007 85 / 16%);
   --ring: oklch(0.68 0.17 258);
   --live: oklch(0.75 0.19 150);
+  --culture-blue: oklch(0.52 0.25 266);
+  --culture-violet: oklch(0.6 0.27 308);
   --star: oklch(0.84 0.16 85);
   --sauna: oklch(0.8 0.11 72);
   --sauna-foreground: oklch(0.17 0.01 60);
@@ -864,3 +866,55 @@
   .hero-punch { animation: none; opacity: 1; }
 }
 
+
+/* Timetable: each class type carries its own colour (--c); one shared pointer
+   position lights the borders of every tile, so the glow travels between them. */
+.schedule-grid {
+  --gx: -999px;
+  --gy: -999px;
+}
+
+.schedule-day {
+  --x: -999px;
+  --y: -999px;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    radial-gradient(260px circle at var(--x) var(--y), oklch(0.75 0.2 288 / 0.9), var(--border) 70%) border-box;
+  border: 1px solid transparent;
+}
+
+.schedule-class {
+  --x: -999px;
+  --y: -999px;
+  background:
+    radial-gradient(160px circle at var(--x) var(--y), color-mix(in oklch, var(--c) 35%, transparent), transparent 70%),
+    linear-gradient(135deg, color-mix(in oklch, var(--c) 22%, var(--background)), color-mix(in oklch, var(--c) 6%, var(--background)));
+  box-shadow: inset 3px 0 0 var(--c), inset 0 0 0 1px color-mix(in oklch, var(--c) 25%, transparent);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+}
+.schedule-class::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 35%, oklch(1 0 0 / 0.22) 50%, transparent 65%);
+  transform: translateX(-120%);
+}
+.schedule-class:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow:
+    inset 3px 0 0 var(--c),
+    inset 0 0 0 1px color-mix(in oklch, var(--c) 70%, transparent),
+    0 10px 28px -10px color-mix(in oklch, var(--c) 70%, transparent);
+}
+.schedule-class:hover::after { animation: schedule-sheen 0.9s ease forwards; }
+@keyframes schedule-sheen { to { transform: translateX(120%); } }
+
+.schedule-chip {
+  background: color-mix(in oklch, var(--c) 14%, var(--card));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schedule-class, .schedule-class:hover { transform: none; }
+  .schedule-class:hover::after { animation: none; }
+}

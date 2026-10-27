@@ -151,7 +151,7 @@ export default function BoxenPage() {
                   {steps.map((step, i) => (
                     <li
                       key={step.title}
-                      className={`relative aspect-[3/4] overflow-hidden rounded-2xl border border-border ${i === 1 ? 'lg:translate-y-8' : ''}`}
+                      className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border"
                     >
                       <Image
                         src={step.image}

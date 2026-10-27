@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Flame, PiggyBank, Plane, Repeat, Sparkles, type LucideIcon } from 'lucide-react'
 import { AppBadges } from '@/components/app-badges'
@@ -321,8 +322,23 @@ export function MembershipCards() {
         ref={panelRef}
         className="animate-in fade-in duration-300 flex flex-col gap-4 motion-reduce:animate-none"
       >
-        <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
-          {category ? category.intro : extra?.intro}
+  {active === 'drop-in' && (
+  <div className="flex items-center gap-4 rounded-xl border border-border bg-card p-4">
+  <p className="text-pretty font-semibold leading-relaxed">
+  Drop-in og engangspass må kjøpes i Appen «Min Trening».
+  </p>
+  <Image
+  src="/images/min-trening-app.png"
+  alt="Logoen til Appen Min Trening"
+  width={56}
+  height={56}
+  className="pointer-events-none size-14 shrink-0 select-none rounded-xl"
+  draggable={false}
+  />
+  </div>
+  )}
+  <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
+  {category ? category.intro : extra?.intro}
         </p>
 
         {category ? (

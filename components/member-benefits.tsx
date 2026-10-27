@@ -69,7 +69,7 @@ export function MemberBenefits() {
           </p>
         </div>
 
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
           {benefits.map((benefit, index) => (
             <li
               key={benefit.partner}
@@ -85,17 +85,17 @@ export function MemberBenefits() {
                   alt={`Medlemsfordel hos ${benefit.partner}`}
                   fill
                   loading="lazy"
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 16vw, (min-width: 768px) 25vw, 50vw"
                   className={`object-cover transition-transform duration-500 group-hover:scale-[1.03] ${benefit.imagePosition ?? ''}`}
                 />
               </div>
-              <div className="flex items-start gap-4 p-5">
-                <p className="shrink-0 text-4xl font-semibold leading-none tracking-tight text-primary tabular-nums">
+              <div className="flex flex-col gap-1 p-3">
+                <p className="text-2xl font-semibold leading-none tracking-tight text-primary tabular-nums">
                   {benefit.highlight}
                 </p>
                 <div className="flex flex-col gap-1">
-                  <h3 className="font-semibold">{benefit.partner}</h3>
-                  <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="text-sm font-semibold leading-snug">{benefit.partner}</h3>
+                  <p className="line-clamp-3 text-pretty text-xs leading-relaxed text-muted-foreground">
                     {benefit.description}
                   </p>
                 </div>
