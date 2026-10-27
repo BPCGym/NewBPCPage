@@ -61,7 +61,7 @@ export function StrongSteady() {
               className="object-cover object-[70%_center]"
             />
             <p className="absolute left-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary-foreground">
-              Runde 3 · Oppstart 1. september
+              Neste oppstart 3. november kl. 17
             </p>
           </div>
 
