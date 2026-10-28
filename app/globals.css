@@ -1173,7 +1173,26 @@
       bpc-arc-spin 14s cubic-bezier(0.65, 0, 0.35, 1) 2.6s infinite;
   }
   .bpc-arc-bottom { animation-delay: 0.15s, 2.75s; }
-}
+  /* The whole mark (BPC + arcs) flies toward the viewer, then pulses forward with each spin */
+  .bpc-logo-zoom {
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+  animation:
+  bpc-zoom-in 2.2s cubic-bezier(0.16, 1, 0.3, 1) both,
+  bpc-zoom-pulse 14s cubic-bezier(0.65, 0, 0.35, 1) 2.6s infinite;
+  }
+  }
+  @keyframes bpc-zoom-in {
+  from { transform: scale(0.3); opacity: 0; filter: blur(6px); }
+  40% { opacity: 1; filter: blur(0); }
+  75% { transform: scale(1.06); }
+  to { transform: scale(1); opacity: 1; filter: blur(0); }
+  }
+  @keyframes bpc-zoom-pulse {
+  0%, 72% { transform: scale(1); }
+  86% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+  }
 @keyframes bpc-arc-in {
   from { transform: rotate(-200deg) scale(0.82); opacity: 0; }
   35% { opacity: 1; }
