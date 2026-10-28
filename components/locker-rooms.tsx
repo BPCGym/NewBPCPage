@@ -49,7 +49,7 @@ export function LockerRooms() {
         <div className="grid gap-4 md:grid-cols-2">
           <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl">
             <Image
-              src="/images/garderobe-jente.jpg"
+              src="/images/garderobe-jente-oversikt.jpg"
               alt="Jentegarderoben hos BPC i rosa lys med betongvask, opplyst speil, føner og neonskiltet «you go girl»"
               fill
               loading="lazy"
@@ -62,7 +62,7 @@ export function LockerRooms() {
           </figure>
           <figure className="relative aspect-[16/10] overflow-hidden rounded-2xl">
             <Image
-              src="/images/garderobe-gutt.jpg"
+              src="/images/garderobe-gutt-oversikt.jpg"
               alt="Guttegarderoben hos BPC i blått lys med betongvegger, steinvask, stort opplyst speil, benker og rund sittepuff"
               fill
               loading="lazy"
