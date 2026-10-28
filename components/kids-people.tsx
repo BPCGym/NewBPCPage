@@ -62,25 +62,25 @@ export function KidsPeople() {
           </div>
         </article>
 
-        <ul className="grid gap-8 sm:grid-cols-2 md:gap-6">
+        <ul className="mx-auto grid w-full max-w-5xl gap-10 sm:grid-cols-2 md:gap-10">
           {stories.map((story) => (
-            <li key={story.id} className="flex flex-col gap-3" data-reveal>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-2xl">
+            <li key={story.id} className="flex flex-col gap-5" data-reveal>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
                 <Image
                   src={story.image.src}
                   alt={story.image.alt}
                   fill
                   loading="lazy"
-                  sizes="(min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw"
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col gap-1.5">
-                <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">{story.eyebrow}</p>
-                <h3 id={story.id} className="text-balance text-xl font-semibold tracking-tight">
+              <div className="flex flex-col gap-2.5">
+                <p className="text-sm font-medium uppercase tracking-[0.25em] text-primary">{story.eyebrow}</p>
+                <h3 id={story.id} className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
                   {story.title}
                 </h3>
-                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{story.text}</p>
+                <p className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">{story.text}</p>
               </div>
             </li>
           ))}
