@@ -10,20 +10,42 @@ type FullBleedHeroProps = {
   text: string
   image: { src: string; alt: string }
   logo?: { variant: BpcLogoVariant; alt: string }
+  /** LED strips positioned in % of a 16:9 photo; the photo is then framed so they stay locked to it. */
+  strips?: React.CSSProperties[]
   children?: React.ReactNode
 }
 
-export function FullBleedHero({ id, eyebrow, title, text, image, logo, children }: FullBleedHeroProps) {
+export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips, children }: FullBleedHeroProps) {
   return (
     <section aria-labelledby={id} className="relative flex min-h-svh flex-col justify-end overflow-hidden">
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        priority
-        sizes="100vw"
-        className="hero-zoom object-cover object-center"
-      />
+      {strips ? (
+        <div className="hero-stage absolute inset-0">
+          <div className="hero-frame">
+            <div className="hero-zoom absolute inset-0">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                priority
+                sizes="(min-aspect-ratio: 16/9) 100vw, 178svh"
+                className="object-cover"
+              />
+              {strips.map((strip, i) => (
+                <span key={i} aria-hidden="true" className="hero-strip hero-strip-warm" style={strip} />
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="hero-zoom object-cover object-center"
+        />
+      )}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0"

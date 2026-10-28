@@ -10,6 +10,18 @@ import { WellnessQuietZone } from '@/components/wellness-quiet-zone'
 import { WellnessRules } from '@/components/wellness-rules'
 import { links, mailto } from '@/lib/site'
 
+// Traced from velvaere-hero.jpg (16:9): ceiling LED line and the backlit bench panels.
+const saunaStrips = [
+  { '--x': '12.8%', '--y': '9.9%', '--w': '66.6%', '--s': '16s', '--delay': '0s' },
+  { '--x': '1.1%', '--y': '5.4%', '--w': '11.8%', '--r': '22deg', '--s': '9s', '--delay': '-4s' },
+  { '--x': '79%', '--y': '4.8%', '--w': '20.7%', '--r': '-15deg', '--s': '11s', '--delay': '-2s' },
+  { '--x': '80.4%', '--y': '37.3%', '--w': '19.6%', '--r': '-0.6deg', '--s': '10s', '--delay': '-5s' },
+  { '--x': '80.6%', '--y': '40.7%', '--w': '19.4%', '--r': '-0.4deg', '--s': '12s', '--delay': '-8s', '--h': '0.35%' },
+  { '--x': '80.6%', '--y': '46.6%', '--w': '19.4%', '--r': '0.6deg', '--s': '13s', '--delay': '-1s' },
+  { '--x': '-0.1%', '--y': '57.6%', '--w': '11.8%', '--r': '-9.8deg', '--s': '9s', '--delay': '-6s' },
+  { '--x': '19%', '--y': '51.4%', '--w': '14.6%', '--r': '-13.8deg', '--s': '11s', '--delay': '-3s' },
+] as React.CSSProperties[]
+
 export const metadata: Metadata = {
   title: 'BPC Velvære',
   description:
@@ -31,6 +43,7 @@ export default function WellnessPage() {
             alt: 'Badstuen hos BPC med varmt lys i trebenkene og glassdør',
           }}
           logo={{ variant: 'velvaere', alt: 'BPC Velvære logo' }}
+        strips={saunaStrips}
         />
 
         <PageIntro

@@ -8,6 +8,12 @@ const delay = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties
 const ringBig = { '--x': '67.6%', '--y': '20.4%', '--w': '17%', '--h': '11%', '--r': '-14deg', '--t': '3px', '--s': '5s' } as React.CSSProperties
 const ringSmall = { '--x': '48%', '--y': '34.6%', '--w': '7.4%', '--h': '3.4%', '--r': '-1deg', '--t': '2px', '--s': '4s' } as React.CSSProperties
 
+const wallStrips = [
+  { '--x': '6.8%', '--y': '31.8%', '--w': '8.8%', '--r': '0deg', '--s': '11s', '--delay': '-3s' },
+  { '--x': '18.4%', '--y': '41.2%', '--w': '49.6%', '--r': '0deg', '--s': '14s', '--delay': '0s' },
+  { '--x': '70.6%', '--y': '39.8%', '--w': '11.6%', '--r': '-3deg', '--s': '10s', '--delay': '-6s' },
+] as React.CSSProperties[]
+
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative flex min-h-svh flex-col justify-end overflow-hidden">
@@ -24,6 +30,9 @@ export function Hero() {
             />
             <span aria-hidden="true" className="hero-ring" style={ringBig} />
             <span aria-hidden="true" className="hero-ring" style={ringSmall} />
+            {wallStrips.map((strip, i) => (
+              <span key={i} aria-hidden="true" className="hero-strip" style={strip} />
+            ))}
           </div>
         </div>
       </div>
