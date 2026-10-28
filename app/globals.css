@@ -1271,10 +1271,10 @@
 @media (prefers-reduced-motion: no-preference) {
   .bpc-sub > .bpc-slide > img {
     will-change: transform;
-    animation: bpc-est-forward 8s linear 2s infinite;
+    animation: bpc-est-forward 8s linear 3s infinite;
   }
   .bpc-logo[data-variant='boxen'] .bpc-sub > .bpc-slide > img {
-    animation: bpc-boxen-sub 8s linear 2s infinite;
+    animation: bpc-boxen-sub 8s linear 3s infinite;
   }
 }
 @keyframes bpc-est-forward {
@@ -1316,10 +1316,10 @@
 /* Velvære: while BPC pulls back, HOT steps forward and burns, COLD steps forward and freezes */
 .vel-hot, .vel-cold, .vel-flame, .vel-snow { transform-box: fill-box; transform-origin: 50% 50%; }
 @media (prefers-reduced-motion: no-preference) {
-  .vel-hot { animation: vel-hot-forward 8s linear 2s infinite; }
-  .vel-cold { animation: vel-cold-forward 8s linear 2s infinite; }
+  .vel-hot { animation: vel-hot-forward 8s linear 3s infinite; }
+  .vel-cold { animation: vel-cold-forward 8s linear 3s infinite; }
   .vel-flame { transform-origin: 50% 100%; animation: vel-flame-flicker 0.45s ease-in-out infinite alternate; }
-  .vel-snow { animation: vel-snow-spin 8s linear 2s infinite; }
+  .vel-snow { animation: vel-snow-spin 8s linear 3s infinite; }
 }
 @keyframes vel-hot-forward {
   0%, 44% { transform: scale(1); filter: none; animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
@@ -1356,8 +1356,8 @@
   .bpc-arc {
     animation:
       bpc-arc-draw 0.75s cubic-bezier(0.33, 1, 0.68, 1) 0.32s both,
-      bpc-arc-spin 8s cubic-bezier(0.65, 0, 0.35, 1) 2s infinite,
-  bpc-arc-light 8s ease-in-out 2s infinite;
+      bpc-arc-spin 8s cubic-bezier(0.65, 0, 0.35, 1) 3s infinite,
+  bpc-arc-light 8s ease-in-out 3s infinite;
   }
   .bpc-kids-dance {
   animation: bpc-kids-dance 2.4s ease-in-out 2.4s infinite;
@@ -1369,7 +1369,7 @@
   .bpc-mark {
     transform-origin: 50% 50%;
     will-change: transform;
-    animation: bpc-recede 8s linear 2s infinite;
+    animation: bpc-recede 8s linear 3s infinite;
   }
 }
 @keyframes bpc-recede {
@@ -1404,7 +1404,7 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Per-department motion. Same 8s cycle and 2s delay so arcs and BPC stay in sync. */
+/* Per-department motion. Same 8s cycle and 3s delay so arcs and BPC stay in sync. */
 @media (prefers-reduced-motion: no-preference) {
   /* Boxen: functional strength. BPC slams in, arcs fire two hard jabs, BPC winds up and punches back out. */
   .bpc-logo[data-variant='boxen'] .bpc-slide {
@@ -1413,11 +1413,11 @@
   .bpc-logo[data-variant='boxen'] .bpc-arc {
     animation:
       bpc-arc-draw 0.45s cubic-bezier(0.7, 0, 0.2, 1) 0.25s both,
-      bpc-boxen-jab 8s linear 2s infinite,
-      bpc-arc-light 8s ease-in-out 2s infinite;
+      bpc-boxen-jab 8s linear 3s infinite,
+      bpc-arc-light 8s ease-in-out 3s infinite;
   }
   .bpc-logo[data-variant='boxen'] .bpc-mark {
-    animation: bpc-boxen-punch 8s linear 2s infinite;
+    animation: bpc-boxen-punch 8s linear 3s infinite;
   }
 
   /* Velvære: calm and slow, like breathing in the sauna. */
@@ -1427,8 +1427,8 @@
   .bpc-logo[data-variant='velvaere'] .bpc-arc {
     animation:
       bpc-arc-draw 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.32s both,
-      bpc-velvaere-drift 8s linear 2s infinite,
-      bpc-arc-light 8s ease-in-out 2s infinite;
+      bpc-velvaere-drift 8s linear 3s infinite,
+      bpc-arc-light 8s ease-in-out 3s infinite;
   }
 
   /* Kids: arcs spin with a springy overshoot, BPC bounces in. */
@@ -1438,8 +1438,8 @@
   .bpc-logo[data-variant='kids'] .bpc-arc {
     animation:
       bpc-arc-draw 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.32s both,
-      bpc-kids-spin 8s linear 2s infinite,
-      bpc-arc-light 8s ease-in-out 2s infinite;
+      bpc-kids-spin 8s linear 3s infinite,
+      bpc-arc-light 8s ease-in-out 3s infinite;
   }
 }
 
