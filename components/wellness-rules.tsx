@@ -86,6 +86,35 @@ export function WellnessRules() {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sauna/60 to-transparent"
       />
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-12">
+        <div role="note" aria-label="Viktige advarsler" className="grid gap-3 md:grid-cols-2">
+          {[
+            { icon: TimerOff, eyebrow: 'Slås hardt ned på', title: saunaTimer.title, text: saunaTimer.text },
+            {
+              icon: Ban,
+              eyebrow: 'Gebyr',
+              title: 'Sniking koster 2 500 kr, hver gang.',
+              text: 'Å bruke velværeavdelingen uten velvære på medlemskapet regnes som sniking. Vi ilegger et gebyr på 2 500 kr for hver gang noen blir tatt.',
+            },
+          ].map(({ icon: Icon, eyebrow, title, text }) => (
+            <div
+              key={eyebrow}
+              className={`${hoverCard} flex items-start gap-3 rounded-xl border border-sauna/50 bg-sauna/10 p-4 text-card-foreground`}
+            >
+              <span
+                aria-hidden="true"
+                className={`${hoverIcon} grid size-8 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
+              >
+                <Icon className="size-4" />
+              </span>
+              <div className="flex flex-col gap-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sauna">{eyebrow}</p>
+                <p className="text-balance text-base font-semibold leading-snug">{title}</p>
+                <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-3">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sauna">Les før du går inn</p>
@@ -98,27 +127,27 @@ export function WellnessRules() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-stretch lg:gap-8">
+        <div className="grid gap-4 lg:grid-cols-12 lg:items-stretch lg:gap-6">
           <ol
             aria-label="Velværereglene"
-            className="flex flex-col gap-2 rounded-2xl border border-sauna/40 bg-sauna/10 p-3 text-card-foreground md:p-4 lg:col-span-7"
+            className="flex flex-col gap-1.5 rounded-2xl border border-sauna/40 bg-sauna/10 p-2 text-card-foreground md:p-2.5 lg:col-span-7"
           >
             {allRules.map((rule, index) => {
               const Icon = rule.icon
               return (
                 <li
                   key={rule.title}
-                  className={`${hoverCard} flex items-start gap-4 rounded-xl border border-border/60 bg-card p-4 md:p-5`}
+                  className={`${hoverCard} flex items-start gap-3 rounded-lg border border-border/60 bg-card px-3 py-2.5`}
                 >
                   <span
                     aria-hidden="true"
-                    className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
+                    className={`${hoverIcon} mt-0.5 grid size-8 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
                   >
-                    <Icon className="size-5" />
+                    <Icon className="size-4" />
                   </span>
-                  <div className="flex min-w-0 flex-1 flex-col gap-1">
-                    <p className="text-balance text-lg font-semibold leading-snug">
-                      <span className="mr-2 font-mono text-sm text-sauna">{String(index + 1).padStart(2, '0')}</span>
+                  <div className="flex min-w-0 flex-1 flex-col">
+                    <p className="text-balance text-sm font-semibold leading-snug md:text-base">
+                      <span className="mr-1.5 font-mono text-xs text-sauna">{String(index + 1).padStart(2, '0')}</span>
                       {rule.title}
                     </p>
                     <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{rule.text}</p>
@@ -128,7 +157,7 @@ export function WellnessRules() {
             })}
           </ol>
 
-          <div className="grid grid-cols-3 gap-3 md:gap-4 lg:col-span-5 lg:grid-cols-2 lg:grid-rows-2">
+          <div className="grid grid-cols-3 gap-2 md:gap-3 lg:col-span-5 lg:grid-cols-2 lg:grid-rows-2">
             {photos.map((photo) => (
               <figure
                 key={photo.src}
@@ -147,39 +176,6 @@ export function WellnessRules() {
                 <figcaption className={captionClass}>{photo.label}</figcaption>
               </figure>
             ))}
-          </div>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-2">
-          <div className={`${hoverCard} flex flex-col gap-4 rounded-2xl border border-sauna/40 bg-card p-6 text-card-foreground md:flex-row md:items-start md:gap-5`}>
-            <span
-              aria-hidden="true"
-              className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
-            >
-              <TimerOff className="size-5" />
-            </span>
-            <div className="flex flex-col gap-1.5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sauna">Slås hardt ned på</p>
-              <p className="text-balance text-lg font-semibold md:text-xl">{saunaTimer.title}</p>
-              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">{saunaTimer.text}</p>
-            </div>
-          </div>
-
-          <div className={`${hoverCard} flex flex-col gap-4 rounded-2xl border border-sauna/40 bg-card p-6 text-card-foreground md:flex-row md:items-start md:gap-5`}>
-            <span
-              aria-hidden="true"
-              className={`${hoverIcon} grid size-11 shrink-0 place-items-center rounded-full bg-sauna text-sauna-foreground`}
-            >
-              <Ban className="size-5" />
-            </span>
-            <div className="flex flex-col gap-1.5">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sauna">Gebyr</p>
-              <p className="text-balance text-lg font-semibold md:text-xl">Sniking koster 2 500 kr, hver gang.</p>
-              <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
-                Å bruke velværeavdelingen uten velvære på medlemskapet regnes som sniking. Vi ilegger et gebyr på
-                2 500 kr for hver gang noen blir tatt.
-              </p>
-            </div>
           </div>
         </div>
 

@@ -233,6 +233,22 @@
   opacity: 0.95;
   filter: drop-shadow(0 0.08em 0.25em color-mix(in oklch, var(--culture-violet) 45%, transparent));
 }
+/* Soft neon halo around the paint — a moving light band like the ceiling lights */
+.culture-glow {
+  position: absolute;
+  z-index: -2;
+  left: -0.3em;
+  right: -0.3em;
+  top: 0.38em;
+  height: 0.62em;
+  border-radius: 999px;
+  pointer-events: none;
+  background:
+    linear-gradient(100deg, transparent 35%, oklch(0.92 0.12 300 / 0.85) 50%, transparent 65%) 160% 0 / 250% 100% no-repeat,
+    linear-gradient(90deg, var(--culture-blue), oklch(0.55 0.26 288), var(--culture-violet));
+  filter: blur(0.32em);
+  opacity: 0.55;
+}
 .culture-stop-blue { stop-color: var(--culture-blue); }
 .culture-stop-mid { stop-color: oklch(0.55 0.26 288); }
 .culture-stop-violet { stop-color: var(--culture-violet); }
@@ -303,6 +319,17 @@
   0% { -webkit-mask-position: 140% 0; mask-position: 140% 0; }
   40%, 100% { -webkit-mask-position: -40% 0; mask-position: -40% 0; }
 }
+@keyframes culture-glow-in {
+  from { opacity: 0; }
+}
+@keyframes culture-glow-sweep {
+  0% { background-position: 160% 0, 0 0; }
+  45%, 100% { background-position: -60% 0, 0 0; }
+}
+@keyframes culture-glow-pulse {
+  0%, 100% { opacity: 0.45; transform: scaleY(1); }
+  50% { opacity: 0.8; transform: scaleY(1.15); }
+}
 @keyframes culture-rise {
   from { opacity: 0; transform: translateY(0.18em); }
   to { opacity: 1; transform: none; }
@@ -327,7 +354,13 @@
     animation: culture-paint 0.9s cubic-bezier(0.7, 0, 0.2, 1) 0.45s both;
   }
   .culture-brush-sheen {
-    animation: culture-sheen 18s cubic-bezier(0.45, 0, 0.35, 1) 1.8s infinite;
+    animation: culture-sheen 6s cubic-bezier(0.45, 0, 0.35, 1) 1.8s infinite;
+  }
+  .culture-glow {
+    animation:
+      culture-glow-in 1s ease-out 0.9s both,
+      culture-glow-sweep 6s cubic-bezier(0.45, 0, 0.35, 1) 1.8s infinite,
+      culture-glow-pulse 3s ease-in-out 1.9s infinite;
   }
   .culture-word {
     animation:

@@ -1,36 +1,47 @@
 import Image from 'next/image'
 
-const photos = [
-  {
-    src: '/images/bpc-kids-klatrevegg.jpg',
-    alt: 'Malt klatrevegg med fjell og regnbue, ribbevegg og myke matter i BPC Kids',
-    className: 'col-span-2 row-span-2 md:col-span-3 md:row-span-2',
-    sizes: '(min-width: 768px) 50vw, 100vw',
-  },
-  {
-    src: '/images/bpc-kids-skilt.jpg',
-    alt: 'BPC Kids-skilt i treklosser med kosebamser i vinduskarmen',
-    className: 'row-span-2 md:col-span-1 md:row-span-2',
-    sizes: '(min-width: 768px) 17vw, 50vw',
-  },
-  {
-    src: '/images/bpc-kids-ribbevegg.jpg',
-    alt: 'Ribbevegg med klatretau over en myk matte full av kosedyr',
-    className: 'md:col-span-2',
-    sizes: '(min-width: 768px) 33vw, 50vw',
-  },
-  {
-    src: '/images/bpc-kids-lekekjokken.jpg',
-    alt: 'Klatreveggen sett nedenfra, med lekekjøkken og myke matter på gulvet',
-    className: '',
-    sizes: '(min-width: 768px) 17vw, 50vw',
-  },
-  {
-    src: '/images/bpc-kids-rom.jpg',
-    alt: 'Hele barnerommet med fargerike tepper, saccosekker og leker',
-    className: 'col-span-2 md:col-span-1',
-    sizes: '(min-width: 768px) 17vw, 100vw',
-  },
+const LANDSCAPE = 5820 / 3274
+const PORTRAIT = 3905 / 5858
+
+type Photo = { src: string; alt: string; ratio: number; sizes: string }
+
+// Each row is a justified flex row: items grow in proportion to their aspect ratio,
+// so every photo keeps its full frame and the rows line up into one clean rectangle.
+const rows: Photo[][] = [
+  [
+    {
+      src: '/images/bpc-kids-klatrevegg.jpg',
+      alt: 'Malt klatrevegg med fjell og regnbue, ribbevegg og myke matter i BPC Kids',
+      ratio: LANDSCAPE,
+      sizes: '(min-width: 768px) 55vw, 75vw',
+    },
+    {
+      src: '/images/bpc-kids-skilt.jpg',
+      alt: 'BPC Kids-skilt i treklosser med kosebamser i vinduskarmen',
+      ratio: PORTRAIT,
+      sizes: '(min-width: 768px) 20vw, 30vw',
+    },
+  ],
+  [
+    {
+      src: '/images/bpc-kids-ribbevegg.jpg',
+      alt: 'Ribbevegg med klatretau over en myk matte full av kosedyr',
+      ratio: PORTRAIT,
+      sizes: '(min-width: 768px) 15vw, 25vw',
+    },
+    {
+      src: '/images/bpc-kids-lekekjokken.jpg',
+      alt: 'Klatreveggen sett nedenfra, med lekekjøkken og myke matter på gulvet',
+      ratio: PORTRAIT,
+      sizes: '(min-width: 768px) 15vw, 25vw',
+    },
+    {
+      src: '/images/bpc-kids-rom.jpg',
+      alt: 'Hele barnerommet med fargerike tepper, saccosekker og leker',
+      ratio: LANDSCAPE,
+      sizes: '(min-width: 768px) 40vw, 60vw',
+    },
+  ],
 ]
 
 export function KidsGallery() {
@@ -48,20 +59,28 @@ export function KidsGallery() {
             Klatrevegg, lekekjøkken, myke matter og kosedyr, rett ved treningsområdet.
           </p>
         </div>
-        <ul className="grid auto-rows-[9rem] grid-cols-2 gap-3 md:aspect-[12/5] md:auto-rows-auto md:grid-cols-6 md:grid-rows-2">
-          {photos.map((photo) => (
-            <li key={photo.src} className={`group relative overflow-hidden rounded-2xl ${photo.className}`}>
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                loading="lazy"
-                sizes={photo.sizes}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </li>
+        <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 md:gap-3">
+          {rows.map((row, rowIndex) => (
+            <ul key={rowIndex} className="flex gap-2 md:gap-3">
+              {row.map((photo) => (
+                <li
+                  key={photo.src}
+                  className="group relative overflow-hidden rounded-xl bg-muted md:rounded-2xl"
+                  style={{ flex: `${photo.ratio} 1 0%`, aspectRatio: photo.ratio }}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    loading="lazy"
+                    sizes={photo.sizes}
+                    className="object-contain transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </li>
+              ))}
+            </ul>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   )

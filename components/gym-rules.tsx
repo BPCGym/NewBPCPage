@@ -28,7 +28,7 @@ const rules = [
   {
     icon: Shirt,
     title: 'Tren i klær som tar hensyn',
-    text: 'Singlet er lov, men ta hensyn hvis den er veldig tynn og åpen.',
+    text: 'Singlet er lov, men ta hensyn hvis den er veldig tynn og åpen. Det er ikke alle som vil se nipplene dine.',
   },
   {
     icon: HandHeart,

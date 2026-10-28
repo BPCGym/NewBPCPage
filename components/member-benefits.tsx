@@ -47,6 +47,12 @@ const benefits: Benefit[] = [
     description: 'rabatt hos frisørsalongen sentralt i Bergen, med et bredt spekter av tjenester.',
     image: '/images/fordeler/f4.jpg',
   },
+  {
+    partner: 'Mathopen Kattepensjonat',
+    highlight: '10 %',
+    description: 'rabatt for alle BPC-medlemmer ved fremvisning av aktivt medlemskap.',
+    image: '/images/fordeler/mathopen.jpg',
+  },
 ]
 
 export function MemberBenefits() {
@@ -69,7 +75,7 @@ export function MemberBenefits() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-6">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7">
           {benefits.map((benefit, index) => (
             <li
               key={benefit.partner}
@@ -85,7 +91,7 @@ export function MemberBenefits() {
                   alt={`Medlemsfordel hos ${benefit.partner}`}
                   fill
                   loading="lazy"
-                  sizes="(min-width: 1024px) 16vw, (min-width: 768px) 25vw, 50vw"
+                  sizes="(min-width: 1024px) 14vw, (min-width: 768px) 25vw, 50vw"
                   className={`object-cover transition-transform duration-500 group-hover:scale-[1.03] ${benefit.imagePosition ?? ''}`}
                 />
               </div>

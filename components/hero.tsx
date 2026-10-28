@@ -47,6 +47,7 @@ export function Hero() {
             >
               Bli en del av <span className="sr-only">kulturen.</span>
               <span aria-hidden="true" className="culture whitespace-nowrap">
+                <span className="culture-glow" />
                 <svg
                   className="culture-brush"
                   viewBox="0 0 400 100"

@@ -21,11 +21,11 @@ const areas = [
   },
   {
     name: 'Hjertet av BPC',
-    text: 'Bare apparater med vektmagasin og pin select, nøye utplukket. Enkle å bruke, enten du er erfaren eller helt ny.',
+    text: 'Bare apparater med vektmagasin, nøye utplukket. Enkelt å styre vektbelastningen, supereffektivt hvis du vil ha raske økter, og perfekt for nybegynnere.',
     tags: ['Pin select', 'For alle nivåer'],
     image: {
       src: '/images/bpc-hjertet.jpg',
-      alt: 'Hjertet av BPC med pin select-apparater, Booty Builder, lilla lyslister og blått, marmorert gulv',
+      alt: 'Hjertet av BPC med vektmagasin-apparater, Booty Builder, lilla lyslister og blått, marmorert gulv',
     },
   },
   {

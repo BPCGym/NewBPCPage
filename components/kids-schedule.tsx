@@ -34,6 +34,23 @@ const weekPlan: Day[] = [
   { name: 'Søndag', sessions: [] },
 ]
 
+const passTypes = [
+  {
+    label: 'Babypass',
+    age: 'De minste · fra 6 uker',
+    time: '09:00–12:00',
+    days: 'Formiddag · mandag og onsdag',
+    badgeClass: 'w-fit rounded-full border border-primary px-3 py-1 text-xs font-semibold text-primary',
+  },
+  {
+    label: 'Barnepass',
+    age: 'Større barn · opptil 12 år',
+    time: '16:00–18:00',
+    days: 'Ettermiddag · mandag og onsdag, lørdag 09:00–12:00',
+    badgeClass: 'w-fit rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground',
+  },
+]
+
 function SessionBlock({ session }: { session: Session }) {
   const isBaby = session.label === 'Babypass'
   return (
@@ -63,16 +80,33 @@ export function KidsSchedule() {
   return (
     <section aria-labelledby="kids-timeplan" className="border-t border-border py-10 md:py-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6">
-        <header className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between" data-reveal>
+        <header className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between" data-reveal>
           <div className="flex flex-col gap-2">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Timeplan · ut 2026</p>
             <h2 id="kids-timeplan" className="scroll-mt-28 text-balance text-2xl font-semibold tracking-tight md:text-3xl">
               Når er barnepasset åpent?
             </h2>
+            <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
+              Fast ukeplan for barnepass og babypass.
+            </p>
           </div>
-          <p className="max-w-md text-pretty text-sm leading-relaxed text-muted-foreground">
-            Fast ukeplan for barnepass og babypass.
-          </p>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:w-[34rem]">
+            {passTypes.map((pass) => (
+              <li
+                key={pass.label}
+                className="group flex flex-col gap-2 rounded-2xl border border-border bg-card p-4 text-card-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg hover:shadow-primary/10"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className={pass.badgeClass}>{pass.label}</span>
+                  <span className="text-xs font-semibold text-primary">{pass.age}</span>
+                </div>
+                <p className="font-mono text-lg font-semibold tabular-nums transition-colors group-hover:text-primary">
+                  {pass.time}
+                </p>
+                <p className="text-xs leading-relaxed text-muted-foreground">{pass.days}</p>
+              </li>
+            ))}
+          </ul>
         </header>
 
         <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-7" data-reveal>

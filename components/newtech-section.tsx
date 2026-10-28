@@ -30,7 +30,7 @@ export function NewtechSection() {
           </h2>
           <p className="max-w-lg text-pretty leading-relaxed text-muted-foreground">
             {
-              'Vi har kjøpt inn nye apparater fra Newtech Strength Equipment – noen av de mest ergonomiske maskinene som finnes. De tilpasser seg kroppen din, passer for alle uansett nivå, og føles rett og slett fantastiske å trene i.'
+              'Vi har kjøpt inn nye apparater fra Newtech Strength Equipment – veldig ergonomiske maskiner med mange innstillinger, så de kan tilpasses kroppen din og ditt utgangspunkt, også om du har en skade eller må ta hensyn til noe. Bruk litt tid på å finne den riktige innstillingen for deg. De er helt fantastiske å trene i.'
             }
           </p>
 

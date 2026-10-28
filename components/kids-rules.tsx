@@ -5,7 +5,7 @@ type RuleGroup = { title: string; icon: LucideIcon; rules: Rule[] }
 
 const keyFacts = [
   { value: '6 uker–12 år', label: 'Egne barn av medlemmer' },
-  { value: '1,5 timer', label: 'Maks per besøk' },
+  { value: '1 time', label: 'Maks per besøk' },
   { value: '10 timer', label: 'Maks per uke' },
   { value: 'I lokalet', label: 'Foresatte er på BPC hele tiden' },
 ]
@@ -20,7 +20,7 @@ const groups: RuleGroup[] = [
         text: 'Barnepass tilbys BPC-medlemmers barn i alderen 6 uker til og med 12 år. Kun egne barn kan leveres, ikke venners eller andre medlemmers barn.',
       },
       { title: 'Åpningstider', text: 'Barnepass benyttes på eget ansvar utenom bemannede tider.' },
-      { title: 'Besøkstid', text: 'Maksimal tid i barnepassen er 1,5 timer per besøk og totalt 10 timer per uke.' },
+      { title: 'Besøkstid', text: 'Maksimal tid i barnepassen er 1 time per besøk og totalt 10 timer per uke.' },
       {
         title: 'Antall barn',
         text: 'BPC forbeholder seg retten til å begrense antall barn som kan være tilstede i barnepassen til enhver tid for å sikre sikkerheten.',

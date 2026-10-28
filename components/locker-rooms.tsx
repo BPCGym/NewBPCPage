@@ -43,6 +43,9 @@ export function LockerRooms() {
                 </li>
               ))}
             </ul>
+            <p className="text-pretty rounded-xl border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm font-semibold leading-relaxed text-foreground">
+              Ikke gris med PWO ved vasken. Er du en av dem, så finner vi deg.
+            </p>
           </aside>
         </div>
 
