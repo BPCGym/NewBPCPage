@@ -40,25 +40,25 @@ export function KidsPeople() {
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:gap-12">
         <article
           aria-labelledby={welcome.id}
-          className="grid items-center gap-6 md:grid-cols-5 md:gap-10"
+          className="flex flex-col items-center gap-6 text-center md:gap-8"
           data-reveal
         >
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-3">
-            <Image
-              src={welcome.image.src}
-              alt={welcome.image.alt}
-              fill
-              priority
-              sizes="(min-width: 768px) 60vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="flex flex-col gap-3 md:col-span-2">
+          <div className="flex max-w-2xl flex-col items-center gap-3">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">{welcome.eyebrow}</p>
             <h2 id={welcome.id} className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
               {welcome.title}
             </h2>
             <p className="text-pretty leading-relaxed text-muted-foreground">{welcome.text}</p>
+          </div>
+          <div className="relative aspect-[2/3] w-full max-w-md overflow-hidden rounded-2xl">
+            <Image
+              src={welcome.image.src}
+              alt={welcome.image.alt}
+              fill
+              priority
+              sizes="(min-width: 768px) 448px, 100vw"
+              className="object-cover"
+            />
           </div>
         </article>
 
