@@ -1207,40 +1207,69 @@
    a gentle breathing plus soft warm swells drifting slowly along the strip */
 .hero-strip-warm {
   height: var(--h, 0.7%);
+  overflow: visible;
   background:
-    radial-gradient(closest-side, rgb(255 220 160 / 0.55), transparent) no-repeat,
-    radial-gradient(closest-side, rgb(255 210 150 / 0.4), transparent) no-repeat,
-    linear-gradient(90deg, transparent, rgb(255 200 130 / 0.18) 8%, rgb(255 200 130 / 0.18) 92%, transparent);
-  background-size: 22% 100%, 30% 100%, 100% 100%;
-  background-position: 10% 0, 80% 0, 0 0;
-  filter: blur(2px) drop-shadow(0 0 8px rgb(255 160 70 / 0.35));
+    linear-gradient(90deg, transparent, rgb(255 200 130 / 0.22) 70%, rgb(255 238 200 / 0.95) 96%, transparent) no-repeat,
+    linear-gradient(90deg, transparent, rgb(255 200 130 / 0.14) 70%, rgb(255 230 185 / 0.6) 96%, transparent) no-repeat,
+    linear-gradient(90deg, transparent, rgb(255 200 130 / 0.16) 8%, rgb(255 200 130 / 0.16) 92%, transparent);
+  background-size: 30% 100%, 20% 100%, 100% 100%;
+  filter: blur(1.5px) drop-shadow(0 0 6px rgb(255 190 110 / 0.55)) drop-shadow(0 0 16px rgb(255 150 60 / 0.3));
   animation:
-    strip-drift-warm 18s ease-in-out var(--delay, 0s) infinite alternate,
-    strip-glow-warm 6s ease-in-out var(--delay, 0s) infinite;
+    strip-comet-warm var(--s, 9s) linear var(--delay, 0s) infinite,
+    strip-glow-warm 4.5s ease-in-out var(--delay, 0s) infinite;
 }
-/* Faint halo on the wood that breathes with the strip */
+/* Light bloom that travels with the bright head and stretches out onto the wood */
+.hero-strip-warm::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 26%;
+  height: 1400%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 210 150 / 0.4), rgb(255 160 70 / 0.12) 55%, transparent);
+  filter: blur(10px);
+  animation: strip-bloom-warm var(--s, 9s) linear var(--delay, 0s) infinite;
+}
+/* Wide halo along the whole strip that slowly stretches and relaxes */
 .hero-strip-warm::after {
   content: '';
   position: absolute;
   inset: -400% -2%;
   border-radius: 999px;
-  background: radial-gradient(closest-side, rgb(255 160 70 / 0.12), transparent);
+  background: radial-gradient(closest-side, rgb(255 160 70 / 0.16), transparent);
   filter: blur(12px);
+  transform-origin: center;
+  animation: strip-stretch-warm 4.5s ease-in-out var(--delay, 0s) infinite;
 }
-@keyframes strip-drift-warm {
-  0% { background-position: 10% 0, 80% 0, 0 0; }
-  50% { background-position: 55% 0, 30% 0, 0 0; }
-  100% { background-position: 90% 0, 60% 0, 0 0; }
+@keyframes strip-comet-warm {
+  from { background-position: -45% 0, 45% 0, 0 0; }
+  to { background-position: 145% 0, 235% 0, 0 0; }
+}
+@keyframes strip-bloom-warm {
+  0% { left: -10%; scale: 0.8 0.7; opacity: 0; }
+  12% { opacity: 1; }
+  50% { scale: 1.15 1.4; }
+  88% { opacity: 1; }
+  100% { left: 110%; scale: 0.8 0.7; opacity: 0; }
+}
+@keyframes strip-stretch-warm {
+  0%, 100% { scale: 1 0.75; opacity: 0.6; }
+  50% { scale: 1.02 1.5; opacity: 1; }
 }
 @keyframes strip-glow-warm {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 0.65; }
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.85; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-ring,
   .hero-ring::before,
   .hero-ring::after,
-  .hero-strip { animation: none; }
+  .hero-strip,
+  .hero-strip-warm::before,
+  .hero-strip-warm::after { animation: none; }
+  .hero-strip-warm::before { display: none; }
   .hero-strip { opacity: 0.4; }
   .hero-strip-warm { opacity: 0.45; }
 }
@@ -1289,10 +1318,10 @@
 @media (prefers-reduced-motion: no-preference) {
   .bpc-sub > .bpc-slide > img {
     will-change: transform;
-    animation: bpc-est-forward 8s linear 3s infinite;
+    animation: bpc-est-forward 9s linear -2.15s infinite;
   }
   .bpc-logo[data-variant='boxen'] .bpc-sub > .bpc-slide > img {
-    animation: bpc-boxen-sub 8s linear 3s infinite;
+    animation: bpc-boxen-sub 9s linear -2.15s infinite;
   }
 }
 @keyframes bpc-est-forward {
@@ -1334,10 +1363,10 @@
 /* Velvære: while BPC pulls back, HOT steps forward and burns, COLD steps forward and freezes */
 .vel-hot, .vel-cold, .vel-flame, .vel-snow { transform-box: fill-box; transform-origin: 50% 50%; }
 @media (prefers-reduced-motion: no-preference) {
-  .vel-hot { animation: vel-hot-forward 8s linear 3s infinite; }
-  .vel-cold { animation: vel-cold-forward 8s linear 3s infinite; }
+  .vel-hot { animation: vel-hot-forward 9s linear -2.15s infinite; }
+  .vel-cold { animation: vel-cold-forward 9s linear -2.15s infinite; }
   .vel-flame { transform-origin: 50% 100%; animation: vel-flame-flicker 0.45s ease-in-out infinite alternate; }
-  .vel-snow { animation: vel-snow-spin 8s linear 3s infinite; }
+  .vel-snow { animation: vel-snow-spin 9s linear -2.15s infinite; }
 }
 @keyframes vel-hot-forward {
   0%, 44% { transform: scale(1); filter: none; animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
@@ -1373,9 +1402,10 @@
 @media (prefers-reduced-motion: no-preference) {
   .bpc-arc {
     animation:
-      bpc-arc-draw 0.75s cubic-bezier(0.33, 1, 0.68, 1) 0.32s both,
-      bpc-arc-spin 8s cubic-bezier(0.65, 0, 0.35, 1) 3s infinite,
-  bpc-arc-light 8s ease-in-out 3s infinite;
+      bpc-arc-spin 9s cubic-bezier(0.65, 0, 0.35, 1) -2.15s infinite,
+      bpc-arc-light 9s ease-in-out -2.15s infinite,
+      /* Listed last with backwards fill so the draw-in wins until it ends, then hands off to the cycle */
+      bpc-arc-draw 0.75s cubic-bezier(0.33, 1, 0.68, 1) 0.32s backwards;
   }
   .bpc-kids-dance {
   animation: bpc-kids-dance 2.4s ease-in-out 2.4s infinite;
@@ -1387,7 +1417,7 @@
   .bpc-mark {
     transform-origin: 50% 50%;
     will-change: transform;
-    animation: bpc-recede 8s linear 3s infinite;
+    animation: bpc-recede 9s linear -2.15s infinite;
   }
 }
 @keyframes bpc-recede {
@@ -1422,7 +1452,7 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Per-department motion. Same 8s cycle and 3s delay so arcs and BPC stay in sync. */
+/* Per-department motion. Same 9s cycle and -2.15s delay so arcs and BPC stay in sync. */
 @media (prefers-reduced-motion: no-preference) {
   /* Boxen: functional strength. BPC slams in, arcs fire two hard jabs, BPC winds up and punches back out. */
   .bpc-logo[data-variant='boxen'] .bpc-slide {
@@ -1430,12 +1460,12 @@
   }
   .bpc-logo[data-variant='boxen'] .bpc-arc {
     animation:
-      bpc-arc-draw 0.45s cubic-bezier(0.7, 0, 0.2, 1) 0.25s both,
-      bpc-boxen-jab 8s linear 3s infinite,
-      bpc-arc-light 8s ease-in-out 3s infinite;
+      bpc-boxen-jab 9s linear -2.15s infinite,
+      bpc-arc-light 9s ease-in-out -2.15s infinite,
+      bpc-arc-draw 0.45s cubic-bezier(0.7, 0, 0.2, 1) 0.25s backwards;
   }
   .bpc-logo[data-variant='boxen'] .bpc-mark {
-    animation: bpc-boxen-punch 8s linear 3s infinite;
+    animation: bpc-boxen-punch 9s linear -2.15s infinite;
   }
 
   /* Velvære: calm and slow, like breathing in the sauna. */
@@ -1444,9 +1474,9 @@
   }
   .bpc-logo[data-variant='velvaere'] .bpc-arc {
     animation:
-      bpc-arc-draw 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.32s both,
-      bpc-velvaere-drift 8s linear 3s infinite,
-      bpc-arc-light 8s ease-in-out 3s infinite;
+      bpc-velvaere-drift 9s linear -2.15s infinite,
+      bpc-arc-light 9s ease-in-out -2.15s infinite,
+      bpc-arc-draw 1.2s cubic-bezier(0.33, 1, 0.68, 1) 0.32s backwards;
   }
 
   /* Kids: arcs spin with a springy overshoot, BPC bounces in. */
@@ -1455,9 +1485,9 @@
   }
   .bpc-logo[data-variant='kids'] .bpc-arc {
     animation:
-      bpc-arc-draw 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.32s both,
-      bpc-kids-spin 8s linear 3s infinite,
-      bpc-arc-light 8s ease-in-out 3s infinite;
+      bpc-kids-spin 9s linear -2.15s infinite,
+      bpc-arc-light 9s ease-in-out -2.15s infinite,
+      bpc-arc-draw 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.32s backwards;
   }
 }
 
