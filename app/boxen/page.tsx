@@ -178,12 +178,12 @@ export default function BoxenPage() {
               </div>
             </div>
 
-            <aside className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-primary/30 bg-primary/5 p-4 transition-colors hover:border-primary/50 md:p-5 lg:mt-6">
+            <aside className="approach group relative flex items-center gap-4 overflow-hidden rounded-xl border border-primary/30 bg-primary/5 p-4 transition-colors hover:border-primary/50 md:p-5 lg:mt-6">
               <span
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 animate-[shine_4s_ease-in-out_infinite] bg-linear-to-r from-transparent via-primary/15 to-transparent bg-[length:40%_100%] bg-no-repeat motion-reduce:hidden"
               />
-              <span className="relative flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+              <span className="approach-icon relative flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
                 <span
                   aria-hidden="true"
                   className="absolute inset-0 animate-ping rounded-full bg-primary/40 motion-reduce:hidden"
