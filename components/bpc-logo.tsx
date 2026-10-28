@@ -81,40 +81,53 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
             </filter>
           </defs>
           <text
-            x="733"
-            y="1127"
+            x="705"
+            y="1122"
             textAnchor="end"
-            textLength="220"
+            textLength="250"
             lengthAdjust="spacingAndGlyphs"
             fill="url(#velvaere-hot)"
             filter="url(#velvaere-heat)"
-            fontSize="145"
+            fontSize="128"
             fontWeight="700"
             fontStyle="italic"
             fontFamily="Arial, Helvetica, sans-serif"
           >
-            VEL
+            SAUNA
+          </text>
+          <text
+            x="737"
+            y="1110"
+            textAnchor="middle"
+            fill="#ffffff"
+            fillOpacity="0.9"
+            fontSize="64"
+            fontWeight="700"
+            fontStyle="italic"
+            fontFamily="Arial, Helvetica, sans-serif"
+          >
+            &amp;
           </text>
           <g filter="url(#velvaere-frost)">
             <text
-              x="741"
-              y="1127"
+              x="769"
+              y="1122"
               textAnchor="start"
-              textLength="312"
+              textLength="250"
               lengthAdjust="spacingAndGlyphs"
               fill="url(#velvaere-ice)"
               stroke="#ffffff"
               strokeWidth="2.5"
               strokeOpacity="0.8"
-              fontSize="145"
+              fontSize="128"
               fontWeight="700"
               fontStyle="italic"
               fontFamily="Arial, Helvetica, sans-serif"
             >
-              VÆRE
+              ISBAD
             </text>
             <path
-              d="M760 1125 l7 27 l7 -27 Z M815 1125 l5 18 l5 -18 Z M872 1125 l7 32 l7 -32 Z M940 1125 l5 19 l5 -19 Z M1002 1125 l6 26 l6 -26 Z"
+              d="M785 1120 l6 24 l6 -24 Z M838 1120 l5 16 l5 -16 Z M892 1120 l6 28 l6 -28 Z M950 1120 l5 17 l5 -17 Z M1000 1120 l6 23 l6 -23 Z"
               fill="url(#velvaere-ice)"
             />
           </g>
