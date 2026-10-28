@@ -37,19 +37,21 @@ const weekPlan: Day[] = [
 const passTypes = [
   {
     label: 'Babypass',
-    age: 'De minste · fra 6 uker',
+    age: '6 uker – 1 år',
     time: '09:00–12:00',
     days: 'Formiddag · mandag og onsdag',
     badgeClass: 'w-fit rounded-full border border-primary px-3 py-1 text-xs font-semibold text-primary',
   },
   {
     label: 'Barnepass',
-    age: 'Større barn · opptil 12 år',
+    age: '1 år og oppover',
     time: '16:00–18:00',
     days: 'Ettermiddag · mandag og onsdag, lørdag 09:00–12:00',
     badgeClass: 'w-fit rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground',
   },
 ]
+
+const passRules = ['Maks 1 time per barn', 'Begrenset antall plasser', 'Husk å booke på forhånd']
 
 function SessionBlock({ session }: { session: Session }) {
   const isBaby = session.label === 'Babypass'
@@ -80,17 +82,17 @@ export function KidsSchedule() {
   return (
     <section aria-labelledby="kids-timeplan" className="border-t border-border py-10 md:py-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6">
-        <header className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between" data-reveal>
-          <div className="flex flex-col gap-2">
+        <header className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10" data-reveal>
+          <div className="flex flex-col gap-3 lg:max-w-md">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Timeplan · ut 2026</p>
-            <h2 id="kids-timeplan" className="scroll-mt-28 text-balance text-2xl font-semibold tracking-tight md:text-3xl">
+            <h2 id="kids-timeplan" className="scroll-mt-28 text-balance text-4xl font-semibold tracking-tight md:text-5xl">
               Når er barnepasset åpent?
             </h2>
             <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
               Fast ukeplan for barnepass og babypass.
             </p>
           </div>
-          <ul className="grid gap-3 sm:grid-cols-2 lg:w-[34rem]">
+          <ul className="grid gap-3 sm:grid-cols-2 lg:w-[38rem]">
             {passTypes.map((pass) => (
               <li
                 key={pass.label}
@@ -104,6 +106,14 @@ export function KidsSchedule() {
                   {pass.time}
                 </p>
                 <p className="text-xs leading-relaxed text-muted-foreground">{pass.days}</p>
+                <ul className="mt-1 flex flex-col gap-1.5 border-t border-border pt-3">
+                  {passRules.map((rule) => (
+                    <li key={rule} className="flex items-center gap-2 text-xs leading-relaxed text-foreground">
+                      <span aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-primary" />
+                      {rule}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>
