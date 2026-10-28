@@ -33,21 +33,37 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
         <span className="bpc-slide absolute inset-0">
       <Image src={`${prefix}-base.png`} {...shared} className="object-contain" />
       {variant === 'velvaere' ? (
-        // Temporary subtitle until the real Velvære logo exists.
+        // Sauna heat fading into ice-bath cold, echoing the Velvære department.
         <svg viewBox="0 0 1482 1482" aria-hidden="true" className="absolute inset-0 size-full">
+          <defs>
+            <linearGradient id="velvaere-heat-cold" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stopColor="#ff8a3d" />
+              <stop offset="0.45" stopColor="#ffc27a" />
+              <stop offset="0.55" stopColor="#bfe9ff" />
+              <stop offset="1" stopColor="#3fb6ff" />
+            </linearGradient>
+          </defs>
           <text
             x="741"
-            y="1098"
+            y="1140"
             textAnchor="middle"
-            textLength="640"
+            textLength="680"
             lengthAdjust="spacingAndGlyphs"
-            fill="currentColor"
-            fontSize="172"
+            fill="url(#velvaere-heat-cold)"
+            fontSize="180"
             fontWeight="700"
+            fontStyle="italic"
             fontFamily="Arial, Helvetica, sans-serif"
           >
             VELVÆRE
           </text>
+          <path
+            d="M421 1200 q40 -26 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0"
+            fill="none"
+            stroke="url(#velvaere-heat-cold)"
+            strokeWidth="16"
+            strokeLinecap="round"
+          />
         </svg>
       ) : null}
         </span>
