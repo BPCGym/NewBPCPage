@@ -27,8 +27,11 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
       role={label ? 'img' : undefined}
       aria-label={label}
       aria-hidden={label ? undefined : true}
-      className={cn('bpc-logo-zoom relative block shrink-0', className)}
+      className={cn('relative block shrink-0', className)}
     >
+      <span className="bpc-disc absolute inset-[9%] rounded-full" />
+      <span className="bpc-mark absolute inset-0">
+        <span className="bpc-slide absolute inset-0">
       <Image src={`${prefix}-base.png`} {...shared} className="object-contain" />
       {variant === 'velvaere' ? (
         // Temporary subtitle until the real Velvære logo exists.
@@ -48,6 +51,8 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
           </text>
         </svg>
       ) : null}
+        </span>
+      </span>
       <Image src={`${prefix}-arc-top.png`} {...shared} className="bpc-arc object-contain" />
       <Image src={`${prefix}-arc-bottom.png`} {...shared} className="bpc-arc bpc-arc-bottom object-contain" />
     </span>
