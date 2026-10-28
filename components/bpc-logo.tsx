@@ -33,7 +33,7 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
         <span className="bpc-slide absolute inset-0">
       <Image src={`${prefix}-base.png`} {...shared} className="object-contain" />
       {variant === 'velvaere' ? (
-        // "VELV" glows like sauna heat, "ÆRE" is frozen like the ice bath.
+        // "VEL" glows like sauna heat, "VÆRE" is frozen like the ice bath.
         <svg viewBox="0 0 1482 1482" aria-hidden="true" className="absolute inset-0 size-full overflow-visible">
           <defs>
             <linearGradient id="velvaere-hot" x1="0" y1="0" x2="0" y2="1">
@@ -81,40 +81,40 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
             </filter>
           </defs>
           <text
-            x="779"
-            y="1140"
+            x="733"
+            y="1127"
             textAnchor="end"
-            textLength="372"
+            textLength="220"
             lengthAdjust="spacingAndGlyphs"
             fill="url(#velvaere-hot)"
             filter="url(#velvaere-heat)"
-            fontSize="180"
+            fontSize="145"
             fontWeight="700"
             fontStyle="italic"
             fontFamily="Arial, Helvetica, sans-serif"
           >
-            VELV
+            VEL
           </text>
           <g filter="url(#velvaere-frost)">
             <text
-              x="787"
-              y="1140"
+              x="741"
+              y="1127"
               textAnchor="start"
-              textLength="296"
+              textLength="312"
               lengthAdjust="spacingAndGlyphs"
               fill="url(#velvaere-ice)"
               stroke="#ffffff"
-              strokeWidth="3"
+              strokeWidth="2.5"
               strokeOpacity="0.8"
-              fontSize="180"
+              fontSize="145"
               fontWeight="700"
               fontStyle="italic"
               fontFamily="Arial, Helvetica, sans-serif"
             >
-              ÆRE
+              VÆRE
             </text>
             <path
-              d="M806 1138 l9 34 l9 -34 Z M862 1138 l6 22 l6 -22 Z M918 1138 l8 40 l8 -40 Z M985 1138 l6 24 l6 -24 Z M1040 1138 l8 32 l8 -32 Z"
+              d="M760 1125 l7 27 l7 -27 Z M815 1125 l5 18 l5 -18 Z M872 1125 l7 32 l7 -32 Z M940 1125 l5 19 l5 -19 Z M1002 1125 l6 26 l6 -26 Z"
               fill="url(#velvaere-ice)"
             />
           </g>
