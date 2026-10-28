@@ -29,7 +29,6 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
       aria-hidden={label ? undefined : true}
       className={cn('relative block shrink-0', className)}
     >
-      <span className="bpc-disc absolute inset-[9%] rounded-full" />
       <span className="bpc-mark absolute inset-0">
         <span className="bpc-slide absolute inset-0">
       <Image src={`${prefix}-base.png`} {...shared} className="object-contain" />
