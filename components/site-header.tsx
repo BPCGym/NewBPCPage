@@ -64,6 +64,15 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <SmartLink
+            href={links.myPage}
+            className={cn(
+              buttonVariants({ size: 'sm', variant: 'ghost' }),
+              'h-9 rounded-full px-4 font-semibold',
+            )}
+          >
+            Min side
+          </SmartLink>
+          <SmartLink
             href={links.signup}
             className={cn(
               buttonVariants({ size: 'sm' }),

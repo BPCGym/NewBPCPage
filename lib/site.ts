@@ -2,7 +2,7 @@
 // Sources and approval status are tracked in LANSERINGSSJEKK.md.
 
 export const links = {
-  signup: 'https://bergenperformancecenter.sics.no/Registration/Subscription',
+  signup: 'https://bergenperformancecenter.sics.no/Registration/Location',
   myPage: 'https://bergenperformancecenter.sics.no/Auth/Login',
   boxen: '/boxen',
   phone: 'tel:+4755125555',
