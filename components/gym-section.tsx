@@ -8,36 +8,36 @@ const photos = [
     src: '/images/bpc-stativer.jpg',
     alt: 'Styrkesonen hos BPC med blå stativer, benker, vektskiver og speilvegg under lyslister i taket',
     caption: 'Stort treningsrom',
-    className: 'aspect-[4/3] md:col-span-2 md:row-span-2 md:aspect-auto',
+    className: 'col-span-2 aspect-[16/10] md:row-span-2 md:aspect-auto',
     sizes: '(min-width: 768px) 66vw, 100vw',
   },
   {
     src: '/images/bpc-hjertet.jpg',
     alt: 'Apparatsalen hos BPC med styrkeapparater, Booty Builder og blått, marmorert gulv',
     caption: 'Hjertet av BPC',
-    className: 'aspect-[3/4] md:row-span-2 md:aspect-auto',
-    sizes: '(min-width: 768px) 33vw, 100vw',
+    className: 'aspect-square md:row-span-2 md:aspect-auto',
+    sizes: '(min-width: 768px) 33vw, 50vw',
   },
   {
     src: '/images/bpc-frivekter.jpg',
     alt: 'Frivektsonen hos BPC med lange rader manualer, benker med BPC-logo og blått lys',
     caption: 'Frivekter',
-    className: 'aspect-[4/3] md:aspect-auto',
-    sizes: '(min-width: 768px) 33vw, 100vw',
+    className: 'aspect-square md:aspect-auto',
+    sizes: '(min-width: 768px) 33vw, 50vw',
   },
   {
     src: '/images/bpc-kondisjon.jpg',
     alt: 'Kondisjonssonen hos BPC med Woodway-tredemøller langs en vegg med opplyste ruter',
     caption: 'Langt treningsrom',
-    className: 'aspect-[4/3] md:aspect-auto',
-    sizes: '(min-width: 768px) 33vw, 100vw',
+    className: 'aspect-square md:aspect-auto',
+    sizes: '(min-width: 768px) 33vw, 50vw',
   },
   {
     src: '/images/bpc-funksjonell.jpg',
     alt: 'Funksjonell sone hos BPC med kunstgress, romaskiner, airbikes, frivekter og BPC-logo på gulvet',
     caption: 'BPC Boxen',
-    className: 'aspect-[4/3] md:aspect-auto',
-    sizes: '(min-width: 768px) 33vw, 100vw',
+    className: 'aspect-square md:aspect-auto',
+    sizes: '(min-width: 768px) 33vw, 50vw',
   },
 ]
 
@@ -70,13 +70,13 @@ export function GymSection() {
 
 export function GymGallery() {
   return (
-    <ul className="grid grid-cols-1 gap-4 md:auto-rows-[240px] md:grid-cols-3">
+    <ul className="grid grid-cols-2 gap-3 md:auto-rows-[240px] md:grid-cols-3 md:gap-4">
       {photos.map((photo, i) => (
         <li
           key={photo.src}
           data-reveal
           style={{ '--d': `${i * 90}ms` } as React.CSSProperties}
-          className={`group relative overflow-hidden rounded-2xl border border-border ${photo.className}`}
+          className={`group relative overflow-hidden rounded-xl border border-border md:rounded-2xl ${photo.className}`}
         >
           <Image
             src={photo.src}
@@ -90,7 +90,7 @@ export function GymGallery() {
             aria-hidden="true"
             className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background/90 to-transparent"
           />
-          <p className="absolute bottom-4 left-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider transition-transform duration-500 group-hover:translate-x-1">
+          <p className="absolute bottom-3 left-3 flex items-center gap-2 text-xs font-semibold md:bottom-4 md:left-4 md:text-sm uppercase tracking-wider transition-transform duration-500 group-hover:translate-x-1">
             <span aria-hidden="true" className="size-1.5 rotate-45 bg-primary" />
             {photo.caption}
           </p>

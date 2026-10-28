@@ -75,12 +75,15 @@ export function MemberBenefits() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-7">
+        <ul
+          aria-label="Medlemsfordeler"
+          className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-3 overflow-x-auto px-6 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-7"
+        >
           {benefits.map((benefit, index) => (
             <li
               key={benefit.partner}
               data-reveal
-              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card text-card-foreground transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/15"
+              className="group flex w-40 shrink-0 snap-start flex-col md:w-auto overflow-hidden rounded-2xl border border-border bg-card text-card-foreground transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/15"
             >
               <div
                 style={{ '--i': index } as React.CSSProperties}

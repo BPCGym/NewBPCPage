@@ -105,14 +105,14 @@ export function Contact({ asPage = false }: ContactProps) {
             </div>
           </div>
 
-          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:col-span-7">
+          <ul className="grid grid-cols-4 gap-2 sm:gap-3 lg:col-span-7">
             {receptionists.map((person) => (
-              <li key={person.src} className="group relative aspect-[2/3] overflow-hidden rounded-2xl bg-muted">
+              <li key={person.src} className="group relative aspect-[2/3] overflow-hidden rounded-xl bg-muted sm:rounded-2xl">
                 <Image
                   src={person.src}
                   alt={person.alt}
                   fill
-                  sizes="(min-width: 1024px) 18vw, (min-width: 640px) 25vw, 50vw"
+                  sizes="(min-width: 1024px) 18vw, 25vw"
                   style={{ transform: person.frame, transformOrigin: '0 0' }}
                     className="object-cover transition-[filter] duration-500 group-hover:brightness-110"
                 />

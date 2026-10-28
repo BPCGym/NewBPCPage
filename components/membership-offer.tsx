@@ -5,15 +5,15 @@ import { campaign } from '@/lib/site'
 
 function PeoplePhoto() {
   return (
-    <figure className="relative mx-auto w-full max-w-sm md:ml-auto md:mr-0">
-      <div className="relative aspect-[5/6] overflow-hidden rounded-2xl border border-border shadow-2xl">
+    <figure className="relative w-full">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-2xl md:aspect-square lg:aspect-[6/5]">
         <Image
           src="/images/bpc-team-trio.jpg"
           alt="Tre smilende medlemmer og trenere i BPC-klær står sammen i treningssalen"
           fill
           loading="lazy"
-          sizes="(min-width: 768px) 28rem, 100vw"
-          className="object-cover object-[center_35%]"
+          sizes="(min-width: 1280px) 42rem, (min-width: 768px) 55vw, 100vw"
+          className="object-cover object-[center_40%]"
         />
       </div>
       <figcaption className="absolute -bottom-5 left-6 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-card-foreground shadow-lg">
@@ -26,9 +26,9 @@ function PeoplePhoto() {
 export function MembershipOffer() {
   if (!campaign.enabled) {
     return (
-      <section aria-labelledby="tilbud-title" className="border-b border-border pb-14 pt-8 md:pb-16 md:pt-10">
-        <div className="mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-2 md:gap-10">
-          <div className="flex flex-col items-start gap-5">
+      <section aria-labelledby="tilbud-title" className="border-b border-border pb-12 pt-8 md:pb-14 md:pt-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12">
+          <div className="flex flex-col items-start gap-4 md:gap-5">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Medlemskap</p>
             <h2 id="tilbud-title" className="text-balance text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
               Finn medlemskapet som passer deg.
