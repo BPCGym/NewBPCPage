@@ -57,6 +57,24 @@ const steps = [
   },
 ]
 
+const turfRunway = {
+  lane: 'polygon(13% 100%, 46.8% 53%, 52.6% 53%, 74% 100%)',
+  edges: [
+  { x1: 12.4, y1: 100, x2: 45.6, y2: 54 },
+  { x1: 74.3, y1: 100, x2: 55, y2: 54 },
+  ],
+  rows: [
+    { y: 94.6, left: 22.2, right: 66.7, w: 9.6, h: 1.6 },
+    { y: 78.1, left: 32.6, right: 60.8, w: 5.6, h: 1.1 },
+    { y: 70, left: 37.4, right: 57.6, w: 4.2, h: 0.75 },
+    { y: 65.2, left: 39.8, right: 56.1, w: 2.6, h: 0.55 },
+    { y: 61.9, left: 42.4, right: 55.4, w: 2.2, h: 0.45 },
+    { y: 58.6, left: 44.1, right: 54.4, w: 1.8, h: 0.38 },
+    { y: 56.2, left: 45.2, right: 53.6, w: 1.4, h: 0.32 },
+    { y: 54.3, left: 46.2, right: 52.9, w: 1, h: 0.26 },
+  ],
+}
+
 const gallery = [
   { src: '/images/boxen-liv-lop.jpg', alt: 'Medlem løper på kurvet tredemølle i BPC Boxen', position: 'object-center' },
   { src: '/images/boxen-liv-airbike.jpg', alt: 'Medlem gir alt på airbike i BPC Boxen', position: 'object-[center_35%]' },
@@ -97,6 +115,7 @@ export default function BoxenPage() {
             src: '/images/boxen-hero.jpg',
             alt: 'BPC Boxen med sprintbane i kunstgress og BPC-logo, rigg med ringer og blått lys langs trappen',
           }}
+          runway={turfRunway}
           logo={{ variant: 'boxen', alt: 'BPC Boxen logo' }}
         >
           <CtaLink href="/provetime" arrow className="glow">

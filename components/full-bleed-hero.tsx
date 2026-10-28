@@ -12,13 +12,20 @@ type FullBleedHeroProps = {
   logo?: { variant: BpcLogoVariant; alt: string }
   /** LED strips positioned in % of a 16:9 photo; the photo is then framed so they stay locked to it. */
   strips?: React.CSSProperties[]
+  /** Runway lights on a floor lane: marker rows from nearest to farthest, plus the lane outline, in % of a 16:9 photo. */
+  runway?: {
+    lane: string
+    rows: { y: number; left: number; right: number; w: number; h: number }[]
+    edges?: { x1: number; y1: number; x2: number; y2: number }[]
+  }
   children?: React.ReactNode
 }
 
-export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips, children }: FullBleedHeroProps) {
+export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips = [], runway, children }: FullBleedHeroProps) {
+  const framed = strips.length > 0 || Boolean(runway)
   return (
     <section aria-labelledby={id} className="relative flex min-h-svh flex-col justify-end overflow-hidden">
-      {strips ? (
+      {framed ? (
         <div className="hero-stage absolute inset-0">
           <div className="hero-frame">
             <div className="hero-zoom absolute inset-0">
@@ -30,9 +37,58 @@ export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips, c
                 sizes="(min-aspect-ratio: 16/9) 100vw, 178svh"
                 className="object-cover"
               />
+              {strips.map((strip, i) =>
+                '--spill-h' in strip ? (
+                  <span key={`spill-${i}`} aria-hidden="true" className="hero-spill" style={strip} />
+                ) : null,
+              )}
               {strips.map((strip, i) => (
-                <span key={i} aria-hidden="true" className="hero-strip hero-strip-warm" style={strip} />
+                <span key={i} aria-hidden="true" className={`hero-strip hero-strip-warm${'--spill-h' in strip ? ' hero-strip-ceiling' : ''}`} style={strip} />
               ))}
+              {runway ? (
+                <div aria-hidden="true" className="runway absolute inset-0">
+                  <span className="runway-beam" style={{ clipPath: runway.lane }} />
+                  {runway.edges ? (
+                    <svg
+                      className="runway-edges absolute inset-0 h-full w-full"
+                      viewBox="0 0 100 100"
+                      preserveAspectRatio="none"
+                    >
+                      {runway.edges.map((e, i) => (
+                        <g key={i}>
+                          <line className="runway-edge-halo" x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2} />
+                          <line className="runway-edge-core" x1={e.x1} y1={e.y1} x2={e.x2} y2={e.y2} />
+                          <line
+                            className="runway-edge-pulse"
+                            pathLength={100}
+                            x1={e.x1}
+                            y1={e.y1}
+                            x2={e.x2}
+                            y2={e.y2}
+                          />
+                        </g>
+                      ))}
+                    </svg>
+                  ) : null}
+                  {runway.rows.flatMap((row, i) =>
+                    [row.left, row.right].map((x, side) => (
+                      <span
+                        key={`${i}-${side}`}
+                        className="runway-light"
+                        style={
+                          {
+                            left: `${x}%`,
+                            top: `${row.y}%`,
+                            width: `${row.w}%`,
+                            height: `${row.h}%`,
+                            '--i': i,
+                          } as React.CSSProperties
+                        }
+                      />
+                    )),
+                  )}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -48,7 +104,11 @@ export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips, c
       )}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0"
+        className={
+          runway
+            ? 'absolute inset-0 bg-gradient-to-tr from-background/90 via-background/40 to-background/0'
+            : 'absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/0'
+        }
       />
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
         {logo ? (

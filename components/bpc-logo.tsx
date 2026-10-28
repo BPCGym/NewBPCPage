@@ -77,14 +77,14 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
           </defs>
           {/* HOT sits above BPC, COLD below, both centred inside the ring. x is nudged by half the trailing letter-spacing. */}
           <g
-            fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
-            fontSize="140"
-            fontWeight="500"
-            letterSpacing="22"
+            style={{ fontFamily: "var(--font-geist), 'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+            fontSize="128"
+            fontWeight="300"
+            letterSpacing="44"
             textAnchor="middle"
           >
             <g className="vel-hot">
-              <text x="753" y="500" fill="url(#velvaere-hot)" filter="url(#velvaere-glow-hot)">
+              <text x="764" y="500" fill="url(#velvaere-hot)" filter="url(#velvaere-glow-hot)">
                 HOT
               </text>
               <g className="vel-flame">
@@ -98,7 +98,7 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
               </g>
             </g>
             <g className="vel-cold">
-              <text x="753" y="1060" fill="url(#velvaere-ice)" filter="url(#velvaere-glow-cold)">
+              <text x="764" y="1060" fill="url(#velvaere-ice)" filter="url(#velvaere-glow-cold)">
                 COLD
               </text>
               <g className="vel-snow">
