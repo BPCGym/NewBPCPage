@@ -1527,6 +1527,10 @@
 .bpc-only-wordmark { clip-path: inset(0 0 37% 0); }
 .bpc-only-subtitle { clip-path: inset(63% 0 0 0); }
 .bpc-sub > .bpc-slide > img { transform-origin: 50% 69.5%; }
+/* Kids artwork: BPC ends at ~62.7%, KIDS spans ~68-83.4% and lands at ~71.6% once scaled to 0.84 */
+.bpc-logo[data-variant='kids'] .bpc-only-wordmark { clip-path: inset(0 0 35% 0); }
+.bpc-logo[data-variant='kids'] .bpc-only-subtitle { clip-path: inset(65% 0 0 0); transform-origin: 50% 50%; }
+.bpc-logo[data-variant='kids'] .bpc-sub { transform-origin: 50% 71.6%; }
 @media (prefers-reduced-motion: no-preference) {
   .bpc-sub > .bpc-slide > img {
     will-change: transform;
@@ -1535,6 +1539,22 @@
   .bpc-logo[data-variant='boxen'] .bpc-sub > .bpc-slide > img {
     animation: bpc-boxen-sub 9s linear -2.15s infinite;
   }
+  /* KIDS plays on its own: a constant wiggle plus a springy pop while BPC pulls back */
+  .bpc-logo[data-variant='kids'] .bpc-sub > .bpc-slide > img { animation: none; }
+  .bpc-logo[data-variant='kids'] .bpc-sub {
+    animation:
+      bpc-kids-dance 2.4s ease-in-out 2.4s infinite,
+      bpc-kids-pop 9s linear -2.15s infinite;
+  }
+}
+@keyframes bpc-kids-pop {
+  0%, 44% { scale: 1; animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  54% { scale: 1.22; }
+  58% { scale: 1.1; }
+  62% { scale: 1.2; }
+  66% { scale: 1.12; }
+  70%, 82.5% { scale: 1.18; animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+  100% { scale: 1; }
 }
 @keyframes bpc-est-forward {
   0%, 44% { transform: scale(1); animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
@@ -1627,9 +1647,6 @@
       /* Listed last with backwards fill so the draw-in wins until it ends, then hands off to the cycle */
       bpc-arc-draw 0.75s cubic-bezier(0.33, 1, 0.68, 1) 0.32s backwards;
   }
-  .bpc-kids-dance {
-  animation: bpc-kids-dance 2.4s ease-in-out 2.4s infinite;
-  }
   .bpc-slide {
     animation: bpc-slide-in 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
   }
@@ -1684,9 +1701,6 @@
       bpc-arc-light 9s ease-in-out -2.15s infinite,
       bpc-arc-draw 0.45s cubic-bezier(0.7, 0, 0.2, 1) 0.25s backwards;
   }
-  .bpc-logo[data-variant='boxen'] .bpc-mark {
-    animation: bpc-boxen-punch 9s linear -2.15s infinite;
-  }
 
   /* Velvære: calm and slow, like breathing in the sauna. */
   .bpc-logo[data-variant='velvaere'] .bpc-slide {
@@ -1726,23 +1740,6 @@
   72% { transform: rotate(180deg); animation-timing-function: cubic-bezier(0.8, 0, 0.1, 1); }
   80.75% { transform: rotate(370deg); animation-timing-function: ease-out; }
   84.25%, 100% { transform: rotate(360deg); }
-}
-@keyframes bpc-boxen-punch {
-  0%, 45.75% { transform: scale(1); animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0); }
-  51% { transform: scale(0.76); }
-  57.5% { transform: scale(0.76); animation-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
-  59.75% { transform: scale(0.68); }
-  62% { transform: scale(0.8); }
-  64% { transform: scale(0.74); }
-  66% { transform: scale(0.76); }
-  78.5% { transform: scale(0.76); animation-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
-  80.75% { transform: scale(0.68); }
-  83% { transform: scale(0.78); }
-  84.25% { transform: scale(0.76); animation-timing-function: cubic-bezier(0.2, 0, 0.2, 1); }
-  87.75% { transform: scale(1.09); }
-  90.4% { transform: scale(0.97) translateX(-1.5%); }
-  93% { transform: scale(1.02) translateX(1%); }
-  96.5%, 100% { transform: scale(1) translateX(0); }
 }
 @keyframes bpc-velvaere-drift {
   0%, 44% { transform: rotate(0deg); animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }

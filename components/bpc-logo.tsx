@@ -21,7 +21,8 @@ type BpcLogoProps = {
 export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', label }: BpcLogoProps) {
   const prefix = assetPrefix[variant]
   const shared = { alt: '', fill: true, sizes, priority } as const
-  const splitSubtitle = variant === 'gym' || variant === 'boxen'
+  const splitSubtitle = variant !== 'velvaere'
+  const kidsScale = variant === 'kids' && 'bpc-kids-dance'
 
   return (
     <span
@@ -36,7 +37,7 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
       <Image
         src={`${prefix}-base.png`}
         {...shared}
-        className={cn('object-contain', variant === 'kids' && 'bpc-kids-dance', splitSubtitle && 'bpc-only-wordmark')}
+        className={cn('object-contain', kidsScale, splitSubtitle && 'bpc-only-wordmark')}
       />
         </span>
       </span>
@@ -131,10 +132,10 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
         </span>
       ) : null}
       {splitSubtitle ? (
-        // The subtitle (EST. 2014 / BOXEN) is cut from the same artwork so it can step forward while BPC pulls back.
+        // The subtitle (EST. 2014 / BOXEN / KIDS) is cut from the same artwork so it can move on its own while BPC pulls back.
         <span className="bpc-sub absolute inset-0">
           <span className="bpc-slide absolute inset-0">
-            <Image src={`${prefix}-base.png`} {...shared} className="bpc-only-subtitle object-contain" />
+            <Image src={`${prefix}-base.png`} {...shared} className={cn('bpc-only-subtitle object-contain', kidsScale)} />
           </span>
         </span>
       ) : null}
