@@ -70,7 +70,11 @@ function RulesHeading() {
       className="text-balance text-6xl font-black uppercase leading-none tracking-tighter md:text-8xl"
     >
       <span className="sr-only">Gymregler</span>
-      <span aria-hidden="true" className={inView ? 'culture whitespace-nowrap' : 'invisible whitespace-nowrap'}>
+      <span
+  aria-hidden="true"
+  className="inline-block origin-center cursor-default transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
+  >
+  <span className={inView ? 'culture whitespace-nowrap' : 'invisible whitespace-nowrap'}>
         <svg className="culture-brush" viewBox="0 0 400 100" preserveAspectRatio="none" focusable="false">
           <defs>
             <linearGradient id="rules-brush-fill" x1="0" x2="1" y1="0" y2="0">
@@ -97,9 +101,10 @@ function RulesHeading() {
         <span className="culture-word">Gymregler</span>
         <span className="culture-dot">.</span>
         <span className="culture-spark culture-spark-1" />
-        <span className="culture-spark culture-spark-2" />
-      </span>
-    </h2>
+  <span className="culture-spark culture-spark-2" />
+  </span>
+  </span>
+  </h2>
   )
 }
 
