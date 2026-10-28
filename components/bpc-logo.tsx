@@ -97,7 +97,7 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
             x="705"
             y="1122"
             textAnchor="end"
-            textLength="250"
+            textLength="225"
             lengthAdjust="spacingAndGlyphs"
             fill="url(#velvaere-hot)"
             filter="url(#velvaere-heat)"
@@ -106,7 +106,7 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
             fontStyle="italic"
             fontFamily="Arial, Helvetica, sans-serif"
           >
-            SAUNA
+            HOT
           </text>
           <text
             x="737"
@@ -137,7 +137,7 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
               fontStyle="italic"
               fontFamily="Arial, Helvetica, sans-serif"
             >
-              ISBAD
+              COLD
             </text>
             <path
               d="M780 1119 l7 32 l7 -32 Z M812 1119 l4 14 l4 -14 Z M838 1119 l6 24 l6 -24 Z M868 1119 l4 12 l4 -12 Z M892 1119 l7 38 l7 -38 Z M925 1119 l4 15 l4 -15 Z M950 1119 l6 26 l6 -26 Z M978 1119 l4 13 l4 -13 Z M1000 1119 l7 30 l7 -30 Z"
