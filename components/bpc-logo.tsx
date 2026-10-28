@@ -101,22 +101,27 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
               <text x="764" y="1060" fill="url(#velvaere-ice)" filter="url(#velvaere-glow-cold)">
                 COLD
               </text>
-              <g className="vel-snow">
+              <g className="vel-ice">
                 <g
-                  transform="translate(1040 1010) scale(1.3)"
-                  stroke="url(#velvaere-ice)"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  fill="none"
+                  transform="translate(1056 1012) scale(1.3) rotate(-8)"
+                  stroke="#f2fbff"
+                  strokeWidth="2.5"
+                  strokeLinejoin="round"
                   filter="url(#velvaere-glow-cold)"
                 >
-                  {[0, 60, 120].map((angle) => (
-                    <g key={angle} transform={`rotate(${angle})`}>
-                      <line x1="0" y1="-30" x2="0" y2="30" />
-                      <polyline points="-9,-24 0,-15 9,-24" />
-                      <polyline points="-9,24 0,15 9,24" />
-                    </g>
-                  ))}
+                  <path d="M0 -36 L32 -19 L0 -2 L-32 -19 Z" fill="#f2fbff" fillOpacity="0.85" />
+                  <path d="M-32 -19 L0 -2 L0 36 L-32 19 Z" fill="#9fdcff" fillOpacity="0.75" />
+                  <path d="M32 -19 L0 -2 L0 36 L32 19 Z" fill="#3b8fd9" fillOpacity="0.8" />
+                  <g stroke="#ffffff" strokeLinecap="round" fill="none">
+                    <path d="M-14 -24 L6 -30" strokeWidth="3" />
+                    <path d="M-25 -8 L-25 10" strokeWidth="3" />
+                    <path className="vel-ice-glint" d="M8 6 L22 -1" strokeWidth="2.5" />
+                  </g>
+                  <g fill="#ffffff" stroke="none">
+                    <circle cx="-14" cy="14" r="2.2" fillOpacity="0.8" />
+                    <circle cx="-20" cy="22" r="1.4" fillOpacity="0.6" />
+                    <circle cx="16" cy="14" r="1.8" fillOpacity="0.55" />
+                  </g>
                 </g>
               </g>
             </g>

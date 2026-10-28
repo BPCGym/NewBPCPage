@@ -18,11 +18,15 @@ type FullBleedHeroProps = {
     rows: { y: number; left: number; right: number; w: number; h: number }[]
     edges?: { x1: number; y1: number; x2: number; y2: number }[]
   }
+  /** Ceiling LED lines in % of a 16:9 photo, drawn from x1/y1 toward x2/y2; a comet travels in that direction. */
+  ceiling?: { x1: number; y1: number; x2: number; y2: number; s: string; delay: string }[]
   children?: React.ReactNode
 }
 
-export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips = [], runway, children }: FullBleedHeroProps) {
-  const framed = strips.length > 0 || Boolean(runway)
+const cometLayers = ['ceiling-halo', 'ceiling-tail', 'ceiling-tail-hot', 'ceiling-head', 'ceiling-glint'] as const
+
+export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips = [], runway, ceiling = [], children }: FullBleedHeroProps) {
+  const framed = strips.length > 0 || Boolean(runway) || ceiling.length > 0
   return (
     <section aria-labelledby={id} className="relative flex min-h-svh flex-col justify-end overflow-hidden">
       {framed ? (
@@ -45,6 +49,30 @@ export function FullBleedHero({ id, eyebrow, title, text, image, logo, strips = 
               {strips.map((strip, i) => (
                 <span key={i} aria-hidden="true" className={`hero-strip hero-strip-warm${'--spill-h' in strip ? ' hero-strip-ceiling' : ''}`} style={strip} />
               ))}
+              {ceiling.length > 0 ? (
+                <svg
+                  aria-hidden="true"
+                  className="ceiling-leds absolute inset-0 h-full w-full"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  {ceiling.map((l, i) => (
+                    <g key={i} style={{ '--s': l.s, '--delay': l.delay } as React.CSSProperties}>
+                      {cometLayers.map((layer) => (
+                        <line
+                          key={layer}
+                          className={layer}
+                          pathLength={100}
+                          x1={l.x1}
+                          y1={l.y1}
+                          x2={l.x2}
+                          y2={l.y2}
+                        />
+                      ))}
+                    </g>
+                  ))}
+                </svg>
+              ) : null}
               {runway ? (
                 <div aria-hidden="true" className="runway absolute inset-0">
                   <span className="runway-beam" style={{ clipPath: runway.lane }} />

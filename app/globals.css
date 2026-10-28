@@ -1284,6 +1284,72 @@
   background: radial-gradient(closest-side, rgb(255 130 45 / 0.3), transparent);
   filter: blur(18px);
 }
+/* Gym ceiling LEDs, lit like the ceiling ring lamps: a white comet with a long fading tail
+   sweeps along each line, small glints run the other way, and the whole line shimmers */
+.ceiling-leds {
+  overflow: visible;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.ceiling-leds line {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.ceiling-halo {
+  stroke: color-mix(in oklch, var(--foreground) 35%, transparent);
+  stroke-width: 14px;
+  filter: blur(8px);
+  animation: ring-shimmer 2.4s ease-in-out var(--delay) infinite;
+}
+.ceiling-tail,
+.ceiling-tail-hot,
+.ceiling-head {
+  animation: ceiling-comet var(--s) linear var(--delay) infinite;
+}
+.ceiling-tail {
+  --len: 30;
+  stroke: color-mix(in oklch, var(--foreground) 45%, transparent);
+  stroke-width: 8px;
+  stroke-dasharray: 30 200;
+  filter: blur(4px);
+}
+.ceiling-tail-hot {
+  --len: 12;
+  stroke: color-mix(in oklch, var(--foreground) 80%, transparent);
+  stroke-width: 4px;
+  stroke-dasharray: 12 218;
+  filter: blur(1.5px);
+}
+.ceiling-head {
+  --len: 3;
+  stroke: var(--foreground);
+  stroke-width: 5px;
+  stroke-dasharray: 3 227;
+  filter: drop-shadow(0 0 3px var(--foreground)) drop-shadow(0 0 10px var(--foreground))
+    drop-shadow(0 0 24px color-mix(in oklch, var(--foreground) 65%, transparent));
+}
+.ceiling-glint {
+  stroke: var(--foreground);
+  stroke-width: 3px;
+  stroke-dasharray: 1 23 1 41;
+  filter: drop-shadow(0 0 4px var(--foreground));
+  animation:
+    ceiling-glint calc(var(--s) * 1.6) linear var(--delay) infinite,
+    ring-twinkle 1.1s ease-in-out infinite;
+}
+@keyframes ceiling-comet {
+  from { stroke-dashoffset: var(--len); }
+  to { stroke-dashoffset: calc(var(--len) - 130); }
+}
+@keyframes ceiling-glint {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 66; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ceiling-halo, .ceiling-glint { animation: none; }
+  .ceiling-tail, .ceiling-tail-hot, .ceiling-head { animation: none; opacity: 0; }
+}
 /* Turf runway: approach lights fire one row at a time from the near end to the far end,
    in the cool white of the ceiling lamps, while a soft beam rolls up the lane with them */
 .runway {
@@ -1507,12 +1573,13 @@
 }
 
 /* Velvære: while BPC pulls back, HOT steps forward and burns, COLD steps forward and freezes */
-.vel-hot, .vel-cold, .vel-flame, .vel-snow { transform-box: fill-box; transform-origin: 50% 50%; }
+.vel-hot, .vel-cold, .vel-flame, .vel-ice { transform-box: fill-box; transform-origin: 50% 50%; }
 @media (prefers-reduced-motion: no-preference) {
   .vel-hot { animation: vel-hot-forward 9s linear -2.15s infinite; }
   .vel-cold { animation: vel-cold-forward 9s linear -2.15s infinite; }
   .vel-flame { transform-origin: 50% 100%; animation: vel-flame-flicker 0.45s ease-in-out infinite alternate; }
-  .vel-snow { animation: vel-snow-spin 9s linear -2.15s infinite; }
+  .vel-ice { animation: vel-ice-chill 9s linear -2.15s infinite; }
+  .vel-ice-glint { animation: vel-ice-glint 9s linear -2.15s infinite; }
 }
 @keyframes vel-hot-forward {
   0%, 44% { transform: scale(1); filter: none; animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
@@ -1540,11 +1607,18 @@
   50% { transform: scale(0.94, 1.08) rotate(1deg); }
   100% { transform: scale(1.04, 0.96) rotate(2deg); }
 }
-@keyframes vel-snow-spin {
-  0%, 44% { transform: rotate(0deg); animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
-  82.5% { transform: rotate(180deg); }
-  100% { transform: rotate(180deg); }
-}
+@keyframes vel-ice-chill {
+  0%, 44% { transform: rotate(0deg) scale(1); filter: none; animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
+  58% { transform: rotate(-7deg) scale(1.1); filter: brightness(1.35) drop-shadow(0 0 14px rgb(120 210 255 / 0.9)); }
+  64% { transform: rotate(5deg) scale(1.12); filter: brightness(1.6) drop-shadow(0 0 22px rgb(150 225 255 / 1)); }
+  72% { transform: rotate(-2deg) scale(1.04); filter: brightness(1.15) drop-shadow(0 0 10px rgb(120 210 255 / 0.7)); }
+  82.5%, 100% { transform: rotate(0deg) scale(1); filter: none; }
+  }
+  @keyframes vel-ice-glint {
+  0%, 56% { opacity: 0.35; }
+  63% { opacity: 1; }
+  76%, 100% { opacity: 0.35; }
+  }
 @media (prefers-reduced-motion: no-preference) {
   .bpc-arc {
     animation:

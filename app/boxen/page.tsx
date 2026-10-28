@@ -63,11 +63,11 @@ const turfRunway = {
     { y: 94.6, left: 22.2, right: 66.7, w: 9.6, h: 1.6 },
     { y: 78.1, left: 32.6, right: 60.8, w: 5.6, h: 1.1 },
     { y: 70, left: 37.4, right: 57.6, w: 4.2, h: 0.75 },
-    { y: 65.2, left: 39.8, right: 56.1, w: 2.6, h: 0.55 },
-    { y: 61.9, left: 42.4, right: 55.4, w: 2.2, h: 0.45 },
-    { y: 58.6, left: 44.1, right: 54.4, w: 1.8, h: 0.38 },
-    { y: 56.2, left: 45.2, right: 53.6, w: 1.4, h: 0.32 },
-    { y: 54.3, left: 46.2, right: 52.9, w: 1, h: 0.26 },
+  { y: 65.4, left: 40.3, right: 56.5, w: 3.1, h: 0.55 },
+  { y: 62.3, left: 42, right: 55.45, w: 2.6, h: 0.45 },
+  { y: 58.55, left: 44.3, right: 54.2, w: 2, h: 0.38 },
+  { y: 56.35, left: 45.7, right: 53.6, w: 1.5, h: 0.32 },
+  { y: 54.3, left: 46.8, right: 52.9, w: 1.15, h: 0.26 },
   ],
 }
 
@@ -209,7 +209,7 @@ export default function BoxenPage() {
                 <p className="text-sm font-semibold md:text-base">Ny til Gruppetrening hos oss?</p>
                 <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
                   Si det til instruktøren når du kommer. Da tas det ekstra hensyn, og instruktøren passer ekstra godt
-                  på deg gjennom hele timen.
+                  p�� deg gjennom hele timen.
                 </p>
               </div>
             </aside>
