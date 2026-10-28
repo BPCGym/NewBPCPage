@@ -5,6 +5,17 @@ const specs = [
   { value: '30 km/t', label: 'Toppfart' },
 ]
 
+const audiences = [
+  {
+    title: 'For proffene',
+    text: 'Samme møller som eliteløpere og toppidrettsutøvere trener på – bygget for høy fart, bratte bakker og tøffe økter.',
+  },
+  {
+    title: 'For vonde knær',
+    text: 'Ønsker du et skånsomt underlag? Det myke lamellbåndet demper støtet og tar vare på knær og ledd.',
+  },
+]
+
 const qualities = ['Lamellbånd som demper støt', 'Skånsom for ledd og knær', 'Stabil i alle hastigheter']
 
 export function WoodwaySection() {
@@ -35,9 +46,18 @@ export function WoodwaySection() {
           </h2>
           <p className="max-w-lg text-pretty leading-relaxed text-muted-foreground">
             {
-              'Vi har Woodway – løpemøllene proffene trener på. Det unike lamellbåndet gir etter under hvert steg, så det er skånsomt å løpe på, samtidig som du får et naturlig og responsivt løpesteg. Enten du går rolig i bakke eller kjører intervaller i full fart, setter møllen aldri grensen.'
+              'Vi har Woodway – løpemøllene proffene trener på. Det unike lamellbåndet gir etter under hvert steg og gir et naturlig, responsivt løpesteg. Enten du går rolig i bakke eller kjører intervaller i full fart, setter møllen aldri grensen.'
             }
           </p>
+
+          <div className="grid max-w-lg gap-3 sm:grid-cols-2">
+            {audiences.map((audience) => (
+              <div key={audience.title} className="flex flex-col gap-1 rounded-2xl border border-border bg-card p-5">
+                <h3 className="font-semibold">{audience.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{audience.text}</p>
+              </div>
+            ))}
+          </div>
 
           <dl className="grid max-w-md grid-cols-2 gap-4">
             {specs.map((spec) => (
