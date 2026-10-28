@@ -47,19 +47,19 @@ const rows: Photo[][] = [
 export function KidsGallery() {
   return (
     <section aria-labelledby="kids-gallery-title" className="border-t border-border py-10 md:py-14">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6">
-        <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6">
+        <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between md:gap-8">
           <div className="flex flex-col gap-2">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Inne hos BPC Kids</p>
             <h2 id="kids-gallery-title" className="text-balance text-2xl font-semibold tracking-tight md:text-3xl">
               Et eget rom for de minste.
             </h2>
           </div>
-          <p className="max-w-sm text-pretty text-sm leading-relaxed text-muted-foreground">
+          <p className="max-w-sm text-pretty text-sm leading-relaxed text-muted-foreground md:text-right">
             Klatrevegg, lekekjøkken, myke matter og kosedyr, rett ved treningsområdet.
           </p>
         </div>
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 md:gap-3">
+        <div className="flex w-full flex-col gap-2 md:gap-3">
           {rows.map((row, rowIndex) => (
             <ul key={rowIndex} className="flex gap-2 md:gap-3">
               {row.map((photo) => (
