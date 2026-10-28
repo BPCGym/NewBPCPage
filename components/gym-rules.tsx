@@ -37,8 +37,6 @@ const rules = [
   },
 ] as const
 
-const tapeWords = ['Nulltoleranse', 'Brudd fører til utestengelse', 'Respekter folk og utstyr']
-
 function useInView<T extends HTMLElement>() {
   const ref = useRef<T>(null)
   const [inView, setInView] = useState(false)
@@ -105,29 +103,6 @@ function RulesHeading() {
   )
 }
 
-function WarningTape() {
-  const items = [...tapeWords, ...tapeWords, ...tapeWords]
-  return (
-    <div
-      aria-hidden="true"
-      className="relative -rotate-1 overflow-hidden border-y-2 border-primary bg-primary py-2.5 text-primary-foreground"
-    >
-      <div className="marquee flex w-max">
-        {[0, 1].map((copy) => (
-          <div key={copy} className="flex shrink-0 items-center">
-            {items.map((word, i) => (
-              <span key={`${copy}-${i}`} className="flex items-center gap-4 px-4 text-sm font-black uppercase tracking-widest">
-                <Ban className="size-4 shrink-0" />
-                {word}
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export function GymRules() {
   const KeyIcon = keyRule.icon
 
@@ -151,11 +126,7 @@ export function GymRules() {
         </p>
       </div>
 
-      <div className="my-10 md:my-12">
-        <WarningTape />
-      </div>
-
-      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-6">
+      <div className="mx-auto mt-10 flex max-w-5xl flex-col gap-3 px-6 md:mt-12">
         <article
           aria-labelledby="rule-1-title"
           className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border-2 border-primary bg-card p-6 md:flex-row md:items-center md:gap-8 md:p-8"
