@@ -1160,3 +1160,26 @@
   border: 1px solid color-mix(in oklch, var(--egen) 55%, transparent);
   box-shadow: 0 0 40px -12px color-mix(in oklch, var(--egen) 80%, transparent);
 }
+
+/* BPC logo: the two white arcs sweep in, then make a slow spin now and then */
+.bpc-arc {
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bpc-arc {
+    animation:
+      bpc-arc-in 2.6s cubic-bezier(0.22, 1, 0.36, 1) both,
+      bpc-arc-spin 14s cubic-bezier(0.65, 0, 0.35, 1) 2.6s infinite;
+  }
+  .bpc-arc-bottom { animation-delay: 0.15s, 2.75s; }
+}
+@keyframes bpc-arc-in {
+  from { transform: rotate(-200deg) scale(0.82); opacity: 0; }
+  35% { opacity: 1; }
+  to { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+@keyframes bpc-arc-spin {
+  0%, 72% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

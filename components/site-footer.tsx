@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { BpcLogo } from '@/components/bpc-logo'
 import { SmartLink } from '@/components/smart-link'
 import { withdrawalFormHref } from '@/components/terms-strip'
 import { company, links, mainNav, secondaryNav } from '@/lib/site'
@@ -10,7 +10,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 sm:flex-row sm:items-start sm:gap-20">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
-            <Image src="/images/bpc-logo.png" alt="" width={48} height={48} className="size-12" />
+            <BpcLogo className="size-12" />
             <p className="text-lg font-bold tracking-tight">{company.brand}</p>
           </div>
           <address className="flex flex-col gap-1 text-sm not-italic leading-relaxed text-muted-foreground">
