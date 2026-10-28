@@ -70,33 +70,22 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
               </feMerge>
             </filter>
           </defs>
+          {/* HOT sits above BPC, COLD below, both centred inside the ring. x is nudged by half the trailing letter-spacing. */}
           <g
             fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
-            fontSize="84"
+            fontSize="140"
             fontWeight="500"
             letterSpacing="22"
+            textAnchor="middle"
           >
-            <text
-              x="700"
-              y="1112"
-              textAnchor="end"
-              fill="url(#velvaere-hot)"
-              filter="url(#velvaere-glow-hot)"
-            >
+            <text x="753" y="500" fill="url(#velvaere-hot)" filter="url(#velvaere-glow-hot)">
               HOT
             </text>
-            <text
-              x="778"
-              y="1112"
-              textAnchor="start"
-              fill="url(#velvaere-ice)"
-              filter="url(#velvaere-glow-cold)"
-            >
+            <text x="753" y="1060" fill="url(#velvaere-ice)" filter="url(#velvaere-glow-cold)">
               COLD
             </text>
           </g>
-          <line x1="739" y1="1060" x2="739" y2="1116" stroke="#ffffff" strokeOpacity="0.55" strokeWidth="3" />
-          <g id="velvaere-flame" transform="translate(400 1046)" filter="url(#velvaere-glow-hot)">
+          <g id="velvaere-flame" transform="translate(478 404) scale(1.45)" filter="url(#velvaere-glow-hot)">
             <path
               d="M24 0C30 14 44 22 44 40C44 54 35 64 22 64C9 64 0 54 0 41C0 31 6 24 11 16C13 23 16 27 20 29C19 19 20 9 24 0Z"
               fill="url(#velvaere-hot)"
@@ -105,7 +94,7 @@ export function BpcLogo({ className, priority, variant = 'gym', sizes = '96px', 
           </g>
           <g
             id="velvaere-snowflake"
-            transform="translate(1110 1080)"
+            transform="translate(1040 1010) scale(1.3)"
             stroke="url(#velvaere-ice)"
             strokeWidth="4"
             strokeLinecap="round"
