@@ -30,6 +30,7 @@ export default function WellnessPage() {
             src: '/images/velvaere-hero.jpg',
             alt: 'Badstuen hos BPC med varmt lys i trebenkene og glassdør',
           }}
+          logo={{ variant: 'velvaere', alt: 'BPC Velvære logo' }}
         />
 
         <PageIntro

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { BpcLogo, type BpcLogoVariant } from '@/components/bpc-logo'
 
 const delay = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties
 
@@ -8,7 +9,7 @@ type FullBleedHeroProps = {
   title: string
   text: string
   image: { src: string; alt: string }
-  logo?: { src: string; alt: string }
+  logo?: { variant: BpcLogoVariant; alt: string }
   children?: React.ReactNode
 }
 
@@ -30,20 +31,12 @@ export function FullBleedHero({ id, eyebrow, title, text, image, logo, children 
       <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-28 md:pb-20">
         {logo ? (
           <div className="relative mb-4 size-28 md:size-40">
-            <div
-              aria-hidden="true"
-              className="logo-halo absolute -inset-10 rounded-full bg-[radial-gradient(circle,var(--background)_45%,transparent_72%)] opacity-95"
-            />
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={200}
-              height={200}
-              className="logo-in relative size-full mix-blend-screen [mask-image:radial-gradient(circle,#000_62%,transparent_71%)]"
-            />
-            <div
-              aria-hidden="true"
-              className="logo-sheen pointer-events-none absolute inset-0 overflow-hidden rounded-full mix-blend-overlay"
+            <BpcLogo
+              variant={logo.variant}
+              label={logo.alt}
+              priority
+              sizes="(min-width: 768px) 160px, 112px"
+              className="logo-in size-full text-foreground drop-shadow-[0_4px_24px_rgb(0_0_0/0.6)]"
             />
             <span aria-hidden="true" className="logo-sparkle absolute -right-1 top-2 size-3" style={delay(0)} />
             <span aria-hidden="true" className="logo-sparkle absolute -left-2 bottom-6 size-2" style={delay(1800)} />

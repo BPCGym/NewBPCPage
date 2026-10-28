@@ -30,7 +30,7 @@ export default function ChildcarePage() {
             src: '/images/barnepass-hero.jpg',
             alt: 'BPC Kids, barnerommet hos BPC med fargerik klatrevegg, ribbevegg, myke matter og kosedyr',
           }}
-          logo={{ src: '/images/bpc-kids-logo.png', alt: 'BPC Kids logo' }}
+          logo={{ variant: 'kids', alt: 'BPC Kids logo' }}
         >
           <CtaLink href={mailto('BPC Kids – barnepass')} arrow className="glow">
             Spør om barnepass
