@@ -159,7 +159,7 @@ export function HeroIsland() {
               alt=""
               fill
               sizes="40px"
-              className="scale-[1.7] object-cover object-[50%_32%]"
+              className="object-contain p-0.5"
             />
           </span>
           <span className="flex flex-col leading-tight">
