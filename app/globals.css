@@ -1030,21 +1030,21 @@
   border: 2px solid transparent;
   background:
     linear-gradient(color-mix(in oklch, var(--background) 82%, transparent), color-mix(in oklch, var(--background) 82%, transparent)) padding-box,
-    conic-gradient(from var(--sparkle-angle), transparent 0deg, var(--egen) 60deg, var(--foreground) 90deg, var(--egen) 120deg, transparent 180deg, transparent 240deg, var(--egen) 300deg, var(--foreground) 320deg, transparent 360deg) border-box;
+    conic-gradient(from var(--sparkle-angle), color-mix(in oklch, var(--foreground) 14%, transparent) 0deg, color-mix(in oklch, var(--foreground) 45%, transparent) 60deg, var(--foreground) 90deg, color-mix(in oklch, var(--foreground) 45%, transparent) 120deg, color-mix(in oklch, var(--foreground) 14%, transparent) 180deg, color-mix(in oklch, var(--foreground) 14%, transparent) 240deg, color-mix(in oklch, var(--foreground) 45%, transparent) 300deg, var(--foreground) 320deg, color-mix(in oklch, var(--foreground) 14%, transparent) 360deg) border-box;
   animation: sparkle-spin 3.2s linear infinite, sparkle-pulse 2.4s ease-in-out infinite;
 }
 @keyframes sparkle-pulse {
-  0%, 100% { box-shadow: 0 0 22px -4px color-mix(in oklch, var(--egen) 70%, transparent); }
-  50% { box-shadow: 0 0 42px 2px color-mix(in oklch, var(--egen) 95%, transparent); }
+  0%, 100% { box-shadow: 0 0 18px -6px color-mix(in oklch, var(--foreground) 45%, transparent); }
+  50% { box-shadow: 0 0 34px -2px color-mix(in oklch, var(--foreground) 70%, transparent); }
 }
 .sparkle-btn:hover {
-  box-shadow: 0 0 36px -2px color-mix(in oklch, var(--egen) 90%, transparent);
+  box-shadow: 0 0 32px -2px color-mix(in oklch, var(--foreground) 75%, transparent);
 }
 .sparkle-star {
   position: absolute;
   pointer-events: none;
   color: var(--foreground);
-  filter: drop-shadow(0 0 4px var(--foreground)) drop-shadow(0 0 10px var(--egen));
+  filter: drop-shadow(0 0 4px var(--foreground)) drop-shadow(0 0 10px var(--foreground));
   opacity: 0;
   animation: sparkle-twinkle 2.4s ease-in-out infinite;
 }
